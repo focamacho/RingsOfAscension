@@ -1,0 +1,17 @@
+modLoader="javafml"
+loaderVersion="[31,)"
+issueTrackerURL="https://github.com/Focamacho/RingsOfAscension/issues"
+[[mods]]
+modId="ringsofascension"
+version="${file.jarVersion}"
+displayName="Rings of Ascension"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/rings-of-ascension"
+description='''
+descrição aqui
+'''
+[[dependencies.ringsofascension]]
+    modId="curios"
+    mandatory=true
+    versionRange="[FORGE-1.15.2,)"
+    ordering="NONE"
+    side="BOTH"
