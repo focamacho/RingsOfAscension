@@ -1,5 +1,7 @@
 package com.focamacho.ringsofascension.config;
 
+import net.minecraftforge.common.ForgeConfigSpec;
+
 public class ConfigHolder {
 
     public static int ringUndyingCooldown = ConfigRingsOfAscension.configRingUndyingCooldown.get();
@@ -30,6 +32,19 @@ public class ConfigHolder {
     public static boolean ringUndying = ConfigRingsOfAscension.configRingUndying.get();
     public static boolean ringSlowResistance = ConfigRingsOfAscension.configRingSlowResistance.get();
 
+    public static int ringAmplifierFireResistance = ConfigRingsOfAscension.configRingAmplifierFireResistance.get();
+    public static int ringAmplifierInvisibility = ConfigRingsOfAscension.configRingAmplifierInvisibility.get();
+    public static int ringAmplifierRegeneration = ConfigRingsOfAscension.configRingAmplifierRegeneration.get();
+    public static int ringAmplifierSlowFalling = ConfigRingsOfAscension.configRingAmplifierSlowFalling.get();
+    public static int ringAmplifierStrength = ConfigRingsOfAscension.configRingAmplifierStrength.get();
+    public static int ringAmplifierWaterBreathing = ConfigRingsOfAscension.configRingAmplifierWaterBreathing.get();
+    public static int ringAmplifierSpeed = ConfigRingsOfAscension.configRingAmplifierSpeed.get();
+    public static int ringAmplifierNightVision = ConfigRingsOfAscension.configRingAmplifierNightVision.get();
+    public static int ringAmplifierJumpBoost = ConfigRingsOfAscension.configRingAmplifierJumpBoost.get();
+    public static int ringAmplifierMining = ConfigRingsOfAscension.configRingAmplifierMining.get();
+    public static int ringAmplifierLuck = ConfigRingsOfAscension.configRingAmplifierLuck.get();
+    public static int ringAmplifierDolphin = ConfigRingsOfAscension.configRingAmplifierDolphin.get();
+
     public static void updateConfigs() {
         ringUndyingCooldown = ConfigRingsOfAscension.configRingUndyingCooldown.get();
 
@@ -58,6 +73,19 @@ public class ConfigHolder {
         ringWither = ConfigRingsOfAscension.configRingWither.get();
         ringUndying = ConfigRingsOfAscension.configRingUndying.get();
         ringSlowResistance = ConfigRingsOfAscension.configRingSlowResistance.get();
+
+        ringAmplifierFireResistance = ConfigRingsOfAscension.configRingAmplifierFireResistance.get();
+        ringAmplifierInvisibility = ConfigRingsOfAscension.configRingAmplifierInvisibility.get();
+        ringAmplifierRegeneration = ConfigRingsOfAscension.configRingAmplifierRegeneration.get();
+        ringAmplifierSlowFalling = ConfigRingsOfAscension.configRingAmplifierSlowFalling.get();
+        ringAmplifierStrength = ConfigRingsOfAscension.configRingAmplifierStrength.get();
+        ringAmplifierWaterBreathing = ConfigRingsOfAscension.configRingAmplifierWaterBreathing.get();
+        ringAmplifierSpeed = ConfigRingsOfAscension.configRingAmplifierSpeed.get();
+        ringAmplifierNightVision = ConfigRingsOfAscension.configRingAmplifierNightVision.get();
+        ringAmplifierJumpBoost = ConfigRingsOfAscension.configRingAmplifierJumpBoost.get();
+        ringAmplifierMining = ConfigRingsOfAscension.configRingAmplifierMining.get();
+        ringAmplifierLuck = ConfigRingsOfAscension.configRingAmplifierLuck.get();
+        ringAmplifierDolphin = ConfigRingsOfAscension.configRingAmplifierDolphin.get();
     }
 
 }

@@ -22,7 +22,7 @@ public class ItemRingFireResistance extends ItemRingBase {
     @Override
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
         if(!ConfigHolder.ringFireResistance) return;
-        livingEntity.addPotionEffect(new EffectInstance(Effects.FIRE_RESISTANCE, 20, 0, false, false));
+        livingEntity.addPotionEffect(new EffectInstance(Effects.FIRE_RESISTANCE, 20, ConfigHolder.ringAmplifierFireResistance, false, false));
     }
 
     @Override

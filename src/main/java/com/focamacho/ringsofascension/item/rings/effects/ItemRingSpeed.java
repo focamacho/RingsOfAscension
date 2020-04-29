@@ -22,7 +22,7 @@ public class ItemRingSpeed extends ItemRingBase {
     @Override
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
         if(!ConfigHolder.ringSpeed) return;
-        livingEntity.addPotionEffect(new EffectInstance(Effects.SPEED, 20, 0, false, false));
+        livingEntity.addPotionEffect(new EffectInstance(Effects.SPEED, 20, ConfigHolder.ringAmplifierSpeed, false, false));
     }
 
     @Override

@@ -22,7 +22,7 @@ public class ItemRingNightVision extends ItemRingBase {
     @Override
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
         if(!ConfigHolder.ringNightVision) return;
-        livingEntity.addPotionEffect(new EffectInstance(Effects.NIGHT_VISION, 20, 0, false, false));
+        livingEntity.addPotionEffect(new EffectInstance(Effects.NIGHT_VISION, 20, ConfigHolder.ringAmplifierNightVision, false, false));
     }
 
     @Override

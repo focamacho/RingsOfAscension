@@ -22,7 +22,7 @@ public class ItemRingStrength extends ItemRingBase {
     @Override
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
         if(!ConfigHolder.ringStrength) return;
-        livingEntity.addPotionEffect(new EffectInstance(Effects.STRENGTH, 20, 0, false, false));
+        livingEntity.addPotionEffect(new EffectInstance(Effects.STRENGTH, 20, ConfigHolder.ringAmplifierStrength, false, false));
     }
 
     @Override
