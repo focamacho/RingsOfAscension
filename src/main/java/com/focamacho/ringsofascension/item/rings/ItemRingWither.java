@@ -6,8 +6,8 @@ import net.minecraft.potion.Effects;
 
 public class ItemRingWither extends ItemRingBase {
 
-    public ItemRingWither(Properties properties, String name) {
-        super(properties, name);
+    public ItemRingWither(Properties properties, String name, String tooltip) {
+        super(properties, name, tooltip);
     }
 
     @Override

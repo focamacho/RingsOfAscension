@@ -6,8 +6,8 @@ import net.minecraft.potion.Effects;
 
 public class ItemRingSlowResistance extends ItemRingBase {
 
-    public ItemRingSlowResistance(Properties properties, String name) {
-        super(properties, name);
+    public ItemRingSlowResistance(Properties properties, String name, String tooltip) {
+        super(properties, name, tooltip);
     }
 
     @Override

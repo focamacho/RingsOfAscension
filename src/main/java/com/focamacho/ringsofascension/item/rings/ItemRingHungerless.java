@@ -6,8 +6,8 @@ import net.minecraft.entity.player.PlayerEntity;
 
 public class ItemRingHungerless extends ItemRingBase {
 
-    public ItemRingHungerless(Properties properties, String name) {
-        super(properties, name);
+    public ItemRingHungerless(Properties properties, String name, String tooltip) {
+        super(properties, name, tooltip);
     }
 
     @Override

@@ -6,8 +6,8 @@ import net.minecraft.entity.player.PlayerEntity;
 
 public class ItemRingFlight extends ItemRingBase {
 
-    public ItemRingFlight(Properties properties, String name) {
-        super(properties, name);
+    public ItemRingFlight(Properties properties, String name, String tooltip) {
+        super(properties, name, tooltip);
     }
 
     @Override

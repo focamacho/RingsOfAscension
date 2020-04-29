@@ -15,8 +15,8 @@ public class ItemRingGrowth extends ItemRingBase {
 
     private int timer = 200;
 
-    public ItemRingGrowth(Properties properties, String name) {
-        super(properties, name);
+    public ItemRingGrowth(Properties properties, String name, String tooltip) {
+        super(properties, name, tooltip);
     }
 
     @Override

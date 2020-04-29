@@ -4,6 +4,8 @@ import com.focamacho.ringsofascension.RingsOfAscension;
 import com.focamacho.ringsofascension.init.ModItems;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+import com.mojang.realmsclient.gui.ChatFormatting;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.item.Item;
@@ -12,6 +14,10 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.Direction;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.world.World;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.common.util.LazyOptional;
@@ -20,12 +26,17 @@ import top.theillusivec4.curios.api.capability.ICurio;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.List;
 
 public abstract class ItemRingBase extends Item {
 
-    public ItemRingBase(Properties properties, String name) {
+    protected String tooltip;
+
+    public ItemRingBase(Properties properties, String name, String tooltip) {
         super(properties.group(RingsOfAscension.tabGroup));
         setRegistryName(name);
+
+        this.tooltip = tooltip;
 
         ModItems.allItems.add(this);
     }
@@ -93,5 +104,16 @@ public abstract class ItemRingBase extends Item {
     @Override
     public boolean hasEffect(ItemStack stack) {
         return true;
+    }
+
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+        super.addInformation(stack, worldIn, tooltip, flagIn);
+
+        if(this.tooltip == null) return;
+
+        tooltip.add(new StringTextComponent(""));
+        tooltip.add(new StringTextComponent(ChatFormatting.GOLD + new TranslationTextComponent("tooltip.ringsofascension.worn").getFormattedText()));
+        tooltip.add(new StringTextComponent(ChatFormatting.BLUE + new TranslationTextComponent(this.tooltip).getFormattedText()));
     }
 }

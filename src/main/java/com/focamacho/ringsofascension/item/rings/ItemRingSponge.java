@@ -8,8 +8,8 @@ import net.minecraft.util.math.BlockPos;
 
 public class ItemRingSponge extends ItemRingBase {
 
-    public ItemRingSponge(Properties properties, String name) {
-        super(properties, name);
+    public ItemRingSponge(Properties properties, String name, String tooltip) {
+        super(properties, name, tooltip);
     }
 
     @Override

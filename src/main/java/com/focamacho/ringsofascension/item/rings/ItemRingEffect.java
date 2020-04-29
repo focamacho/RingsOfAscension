@@ -11,8 +11,8 @@ public class ItemRingEffect extends ItemRingBase {
     private int duration;
     private int amplifier;
 
-    public ItemRingEffect(Properties properties, String name, Effect effect, int duration, int amplifier) {
-        super(properties, name);
+    public ItemRingEffect(Properties properties, String name, Effect effect, int duration, int amplifier, String tooltip) {
+        super(properties, name, tooltip);
         this.effect = effect;
         this.duration = duration;
         this.amplifier = amplifier;

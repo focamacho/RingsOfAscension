@@ -9,8 +9,8 @@ import net.minecraft.util.math.Vec3d;
 
 public class ItemRingWaterWalking extends ItemRingBase {
 
-    public ItemRingWaterWalking(Properties properties, String name) {
-        super(properties, name);
+    public ItemRingWaterWalking(Properties properties, String name, String tooltip) {
+        super(properties, name, tooltip);
     }
 
     @Override
