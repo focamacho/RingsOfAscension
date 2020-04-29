@@ -23,6 +23,7 @@ public class ModItems {
     public static Item ringJumpBoost = new ItemRingEffect(new Item.Properties(), "ring_jump_boost", Effects.JUMP_BOOST, 20, 0);
     public static Item ringMining = new ItemRingEffect(new Item.Properties(), "ring_mining", Effects.HASTE, 20, 0);
     public static Item ringLuck = new ItemRingEffect(new Item.Properties(), "ring_luck", Effects.LUCK, 20, 0);
+    public static Item ringDolphin = new ItemRingEffect(new Item.Properties(), "ring_dolphin", Effects.DOLPHINS_GRACE, 20, 0);
 
     public static Item ringMagnetism = new ItemRingMagnet(new Item.Properties(), "ring_magnetism");
     public static Item ringFlight = new ItemRingFlight(new Item.Properties(), "ring_flight");
@@ -36,5 +37,6 @@ public class ModItems {
     public static Item ringWaterWalking = new ItemRingWaterWalking(new Item.Properties(), "ring_water_walking");
     public static Item ringWither = new ItemRingWither(new Item.Properties(), "ring_wither");
     public static Item ringUndying = new ItemRingUndying(new Item.Properties(), "ring_undying");
+    public static Item ringSlowResistance = new ItemRingSlowResistance(new Item.Properties(), "ring_slow_resistance");
 
 }
