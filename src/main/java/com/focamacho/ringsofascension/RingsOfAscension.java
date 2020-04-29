@@ -1,6 +1,7 @@
 package com.focamacho.ringsofascension;
 
 import com.focamacho.ringsofascension.events.LootTableEvent;
+import com.focamacho.ringsofascension.events.PlayerDeathEvent;
 import com.focamacho.ringsofascension.init.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -36,6 +37,7 @@ public class RingsOfAscension {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
         MinecraftForge.EVENT_BUS.register(new LootTableEvent());
+        MinecraftForge.EVENT_BUS.register(new PlayerDeathEvent());
     }
 
     private void setup(final FMLCommonSetupEvent event) {

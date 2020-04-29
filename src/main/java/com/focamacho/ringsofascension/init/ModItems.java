@@ -1,5 +1,6 @@
 package com.focamacho.ringsofascension.init;
 
+import com.focamacho.ringsofascension.item.ItemRingBase;
 import com.focamacho.ringsofascension.item.rings.*;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Effects;
@@ -34,5 +35,6 @@ public class ModItems {
     public static Item ringExperience = new ItemRingExperience(new Item.Properties(), "ring_experience");
     public static Item ringWaterWalking = new ItemRingWaterWalking(new Item.Properties(), "ring_water_walking");
     public static Item ringWither = new ItemRingWither(new Item.Properties(), "ring_wither");
+    public static Item ringUndying = new ItemRingUndying(new Item.Properties(), "ring_undying");
 
 }
