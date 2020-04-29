@@ -33,5 +33,6 @@ public class ModItems {
     public static Item ringSponge = new ItemRingSponge(new Item.Properties(), "ring_sponge");
     public static Item ringExperience = new ItemRingExperience(new Item.Properties(), "ring_experience");
     public static Item ringWaterWalking = new ItemRingWaterWalking(new Item.Properties(), "ring_water_walking");
+    public static Item ringWither = new ItemRingWither(new Item.Properties(), "ring_wither");
 
 }
