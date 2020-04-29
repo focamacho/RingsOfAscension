@@ -21,11 +21,13 @@ public class ItemRingUndying extends ItemRingBase {
     }
 
     public void setCooldown(PlayerEntity player) {
+        if(!ConfigHolder.ringUndying) return;
         player.getCooldownTracker().setCooldown(this, ConfigHolder.ringUndyingCooldown * 20);
     }
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+        if(!ConfigHolder.ringUndying) return;
         super.addInformation(stack, worldIn, tooltip, flagIn);
         tooltip.add(new StringTextComponent(ChatFormatting.YELLOW + new TranslationTextComponent("tooltip.ringsofascension.undying_cooldown").getFormattedText().replace("secondsHere", (ChatFormatting.RED + Integer.toString(ConfigHolder.ringUndyingCooldown) + ChatFormatting.YELLOW))));
     }

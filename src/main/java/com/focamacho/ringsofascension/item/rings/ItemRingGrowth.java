@@ -1,14 +1,21 @@
 package com.focamacho.ringsofascension.item.rings;
 
+import com.focamacho.ringsofascension.config.ConfigHolder;
 import com.focamacho.ringsofascension.item.ItemRingBase;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropsBlock;
 import net.minecraft.block.IGrowable;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.IPlantable;
 
+import javax.annotation.Nullable;
+import java.util.List;
 import java.util.Random;
 
 public class ItemRingGrowth extends ItemRingBase {
@@ -21,6 +28,7 @@ public class ItemRingGrowth extends ItemRingBase {
 
     @Override
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
+        if(!ConfigHolder.ringGrowth) return;
         if(timer <= 0) {
             timer = 200;
 
@@ -56,6 +64,12 @@ public class ItemRingGrowth extends ItemRingBase {
         } else {
             timer--;
         }
+    }
+
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+        if(!ConfigHolder.ringGrowth) return;
+        super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 
 }

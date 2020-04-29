@@ -1,11 +1,19 @@
 package com.focamacho.ringsofascension.item.rings;
 
+import com.focamacho.ringsofascension.config.ConfigHolder;
 import com.focamacho.ringsofascension.item.ItemRingBase;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.world.World;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ItemRingWaterWalking extends ItemRingBase {
 
@@ -15,6 +23,7 @@ public class ItemRingWaterWalking extends ItemRingBase {
 
     @Override
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
+        if(!ConfigHolder.ringWaterWalking) return;
         if(!(livingEntity instanceof PlayerEntity) || livingEntity.isCrouching()) return;
 
         BlockPos entityPos = livingEntity.getPosition();
@@ -27,6 +36,12 @@ public class ItemRingWaterWalking extends ItemRingBase {
             livingEntity.setMotion(motion.x, 0, motion.z);
             livingEntity.fallDistance = 0;
         }
+    }
+
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+        if(!ConfigHolder.ringWaterWalking) return;
+        super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 
 }

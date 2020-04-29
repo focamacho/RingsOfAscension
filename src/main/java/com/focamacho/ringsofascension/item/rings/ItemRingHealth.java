@@ -1,13 +1,19 @@
 package com.focamacho.ringsofascension.item.rings;
 
+import com.focamacho.ringsofascension.config.ConfigHolder;
 import com.focamacho.ringsofascension.item.ItemRingBase;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.world.World;
 import top.theillusivec4.curios.api.CuriosAPI;
 
+import javax.annotation.Nullable;
+import java.util.List;
 import java.util.UUID;
 
 public class ItemRingHealth extends ItemRingBase {
@@ -24,13 +30,19 @@ public class ItemRingHealth extends ItemRingBase {
     public Multimap<String, AttributeModifier> curioModifiers(ItemStack stack, String identifier) {
         Multimap<String, AttributeModifier> modifiers = HashMultimap.create();
 
-        if (CuriosAPI.getCurioTags(stack.getItem()).contains(identifier)) {
+        if (CuriosAPI.getCurioTags(stack.getItem()).contains(identifier) && ConfigHolder.ringHealth) {
             modifiers.put(SharedMonsterAttributes.MAX_HEALTH.getName(),
                     new AttributeModifier(HEALTH_UUID, "Max Health", health,
                             AttributeModifier.Operation.ADDITION));
         }
 
         return modifiers;
+    }
+
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+        if(!ConfigHolder.ringHealth) return;
+        super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 
 }

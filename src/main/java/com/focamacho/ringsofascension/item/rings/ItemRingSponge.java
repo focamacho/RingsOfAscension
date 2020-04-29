@@ -1,10 +1,18 @@
 package com.focamacho.ringsofascension.item.rings;
 
+import com.focamacho.ringsofascension.config.ConfigHolder;
 import com.focamacho.ringsofascension.item.ItemRingBase;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.world.World;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class ItemRingSponge extends ItemRingBase {
 
@@ -14,6 +22,7 @@ public class ItemRingSponge extends ItemRingBase {
 
     @Override
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
+        if(!ConfigHolder.ringSponge) return;
         if(livingEntity.world.isRemote || livingEntity.isCrouching()) return;
 
         BlockPos entityPos = livingEntity.getPosition();
@@ -27,6 +36,12 @@ public class ItemRingSponge extends ItemRingBase {
             }
 
         }
+    }
+
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+        if(!ConfigHolder.ringSponge) return;
+        super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 
 }
