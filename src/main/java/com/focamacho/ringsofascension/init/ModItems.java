@@ -21,6 +21,7 @@ public class ModItems {
     public static Item ringNightVision = new ItemRingEffect(new Item.Properties(), "ring_night_vision", Effects.NIGHT_VISION, 20, 0);
     public static Item ringJumpBoost = new ItemRingEffect(new Item.Properties(), "ring_jump_boost", Effects.JUMP_BOOST, 20, 0);
     public static Item ringMining = new ItemRingEffect(new Item.Properties(), "ring_mining", Effects.HASTE, 20, 0);
+    public static Item ringLuck = new ItemRingEffect(new Item.Properties(), "ring_luck", Effects.LUCK, 20, 0);
 
     public static Item ringMagnetism = new ItemRingMagnet(new Item.Properties(), "ring_magnetism");
     public static Item ringFlight = new ItemRingFlight(new Item.Properties(), "ring_flight");
