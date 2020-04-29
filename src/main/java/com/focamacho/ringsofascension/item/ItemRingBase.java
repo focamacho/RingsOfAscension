@@ -58,7 +58,7 @@ public abstract class ItemRingBase extends Item {
                 @Nonnull
                 @Override
                 public DropRule getDropRule(LivingEntity livingEntity) {
-                    return DropRule.ALWAYS_KEEP;
+                    return DropRule.DEFAULT;
                 }
 
                 @Override
