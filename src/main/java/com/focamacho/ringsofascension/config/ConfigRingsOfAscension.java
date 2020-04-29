@@ -88,19 +88,21 @@ public class ConfigRingsOfAscension {
             configRingSlowResistance = builder.define("ringSlowResistance", true);
             builder.pop();
             
-            builder.push("Rings Amplifier");
-            configRingAmplifierFireResistance = builder.comment("Ring of Fire Resistance").defineInRange("ringAmplifierFireResistance", 0, 0, 255);
-            configRingAmplifierInvisibility = builder.comment("Ring of Invisibility").defineInRange("ringAmplifierInvisibility", 0, 0, 255);
-            configRingAmplifierRegeneration = builder.comment("Ring of Regeneration").defineInRange("ringAmplifierRegeneration", 0, 0, 255);
-            configRingAmplifierSlowFalling = builder.comment("Ring of Slow Falling").defineInRange("ringAmplifierSlowFalling", 0, 0, 255);
-            configRingAmplifierStrength = builder.comment("Ring of Strength").defineInRange("ringAmplifierStrength", 0, 0, 255);
-            configRingAmplifierWaterBreathing = builder.comment("Ring of Water Breathing").defineInRange("ringAmplifierWaterBreathing", 0, 0, 255);
-            configRingAmplifierSpeed = builder.comment("Ring of Speed").defineInRange("ringAmplifierSpeed", 0, 0, 255);
-            configRingAmplifierNightVision = builder.comment("Ring of Night Vision").defineInRange("ringAmplifierNightVision", 0, 0, 255);
-            configRingAmplifierJumpBoost = builder.comment("Ring of Jump Boost").defineInRange("ringAmplifierJumpBoost", 0, 0, 255);
-            configRingAmplifierMining = builder.comment("Ring of Mining").defineInRange("ringAmplifierMining", 0, 0, 255);
-            configRingAmplifierLuck = builder.comment("Ring of Luck").defineInRange("ringAmplifierLuck", 0, 0, 255);
-            configRingAmplifierDolphin = builder.comment("Ring of Dolphin").defineInRange("ringAmplifierDolphin", 0, 0, 255);
+            builder.push("Rings Amplifier").comment("Sets the amplifier of the effect given by the ring. Example:\n" +
+                                                    "0 = Fire Resistance I\n" +
+                                                    "1 = Fire Resistance II");
+            configRingAmplifierFireResistance = builder.defineInRange("ringAmplifierFireResistance", 0, 0, 255);
+            configRingAmplifierInvisibility = builder.defineInRange("ringAmplifierInvisibility", 0, 0, 255);
+            configRingAmplifierRegeneration = builder.defineInRange("ringAmplifierRegeneration", 0, 0, 255);
+            configRingAmplifierSlowFalling = builder.defineInRange("ringAmplifierSlowFalling", 0, 0, 255);
+            configRingAmplifierStrength = builder.defineInRange("ringAmplifierStrength", 0, 0, 255);
+            configRingAmplifierWaterBreathing = builder.defineInRange("ringAmplifierWaterBreathing", 0, 0, 255);
+            configRingAmplifierSpeed = builder.defineInRange("ringAmplifierSpeed", 0, 0, 255);
+            configRingAmplifierNightVision = builder.defineInRange("ringAmplifierNightVision", 0, 0, 255);
+            configRingAmplifierJumpBoost = builder.defineInRange("ringAmplifierJumpBoost", 0, 0, 255);
+            configRingAmplifierMining = builder.defineInRange("ringAmplifierMining", 0, 0, 255);
+            configRingAmplifierLuck = builder.defineInRange("ringAmplifierLuck", 0, 0, 255);
+            configRingAmplifierDolphin = builder.defineInRange("ringAmplifierDolphin", 0, 0, 255);
             builder.pop();
         }
     }
