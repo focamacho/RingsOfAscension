@@ -23,7 +23,6 @@ public class ModItems {
     public static Item ringMining = new ItemRingMining(new Item.Properties(), "ring_mining", "tooltip.ringsofascension.mining");
     public static Item ringLuck = new ItemRingLuck(new Item.Properties(), "ring_luck", "tooltip.ringsofascension.luck");
     public static Item ringDolphin = new ItemRingDolphin(new Item.Properties(), "ring_dolphin", "tooltip.ringsofascension.dolphin");
-
     public static Item ringMagnetism = new ItemRingMagnet(new Item.Properties(), "ring_magnetism", "tooltip.ringsofascension.magnetism");
     public static Item ringFlight = new ItemRingFlight(new Item.Properties(), "ring_flight", "tooltip.ringsofascension.flight");
     public static Item ringPoisonResistance = new ItemRingPoisonResistance(new Item.Properties(), "ring_poison_resistance", "tooltip.ringsofascension.poison_resistance");
