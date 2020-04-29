@@ -1,5 +1,7 @@
 package com.focamacho.ringsofascension;
 
+import com.focamacho.ringsofascension.config.ConfigHolder;
+import com.focamacho.ringsofascension.config.ConfigRingsOfAscension;
 import com.focamacho.ringsofascension.events.LootTableEvent;
 import com.focamacho.ringsofascension.events.PlayerDeathEvent;
 import com.focamacho.ringsofascension.init.ModItems;
@@ -13,6 +15,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
@@ -59,12 +62,6 @@ public class RingsOfAscension {
     public static final ItemGroup tabGroup = new ItemGroup("ringsofascension") {
 
         @Override
-        public void fill(NonNullList<ItemStack> items) {
-            super.fill(items);
-
-        }
-
-        @Override
         public ItemStack createIcon() {
             return new ItemStack(ModItems.ringExperience);
         }
@@ -82,6 +79,15 @@ public class RingsOfAscension {
         @SubscribeEvent
         public static void onItemRegistry(final RegistryEvent.Register<Item> event) {
             ModItems.allItems.forEach(item -> event.getRegistry().register(item));
+        }
+
+        @SubscribeEvent
+        public static void onModConfigEvent(final ModConfig.ModConfigEvent event) {
+            final ModConfig config = event.getConfig();
+
+            if (config.getSpec() == ConfigRingsOfAscension.spec) {
+                ConfigHolder.updateConfigs();
+            }
         }
 
     }
