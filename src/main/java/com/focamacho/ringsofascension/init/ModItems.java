@@ -1,11 +1,8 @@
 package com.focamacho.ringsofascension.init;
 
-import com.focamacho.ringsofascension.item.ItemRingBase;
 import com.focamacho.ringsofascension.item.rings.*;
 import com.focamacho.ringsofascension.item.rings.effects.*;
 import net.minecraft.item.Item;
-import net.minecraft.potion.Effects;
-import net.minecraft.util.text.TranslationTextComponent;
 
 import java.util.ArrayList;
 import java.util.List;
