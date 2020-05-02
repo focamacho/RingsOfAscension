@@ -2,6 +2,7 @@ package com.focamacho.ringsofascension;
 
 import com.focamacho.ringsofascension.config.ConfigHolder;
 import com.focamacho.ringsofascension.config.ConfigRingsOfAscension;
+import com.focamacho.ringsofascension.events.ApplyPotionEvent;
 import com.focamacho.ringsofascension.events.LootTableEvent;
 import com.focamacho.ringsofascension.events.PlayerDeathEvent;
 import com.focamacho.ringsofascension.init.ModItems;
@@ -44,6 +45,7 @@ public class RingsOfAscension {
 
         MinecraftForge.EVENT_BUS.register(new LootTableEvent());
         MinecraftForge.EVENT_BUS.register(new PlayerDeathEvent());
+        MinecraftForge.EVENT_BUS.register(new ApplyPotionEvent());
     }
 
     private void setup(final FMLCommonSetupEvent event) {
