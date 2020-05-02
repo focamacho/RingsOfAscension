@@ -1,7 +1,5 @@
 package com.focamacho.ringsofascension.config;
 
-import net.minecraftforge.common.ForgeConfigSpec;
-
 public class ConfigHolder {
 
     public static int ringUndyingCooldown = ConfigRingsOfAscension.configRingUndyingCooldown.get();

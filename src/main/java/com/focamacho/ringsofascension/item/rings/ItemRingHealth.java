@@ -1,7 +1,6 @@
 package com.focamacho.ringsofascension.item.rings;
 
 import com.focamacho.ringsofascension.config.ConfigHolder;
-import com.focamacho.ringsofascension.config.ConfigRingsOfAscension;
 import com.focamacho.ringsofascension.item.ItemRingBase;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
