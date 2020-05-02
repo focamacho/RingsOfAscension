@@ -1,5 +1,7 @@
 package com.focamacho.ringsofascension.config;
 
+import net.minecraftforge.common.ForgeConfigSpec;
+
 public class ConfigHolder {
 
     public static int ringUndyingCooldown = ConfigRingsOfAscension.configRingUndyingCooldown.get();
@@ -70,6 +72,26 @@ public class ConfigHolder {
     public static int ringTierUndying = ConfigRingsOfAscension.configRingTierUndying.get();
     public static int ringTierSlowResistance = ConfigRingsOfAscension.configRingTierSlowResistance.get();
 
+    public static int ringMinLoot = ConfigRingsOfAscension.configRingMinLoot.get();
+    public static int ringMaxLoot = ConfigRingsOfAscension.configRingMaxLoot.get();
+
+    public static boolean ringDungeonChests = ConfigRingsOfAscension.configRingDungeonChests.get();
+    public static boolean ringMineshaftChests = ConfigRingsOfAscension.configRingMineshaftChests.get();
+    public static boolean ringPyramidChests = ConfigRingsOfAscension.configRingPyramidChests.get();
+    public static boolean ringBuriedTreasureChests = ConfigRingsOfAscension.configRingBuriedTreasureChests.get();
+    public static boolean ringEndCityChests = ConfigRingsOfAscension.configRingEndCityChests.get();
+    public static boolean ringIglooChests = ConfigRingsOfAscension.configRingIglooChests.get();
+    public static boolean ringJungleChests = ConfigRingsOfAscension.configRingJungleChests.get();
+    public static boolean ringNetherChests = ConfigRingsOfAscension.configRingNetherChests.get();
+    public static boolean ringPillagerChests = ConfigRingsOfAscension.configRingPillagerChests.get();
+    public static boolean ringShipwreckChests = ConfigRingsOfAscension.configRingShipwreckChests.get();
+    public static boolean ringBonusChests = ConfigRingsOfAscension.configRingBonusChests.get();
+    public static boolean ringStrongholdChests = ConfigRingsOfAscension.configRingStrongholdChests.get();
+    public static boolean ringWoodlandChests = ConfigRingsOfAscension.configRingWoodlandChests.get();
+    public static boolean ringToolsmithChests = ConfigRingsOfAscension.configRingToolsmithChests.get();
+    public static boolean ringWeaponsmithChests = ConfigRingsOfAscension.configRingWeaponsmithChests.get();
+    public static boolean ringArmorerChests = ConfigRingsOfAscension.configRingArmorerChests.get();
+
     public static void updateConfigs() {
         ringUndyingCooldown = ConfigRingsOfAscension.configRingUndyingCooldown.get();
         ringHealthHearts = ConfigRingsOfAscension.configRingHealthHearts.get();
@@ -138,6 +160,26 @@ public class ConfigHolder {
         ringTierWither = ConfigRingsOfAscension.configRingTierWither.get();
         ringTierUndying = ConfigRingsOfAscension.configRingTierUndying.get();
         ringTierSlowResistance = ConfigRingsOfAscension.configRingTierSlowResistance.get();
+
+        ringMinLoot = ConfigRingsOfAscension.configRingMinLoot.get();
+        ringMaxLoot = ConfigRingsOfAscension.configRingMaxLoot.get();
+
+        ringDungeonChests = ConfigRingsOfAscension.configRingDungeonChests.get();
+        ringMineshaftChests = ConfigRingsOfAscension.configRingMineshaftChests.get();
+        ringPyramidChests = ConfigRingsOfAscension.configRingPyramidChests.get();
+        ringBuriedTreasureChests = ConfigRingsOfAscension.configRingBuriedTreasureChests.get();
+        ringEndCityChests = ConfigRingsOfAscension.configRingEndCityChests.get();
+        ringIglooChests = ConfigRingsOfAscension.configRingIglooChests.get();
+        ringJungleChests = ConfigRingsOfAscension.configRingJungleChests.get();
+        ringNetherChests = ConfigRingsOfAscension.configRingNetherChests.get();
+        ringPillagerChests = ConfigRingsOfAscension.configRingPillagerChests.get();
+        ringShipwreckChests = ConfigRingsOfAscension.configRingShipwreckChests.get();
+        ringBonusChests = ConfigRingsOfAscension.configRingBonusChests.get();
+        ringStrongholdChests = ConfigRingsOfAscension.configRingStrongholdChests.get();
+        ringWoodlandChests = ConfigRingsOfAscension.configRingWoodlandChests.get();
+        ringToolsmithChests = ConfigRingsOfAscension.configRingToolsmithChests.get();
+        ringWeaponsmithChests = ConfigRingsOfAscension.configRingWeaponsmithChests.get();
+        ringArmorerChests = ConfigRingsOfAscension.configRingArmorerChests.get();
     }
 
 }

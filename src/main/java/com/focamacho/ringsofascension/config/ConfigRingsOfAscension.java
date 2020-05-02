@@ -78,6 +78,26 @@ public class ConfigRingsOfAscension {
     public static ForgeConfigSpec.ConfigValue<Integer> configRingTierUndying;
     public static ForgeConfigSpec.ConfigValue<Integer> configRingTierSlowResistance;
 
+    public static ForgeConfigSpec.ConfigValue<Integer> configRingMinLoot;
+    public static ForgeConfigSpec.ConfigValue<Integer> configRingMaxLoot;
+
+    public static ForgeConfigSpec.BooleanValue configRingDungeonChests;
+    public static ForgeConfigSpec.BooleanValue configRingMineshaftChests;
+    public static ForgeConfigSpec.BooleanValue configRingPyramidChests;
+    public static ForgeConfigSpec.BooleanValue configRingBuriedTreasureChests;
+    public static ForgeConfigSpec.BooleanValue configRingEndCityChests;
+    public static ForgeConfigSpec.BooleanValue configRingIglooChests;
+    public static ForgeConfigSpec.BooleanValue configRingJungleChests;
+    public static ForgeConfigSpec.BooleanValue configRingNetherChests;
+    public static ForgeConfigSpec.BooleanValue configRingPillagerChests;
+    public static ForgeConfigSpec.BooleanValue configRingShipwreckChests;
+    public static ForgeConfigSpec.BooleanValue configRingBonusChests;
+    public static ForgeConfigSpec.BooleanValue configRingStrongholdChests;
+    public static ForgeConfigSpec.BooleanValue configRingWoodlandChests;
+    public static ForgeConfigSpec.BooleanValue configRingToolsmithChests;
+    public static ForgeConfigSpec.BooleanValue configRingWeaponsmithChests;
+    public static ForgeConfigSpec.BooleanValue configRingArmorerChests;
+
     public static class General {
         public General(final ForgeConfigSpec.Builder builder) {
             builder.push("Rings of Ascension");
@@ -166,6 +186,28 @@ public class ConfigRingsOfAscension {
             configRingTierWither = builder.define("ringTierWither", 1);
             configRingTierUndying = builder.define("ringTierUndying", 3);
             configRingTierSlowResistance = builder.define("ringTierSlowResistance", 1);
+            builder.pop();
+
+            builder.push("Rings Loot");
+            configRingMinLoot = builder.comment("The minimum number of rings that can be found inside a single chest.").define("ringMinLoot", 0);
+            configRingMaxLoot = builder.comment("The maximum number of rings that can be found inside a single chest.").define("ringMaxLoot", 1);
+
+            configRingDungeonChests = builder.comment("Generate rings in dungeon chests").define("ringDungeonChests", true);
+            configRingMineshaftChests = builder.comment("Generate rings in abandoned mineshaft chests").define("ringMineshaftChests", true);
+            configRingPyramidChests = builder.comment("Generate rings in desert pyramid chests").define("ringPyramidChests", true);
+            configRingBuriedTreasureChests = builder.comment("Generate rings in buried treasure chests").define("ringBuriedTreasureChests", true);
+            configRingEndCityChests = builder.comment("Generate rings in end city chests").define("ringEndCityChests", true);
+            configRingIglooChests = builder.comment("Generate rings in igloo chests").define("ringIglooChests", true);
+            configRingJungleChests = builder.comment("Generate rings in jungle temple chests").define("ringJungleChests", true);
+            configRingNetherChests = builder.comment("Generate rings in nether bridge chests").define("ringNetherChests", true);
+            configRingPillagerChests = builder.comment("Generate rings in pillager outpost chests").define("ringPillagerChests", true);
+            configRingShipwreckChests = builder.comment("Generate rings in shipwreck treasure chests").define("ringShipwreckChests", true);
+            configRingBonusChests = builder.comment("Generate rings in spawn bonus chests").define("ringBonusChests", true);
+            configRingStrongholdChests = builder.comment("Generate rings in stronghold library chests").define("ringStrongholdChests", true);
+            configRingWoodlandChests = builder.comment("Generate rings in woodland mansion chests").define("ringWoodlandChests", true);
+            configRingToolsmithChests = builder.comment("Generate rings in village toolsmith chests").define("ringToolsmithChests", true);
+            configRingWeaponsmithChests = builder.comment("Generate rings in village weaponsmith chests").define("ringWeaponsmithChests", true);
+            configRingArmorerChests = builder.comment("Generate rings in village armorer chests").define("ringArmorerChests", true);
             builder.pop();
         }
     }
