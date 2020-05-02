@@ -15,50 +15,35 @@ public class LootTableEvent {
     public void onLoadTable(LootTableLoadEvent event) {
         if(ConfigHolder.ringDungeonChests && event.getName().equals(new ResourceLocation("minecraft", "chests/simple_dungeon"))) {
             event.getTable().addPool(getLootPool());
-        }
-        if(ConfigHolder.ringMineshaftChests && event.getName().equals(new ResourceLocation("minecraft", "chests/abandoned_mineshaft"))) {
+        } else if(ConfigHolder.ringMineshaftChests && event.getName().equals(new ResourceLocation("minecraft", "chests/abandoned_mineshaft"))) {
             event.getTable().addPool(getLootPool());
-        }
-        if(ConfigHolder.ringBuriedTreasureChests && event.getName().equals(new ResourceLocation("minecraft", "chests/buried_treasure"))) {
+        } else if(ConfigHolder.ringBuriedTreasureChests && event.getName().equals(new ResourceLocation("minecraft", "chests/buried_treasure"))) {
             event.getTable().addPool(getLootPool());
-        }
-        if(ConfigHolder.ringPyramidChests && event.getName().equals(new ResourceLocation("minecraft", "chests/desert_pyramid"))) {
+        } else if(ConfigHolder.ringPyramidChests && event.getName().equals(new ResourceLocation("minecraft", "chests/desert_pyramid"))) {
             event.getTable().addPool(getLootPool());
-        }
-        if(ConfigHolder.ringEndCityChests && event.getName().equals(new ResourceLocation("minecraft", "chests/end_city_treasure"))) {
+        } else if(ConfigHolder.ringEndCityChests && event.getName().equals(new ResourceLocation("minecraft", "chests/end_city_treasure"))) {
             event.getTable().addPool(getLootPool());
-        }
-        if(ConfigHolder.ringIglooChests && event.getName().equals(new ResourceLocation("minecraft", "chests/igloo_chest"))) {
+        } else if(ConfigHolder.ringIglooChests && event.getName().equals(new ResourceLocation("minecraft", "chests/igloo_chest"))) {
             event.getTable().addPool(getLootPool());
-        }
-        if(ConfigHolder.ringJungleChests && event.getName().equals(new ResourceLocation("minecraft", "chests/jungle_temple"))) {
+        } else if(ConfigHolder.ringJungleChests && event.getName().equals(new ResourceLocation("minecraft", "chests/jungle_temple"))) {
             event.getTable().addPool(getLootPool());
-        }
-        if(ConfigHolder.ringNetherChests && event.getName().equals(new ResourceLocation("minecraft", "chests/nether_bridge"))) {
+        } else if(ConfigHolder.ringNetherChests && event.getName().equals(new ResourceLocation("minecraft", "chests/nether_bridge"))) {
             event.getTable().addPool(getLootPool());
-        }
-        if(ConfigHolder.ringPillagerChests && event.getName().equals(new ResourceLocation("minecraft", "chests/pillager_outpost"))) {
+        } else if(ConfigHolder.ringPillagerChests && event.getName().equals(new ResourceLocation("minecraft", "chests/pillager_outpost"))) {
             event.getTable().addPool(getLootPool());
-        }
-        if(ConfigHolder.ringShipwreckChests && event.getName().equals(new ResourceLocation("minecraft", "chests/shipwreck_treasure"))) {
+        } else if(ConfigHolder.ringShipwreckChests && event.getName().equals(new ResourceLocation("minecraft", "chests/shipwreck_treasure"))) {
             event.getTable().addPool(getLootPool());
-        }
-        if(ConfigHolder.ringBonusChests && event.getName().equals(new ResourceLocation("minecraft", "chests/spawn_bonus_chest"))) {
+        } else if(ConfigHolder.ringBonusChests && event.getName().equals(new ResourceLocation("minecraft", "chests/spawn_bonus_chest"))) {
             event.getTable().addPool(getLootPool());
-        }
-        if(ConfigHolder.ringStrongholdChests && event.getName().equals(new ResourceLocation("minecraft", "chests/stronghold_library"))) {
+        } else if(ConfigHolder.ringStrongholdChests && event.getName().equals(new ResourceLocation("minecraft", "chests/stronghold_library"))) {
             event.getTable().addPool(getLootPool());
-        }
-        if(ConfigHolder.ringWoodlandChests && event.getName().equals(new ResourceLocation("minecraft", "chests/woodland_mansion"))) {
+        } else if(ConfigHolder.ringWoodlandChests && event.getName().equals(new ResourceLocation("minecraft", "chests/woodland_mansion"))) {
             event.getTable().addPool(getLootPool());
-        }
-        if(ConfigHolder.ringToolsmithChests && event.getName().equals(new ResourceLocation("minecraft", "chests/village/village_toolsmith"))) {
+        } else if(ConfigHolder.ringToolsmithChests && event.getName().equals(new ResourceLocation("minecraft", "chests/village/village_toolsmith"))) {
             event.getTable().addPool(getLootPool());
-        }
-        if(ConfigHolder.ringWeaponsmithChests && event.getName().equals(new ResourceLocation("minecraft", "chests/village/village_weaponsmith"))) {
+        } else if(ConfigHolder.ringWeaponsmithChests && event.getName().equals(new ResourceLocation("minecraft", "chests/village/village_weaponsmith"))) {
             event.getTable().addPool(getLootPool());
-        }
-        if(ConfigHolder.ringArmorerChests && event.getName().equals(new ResourceLocation("minecraft", "chests/village/village_armorer"))) {
+        } else if(ConfigHolder.ringArmorerChests && event.getName().equals(new ResourceLocation("minecraft", "chests/village/village_armorer"))) {
             event.getTable().addPool(getLootPool());
         }
     }
