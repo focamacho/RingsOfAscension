@@ -39,6 +39,11 @@ public class ItemRingFlight extends ItemRingBase {
     }
 
     @Override
+    public int getTier() {
+        return ConfigHolder.ringTierFlight;
+    }
+
+    @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         if(!ConfigHolder.ringFlight) return;
         super.addInformation(stack, worldIn, tooltip, flagIn);

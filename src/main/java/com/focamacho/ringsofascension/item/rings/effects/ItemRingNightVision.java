@@ -26,6 +26,11 @@ public class ItemRingNightVision extends ItemRingBase {
     }
 
     @Override
+    public int getTier() {
+        return ConfigHolder.ringTierNightVision;
+    }
+
+    @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         if(!ConfigHolder.ringNightVision) return;
         super.addInformation(stack, worldIn, tooltip, flagIn);

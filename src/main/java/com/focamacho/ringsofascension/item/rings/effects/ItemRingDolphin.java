@@ -26,6 +26,11 @@ public class ItemRingDolphin extends ItemRingBase {
     }
 
     @Override
+    public int getTier() {
+        return ConfigHolder.ringTierDolphin;
+    }
+
+    @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         if(!ConfigHolder.ringDolphin) return;
         super.addInformation(stack, worldIn, tooltip, flagIn);

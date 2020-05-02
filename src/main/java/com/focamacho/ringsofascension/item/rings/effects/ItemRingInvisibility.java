@@ -26,6 +26,11 @@ public class ItemRingInvisibility extends ItemRingBase {
     }
 
     @Override
+    public int getTier() {
+        return ConfigHolder.ringTierInvisibility;
+    }
+
+    @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         if(!ConfigHolder.ringInvisibility) return;
         super.addInformation(stack, worldIn, tooltip, flagIn);

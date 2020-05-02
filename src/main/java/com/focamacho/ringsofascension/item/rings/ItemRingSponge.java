@@ -39,6 +39,11 @@ public class ItemRingSponge extends ItemRingBase {
     }
 
     @Override
+    public int getTier() {
+        return ConfigHolder.ringTierSponge;
+    }
+
+    @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         if(!ConfigHolder.ringSponge) return;
         super.addInformation(stack, worldIn, tooltip, flagIn);

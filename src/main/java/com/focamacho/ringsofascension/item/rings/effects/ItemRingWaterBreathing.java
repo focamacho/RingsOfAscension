@@ -26,6 +26,11 @@ public class ItemRingWaterBreathing extends ItemRingBase {
     }
 
     @Override
+    public int getTier() {
+        return ConfigHolder.ringTierWaterBreathing;
+    }
+
+    @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         if(!ConfigHolder.ringWaterBreathing) return;
         super.addInformation(stack, worldIn, tooltip, flagIn);

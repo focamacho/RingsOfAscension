@@ -27,6 +27,11 @@ public class ItemRingHungerless extends ItemRingBase {
     }
 
     @Override
+    public int getTier() {
+        return ConfigHolder.ringTierHungerless;
+    }
+
+    @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         if(!ConfigHolder.ringHungerless) return;
         super.addInformation(stack, worldIn, tooltip, flagIn);

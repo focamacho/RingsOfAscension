@@ -26,6 +26,11 @@ public class ItemRingFireResistance extends ItemRingBase {
     }
 
     @Override
+    public int getTier() {
+        return ConfigHolder.ringTierFireResistance;
+    }
+
+    @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         if(!ConfigHolder.ringFireResistance) return;
         super.addInformation(stack, worldIn, tooltip, flagIn);

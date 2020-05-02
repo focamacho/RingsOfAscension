@@ -27,6 +27,11 @@ public class ItemRingSlowResistance extends ItemRingBase {
     }
 
     @Override
+    public int getTier() {
+        return ConfigHolder.ringTierSlowResistance;
+    }
+
+    @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         if(!ConfigHolder.ringSlowResistance) return;
         super.addInformation(stack, worldIn, tooltip, flagIn);

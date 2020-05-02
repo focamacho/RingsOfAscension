@@ -1,10 +1,9 @@
 package com.focamacho.ringsofascension.config;
 
-import net.minecraftforge.common.ForgeConfigSpec;
-
 public class ConfigHolder {
 
     public static int ringUndyingCooldown = ConfigRingsOfAscension.configRingUndyingCooldown.get();
+    public static int ringHealthHearts = ConfigRingsOfAscension.configRingHealthHearts.get();
 
     public static boolean ringFireResistance = ConfigRingsOfAscension.configRingFireResistance.get();
     public static boolean ringInvisibility = ConfigRingsOfAscension.configRingInvisibility.get();
@@ -45,9 +44,36 @@ public class ConfigHolder {
     public static int ringAmplifierLuck = ConfigRingsOfAscension.configRingAmplifierLuck.get();
     public static int ringAmplifierDolphin = ConfigRingsOfAscension.configRingAmplifierDolphin.get();
 
+    public static int ringTierFireResistance = ConfigRingsOfAscension.configRingTierFireResistance.get();
+    public static int ringTierInvisibility = ConfigRingsOfAscension.configRingTierInvisibility.get();
+    public static int ringTierRegeneration = ConfigRingsOfAscension.configRingTierRegeneration.get();
+    public static int ringTierSlowFalling = ConfigRingsOfAscension.configRingTierSlowFalling.get();
+    public static int ringTierStrength = ConfigRingsOfAscension.configRingTierStrength.get();
+    public static int ringTierWaterBreathing = ConfigRingsOfAscension.configRingTierWaterBreathing.get();
+    public static int ringTierSpeed = ConfigRingsOfAscension.configRingTierSpeed.get();
+    public static int ringTierNightVision = ConfigRingsOfAscension.configRingTierNightVision.get();
+    public static int ringTierJumpBoost = ConfigRingsOfAscension.configRingTierJumpBoost.get();
+    public static int ringTierMining = ConfigRingsOfAscension.configRingTierMining.get();
+    public static int ringTierLuck = ConfigRingsOfAscension.configRingTierLuck.get();
+    public static int ringTierDolphin = ConfigRingsOfAscension.configRingTierDolphin.get();
+    public static int ringTierMagnetism = ConfigRingsOfAscension.configRingTierMagnetism.get();
+    public static int ringTierFlight = ConfigRingsOfAscension.configRingTierFlight.get();
+    public static int ringTierPoisonResistance = ConfigRingsOfAscension.configRingTierPoisonResistance.get();
+    public static int ringTierHungerless = ConfigRingsOfAscension.configRingTierHungerless.get();
+    public static int ringTierGrowth = ConfigRingsOfAscension.configRingTierGrowth.get();
+    public static int ringTierKnockbackResistance = ConfigRingsOfAscension.configRingTierKnockbackResistance.get();
+    public static int ringTierHealth = ConfigRingsOfAscension.configRingTierHealth.get();
+    public static int ringTierSponge = ConfigRingsOfAscension.configRingTierSponge.get();
+    public static int ringTierExperience = ConfigRingsOfAscension.configRingTierExperience.get();
+    public static int ringTierWaterWalking = ConfigRingsOfAscension.configRingTierWaterWalking.get();
+    public static int ringTierWither = ConfigRingsOfAscension.configRingTierWither.get();
+    public static int ringTierUndying = ConfigRingsOfAscension.configRingTierUndying.get();
+    public static int ringTierSlowResistance = ConfigRingsOfAscension.configRingTierSlowResistance.get();
+
     public static void updateConfigs() {
         ringUndyingCooldown = ConfigRingsOfAscension.configRingUndyingCooldown.get();
-
+        ringHealthHearts = ConfigRingsOfAscension.configRingHealthHearts.get();
+        
         ringFireResistance = ConfigRingsOfAscension.configRingFireResistance.get();
         ringInvisibility = ConfigRingsOfAscension.configRingInvisibility.get();
         ringRegeneration = ConfigRingsOfAscension.configRingRegeneration.get();
@@ -86,6 +112,32 @@ public class ConfigHolder {
         ringAmplifierMining = ConfigRingsOfAscension.configRingAmplifierMining.get();
         ringAmplifierLuck = ConfigRingsOfAscension.configRingAmplifierLuck.get();
         ringAmplifierDolphin = ConfigRingsOfAscension.configRingAmplifierDolphin.get();
+
+        ringTierFireResistance = ConfigRingsOfAscension.configRingTierFireResistance.get();
+        ringTierInvisibility = ConfigRingsOfAscension.configRingTierInvisibility.get();
+        ringTierRegeneration = ConfigRingsOfAscension.configRingTierRegeneration.get();
+        ringTierSlowFalling = ConfigRingsOfAscension.configRingTierSlowFalling.get();
+        ringTierStrength = ConfigRingsOfAscension.configRingTierStrength.get();
+        ringTierWaterBreathing = ConfigRingsOfAscension.configRingTierWaterBreathing.get();
+        ringTierSpeed = ConfigRingsOfAscension.configRingTierSpeed.get();
+        ringTierNightVision = ConfigRingsOfAscension.configRingTierNightVision.get();
+        ringTierJumpBoost = ConfigRingsOfAscension.configRingTierJumpBoost.get();
+        ringTierMining = ConfigRingsOfAscension.configRingTierMining.get();
+        ringTierLuck = ConfigRingsOfAscension.configRingTierLuck.get();
+        ringTierDolphin = ConfigRingsOfAscension.configRingTierDolphin.get();
+        ringTierMagnetism = ConfigRingsOfAscension.configRingTierMagnetism.get();
+        ringTierFlight = ConfigRingsOfAscension.configRingTierFlight.get();
+        ringTierPoisonResistance = ConfigRingsOfAscension.configRingTierPoisonResistance.get();
+        ringTierHungerless = ConfigRingsOfAscension.configRingTierHungerless.get();
+        ringTierGrowth = ConfigRingsOfAscension.configRingTierGrowth.get();
+        ringTierKnockbackResistance = ConfigRingsOfAscension.configRingTierKnockbackResistance.get();
+        ringTierHealth = ConfigRingsOfAscension.configRingTierHealth.get();
+        ringTierSponge = ConfigRingsOfAscension.configRingTierSponge.get();
+        ringTierExperience = ConfigRingsOfAscension.configRingTierExperience.get();
+        ringTierWaterWalking = ConfigRingsOfAscension.configRingTierWaterWalking.get();
+        ringTierWither = ConfigRingsOfAscension.configRingTierWither.get();
+        ringTierUndying = ConfigRingsOfAscension.configRingTierUndying.get();
+        ringTierSlowResistance = ConfigRingsOfAscension.configRingTierSlowResistance.get();
     }
 
 }

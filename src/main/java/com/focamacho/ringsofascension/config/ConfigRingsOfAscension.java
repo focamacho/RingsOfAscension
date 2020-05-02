@@ -11,6 +11,7 @@ public class ConfigRingsOfAscension {
 
     //Config Values
     public static ForgeConfigSpec.IntValue configRingUndyingCooldown;
+    public static ForgeConfigSpec.IntValue configRingHealthHearts;
 
     public static ForgeConfigSpec.BooleanValue configRingFireResistance;
     public static ForgeConfigSpec.BooleanValue configRingInvisibility;
@@ -51,13 +52,43 @@ public class ConfigRingsOfAscension {
     public static ForgeConfigSpec.IntValue configRingAmplifierLuck;
     public static ForgeConfigSpec.IntValue configRingAmplifierDolphin;
 
+    public static ForgeConfigSpec.ConfigValue<Integer> configRingTierFireResistance;
+    public static ForgeConfigSpec.ConfigValue<Integer> configRingTierInvisibility;
+    public static ForgeConfigSpec.ConfigValue<Integer> configRingTierRegeneration;
+    public static ForgeConfigSpec.ConfigValue<Integer> configRingTierSlowFalling;
+    public static ForgeConfigSpec.ConfigValue<Integer> configRingTierStrength;
+    public static ForgeConfigSpec.ConfigValue<Integer> configRingTierWaterBreathing;
+    public static ForgeConfigSpec.ConfigValue<Integer> configRingTierSpeed;
+    public static ForgeConfigSpec.ConfigValue<Integer> configRingTierNightVision;
+    public static ForgeConfigSpec.ConfigValue<Integer> configRingTierJumpBoost;
+    public static ForgeConfigSpec.ConfigValue<Integer> configRingTierMining;
+    public static ForgeConfigSpec.ConfigValue<Integer> configRingTierLuck;
+    public static ForgeConfigSpec.ConfigValue<Integer> configRingTierDolphin;
+    public static ForgeConfigSpec.ConfigValue<Integer> configRingTierMagnetism;
+    public static ForgeConfigSpec.ConfigValue<Integer> configRingTierFlight;
+    public static ForgeConfigSpec.ConfigValue<Integer> configRingTierPoisonResistance;
+    public static ForgeConfigSpec.ConfigValue<Integer> configRingTierHungerless;
+    public static ForgeConfigSpec.ConfigValue<Integer> configRingTierGrowth;
+    public static ForgeConfigSpec.ConfigValue<Integer> configRingTierKnockbackResistance;
+    public static ForgeConfigSpec.ConfigValue<Integer> configRingTierHealth;
+    public static ForgeConfigSpec.ConfigValue<Integer> configRingTierSponge;
+    public static ForgeConfigSpec.ConfigValue<Integer> configRingTierExperience;
+    public static ForgeConfigSpec.ConfigValue<Integer> configRingTierWaterWalking;
+    public static ForgeConfigSpec.ConfigValue<Integer> configRingTierWither;
+    public static ForgeConfigSpec.ConfigValue<Integer> configRingTierUndying;
+    public static ForgeConfigSpec.ConfigValue<Integer> configRingTierSlowResistance;
+
     public static class General {
         public General(final ForgeConfigSpec.Builder builder) {
             builder.push("Rings of Ascension");
             configRingUndyingCooldown = builder
                     .comment("The cooldown in seconds of the Ring of Undying")
                     .translation(RingsOfAscension.MODID + ".config.ringUndyingCooldown")
-                    .defineInRange("ringUndyingCooldown", 300, 0, Integer.MAX_VALUE);
+                    .defineInRange("ringUndyingCooldown", 600, 0, Integer.MAX_VALUE);
+            configRingHealthHearts = builder
+                    .comment("The amount of hearts that Max Health's ring gives you.")
+                    .translation(RingsOfAscension.MODID + ".config.ringHealthHearts")
+                    .defineInRange("ringHealthHearts", 10, 0, 400);
             builder.pop();
 
             builder.push("Enable/Disable Rings");
@@ -91,18 +122,50 @@ public class ConfigRingsOfAscension {
             builder.push("Rings Amplifier").comment("Sets the amplifier of the effect given by the ring. Example:\n" +
                                                     "0 = Fire Resistance I\n" +
                                                     "1 = Fire Resistance II");
-            configRingAmplifierFireResistance = builder.defineInRange("ringAmplifierFireResistance", 0, 0, 255);
+            configRingAmplifierFireResistance = builder.defineInRange("ringAmplifierFireResistance", 1, 0, 255);
             configRingAmplifierInvisibility = builder.defineInRange("ringAmplifierInvisibility", 0, 0, 255);
             configRingAmplifierRegeneration = builder.defineInRange("ringAmplifierRegeneration", 0, 0, 255);
             configRingAmplifierSlowFalling = builder.defineInRange("ringAmplifierSlowFalling", 0, 0, 255);
             configRingAmplifierStrength = builder.defineInRange("ringAmplifierStrength", 0, 0, 255);
-            configRingAmplifierWaterBreathing = builder.defineInRange("ringAmplifierWaterBreathing", 0, 0, 255);
+            configRingAmplifierWaterBreathing = builder.defineInRange("ringAmplifierWaterBreathing", 1, 0, 255);
             configRingAmplifierSpeed = builder.defineInRange("ringAmplifierSpeed", 0, 0, 255);
             configRingAmplifierNightVision = builder.defineInRange("ringAmplifierNightVision", 0, 0, 255);
             configRingAmplifierJumpBoost = builder.defineInRange("ringAmplifierJumpBoost", 0, 0, 255);
-            configRingAmplifierMining = builder.defineInRange("ringAmplifierMining", 0, 0, 255);
-            configRingAmplifierLuck = builder.defineInRange("ringAmplifierLuck", 0, 0, 255);
+            configRingAmplifierMining = builder.defineInRange("ringAmplifierMining", 1, 0, 255);
+            configRingAmplifierLuck = builder.defineInRange("ringAmplifierLuck", 1, 0, 255);
             configRingAmplifierDolphin = builder.defineInRange("ringAmplifierDolphin", 0, 0, 255);
+            builder.pop();
+
+            builder.push("Rings Tier").comment("Sets the Tier of the rings. Higher tier rings are more difficult to find.\n" +
+                                                "0 = Common\n" +
+                                                "1 = Rare\n" +
+                                                "2 = Epic\n" +
+                                                "3 = Legendary");
+            configRingTierFireResistance = builder.define("ringTierFireResistance", 0);
+            configRingTierInvisibility = builder.define("ringTierInvisibility", 1);
+            configRingTierRegeneration = builder.define("ringTierRegeneration", 1);
+            configRingTierSlowFalling = builder.define("ringTierSlowFalling", 0);
+            configRingTierStrength = builder.define("ringTierStrength", 1);
+            configRingTierWaterBreathing = builder.define("ringTierWaterBreathing", 0);
+            configRingTierSpeed = builder.define("ringTierSpeed", 1);
+            configRingTierNightVision = builder.define("ringTierNightVision", 0);
+            configRingTierJumpBoost = builder.define("ringTierJumpBoost", 0);
+            configRingTierMining = builder.define("ringTierMining", 2);
+            configRingTierLuck = builder.define("ringTierLuck", 2);
+            configRingTierDolphin = builder.define("ringTierDolphin", 1);
+            configRingTierMagnetism = builder.define("ringTierMagnetism", 2);
+            configRingTierFlight = builder.define("ringTierFlight", 3);
+            configRingTierPoisonResistance = builder.define("ringTierPoisonResistance", 1);
+            configRingTierHungerless = builder.define("ringTierHungerless", 3);
+            configRingTierGrowth = builder.define("ringTierGrowth", 2);
+            configRingTierKnockbackResistance = builder.define("ringTierKnockbackResistance", 0);
+            configRingTierHealth = builder.define("ringTierHealth", 3);
+            configRingTierSponge = builder.define("ringTierSponge", 1);
+            configRingTierExperience = builder.define("ringTierExperience", 0);
+            configRingTierWaterWalking = builder.define("ringTierWaterWalking", 0);
+            configRingTierWither = builder.define("ringTierWither", 1);
+            configRingTierUndying = builder.define("ringTierUndying", 3);
+            configRingTierSlowResistance = builder.define("ringTierSlowResistance", 1);
             builder.pop();
         }
     }

@@ -50,6 +50,10 @@ public abstract class ItemRingBase extends Item {
 
     public void onUnequippedCurio(String identifier, LivingEntity livingEntity){}
 
+    public int getTier() {
+        return 0;
+    }
+
     @Nullable
     @Override
     public ICapabilityProvider initCapabilities(ItemStack stack, @Nullable CompoundNBT nbt) {
@@ -109,6 +113,20 @@ public abstract class ItemRingBase extends Item {
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         super.addInformation(stack, worldIn, tooltip, flagIn);
+
+        switch(getTier()) {
+            case 0:
+                tooltip.add(new StringTextComponent(ChatFormatting.GOLD + new TranslationTextComponent("tooltip.ringsofascension.tier").getFormattedText() + " " + ChatFormatting.GREEN + new TranslationTextComponent("tooltip.ringsofascension.tier.common").getFormattedText()));
+                break;
+            case 1:
+                tooltip.add(new StringTextComponent(ChatFormatting.GOLD + new TranslationTextComponent("tooltip.ringsofascension.tier").getFormattedText() + " " + ChatFormatting.BLUE + new TranslationTextComponent("tooltip.ringsofascension.tier.rare").getFormattedText()));
+                break;
+            case 2:
+                tooltip.add(new StringTextComponent(ChatFormatting.GOLD + new TranslationTextComponent("tooltip.ringsofascension.tier").getFormattedText() + " " + ChatFormatting.LIGHT_PURPLE + new TranslationTextComponent("tooltip.ringsofascension.tier.epic").getFormattedText()));
+                break;
+             case 3:
+                tooltip.add(new StringTextComponent(ChatFormatting.GOLD + new TranslationTextComponent("tooltip.ringsofascension.tier").getFormattedText() + " " + ChatFormatting.RED + new TranslationTextComponent("tooltip.ringsofascension.tier.legendary").getFormattedText()));
+        }
 
         if(this.tooltip == null) return;
 

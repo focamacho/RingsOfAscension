@@ -26,6 +26,11 @@ public class ItemRingUndying extends ItemRingBase {
     }
 
     @Override
+    public int getTier() {
+        return ConfigHolder.ringTierUndying;
+    }
+
+    @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         if(!ConfigHolder.ringUndying) return;
         super.addInformation(stack, worldIn, tooltip, flagIn);

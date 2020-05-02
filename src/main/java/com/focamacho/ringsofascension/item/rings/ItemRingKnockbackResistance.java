@@ -38,6 +38,11 @@ public class ItemRingKnockbackResistance extends ItemRingBase {
     }
 
     @Override
+    public int getTier() {
+        return ConfigHolder.ringTierKnockbackResistance;
+    }
+
+    @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         if(!ConfigHolder.ringKnockbackResistance) return;
         super.addInformation(stack, worldIn, tooltip, flagIn);

@@ -26,6 +26,11 @@ public class ItemRingStrength extends ItemRingBase {
     }
 
     @Override
+    public int getTier() {
+        return ConfigHolder.ringTierStrength;
+    }
+
+    @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         if(!ConfigHolder.ringStrength) return;
         super.addInformation(stack, worldIn, tooltip, flagIn);

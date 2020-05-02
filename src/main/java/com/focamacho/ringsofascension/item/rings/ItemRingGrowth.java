@@ -67,6 +67,11 @@ public class ItemRingGrowth extends ItemRingBase {
     }
 
     @Override
+    public int getTier() {
+        return ConfigHolder.ringTierGrowth;
+    }
+
+    @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         if(!ConfigHolder.ringGrowth) return;
         super.addInformation(stack, worldIn, tooltip, flagIn);

@@ -26,6 +26,11 @@ public class ItemRingSpeed extends ItemRingBase {
     }
 
     @Override
+    public int getTier() {
+        return ConfigHolder.ringTierSpeed;
+    }
+
+    @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         if(!ConfigHolder.ringSpeed) return;
         super.addInformation(stack, worldIn, tooltip, flagIn);

@@ -26,6 +26,11 @@ public class ItemRingJumpBoost extends ItemRingBase {
     }
 
     @Override
+    public int getTier() {
+        return ConfigHolder.ringTierJumpBoost;
+    }
+
+    @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         if(!ConfigHolder.ringJumpBoost) return;
         super.addInformation(stack, worldIn, tooltip, flagIn);

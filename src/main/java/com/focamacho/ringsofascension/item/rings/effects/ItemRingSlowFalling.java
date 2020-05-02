@@ -26,6 +26,11 @@ public class ItemRingSlowFalling extends ItemRingBase {
     }
 
     @Override
+    public int getTier() {
+        return ConfigHolder.ringTierSlowFalling;
+    }
+
+    @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         if(!ConfigHolder.ringSlowFalling) return;
         super.addInformation(stack, worldIn, tooltip, flagIn);

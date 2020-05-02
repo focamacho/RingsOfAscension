@@ -29,7 +29,7 @@ public class ModItems {
     public static Item ringHungerless = new ItemRingHungerless(new Item.Properties(), "ring_hungerless", "tooltip.ringsofascension.hungerless");
     public static Item ringGrowth = new ItemRingGrowth(new Item.Properties(), "ring_growth", "tooltip.ringsofascension.growth");
     public static Item ringKnockbackResistance = new ItemRingKnockbackResistance(new Item.Properties(), "ring_knockback_resistance", null);
-    public static Item ringHealth = new ItemRingHealth(new Item.Properties(), "ring_health", 20, null);
+    public static Item ringHealth = new ItemRingHealth(new Item.Properties(), "ring_health", null);
     public static Item ringSponge = new ItemRingSponge(new Item.Properties(), "ring_sponge", "tooltip.ringsofascension.sponge");
     public static Item ringExperience = new ItemRingExperience(new Item.Properties(), "ring_experience", "tooltip.ringsofascension.experience");
     public static Item ringWaterWalking = new ItemRingWaterWalking(new Item.Properties(), "ring_water_walking", "tooltip.ringsofascension.water_walking");

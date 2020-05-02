@@ -1,6 +1,7 @@
 package com.focamacho.ringsofascension.item.rings;
 
 import com.focamacho.ringsofascension.config.ConfigHolder;
+import com.focamacho.ringsofascension.config.ConfigRingsOfAscension;
 import com.focamacho.ringsofascension.item.ItemRingBase;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
@@ -19,11 +20,9 @@ import java.util.UUID;
 public class ItemRingHealth extends ItemRingBase {
 
     private static final UUID HEALTH_UUID = UUID.fromString("b29c34f3-1450-48ff-ab28-639647e11861");
-    private int health;
 
-    public ItemRingHealth(Properties properties, String name, int health, String tooltip) {
+    public ItemRingHealth(Properties properties, String name, String tooltip) {
         super(properties, name, tooltip);
-        this.health = health;
     }
 
     @Override
@@ -32,11 +31,16 @@ public class ItemRingHealth extends ItemRingBase {
 
         if (CuriosAPI.getCurioTags(stack.getItem()).contains(identifier) && ConfigHolder.ringHealth) {
             modifiers.put(SharedMonsterAttributes.MAX_HEALTH.getName(),
-                    new AttributeModifier(HEALTH_UUID, "Max Health", health,
+                    new AttributeModifier(HEALTH_UUID, "Max Health", ConfigHolder.ringHealthHearts * 2,
                             AttributeModifier.Operation.ADDITION));
         }
 
         return modifiers;
+    }
+
+    @Override
+    public int getTier() {
+        return ConfigHolder.ringTierHealth;
     }
 
     @Override
