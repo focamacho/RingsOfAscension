@@ -49,62 +49,60 @@ public class LootTableEvent {
     }
 
     private LootPool getLootPool() {
-        LootPool pool = LootPool.builder()
+        return LootPool.builder()
                 .rolls(RandomValueRange.func_215837_a(ConfigHolder.ringMinLoot, ConfigHolder.ringMaxLoot))
 
                 //Ring of Fire Resistance
-                .addEntry(ItemLootEntry.builder(() -> ModItems.ringFireResistance).weight(getWeightFromTier(ConfigHolder.ringTierFireResistance)))
+                .addEntry(ItemLootEntry.builder(() -> ModItems.ringFireResistance).weight(ConfigHolder.ringFireResistance ? getWeightFromTier(ConfigHolder.ringTierFireResistance) : 0))
                 //Ring of Dolphin
-                .addEntry(ItemLootEntry.builder(() -> ModItems.ringDolphin).weight(getWeightFromTier(ConfigHolder.ringTierDolphin)))
+                .addEntry(ItemLootEntry.builder(() -> ModItems.ringDolphin).weight(ConfigHolder.ringDolphin ? getWeightFromTier(ConfigHolder.ringTierDolphin) : 0))
                 //Ring of Experience
-                .addEntry(ItemLootEntry.builder(() -> ModItems.ringExperience).weight(getWeightFromTier(ConfigHolder.ringTierExperience)))
+                .addEntry(ItemLootEntry.builder(() -> ModItems.ringExperience).weight(ConfigHolder.ringExperience ? getWeightFromTier(ConfigHolder.ringTierExperience) : 0))
                 //Ring of Flight
-                .addEntry(ItemLootEntry.builder(() -> ModItems.ringFlight).weight(getWeightFromTier(ConfigHolder.ringTierFlight)))
+                .addEntry(ItemLootEntry.builder(() -> ModItems.ringFlight).weight(ConfigHolder.ringFlight ? getWeightFromTier(ConfigHolder.ringTierFlight) : 0))
                 //Ring of Growth
-                .addEntry(ItemLootEntry.builder(() -> ModItems.ringGrowth).weight(getWeightFromTier(ConfigHolder.ringTierGrowth)))
+                .addEntry(ItemLootEntry.builder(() -> ModItems.ringGrowth).weight(ConfigHolder.ringGrowth ? getWeightFromTier(ConfigHolder.ringTierGrowth) : 0))
                 //Ring of Max Health
-                .addEntry(ItemLootEntry.builder(() -> ModItems.ringHealth).weight(getWeightFromTier(ConfigHolder.ringTierHealth)))
+                .addEntry(ItemLootEntry.builder(() -> ModItems.ringHealth).weight(ConfigHolder.ringHealth ? getWeightFromTier(ConfigHolder.ringTierHealth) : 0))
                 //Ring of Hungerless
-                .addEntry(ItemLootEntry.builder(() -> ModItems.ringHungerless).weight(getWeightFromTier(ConfigHolder.ringTierHungerless)))
+                .addEntry(ItemLootEntry.builder(() -> ModItems.ringHungerless).weight(ConfigHolder.ringHungerless ? getWeightFromTier(ConfigHolder.ringTierHungerless) : 0))
                 //Ring of Invisibility
-                .addEntry(ItemLootEntry.builder(() -> ModItems.ringInvisibility).weight(getWeightFromTier(ConfigHolder.ringTierInvisibility)))
+                .addEntry(ItemLootEntry.builder(() -> ModItems.ringInvisibility).weight(ConfigHolder.ringInvisibility ? getWeightFromTier(ConfigHolder.ringTierInvisibility) : 0))
                 //Ring of Jump Boost
-                .addEntry(ItemLootEntry.builder(() -> ModItems.ringJumpBoost).weight(getWeightFromTier(ConfigHolder.ringTierJumpBoost)))
+                .addEntry(ItemLootEntry.builder(() -> ModItems.ringJumpBoost).weight(ConfigHolder.ringJumpBoost ? getWeightFromTier(ConfigHolder.ringTierJumpBoost) : 0))
                 //Ring of Knockback Resistance
-                .addEntry(ItemLootEntry.builder(() -> ModItems.ringKnockbackResistance).weight(getWeightFromTier(ConfigHolder.ringTierKnockbackResistance)))
+                .addEntry(ItemLootEntry.builder(() -> ModItems.ringKnockbackResistance).weight(ConfigHolder.ringKnockbackResistance ? getWeightFromTier(ConfigHolder.ringTierKnockbackResistance) : 0))
                 //Ring of Luck
-                .addEntry(ItemLootEntry.builder(() -> ModItems.ringLuck).weight(getWeightFromTier(ConfigHolder.ringTierLuck)))
+                .addEntry(ItemLootEntry.builder(() -> ModItems.ringLuck).weight(ConfigHolder.ringLuck ? getWeightFromTier(ConfigHolder.ringTierLuck) : 0))
                 //Ring of Magnetism
-                .addEntry(ItemLootEntry.builder(() -> ModItems.ringMagnetism).weight(getWeightFromTier(ConfigHolder.ringTierMagnetism)))
+                .addEntry(ItemLootEntry.builder(() -> ModItems.ringMagnetism).weight(ConfigHolder.ringMagnetism ? getWeightFromTier(ConfigHolder.ringTierMagnetism) : 0))
                 //Ring of Mining
-                .addEntry(ItemLootEntry.builder(() -> ModItems.ringMining).weight(getWeightFromTier(ConfigHolder.ringTierMining)))
+                .addEntry(ItemLootEntry.builder(() -> ModItems.ringMining).weight(ConfigHolder.ringMining ? getWeightFromTier(ConfigHolder.ringTierMining) : 0))
                 //Ring of Night Vision
-                .addEntry(ItemLootEntry.builder(() -> ModItems.ringNightVision).weight(getWeightFromTier(ConfigHolder.ringTierNightVision)))
+                .addEntry(ItemLootEntry.builder(() -> ModItems.ringNightVision).weight(ConfigHolder.ringNightVision ? getWeightFromTier(ConfigHolder.ringTierNightVision) : 0))
                 //Ring of Poison Resistance
-                .addEntry(ItemLootEntry.builder(() -> ModItems.ringPoisonResistance).weight(getWeightFromTier(ConfigHolder.ringTierPoisonResistance)))
+                .addEntry(ItemLootEntry.builder(() -> ModItems.ringPoisonResistance).weight(ConfigHolder.ringPoisonResistance ? getWeightFromTier(ConfigHolder.ringTierPoisonResistance) : 0))
                 //Ring of Regeneration
-                .addEntry(ItemLootEntry.builder(() -> ModItems.ringRegeneration).weight(getWeightFromTier(ConfigHolder.ringTierRegeneration)))
+                .addEntry(ItemLootEntry.builder(() -> ModItems.ringRegeneration).weight(ConfigHolder.ringRegeneration ? getWeightFromTier(ConfigHolder.ringTierRegeneration) : 0))
                 //Ring of Slow Falling
-                .addEntry(ItemLootEntry.builder(() -> ModItems.ringSlowFalling).weight(getWeightFromTier(ConfigHolder.ringTierSlowFalling)))
+                .addEntry(ItemLootEntry.builder(() -> ModItems.ringSlowFalling).weight(ConfigHolder.ringSlowFalling ? getWeightFromTier(ConfigHolder.ringTierSlowFalling) : 0))
                 //Ring of Slowness Resistance
-                .addEntry(ItemLootEntry.builder(() -> ModItems.ringSlowResistance).weight(getWeightFromTier(ConfigHolder.ringTierSlowResistance)))
+                .addEntry(ItemLootEntry.builder(() -> ModItems.ringSlowResistance).weight(ConfigHolder.ringSlowResistance ? getWeightFromTier(ConfigHolder.ringTierSlowResistance) : 0))
                 //Ring of Speed
-                .addEntry(ItemLootEntry.builder(() -> ModItems.ringSpeed).weight(getWeightFromTier(ConfigHolder.ringTierSpeed)))
+                .addEntry(ItemLootEntry.builder(() -> ModItems.ringSpeed).weight(ConfigHolder.ringSpeed ? getWeightFromTier(ConfigHolder.ringTierSpeed) : 0))
                 //Ring of Sponge
-                .addEntry(ItemLootEntry.builder(() -> ModItems.ringSponge).weight(getWeightFromTier(ConfigHolder.ringTierSponge)))
+                .addEntry(ItemLootEntry.builder(() -> ModItems.ringSponge).weight(ConfigHolder.ringSponge ? getWeightFromTier(ConfigHolder.ringTierSponge) : 0))
                 //Ring of Strength
-                .addEntry(ItemLootEntry.builder(() -> ModItems.ringStrength).weight(getWeightFromTier(ConfigHolder.ringTierStrength)))
+                .addEntry(ItemLootEntry.builder(() -> ModItems.ringStrength).weight(ConfigHolder.ringStrength ? getWeightFromTier(ConfigHolder.ringTierStrength) : 0))
                 //Ring of Water Breathing
-                .addEntry(ItemLootEntry.builder(() -> ModItems.ringWaterBreathing).weight(getWeightFromTier(ConfigHolder.ringTierWaterBreathing)))
+                .addEntry(ItemLootEntry.builder(() -> ModItems.ringWaterBreathing).weight(ConfigHolder.ringWaterBreathing ? getWeightFromTier(ConfigHolder.ringTierWaterBreathing) : 0))
                 //Ring of Undying
-                .addEntry(ItemLootEntry.builder(() -> ModItems.ringUndying).weight(getWeightFromTier(ConfigHolder.ringTierUndying)))
+                .addEntry(ItemLootEntry.builder(() -> ModItems.ringUndying).weight(ConfigHolder.ringUndying ? getWeightFromTier(ConfigHolder.ringTierUndying) : 0))
                 //Ring of Water Walking
-                .addEntry(ItemLootEntry.builder(() -> ModItems.ringWaterWalking).weight(getWeightFromTier(ConfigHolder.ringTierWaterWalking)))
+                .addEntry(ItemLootEntry.builder(() -> ModItems.ringWaterWalking).weight(ConfigHolder.ringWaterWalking ? getWeightFromTier(ConfigHolder.ringTierWaterWalking) : 0))
                 //Ring of Wither
-                .addEntry(ItemLootEntry.builder(() -> ModItems.ringWither).weight(getWeightFromTier(ConfigHolder.ringTierWither)))
+                .addEntry(ItemLootEntry.builder(() -> ModItems.ringWither).weight(ConfigHolder.ringWither ? getWeightFromTier(ConfigHolder.ringTierWither) : 0))
                 .build();
-
-        return pool;
     }
 
     private int getWeightFromTier(int tier) {
