@@ -141,7 +141,7 @@ public class ConfigRingsOfAscension {
             
             builder.push("Rings Amplifier").comment("Sets the amplifier of the effect given by the ring. Example:\n" +
                                                     "0 = Fire Resistance I\n" +
-                                                    "1 = Fire Resistance II");
+                                                    "1 = Fire Resistance II").push("Amplifiers");
             configRingAmplifierFireResistance = builder.defineInRange("ringAmplifierFireResistance", 1, 0, 255);
             configRingAmplifierInvisibility = builder.defineInRange("ringAmplifierInvisibility", 0, 0, 255);
             configRingAmplifierRegeneration = builder.defineInRange("ringAmplifierRegeneration", 0, 0, 255);
@@ -154,13 +154,13 @@ public class ConfigRingsOfAscension {
             configRingAmplifierMining = builder.defineInRange("ringAmplifierMining", 1, 0, 255);
             configRingAmplifierLuck = builder.defineInRange("ringAmplifierLuck", 1, 0, 255);
             configRingAmplifierDolphin = builder.defineInRange("ringAmplifierDolphin", 0, 0, 255);
-            builder.pop();
+            builder.pop(2);
 
             builder.push("Rings Tier").comment("Sets the Tier of the rings. Higher tier rings are more difficult to find.\n" +
                                                 "0 = Common\n" +
                                                 "1 = Rare\n" +
                                                 "2 = Epic\n" +
-                                                "3 = Legendary");
+                                                "3 = Legendary").push("Tiers");
             configRingTierFireResistance = builder.define("ringTierFireResistance", 0);
             configRingTierInvisibility = builder.define("ringTierInvisibility", 1);
             configRingTierRegeneration = builder.define("ringTierRegeneration", 1);
@@ -186,12 +186,14 @@ public class ConfigRingsOfAscension {
             configRingTierWither = builder.define("ringTierWither", 1);
             configRingTierUndying = builder.define("ringTierUndying", 3);
             configRingTierSlowResistance = builder.define("ringTierSlowResistance", 1);
-            builder.pop();
+            builder.pop(2);
 
             builder.push("Rings Loot");
             configRingMinLoot = builder.comment("The minimum number of rings that can be found inside a single chest.").define("ringMinLoot", 0);
             configRingMaxLoot = builder.comment("The maximum number of rings that can be found inside a single chest.").define("ringMaxLoot", 1);
+            builder.pop();
 
+            builder.push("Rings Loot Chests");
             configRingDungeonChests = builder.comment("Generate rings in dungeon chests").define("ringDungeonChests", true);
             configRingMineshaftChests = builder.comment("Generate rings in abandoned mineshaft chests").define("ringMineshaftChests", true);
             configRingPyramidChests = builder.comment("Generate rings in desert pyramid chests").define("ringPyramidChests", true);
