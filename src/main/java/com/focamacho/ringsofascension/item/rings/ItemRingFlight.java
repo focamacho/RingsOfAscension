@@ -34,6 +34,7 @@ public class ItemRingFlight extends ItemRingBase {
         if(livingEntity instanceof PlayerEntity) {
             PlayerEntity player = (PlayerEntity) livingEntity;
             player.abilities.allowFlying = false;
+            player.abilities.isFlying = false;
             player.sendPlayerAbilities();
         }
     }
