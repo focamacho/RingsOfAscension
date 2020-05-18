@@ -102,6 +102,8 @@ public class LootTableEvent {
                 .addEntry(ItemLootEntry.builder(() -> ModItems.ringWaterWalking).weight(ConfigHolder.ringWaterWalking ? getWeightFromTier(ConfigHolder.ringTierWaterWalking) : 0))
                 //Ring of Wither
                 .addEntry(ItemLootEntry.builder(() -> ModItems.ringWither).weight(ConfigHolder.ringWither ? getWeightFromTier(ConfigHolder.ringTierWither) : 0))
+
+                .name("rings_of_ascension_pool")
                 .build();
     }
 
