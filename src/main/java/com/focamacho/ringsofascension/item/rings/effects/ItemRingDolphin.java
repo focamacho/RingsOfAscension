@@ -22,7 +22,15 @@ public class ItemRingDolphin extends ItemRingBase {
     @Override
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
         if(!ConfigHolder.ringDolphin) return;
-        livingEntity.addPotionEffect(new EffectInstance(Effects.DOLPHINS_GRACE, 20, ConfigHolder.ringAmplifierDolphin, false, false));
+        if(!livingEntity.isPotionActive(Effects.DOLPHINS_GRACE)) {
+            livingEntity.addPotionEffect(new EffectInstance(Effects.DOLPHINS_GRACE, Integer.MAX_VALUE, ConfigHolder.ringAmplifierDolphin, false, false));
+        }
+    }
+
+    @Override
+    public void onUnequippedCurio(String identifier, LivingEntity livingEntity) {
+        if(!ConfigHolder.ringDolphin) return;
+        livingEntity.removePotionEffect(Effects.DOLPHINS_GRACE);
     }
 
     @Override

@@ -22,7 +22,15 @@ public class ItemRingLuck extends ItemRingBase {
     @Override
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
         if(!ConfigHolder.ringLuck) return;
-        livingEntity.addPotionEffect(new EffectInstance(Effects.LUCK, 20, ConfigHolder.ringAmplifierLuck, false, false));
+        if(!livingEntity.isPotionActive(Effects.LUCK)) {
+            livingEntity.addPotionEffect(new EffectInstance(Effects.LUCK, Integer.MAX_VALUE, ConfigHolder.ringAmplifierLuck, false, false));
+        }
+    }
+
+    @Override
+    public void onUnequippedCurio(String identifier, LivingEntity livingEntity) {
+        if(!ConfigHolder.ringLuck) return;
+        livingEntity.removePotionEffect(Effects.LUCK);
     }
 
     @Override

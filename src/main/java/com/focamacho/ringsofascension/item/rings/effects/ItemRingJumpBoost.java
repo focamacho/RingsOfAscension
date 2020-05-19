@@ -22,7 +22,15 @@ public class ItemRingJumpBoost extends ItemRingBase {
     @Override
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
         if(!ConfigHolder.ringJumpBoost) return;
-        livingEntity.addPotionEffect(new EffectInstance(Effects.JUMP_BOOST, 20, ConfigHolder.ringAmplifierJumpBoost, false, false));
+        if(!livingEntity.isPotionActive(Effects.JUMP_BOOST)) {
+            livingEntity.addPotionEffect(new EffectInstance(Effects.JUMP_BOOST, Integer.MAX_VALUE, ConfigHolder.ringAmplifierJumpBoost, false, false));
+        }
+    }
+
+    @Override
+    public void onUnequippedCurio(String identifier, LivingEntity livingEntity) {
+        if(!ConfigHolder.ringJumpBoost) return;
+        livingEntity.removePotionEffect(Effects.JUMP_BOOST);
     }
 
     @Override

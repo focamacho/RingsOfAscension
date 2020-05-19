@@ -22,7 +22,15 @@ public class ItemRingRegeneration extends ItemRingBase {
     @Override
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
         if(!ConfigHolder.ringRegeneration) return;
-        livingEntity.addPotionEffect(new EffectInstance(Effects.REGENERATION, 20, ConfigHolder.ringAmplifierRegeneration, false, false));
+        if(!livingEntity.isPotionActive(Effects.REGENERATION)) {
+            livingEntity.addPotionEffect(new EffectInstance(Effects.REGENERATION, Integer.MAX_VALUE, ConfigHolder.ringAmplifierRegeneration, false, false));
+        }
+    }
+
+    @Override
+    public void onUnequippedCurio(String identifier, LivingEntity livingEntity) {
+        if(!ConfigHolder.ringRegeneration) return;
+        livingEntity.removePotionEffect(Effects.REGENERATION);
     }
 
     @Override

@@ -4,6 +4,7 @@ import com.focamacho.ringsofascension.config.ConfigHolder;
 import com.focamacho.ringsofascension.item.ItemRingBase;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
@@ -22,7 +23,15 @@ public class ItemRingFireResistance extends ItemRingBase {
     @Override
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
         if(!ConfigHolder.ringFireResistance) return;
-        livingEntity.addPotionEffect(new EffectInstance(Effects.FIRE_RESISTANCE, 20, ConfigHolder.ringAmplifierFireResistance, false, false));
+        if(!livingEntity.isPotionActive(Effects.FIRE_RESISTANCE)) {
+            livingEntity.addPotionEffect(new EffectInstance(Effects.FIRE_RESISTANCE, Integer.MAX_VALUE, ConfigHolder.ringAmplifierFireResistance, false, false));
+        }
+    }
+
+    @Override
+    public void onUnequippedCurio(String identifier, LivingEntity livingEntity) {
+        if(!ConfigHolder.ringFireResistance) return;
+        livingEntity.removePotionEffect(Effects.FIRE_RESISTANCE);
     }
 
     @Override

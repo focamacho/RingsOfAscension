@@ -22,7 +22,15 @@ public class ItemRingWaterBreathing extends ItemRingBase {
     @Override
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
         if(!ConfigHolder.ringWaterBreathing) return;
-        livingEntity.addPotionEffect(new EffectInstance(Effects.WATER_BREATHING, 20, ConfigHolder.ringAmplifierWaterBreathing, false, false));
+        if(!livingEntity.isPotionActive(Effects.WATER_BREATHING)) {
+            livingEntity.addPotionEffect(new EffectInstance(Effects.WATER_BREATHING, Integer.MAX_VALUE, ConfigHolder.ringAmplifierWaterBreathing, false, false));
+        }
+    }
+
+    @Override
+    public void onUnequippedCurio(String identifier, LivingEntity livingEntity) {
+        if(!ConfigHolder.ringWaterBreathing) return;
+        livingEntity.removePotionEffect(Effects.WATER_BREATHING);
     }
 
     @Override

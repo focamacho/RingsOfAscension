@@ -22,7 +22,15 @@ public class ItemRingSpeed extends ItemRingBase {
     @Override
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
         if(!ConfigHolder.ringSpeed) return;
-        livingEntity.addPotionEffect(new EffectInstance(Effects.SPEED, 20, ConfigHolder.ringAmplifierSpeed, false, false));
+        if(!livingEntity.isPotionActive(Effects.SPEED)) {
+            livingEntity.addPotionEffect(new EffectInstance(Effects.SPEED, Integer.MAX_VALUE, ConfigHolder.ringAmplifierSpeed, false, false));
+        }
+    }
+
+    @Override
+    public void onUnequippedCurio(String identifier, LivingEntity livingEntity) {
+        if(!ConfigHolder.ringSpeed) return;
+        livingEntity.removePotionEffect(Effects.SPEED);
     }
 
     @Override

@@ -22,7 +22,15 @@ public class ItemRingMining extends ItemRingBase {
     @Override
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
         if(!ConfigHolder.ringMining) return;
-        livingEntity.addPotionEffect(new EffectInstance(Effects.HASTE, 20, ConfigHolder.ringAmplifierMining, false, false));
+        if(!livingEntity.isPotionActive(Effects.HASTE)) {
+            livingEntity.addPotionEffect(new EffectInstance(Effects.HASTE, Integer.MAX_VALUE, ConfigHolder.ringAmplifierMining, false, false));
+        }
+    }
+
+    @Override
+    public void onUnequippedCurio(String identifier, LivingEntity livingEntity) {
+        if(!ConfigHolder.ringMining) return;
+        livingEntity.removePotionEffect(Effects.HASTE);
     }
 
     @Override

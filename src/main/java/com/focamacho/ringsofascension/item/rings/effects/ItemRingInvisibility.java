@@ -22,7 +22,15 @@ public class ItemRingInvisibility extends ItemRingBase {
     @Override
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
         if(!ConfigHolder.ringInvisibility) return;
-        livingEntity.addPotionEffect(new EffectInstance(Effects.INVISIBILITY, 20, ConfigHolder.ringAmplifierInvisibility, false, false));
+        if(!livingEntity.isPotionActive(Effects.INVISIBILITY)) {
+            livingEntity.addPotionEffect(new EffectInstance(Effects.INVISIBILITY, Integer.MAX_VALUE, ConfigHolder.ringAmplifierInvisibility, false, false));
+        }
+    }
+
+    @Override
+    public void onUnequippedCurio(String identifier, LivingEntity livingEntity) {
+        if(!ConfigHolder.ringInvisibility) return;
+        livingEntity.removePotionEffect(Effects.INVISIBILITY);
     }
 
     @Override

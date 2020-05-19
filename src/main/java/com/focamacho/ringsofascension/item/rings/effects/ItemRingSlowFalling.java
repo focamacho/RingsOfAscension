@@ -22,7 +22,15 @@ public class ItemRingSlowFalling extends ItemRingBase {
     @Override
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
         if(!ConfigHolder.ringSlowFalling) return;
-        livingEntity.addPotionEffect(new EffectInstance(Effects.SLOW_FALLING, 20, ConfigHolder.ringAmplifierSlowFalling, false, false));
+        if(!livingEntity.isPotionActive(Effects.SLOW_FALLING)) {
+            livingEntity.addPotionEffect(new EffectInstance(Effects.SLOW_FALLING, Integer.MAX_VALUE, ConfigHolder.ringAmplifierSlowFalling, false, false));
+        }
+    }
+
+    @Override
+    public void onUnequippedCurio(String identifier, LivingEntity livingEntity) {
+        if(!ConfigHolder.ringSlowFalling) return;
+        livingEntity.removePotionEffect(Effects.SLOW_FALLING);
     }
 
     @Override
