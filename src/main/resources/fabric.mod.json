@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "id": "ringsofascension",
+  "version": "${version}",
+
+  "name": "Rings of Ascension",
+  "description": "Rings of Ascension is a mod that uses the Trinkets API to add 20+ new rings to your minecraft. Each ring has its own special effect that is activated when the ring is equipped.",
+  "authors": [
+    "Focamacho",
+    "PretoAlbino"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/fabric-rings-of-ascension",
+    "sources": "https://github.com/Focamacho/RingsOfAscension",
+    "issues": "https://github.com/Focamacho/RingsOfAscension/issues"
+  },
+
+  "license": "MIT-1.0",
+  "icon": "assets/ringsofascension/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.focamacho.ringsofascension.RingsOfAscension"
+    ]
+  },
+  "mixins": [
+    "ringsofascension.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "fabric": "*",
+    "minecraft": "1.15.x",
+    "trinkets": ">=2.4.2"
+  },
+  "suggests": {
+    "flamingo": "*"
+  }
+}
