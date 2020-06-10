@@ -23,7 +23,9 @@ public class ItemRingLuck extends ItemRingBase {
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
         if(!ConfigHolder.ringLuck) return;
         if(!livingEntity.isPotionActive(Effects.LUCK)) {
-            livingEntity.addPotionEffect(new EffectInstance(Effects.LUCK, Integer.MAX_VALUE, ConfigHolder.ringAmplifierLuck, false, false));
+            EffectInstance effectInstance = new EffectInstance(Effects.LUCK, Integer.MAX_VALUE, ConfigHolder.ringAmplifierLuck, false, false);
+            if(livingEntity.world.isRemote) effectInstance.setPotionDurationMax(true);
+            livingEntity.addPotionEffect(effectInstance);
         }
     }
 

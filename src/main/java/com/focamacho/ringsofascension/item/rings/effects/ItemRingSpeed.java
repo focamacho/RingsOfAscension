@@ -23,7 +23,9 @@ public class ItemRingSpeed extends ItemRingBase {
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
         if(!ConfigHolder.ringSpeed) return;
         if(!livingEntity.isPotionActive(Effects.SPEED)) {
-            livingEntity.addPotionEffect(new EffectInstance(Effects.SPEED, Integer.MAX_VALUE, ConfigHolder.ringAmplifierSpeed, false, false));
+            EffectInstance effectInstance = new EffectInstance(Effects.SPEED, Integer.MAX_VALUE, ConfigHolder.ringAmplifierSpeed, false, false);
+            if(livingEntity.world.isRemote) effectInstance.setPotionDurationMax(true);
+            livingEntity.addPotionEffect(effectInstance);
         }
     }
 

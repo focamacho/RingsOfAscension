@@ -23,7 +23,9 @@ public class ItemRingDolphin extends ItemRingBase {
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
         if(!ConfigHolder.ringDolphin) return;
         if(!livingEntity.isPotionActive(Effects.DOLPHINS_GRACE)) {
-            livingEntity.addPotionEffect(new EffectInstance(Effects.DOLPHINS_GRACE, Integer.MAX_VALUE, ConfigHolder.ringAmplifierDolphin, false, false));
+            EffectInstance effectInstance = new EffectInstance(Effects.DOLPHINS_GRACE, Integer.MAX_VALUE, ConfigHolder.ringAmplifierDolphin, false, false);
+            if(livingEntity.world.isRemote) effectInstance.setPotionDurationMax(true);
+            livingEntity.addPotionEffect(effectInstance);
         }
     }
 

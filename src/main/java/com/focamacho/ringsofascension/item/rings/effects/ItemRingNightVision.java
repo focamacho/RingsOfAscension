@@ -23,7 +23,9 @@ public class ItemRingNightVision extends ItemRingBase {
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
         if(!ConfigHolder.ringNightVision) return;
         if(!livingEntity.isPotionActive(Effects.NIGHT_VISION)) {
-            livingEntity.addPotionEffect(new EffectInstance(Effects.NIGHT_VISION, Integer.MAX_VALUE, ConfigHolder.ringAmplifierNightVision, false, false));
+            EffectInstance effectInstance = new EffectInstance(Effects.NIGHT_VISION, Integer.MAX_VALUE, ConfigHolder.ringAmplifierNightVision, false, false);
+            if(livingEntity.world.isRemote) effectInstance.setPotionDurationMax(true);
+            livingEntity.addPotionEffect(effectInstance);
         }
     }
 

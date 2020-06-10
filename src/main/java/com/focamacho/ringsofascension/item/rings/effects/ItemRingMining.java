@@ -23,7 +23,9 @@ public class ItemRingMining extends ItemRingBase {
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
         if(!ConfigHolder.ringMining) return;
         if(!livingEntity.isPotionActive(Effects.HASTE)) {
-            livingEntity.addPotionEffect(new EffectInstance(Effects.HASTE, Integer.MAX_VALUE, ConfigHolder.ringAmplifierMining, false, false));
+            EffectInstance effectInstance = new EffectInstance(Effects.HASTE, Integer.MAX_VALUE, ConfigHolder.ringAmplifierMining, false, false);
+            if(livingEntity.world.isRemote) effectInstance.setPotionDurationMax(true);
+            livingEntity.addPotionEffect(effectInstance);
         }
     }
 

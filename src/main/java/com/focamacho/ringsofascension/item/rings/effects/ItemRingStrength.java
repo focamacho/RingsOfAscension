@@ -23,7 +23,9 @@ public class ItemRingStrength extends ItemRingBase {
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
         if(!ConfigHolder.ringStrength) return;
         if(!livingEntity.isPotionActive(Effects.STRENGTH)) {
-            livingEntity.addPotionEffect(new EffectInstance(Effects.STRENGTH, Integer.MAX_VALUE, ConfigHolder.ringAmplifierStrength, false, false));
+            EffectInstance effectInstance = new EffectInstance(Effects.STRENGTH, Integer.MAX_VALUE, ConfigHolder.ringAmplifierStrength, false, false);
+            if(livingEntity.world.isRemote) effectInstance.setPotionDurationMax(true);
+            livingEntity.addPotionEffect(effectInstance);
         }
     }
 

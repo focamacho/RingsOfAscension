@@ -23,7 +23,9 @@ public class ItemRingRegeneration extends ItemRingBase {
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
         if(!ConfigHolder.ringRegeneration) return;
         if(!livingEntity.isPotionActive(Effects.REGENERATION)) {
-            livingEntity.addPotionEffect(new EffectInstance(Effects.REGENERATION, Integer.MAX_VALUE, ConfigHolder.ringAmplifierRegeneration, false, false));
+            EffectInstance effectInstance = new EffectInstance(Effects.REGENERATION, Integer.MAX_VALUE, ConfigHolder.ringAmplifierRegeneration, false, false);
+            if(livingEntity.world.isRemote) effectInstance.setPotionDurationMax(true);
+            livingEntity.addPotionEffect(effectInstance);
         }
     }
 

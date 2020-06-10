@@ -23,7 +23,9 @@ public class ItemRingWaterBreathing extends ItemRingBase {
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
         if(!ConfigHolder.ringWaterBreathing) return;
         if(!livingEntity.isPotionActive(Effects.WATER_BREATHING)) {
-            livingEntity.addPotionEffect(new EffectInstance(Effects.WATER_BREATHING, Integer.MAX_VALUE, ConfigHolder.ringAmplifierWaterBreathing, false, false));
+            EffectInstance effectInstance = new EffectInstance(Effects.WATER_BREATHING, Integer.MAX_VALUE, ConfigHolder.ringAmplifierWaterBreathing, false, false);
+            if(livingEntity.world.isRemote) effectInstance.setPotionDurationMax(true);
+            livingEntity.addPotionEffect(effectInstance);
         }
     }
 

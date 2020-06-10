@@ -23,7 +23,9 @@ public class ItemRingJumpBoost extends ItemRingBase {
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
         if(!ConfigHolder.ringJumpBoost) return;
         if(!livingEntity.isPotionActive(Effects.JUMP_BOOST)) {
-            livingEntity.addPotionEffect(new EffectInstance(Effects.JUMP_BOOST, Integer.MAX_VALUE, ConfigHolder.ringAmplifierJumpBoost, false, false));
+            EffectInstance effectInstance = new EffectInstance(Effects.JUMP_BOOST, Integer.MAX_VALUE, ConfigHolder.ringAmplifierJumpBoost, false, false);
+            if(livingEntity.world.isRemote) effectInstance.setPotionDurationMax(true);
+            livingEntity.addPotionEffect(effectInstance);
         }
     }
 

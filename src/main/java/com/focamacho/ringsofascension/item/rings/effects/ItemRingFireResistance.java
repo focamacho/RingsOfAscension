@@ -24,7 +24,9 @@ public class ItemRingFireResistance extends ItemRingBase {
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
         if(!ConfigHolder.ringFireResistance) return;
         if(!livingEntity.isPotionActive(Effects.FIRE_RESISTANCE)) {
-            livingEntity.addPotionEffect(new EffectInstance(Effects.FIRE_RESISTANCE, Integer.MAX_VALUE, ConfigHolder.ringAmplifierFireResistance, false, false));
+            EffectInstance effectInstance = new EffectInstance(Effects.FIRE_RESISTANCE, Integer.MAX_VALUE, ConfigHolder.ringAmplifierFireResistance, false, false);
+            if(livingEntity.world.isRemote) effectInstance.setPotionDurationMax(true);
+            livingEntity.addPotionEffect(effectInstance);
         }
     }
 

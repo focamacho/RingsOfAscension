@@ -23,7 +23,9 @@ public class ItemRingInvisibility extends ItemRingBase {
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
         if(!ConfigHolder.ringInvisibility) return;
         if(!livingEntity.isPotionActive(Effects.INVISIBILITY)) {
-            livingEntity.addPotionEffect(new EffectInstance(Effects.INVISIBILITY, Integer.MAX_VALUE, ConfigHolder.ringAmplifierInvisibility, false, false));
+            EffectInstance effectInstance = new EffectInstance(Effects.INVISIBILITY, Integer.MAX_VALUE, ConfigHolder.ringAmplifierInvisibility, false, false);
+            if(livingEntity.world.isRemote) effectInstance.setPotionDurationMax(true);
+            livingEntity.addPotionEffect(effectInstance);
         }
     }
 
