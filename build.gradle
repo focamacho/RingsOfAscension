@@ -20,7 +20,7 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	//Trinkets
-	modImplementation "com.github.emilyploszaj:trinkets:2.5.0"
+	modImplementation "com.github.emilyploszaj:trinkets:2.6.0"
 
 	//Toml4j
 	include 'com.moandjiezana.toml:toml4j:0.7.2'

@@ -2,9 +2,7 @@ package com.focamacho.ringsofascension.item;
 
 import com.focamacho.ringsofascension.RingsOfAscension;
 import com.focamacho.ringsofascension.init.ModItems;
-import dev.emi.trinkets.api.SlotGroups;
 import dev.emi.trinkets.api.Slots;
-import dev.emi.trinkets.api.Trinket;
 import dev.emi.trinkets.api.TrinketItem;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.ItemStack;
@@ -14,10 +12,9 @@ import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
 
-import javax.swing.text.Style;
 import java.util.List;
 
-public class ItemRingBase extends Trinket {
+public class ItemRingBase extends TrinketItem {
 
     private String ringName;
     private int tier;

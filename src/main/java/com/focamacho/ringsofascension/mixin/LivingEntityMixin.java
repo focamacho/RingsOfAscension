@@ -1,6 +1,5 @@
 package com.focamacho.ringsofascension.mixin;
 
-import com.focamacho.ringsofascension.RingsOfAscension;
 import com.focamacho.ringsofascension.handler.ClientHandler;
 import com.focamacho.ringsofascension.init.ModItems;
 import com.focamacho.ringsofascension.item.rings.ItemRingUndying;

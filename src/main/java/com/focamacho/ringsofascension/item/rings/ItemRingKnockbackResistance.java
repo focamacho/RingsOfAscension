@@ -3,11 +3,17 @@ package com.focamacho.ringsofascension.item.rings;
 import com.focamacho.ringsofascension.item.ItemRingBase;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.item.ItemStack;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
+import net.minecraft.util.Formatting;
+import net.minecraft.world.World;
 
+import java.util.List;
 import java.util.UUID;
 
 public class ItemRingKnockbackResistance extends ItemRingBase {
@@ -28,5 +34,12 @@ public class ItemRingKnockbackResistance extends ItemRingBase {
 
         return modifiers;
     }
+    @Override
+    public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
+        super.appendTooltip(stack, world, tooltip, context);
+
+        tooltip.add(new TranslatableText("tooltip.ringsofascension.knockback").formatted(Formatting.BLUE));
+    }
+
 
 }
