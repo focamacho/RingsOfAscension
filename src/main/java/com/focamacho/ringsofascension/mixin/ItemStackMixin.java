@@ -29,7 +29,7 @@ public class ItemStackMixin {
 
             while(iterator.hasNext()) {
                 String text = iterator.next().toString();
-                if(text.contains("attribute.name.net.minecraft")) iterator.remove();
+                if(text.contains("attribute.name")) iterator.remove();
             }
 
             tooltip.remove(new LiteralText("Equippable in trinket slots:").formatted(Formatting.GRAY));

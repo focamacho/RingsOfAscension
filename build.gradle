@@ -8,7 +8,7 @@ sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
 archivesBaseName = 'RingsOfAscension-1.16'
-version = '1.0.0'
+version = '1.0.1'
 group = 'com.focamacho.ringsofascension'
 
 dependencies {
@@ -20,7 +20,7 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	//Trinkets
-	modImplementation "com.github.emilyploszaj:trinkets:2.6.0"
+	modImplementation "com.github.emilyploszaj:trinkets:2.6.1"
 
 	//Toml4j
 	include 'com.moandjiezana.toml:toml4j:0.7.2'
