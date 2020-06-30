@@ -52,8 +52,6 @@
   "tooltip.ringsofascension.undying": "Prevents you from die",
   "tooltip.ringsofascension.undying_cooldown": "Cooldown: secondsHere seconds",
   "tooltip.ringsofascension.slow_resistance": "Grants Immunity to Slowness",
-  "tooltip.ringsofascension.health": "Grants +heartsHere Hearts",
-  "tooltip.ringsofascension.knockback": "Grants Immunity to Knockback",
 
   "tooltip.ringsofascension.slot": "Slot:",
   "tooltip.ringsofascension.slot.ring": "Ring",

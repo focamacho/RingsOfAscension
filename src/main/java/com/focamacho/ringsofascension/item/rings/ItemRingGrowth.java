@@ -3,12 +3,12 @@ package com.focamacho.ringsofascension.item.rings;
 import com.focamacho.ringsofascension.item.ItemRingBase;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropBlock;
+import net.minecraft.block.StemBlock;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.BoneMealItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.server.world.ServerWorld;
+import net.minecraft.item.Items;
 import net.minecraft.util.math.BlockPos;
-
-import java.util.Random;
 
 public class ItemRingGrowth extends ItemRingBase {
 
@@ -32,22 +32,10 @@ public class ItemRingGrowth extends ItemRingBase {
 
                 BlockState state = player.world.getBlockState(pos);
 
-                Random rand = new Random();
-                if(rand.nextInt(100) < 90) continue;
-
-                if(state.getBlock() instanceof CropBlock) {
-                    CropBlock crop = (CropBlock) state.getBlock();
-
-                    if(crop.canGrow(player.world, player.world.random, pos, state)) {
-                        if(player.world instanceof ServerWorld) {
-                            crop.grow((ServerWorld) player.world, player.world.random, pos, state);
-                        }
-
-                        if(state != player.world.getBlockState(pos)) {
-                            player.world.syncWorldEvent(2005, pos, 0);
-                        }
-
+                if(state.getBlock() instanceof CropBlock || state.getBlock() instanceof StemBlock) {
+                    if (BoneMealItem.useOnFertilizable(new ItemStack(Items.BONE_MEAL), player.world, pos)) {
                         limit++;
+                        if (state != player.world.getBlockState(pos)) player.world.syncWorldEvent(2005, pos, 0);
                     }
                 }
             }

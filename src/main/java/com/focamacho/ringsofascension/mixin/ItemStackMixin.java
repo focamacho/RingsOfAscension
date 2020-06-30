@@ -14,7 +14,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import java.util.Iterator;
 import java.util.List;
 
 @Mixin(ItemStack.class)
@@ -25,13 +24,6 @@ public class ItemStackMixin {
         Item item = ((ItemStack) (Object) this).getItem();
         if(item instanceof ItemRingBase) {
             List<Text> tooltip = info.getReturnValue();
-            Iterator<Text> iterator = tooltip.iterator();
-
-            while(iterator.hasNext()) {
-                String text = iterator.next().toString();
-                if(text.contains("attribute.name")) iterator.remove();
-            }
-
             tooltip.remove(new LiteralText("Equippable in trinket slots:").formatted(Formatting.GRAY));
             tooltip.remove(new TranslatableText("trinkets.slot.hand.ring").formatted(Formatting.BLUE));
             tooltip.remove(new TranslatableText("trinkets.slot.offhand.ring").formatted(Formatting.BLUE));
