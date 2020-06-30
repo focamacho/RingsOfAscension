@@ -4,19 +4,18 @@ import com.focamacho.ringsofascension.config.ConfigHolder;
 import com.focamacho.ringsofascension.item.ItemRingBase;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropsBlock;
-import net.minecraft.block.IGrowable;
+import net.minecraft.block.StemBlock;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.item.BoneMealItem;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
-import net.minecraftforge.common.IPlantable;
 
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.Random;
 
 public class ItemRingGrowth extends ItemRingBase {
 
@@ -41,26 +40,13 @@ public class ItemRingGrowth extends ItemRingBase {
 
                 BlockState state = livingEntity.world.getBlockState(pos);
 
-                Random rand = new Random();
-                if(rand.nextInt(100) < 90) continue;
-
-                if(state.getBlock() instanceof IGrowable && state.getBlock() instanceof IPlantable && state.getBlock() instanceof CropsBlock) {
-                    IGrowable igrowable = (IGrowable) state.getBlock();
-
-                    if(igrowable.canGrow(livingEntity.world, pos, state, false)) {
-                        if (livingEntity.world instanceof ServerWorld) {
-                            igrowable.func_225535_a_((ServerWorld) livingEntity.world, livingEntity.world.rand, pos, state);
-                        }
-
-                        if(state != livingEntity.world.getBlockState(pos)) {
-                            livingEntity.world.playEvent(2005, pos, 0);
-                        }
-
+                if(state.getBlock() instanceof CropsBlock || state.getBlock() instanceof StemBlock) {
+                    if(BoneMealItem.applyBonemeal(new ItemStack(Items.BONE_MEAL), livingEntity.world, pos)) {
                         limit++;
+                        if(state != livingEntity.world.getBlockState(pos)) livingEntity.world.playEvent(2005, pos, 0);
                     }
                 }
             }
-
         } else {
             timer--;
         }

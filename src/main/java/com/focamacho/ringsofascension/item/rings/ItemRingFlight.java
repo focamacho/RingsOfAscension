@@ -19,12 +19,21 @@ public class ItemRingFlight extends ItemRingBase {
     }
 
     @Override
+    public void onEquippedCurio(String identifier, LivingEntity livingEntity) {
+        if(!ConfigHolder.ringFlight) return;
+        if(livingEntity instanceof PlayerEntity) {
+            PlayerEntity player = (PlayerEntity) livingEntity;
+            player.abilities.allowFlying = true;
+            player.abilities.isFlying = true;
+        }
+    }
+
+    @Override
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
         if(!ConfigHolder.ringFlight) return;
         if(livingEntity instanceof PlayerEntity) {
             PlayerEntity player = (PlayerEntity) livingEntity;
             player.abilities.allowFlying = true;
-            player.sendPlayerAbilities();
         }
     }
 
@@ -35,7 +44,6 @@ public class ItemRingFlight extends ItemRingBase {
             PlayerEntity player = (PlayerEntity) livingEntity;
             player.abilities.allowFlying = false;
             player.abilities.isFlying = false;
-            player.sendPlayerAbilities();
         }
     }
 

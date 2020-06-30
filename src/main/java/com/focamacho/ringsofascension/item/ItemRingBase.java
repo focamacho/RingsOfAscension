@@ -48,6 +48,8 @@ public abstract class ItemRingBase extends Item {
         return modifiers;
     }
 
+    public void onEquippedCurio(String identifier, LivingEntity livingEntity){}
+
     public void onUnequippedCurio(String identifier, LivingEntity livingEntity){}
 
     public int getTier() {
@@ -68,6 +70,11 @@ public abstract class ItemRingBase extends Item {
                 @Override
                 public void playEquipSound(LivingEntity livingEntity) {
                     livingEntity.world.playSound(null, livingEntity.getPosition(), SoundEvents.ITEM_ARMOR_EQUIP_GOLD, SoundCategory.NEUTRAL, 1.0f, 1.0f);
+                }
+
+                @Override
+                public void onEquipped(String identifier, LivingEntity livingEntity) {
+                    onEquippedCurio(identifier, livingEntity);
                 }
 
                 @Nonnull
