@@ -14,7 +14,7 @@ public class ApplyPotionEvent {
     @SubscribeEvent
     public void onApplyPotion(PotionEvent.PotionApplicableEvent event) {
         //Poison Resistance Ring
-        if(event.getPotionEffect().getPotion() == Effects.SLOWNESS && ConfigHolder.ringPoisonResistance) {
+        if(event.getPotionEffect().getPotion() == Effects.POISON && ConfigHolder.ringPoisonResistance) {
             if(event.getEntityLiving() instanceof PlayerEntity) {
                 if(Utils.isRingEquipped(ModItems.ringPoisonResistance, (PlayerEntity)event.getEntityLiving())) event.setResult(Event.Result.DENY);
             }
