@@ -5,6 +5,7 @@ import com.focamacho.ringsofascension.config.ConfigRingsOfAscension;
 import com.focamacho.ringsofascension.events.ApplyPotionEvent;
 import com.focamacho.ringsofascension.events.LootTableEvent;
 import com.focamacho.ringsofascension.events.PlayerDeathEvent;
+import com.focamacho.ringsofascension.events.TooltipEvent;
 import com.focamacho.ringsofascension.init.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -53,7 +54,7 @@ public class RingsOfAscension {
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
-
+        MinecraftForge.EVENT_BUS.register(new TooltipEvent());
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event) {

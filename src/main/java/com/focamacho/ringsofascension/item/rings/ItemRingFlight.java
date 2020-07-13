@@ -25,6 +25,7 @@ public class ItemRingFlight extends ItemRingBase {
             PlayerEntity player = (PlayerEntity) livingEntity;
             player.abilities.allowFlying = true;
             player.abilities.isFlying = true;
+            player.sendPlayerAbilities();
         }
     }
 
@@ -33,7 +34,10 @@ public class ItemRingFlight extends ItemRingBase {
         if(!ConfigHolder.ringFlight) return;
         if(livingEntity instanceof PlayerEntity) {
             PlayerEntity player = (PlayerEntity) livingEntity;
-            player.abilities.allowFlying = true;
+            if(!player.abilities.allowFlying) {
+                player.abilities.allowFlying = true;
+                player.sendPlayerAbilities();
+            }
         }
     }
 
@@ -44,6 +48,7 @@ public class ItemRingFlight extends ItemRingBase {
             PlayerEntity player = (PlayerEntity) livingEntity;
             player.abilities.allowFlying = false;
             player.abilities.isFlying = false;
+            player.sendPlayerAbilities();
         }
     }
 

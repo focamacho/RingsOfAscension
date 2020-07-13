@@ -57,6 +57,8 @@
   "tooltip.ringsofascension.tier.common": "Обычное",
   "tooltip.ringsofascension.tier.rare": "Редкое",
   "tooltip.ringsofascension.tier.epic": "Эпическое",
-  "tooltip.ringsofascension.tier.legendary": "Легендарное"
+  "tooltip.ringsofascension.tier.legendary": "Легендарное",
+  "tooltip.ringsofascension.slot": "Slot: ",
+  "tooltip.ringsofascension.ring": "Ring"
 
 }
