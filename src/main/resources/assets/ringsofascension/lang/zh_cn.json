@@ -53,6 +53,8 @@
   "tooltip.ringsofascension.undying_cooldown": "冷却： secondsHere秒",
   "tooltip.ringsofascension.slow_resistance": "免疫缓慢效果",
 
+  "tooltip.ringsofascension.slot": "Slot:",
+  "tooltip.ringsofascension.slot.ring": "Ring",
   "tooltip.ringsofascension.tier": "品质：",
   "tooltip.ringsofascension.tier.common": "普通",
   "tooltip.ringsofascension.tier.rare": "稀有",
