@@ -14,16 +14,21 @@ public class ItemRingFlight extends ItemRingBase {
     public void onEquip(PlayerEntity player, ItemStack stack) {
         player.abilities.allowFlying = true;
         player.abilities.flying = true;
+        player.sendAbilitiesUpdate();
     }
 
     @Override
     public void tick(PlayerEntity player, ItemStack stack) {
-        player.abilities.allowFlying = true;
+        if(!player.abilities.allowFlying) {
+            player.abilities.allowFlying = true;
+            player.sendAbilitiesUpdate();
+        }
     }
 
     @Override
     public void onUnequip(PlayerEntity player, ItemStack stack) {
         player.abilities.allowFlying = false;
         player.abilities.flying = false;
+        player.sendAbilitiesUpdate();
     }
 }
