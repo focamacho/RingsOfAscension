@@ -6,6 +6,10 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.fluid.Fluid;
+import net.minecraft.fluid.FluidState;
+import net.minecraft.fluid.Fluids;
+import net.minecraft.fluid.IFluidState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
@@ -29,9 +33,9 @@ public class ItemRingSponge extends ItemRingBase {
         int range = 3;
 
         for(BlockPos pos : BlockPos.getAllInBoxMutable(entityPos.getX() - range, entityPos.getY() - range, entityPos.getZ() - range, entityPos.getX() + range, entityPos.getY() + range, entityPos.getZ() + range)) {
-            BlockState state = livingEntity.world.getBlockState(pos);
+            Fluid fluid = livingEntity.world.getFluidState(pos).getFluid();
 
-            if(state.getBlock() == Blocks.WATER) {
+            if(fluid.equals(Fluids.WATER) || fluid.equals(Fluids.FLOWING_WATER)) {
                 livingEntity.world.setBlockState(pos, Blocks.AIR.getDefaultState());
             }
 
