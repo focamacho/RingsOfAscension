@@ -4,6 +4,8 @@ import com.focamacho.ringsofascension.item.ItemRingBase;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.fluid.Fluid;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 
@@ -21,9 +23,9 @@ public class ItemRingSponge extends ItemRingBase {
         int range = 3;
 
         for(BlockPos pos : BlockPos.iterate(entityPos.getX() - range, entityPos.getY() - range, entityPos.getZ() - range, entityPos.getX() + range, entityPos.getY() + range, entityPos.getZ() + range)) {
-            BlockState state = player.world.getBlockState(pos);
+            Fluid fluid = player.world.getFluidState(pos).getFluid();
 
-            if(state.getBlock() == Blocks.WATER) {
+            if(fluid.equals(Fluids.WATER) || fluid.equals(Fluids.FLOWING_WATER)) {
                 player.world.setBlockState(pos, Blocks.AIR.getDefaultState());
             }
         }
