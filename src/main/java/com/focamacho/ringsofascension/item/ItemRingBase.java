@@ -131,7 +131,7 @@ public abstract class ItemRingBase extends Item {
             case 2:
                 tooltip.add(new StringTextComponent(ChatFormatting.GOLD + new TranslationTextComponent("tooltip.ringsofascension.tier").getFormattedText() + " " + ChatFormatting.LIGHT_PURPLE + new TranslationTextComponent("tooltip.ringsofascension.tier.epic").getFormattedText()));
                 break;
-             case 3:
+            case 3:
                 tooltip.add(new StringTextComponent(ChatFormatting.GOLD + new TranslationTextComponent("tooltip.ringsofascension.tier").getFormattedText() + " " + ChatFormatting.RED + new TranslationTextComponent("tooltip.ringsofascension.tier.legendary").getFormattedText()));
         }
 

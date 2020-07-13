@@ -12,11 +12,17 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '1.5.2'
+version = '1.5.3'
 group = 'com.focamacho.ringsofascension'
 archivesBaseName = 'RingsOfAscension-1.15.2'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
+
+compileJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
 
 minecraft {
     mappings channel: 'snapshot', version: '20190719-1.14.3'

@@ -57,6 +57,8 @@
   "tooltip.ringsofascension.tier.common": "普通",
   "tooltip.ringsofascension.tier.rare": "稀有",
   "tooltip.ringsofascension.tier.epic": "史诗",
-  "tooltip.ringsofascension.tier.legendary": "传说"
+  "tooltip.ringsofascension.tier.legendary": "传说",
+  "tooltip.ringsofascension.slot": "Slot: ",
+  "tooltip.ringsofascension.ring": "Ring"
 
 }
