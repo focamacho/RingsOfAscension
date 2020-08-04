@@ -25,7 +25,7 @@ tasks.withType(JavaCompile) {
 }
 
 minecraft {
-    mappings channel: 'snapshot', version: '20190719-1.14.3'
+    mappings channel: 'snapshot', version: '20200514-1.15.1'
 
     runs {
         client {
