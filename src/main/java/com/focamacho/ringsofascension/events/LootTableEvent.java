@@ -50,7 +50,7 @@ public class LootTableEvent {
 
     private LootPool getLootPool() {
         return LootPool.builder()
-                .rolls(RandomValueRange.func_215837_a(ConfigHolder.ringMinLoot, ConfigHolder.ringMaxLoot))
+                .rolls(RandomValueRange.of(ConfigHolder.ringMinLoot, ConfigHolder.ringMaxLoot))
 
                 //Ring of Fire Resistance
                 .addEntry(ItemLootEntry.builder(() -> ModItems.ringFireResistance).weight(ConfigHolder.ringFireResistance ? getWeightFromTier(ConfigHolder.ringTierFireResistance) : 0))
