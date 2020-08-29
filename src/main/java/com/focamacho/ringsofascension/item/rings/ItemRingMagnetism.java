@@ -20,7 +20,7 @@ public class ItemRingMagnetism extends ItemRingBase {
         if(!player.world.isClient && !player.isSneaking()) {
             int range = 5;
             BlockPos pos = player.getBlockPos();
-            List<ItemEntity> entities = player.world.getEntities(ItemEntity.class, new Box(pos.getX() + range, pos.getY() + range, pos.getZ() + range, pos.getX() - range, pos.getY() - range, pos.getZ() - range), null);
+            List<ItemEntity> entities = player.world.getEntitiesByClass(ItemEntity.class, new Box(pos.getX() + range, pos.getY() + range, pos.getZ() + range, pos.getX() - range, pos.getY() - range, pos.getZ() - range), null);
             for(ItemEntity item : entities) {
                 if(item.isAlive() && !item.cannotPickup()) {
                     item.onPlayerCollision(player);

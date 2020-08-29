@@ -20,7 +20,7 @@ public class ItemRingExperience extends ItemRingBase {
         if(!player.world.isClient && !player.isSneaking()) {
             int range = 5;
             BlockPos pos = player.getBlockPos();
-            List<ExperienceOrbEntity> entities = player.world.getEntities(ExperienceOrbEntity.class, new Box(pos.getX() + range, pos.getY() + range, pos.getZ() + range, pos.getX() - range, pos.getY() - range, pos.getZ() - range), null);
+            List<ExperienceOrbEntity> entities = player.world.getEntitiesByClass(ExperienceOrbEntity.class, new Box(pos.getX() + range, pos.getY() + range, pos.getZ() + range, pos.getX() - range, pos.getY() - range, pos.getZ() - range), null);
             for(ExperienceOrbEntity orb : entities) {
                 if(orb.isAlive()) {
                     orb.onPlayerCollision(player);
