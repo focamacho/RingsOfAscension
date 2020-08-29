@@ -71,7 +71,7 @@ public abstract class ItemRingBase extends Item {
 
                 @Override
                 public void playRightClickEquipSound(LivingEntity livingEntity) {
-                    livingEntity.world.playSound(null, livingEntity.serverPosX, livingEntity.serverPosY, livingEntity.serverPosZ, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, SoundCategory.NEUTRAL, 1.0f, 1.0f);
+                    livingEntity.world.playSound(null, livingEntity.getPosX(), livingEntity.getPosY(), livingEntity.getPosZ(), SoundEvents.ITEM_ARMOR_EQUIP_GOLD, SoundCategory.NEUTRAL, 1.0f, 1.0f);
                 }
 
                 @Override
