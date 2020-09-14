@@ -7,7 +7,7 @@ plugins {
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
-archivesBaseName = 'RingsOfAscension-1.16.2'
+archivesBaseName = 'RingsOfAscension-1.16.3'
 version = '1.0.7'
 group = 'com.focamacho.ringsofascension'
 
