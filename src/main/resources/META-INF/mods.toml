@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[33,)"
+loaderVersion="[34,)"
 issueTrackerURL="https://github.com/Focamacho/RingsOfAscension/issues"
 license="MIT"
 [[mods]]
@@ -15,6 +15,6 @@ Rings from this mod don't have a recipe and can only be found in dungeon chests.
 [[dependencies.ringsofascension]]
     modId="curios"
     mandatory=true
-    versionRange="[1.16.2,)"
+    versionRange="[1.16.3,)"
     ordering="NONE"
     side="BOTH"

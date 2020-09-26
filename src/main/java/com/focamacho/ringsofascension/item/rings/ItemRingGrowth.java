@@ -7,6 +7,7 @@ import net.minecraft.block.CropsBlock;
 import net.minecraft.block.StemBlock;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BoneMealItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -28,6 +29,7 @@ public class ItemRingGrowth extends ItemRingBase {
     @Override
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
         if(!ConfigHolder.ringGrowth) return;
+        if(!(livingEntity instanceof PlayerEntity)) return;
         if(timer <= 0) {
             timer = 200;
 
@@ -41,7 +43,7 @@ public class ItemRingGrowth extends ItemRingBase {
                 BlockState state = livingEntity.world.getBlockState(pos);
 
                 if(state.getBlock() instanceof CropsBlock || state.getBlock() instanceof StemBlock) {
-                    if(BoneMealItem.applyBonemeal(new ItemStack(Items.BONE_MEAL), livingEntity.world, pos)) {
+                    if(BoneMealItem.applyBonemeal(new ItemStack(Items.BONE_MEAL), livingEntity.world, pos, (PlayerEntity) livingEntity)) {
                         limit++;
                         if(state != livingEntity.world.getBlockState(pos)) livingEntity.world.playEvent(2005, pos, 0);
                     }
