@@ -14,8 +14,8 @@ public class ItemRingKnockbackResistance extends ItemRingBase {
 
     private static final UUID KNOBACK_RESISTANCE_UUID = UUID.fromString("320d847e-eecd-402f-b6cf-d339d2fa97af");
 
-    public ItemRingKnockbackResistance(String name, int tier, String tooltip, boolean enabled) {
-        super(name, tier, tooltip, enabled);
+    public ItemRingKnockbackResistance(String name, int tier, String tooltip, boolean enabled, String locations) {
+        super(name, tier, tooltip, enabled, locations);
     }
 
     @Override

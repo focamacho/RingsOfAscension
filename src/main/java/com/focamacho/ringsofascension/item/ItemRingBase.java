@@ -5,13 +5,17 @@ import com.focamacho.ringsofascension.init.ModItems;
 import dev.emi.trinkets.api.Slots;
 import dev.emi.trinkets.api.TrinketItem;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
+import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ItemRingBase extends TrinketItem {
@@ -20,15 +24,35 @@ public class ItemRingBase extends TrinketItem {
     private int tier;
     private String tooltip;
     private boolean enabled;
+    public final List<Identifier> locations = new ArrayList<>();
 
-    public ItemRingBase(String name, int tier, String tooltip, boolean enabled) {
+    public ItemRingBase(String name, int tier, String tooltip, boolean enabled, String locations) {
         super(new Settings().group(RingsOfAscension.creativeTab).maxCount(1));
         this.ringName = name;
         this.tier = tier;
         this.tooltip = tooltip;
         this.enabled = enabled;
 
-        if(enabled) ModItems.allRings.add(this);
+        for (String location : locations.split(";")) {
+            try {
+                String[] split = location.split(":");
+                this.locations.add(new Identifier(split[0], split[1]));
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        ModItems.allRings.add(this);
+    }
+
+    @Override
+    public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
+        if(!enabled) stack.setCount(0);
+    }
+
+    @Override
+    public void tick(PlayerEntity player, ItemStack stack) {
+        if(!enabled) stack.setCount(0);
     }
 
     @Override
@@ -57,6 +81,9 @@ public class ItemRingBase extends TrinketItem {
                 break;
             case 3:
                 tooltip.add(new TranslatableText("tooltip.ringsofascension.tier").formatted(Formatting.GOLD).append(new LiteralText(" ")).append(new TranslatableText("tooltip.ringsofascension.tier.legendary").formatted(Formatting.RED)));
+                break;
+            case 4:
+                tooltip.add(new TranslatableText("tooltip.ringsofascension.tier").formatted(Formatting.GOLD).append(new LiteralText(" ")).append(new TranslatableText("tooltip.ringsofascension.tier.mythic").formatted(Formatting.DARK_RED)));
         }
 
         tooltip.add(new LiteralText(""));

@@ -7,8 +7,8 @@ plugins {
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
-archivesBaseName = 'RingsOfAscension-1.16.3'
-version = '1.0.7'
+archivesBaseName = 'RingsOfAscension-1.16.4'
+version = '1.1.0'
 group = 'com.focamacho.ringsofascension'
 
 dependencies {
@@ -20,11 +20,20 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	//Trinkets
-	modImplementation "com.github.emilyploszaj:trinkets:2.6.3"
+	modImplementation "com.github.emilyploszaj:trinkets:2.6.7"
 
-	//Toml4j
-	include 'com.moandjiezana.toml:toml4j:0.7.2'
-	implementation 'com.moandjiezana.toml:toml4j:0.7.2'
+	//Auto Config 1u
+	modApi "me.sargunvohra.mcmods:autoconfig1u:3.3.1"
+	include "me.sargunvohra.mcmods:autoconfig1u:3.3.1"
+
+	//Mod Menu
+	modImplementation "io.github.prospector:modmenu:1.14.6+build.31"
+
+	//Cloth Config
+	modApi("me.shedaniel.cloth:config-2:4.8.2") {
+		exclude(group: "net.fabricmc.fabric-api")
+	}
+	include("me.shedaniel.cloth:config-2:4.8.2")
 }
 
 repositories {

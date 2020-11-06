@@ -10,12 +10,13 @@ import net.minecraft.util.math.Vec3d;
 
 public class ItemRingWaterWalking extends ItemRingBase {
 
-    public ItemRingWaterWalking(String name, int tier, String tooltip, boolean enabled) {
-        super(name, tier, tooltip, enabled);
+    public ItemRingWaterWalking(String name, int tier, String tooltip, boolean enabled, String locations) {
+        super(name, tier, tooltip, enabled, locations);
     }
 
     @Override
     public void tick(PlayerEntity player, ItemStack stack) {
+        super.tick(player, stack);
         if(player.isSneaking()) return;
 
         BlockPos entityPos = player.getBlockPos();

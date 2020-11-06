@@ -14,12 +14,13 @@ public class ItemRingGrowth extends ItemRingBase {
 
     private int timer = 200;
 
-    public ItemRingGrowth(String name, int tier, String tooltip, boolean enabled) {
-        super(name, tier, tooltip, enabled);
+    public ItemRingGrowth(String name, int tier, String tooltip, boolean enabled, String locations) {
+        super(name, tier, tooltip, enabled, locations);
     }
 
     @Override
     public void tick(PlayerEntity player, ItemStack stack) {
+        super.tick(player, stack);
         if(timer <= 0) {
             timer = 200;
 

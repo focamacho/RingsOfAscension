@@ -11,8 +11,8 @@ public class ItemRingEffect extends ItemRingBase {
     private StatusEffect effect;
     private int amplifier;
 
-    public ItemRingEffect(String name, int tier, StatusEffect effect, int amplifier, String tooltip, boolean enabled) {
-        super(name, tier, tooltip, enabled);
+    public ItemRingEffect(String name, int tier, StatusEffect effect, int amplifier, String tooltip, boolean enabled, String locations) {
+        super(name, tier, tooltip, enabled, locations);
         this.effect = effect;
         this.amplifier = amplifier;
     }

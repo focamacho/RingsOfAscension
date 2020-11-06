@@ -4,7 +4,6 @@ import com.focamacho.ringsofascension.item.ItemRingBase;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemStack;
@@ -14,12 +13,13 @@ import net.minecraft.world.World;
 
 public class ItemRingSponge extends ItemRingBase {
 
-    public ItemRingSponge(String name, int tier, String tooltip, boolean enabled) {
-        super(name, tier, tooltip, enabled);
+    public ItemRingSponge(String name, int tier, String tooltip, boolean enabled, String locations) {
+        super(name, tier, tooltip, enabled, locations);
     }
 
     @Override
     public void tick(PlayerEntity player, ItemStack stack) {
+        super.tick(player, stack);
         if(player.world.isClient || player.isSneaking()) return;
 
         World world = player.world;
