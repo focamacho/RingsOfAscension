@@ -161,13 +161,13 @@ public class ConfigRingsOfAscension implements ConfigData {
         public String ringLocationRegeneration = "minecraft:chests/stronghold_corridor;minecraft:chests/stronghold_library";
         public String ringLocationSlowFalling = "minecraft:chests/simple_dungeon;minecraft:chests/buried_treasure;minecraft:chests/end_city_treasure";
         public String ringLocationStrength = "minecraft:chests/stronghold_library;minecraft:chests/stronghold_corridor;minecraft:chests/stronghold_crossing;minecraft:chests/bastion_treasure;minecraft:chests/bastion_bridge;minecraft:chests/pillager_outpost";
-        public String ringLocationWaterBreathing = "minecraft:chests/spawn_bonus_chest;minecraft:chests/underwater_ruin_big;minecraft:chests/underwater_run_small;minecraft:chests/buried_treasure";
+        public String ringLocationWaterBreathing = "minecraft:chests/spawn_bonus_chest;minecraft:chests/underwater_ruin_big;minecraft:chests/underwater_ruin_small;minecraft:chests/buried_treasure";
         public String ringLocationSpeed = "minecraft:chests/spawn_bonus_chest;minecraft:chests/simple_dungeon;minecraft:chests/buried_treasure";
         public String ringLocationNightVision = "minecraft:chests/spawn_bonus_chest;minecraft:chests/simple_dungeon;minecraft:chests/abandoned_mineshaft";
         public String ringLocationJumpBoost = "minecraft:chests/end_city_treasure;minecraft:chests/igloo_chest;minecraft:chests/desert_pyramid";
         public String ringLocationMining = "minecraft:chests/simple_dungeon;minecraft:chests/abandoned_mineshaft";
         public String ringLocationLuck = "minecraft:chests/simple_dungeon;minecraft:chests/jungle_temple";
-        public String ringLocationDolphin = "minecraft:chests/underwater_ruin_big;minecraft:chests/underwater_run_small;minecraft:chests/buried_treasure";
+        public String ringLocationDolphin = "minecraft:chests/underwater_ruin_big;minecraft:chests/underwater_ruin_small;minecraft:chests/buried_treasure";
         public String ringLocationMagnetism = "minecraft:chests/spawn_bonus_chest;minecraft:chests/simple_dungeon;minecraft:chests/buried_treasure;minecraft:chests/ruined_portal";
         public String ringLocationFlight = "minecraft:chests/end_city_treasure";
         public String ringLocationPoisonResistance = "minecraft:chests/jungle_temple;minecraft:chests/end_city_treasure;minecraft:chests/shipwreck_treasure;minecraft:chests/bastion_treasure;minecraft:chests/bastion_bridge";
@@ -175,9 +175,9 @@ public class ConfigRingsOfAscension implements ConfigData {
         public String ringLocationGrowth = "minecraft:chests/jungle_temple";
         public String ringLocationKnockbackResistance = "minecraft:chests/end_city_treasure;minecraft:chests/bastion_bridge;minecraft:chests/nether_bridge";
         public String ringLocationHealth = "minecraft:chests/end_city_treasure;minecraft:chests/bastion_treasure;minecraft:chests/stronghold_library";
-        public String ringLocationSponge = "minecraft:chests/underwater_ruin_big;minecraft:chests/underwater_run_small";
+        public String ringLocationSponge = "minecraft:chests/underwater_ruin_big;minecraft:chests/underwater_ruin_small";
         public String ringLocationExperience = "minecraft:chests/spawn_bonus_chest;minecraft:chests/simple_dungeon;minecraft:chests/buried_treasure;minecraft:chests/ruined_portal";
-        public String ringLocationWaterWalking = "minecraft:chests/underwater_ruin_big;minecraft:chests/underwater_run_small;minecraft:chests/buried_treasure";
+        public String ringLocationWaterWalking = "minecraft:chests/underwater_ruin_big;minecraft:chests/underwater_ruin_small;minecraft:chests/buried_treasure";
         public String ringLocationWither = "minecraft:chests/bastion_treasure";
         public String ringLocationUndying = "minecraft:chests/woodland_mansion";
         public String ringLocationSlowResistance = "minecraft:chests/end_city_treasure;minecraft:chests/shipwreck_treasure;minecraft:chests/bastion_treasure;minecraft:chests/bastion_bridge";
