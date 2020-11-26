@@ -6,6 +6,7 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Effects;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
 
@@ -20,10 +21,20 @@ public class ItemRingWither extends ItemRingBase {
 
     @Override
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
-        if(!ConfigHolder.ringWither) return;
+        if(!isEnabled()) return;
         if(livingEntity.isPotionActive(Effects.WITHER)) {
             livingEntity.removeActivePotionEffect(Effects.WITHER);
         }
+    }
+
+    @Override
+    public List<ResourceLocation> getLocations() {
+        return super.getLocations(ConfigHolder.ringLocationWither);
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return ConfigHolder.ringWither;
     }
 
     @Override
@@ -33,7 +44,7 @@ public class ItemRingWither extends ItemRingBase {
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-        if(!ConfigHolder.ringWither) return;
+        if(!isEnabled()) return;
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 

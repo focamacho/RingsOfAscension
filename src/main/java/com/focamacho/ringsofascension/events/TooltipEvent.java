@@ -19,18 +19,18 @@ public class TooltipEvent {
             int index1 = -1;
             int index2 = -1;
             for(ITextComponent line : tooltip) {
-                if(line.getString().equals(new TranslationTextComponent("curios.modifiers.ring").func_240699_a_(TextFormatting.GOLD).getString())) {
+                if(line.getString().equals(new TranslationTextComponent("curios.modifiers.ring").mergeStyle(TextFormatting.GOLD).getString())) {
                     index1 = tooltip.indexOf(line);
-                } else if(line.getString().startsWith(new TranslationTextComponent("curios.slot").func_240702_b_(": ").func_240699_a_(TextFormatting.GOLD).getString())) {
+                } else if(line.getString().startsWith(new TranslationTextComponent("curios.slot").appendString(": ").mergeStyle(TextFormatting.GOLD).getString())) {
                     index2 = tooltip.indexOf(line);
                 }
             }
 
             if(index1 != -1) {
-                tooltip.set(index1, new TranslationTextComponent("tooltip.ringsofascension.worn").func_240699_a_(TextFormatting.GOLD));
+                tooltip.set(index1, new TranslationTextComponent("tooltip.ringsofascension.worn").mergeStyle(TextFormatting.GOLD));
             }
             if(index2 != -1) {
-                tooltip.set(index2, new TranslationTextComponent("tooltip.ringsofascension.slot").func_240699_a_(TextFormatting.GOLD).func_230529_a_(new TranslationTextComponent("tooltip.ringsofascension.ring").func_240699_a_(TextFormatting.YELLOW)));
+                tooltip.set(index2, new TranslationTextComponent("tooltip.ringsofascension.slot").mergeStyle(TextFormatting.GOLD).append(new TranslationTextComponent("tooltip.ringsofascension.ring").mergeStyle(TextFormatting.YELLOW)));
             }
         }
     }

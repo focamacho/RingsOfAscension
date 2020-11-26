@@ -9,6 +9,7 @@ import net.minecraft.entity.ai.attributes.Attribute;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
 import top.theillusivec4.curios.api.CuriosApi;
@@ -29,13 +30,23 @@ public class ItemRingHealth extends ItemRingBase {
     public Multimap<Attribute, AttributeModifier> curioModifiers(ItemStack stack, String identifier) {
         Multimap<Attribute, AttributeModifier> modifiers = HashMultimap.create();
 
-        if (CuriosApi.getCuriosHelper().getCurioTags(stack.getItem()).contains(identifier) && ConfigHolder.ringHealth) {
-            modifiers.put(Attributes.field_233818_a_,
+        if (CuriosApi.getCuriosHelper().getCurioTags(stack.getItem()).contains(identifier) && isEnabled()) {
+            modifiers.put(Attributes.MAX_HEALTH,
                     new AttributeModifier(HEALTH_UUID, "Max Health", ConfigHolder.ringHealthHearts * 2,
                             AttributeModifier.Operation.ADDITION));
         }
 
         return modifiers;
+    }
+
+    @Override
+    public List<ResourceLocation> getLocations() {
+        return super.getLocations(ConfigHolder.ringLocationHealth);
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return ConfigHolder.ringHealth;
     }
 
     @Override
@@ -45,7 +56,7 @@ public class ItemRingHealth extends ItemRingBase {
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-        if(!ConfigHolder.ringHealth) return;
+        if(!isEnabled()) return;
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 

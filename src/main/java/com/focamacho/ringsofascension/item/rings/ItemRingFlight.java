@@ -6,6 +6,7 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
 
@@ -20,7 +21,7 @@ public class ItemRingFlight extends ItemRingBase {
 
     @Override
     public void onEquippedCurio(String identifier, LivingEntity livingEntity) {
-        if(!ConfigHolder.ringFlight) return;
+        if(!isEnabled()) return;
         if(livingEntity instanceof PlayerEntity) {
             PlayerEntity player = (PlayerEntity) livingEntity;
             player.abilities.allowFlying = true;
@@ -31,7 +32,7 @@ public class ItemRingFlight extends ItemRingBase {
 
     @Override
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
-        if(!ConfigHolder.ringFlight) return;
+        if(!isEnabled()) return;
         if(livingEntity instanceof PlayerEntity) {
             PlayerEntity player = (PlayerEntity) livingEntity;
             if(!player.abilities.allowFlying) {
@@ -43,7 +44,7 @@ public class ItemRingFlight extends ItemRingBase {
 
     @Override
     public void onUnequippedCurio(String identifier, LivingEntity livingEntity) {
-        if(!ConfigHolder.ringFlight) return;
+        if(!isEnabled()) return;
         if(livingEntity instanceof PlayerEntity) {
             PlayerEntity player = (PlayerEntity) livingEntity;
             player.abilities.allowFlying = false;
@@ -53,13 +54,23 @@ public class ItemRingFlight extends ItemRingBase {
     }
 
     @Override
+    public List<ResourceLocation> getLocations() {
+        return super.getLocations(ConfigHolder.ringLocationFlight);
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return ConfigHolder.ringFlight;
+    }
+
+    @Override
     public int getTier() {
         return ConfigHolder.ringTierFlight;
     }
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-        if(!ConfigHolder.ringFlight) return;
+        if(!isEnabled()) return;
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 

@@ -9,6 +9,7 @@ import net.minecraft.entity.ai.attributes.Attribute;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
 import top.theillusivec4.curios.api.CuriosApi;
@@ -29,13 +30,23 @@ public class ItemRingKnockbackResistance extends ItemRingBase {
     public Multimap<Attribute, AttributeModifier> curioModifiers(ItemStack stack, String identifier) {
         Multimap<Attribute, AttributeModifier> modifiers = HashMultimap.create();
 
-        if (CuriosApi.getCuriosHelper().getCurioTags(stack.getItem()).contains(identifier) && ConfigHolder.ringKnockbackResistance) {
-            modifiers.put(Attributes.field_233820_c_,
+        if (CuriosApi.getCuriosHelper().getCurioTags(stack.getItem()).contains(identifier) && isEnabled()) {
+            modifiers.put(Attributes.KNOCKBACK_RESISTANCE,
                     new AttributeModifier(KNOBACK_RESISTANCE_UUID, "Knockback Resistance", 1.0D,
                             AttributeModifier.Operation.ADDITION));
         }
 
         return modifiers;
+    }
+
+    @Override
+    public List<ResourceLocation> getLocations() {
+        return super.getLocations(ConfigHolder.ringLocationKnockbackResistance);
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return ConfigHolder.ringKnockbackResistance;
     }
 
     @Override
@@ -45,7 +56,7 @@ public class ItemRingKnockbackResistance extends ItemRingBase {
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-        if(!ConfigHolder.ringKnockbackResistance) return;
+        if(!isEnabled()) return;
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 

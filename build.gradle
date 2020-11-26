@@ -12,9 +12,9 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '1.5.6'
+version = '1.6.0'
 group = 'com.focamacho.ringsofascension'
-archivesBaseName = 'RingsOfAscension-1.16.3'
+archivesBaseName = 'RingsOfAscension-1.16.4'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
@@ -27,7 +27,7 @@ tasks.withType(JavaCompile) {
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 
 minecraft {
-    mappings channel: 'snapshot', version: '20200514-1.16'
+    mappings channel: 'snapshot', version: '20201028-1.16.3'
     runs {
         client {
             workingDirectory project.file('run')
@@ -76,10 +76,10 @@ minecraft {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.3-34.1.0'
+    minecraft 'net.minecraftforge:forge:1.16.4-35.1.0'
 	
-	runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.16.3-4.0.2.0")
-    compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.16.3-4.0.2.0:api")
+	runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.16.4-4.0.3.0")
+    compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.16.4-4.0.3.0:api")
 }
 
 repositories {

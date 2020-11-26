@@ -6,16 +6,15 @@ import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
-import net.minecraftforge.fluids.IFluidBlock;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -28,7 +27,7 @@ public class ItemRingSponge extends ItemRingBase {
 
     @Override
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
-        if(!ConfigHolder.ringSponge) return;
+        if(!isEnabled()) return;
         if(livingEntity.world.isRemote || livingEntity.isCrouching()) return;
 
         World world = livingEntity.world;
@@ -55,13 +54,23 @@ public class ItemRingSponge extends ItemRingBase {
     }
 
     @Override
+    public List<ResourceLocation> getLocations() {
+        return super.getLocations(ConfigHolder.ringLocationSponge);
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return ConfigHolder.ringSponge;
+    }
+
+    @Override
     public int getTier() {
         return ConfigHolder.ringTierSponge;
     }
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-        if(!ConfigHolder.ringSponge) return;
+        if(!isEnabled()) return;
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 

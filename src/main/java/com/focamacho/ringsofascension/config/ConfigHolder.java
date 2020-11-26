@@ -73,22 +73,31 @@ public class ConfigHolder {
     public static int ringMinLoot = ConfigRingsOfAscension.configRingMinLoot.get();
     public static int ringMaxLoot = ConfigRingsOfAscension.configRingMaxLoot.get();
 
-    public static boolean ringDungeonChests = ConfigRingsOfAscension.configRingDungeonChests.get();
-    public static boolean ringMineshaftChests = ConfigRingsOfAscension.configRingMineshaftChests.get();
-    public static boolean ringPyramidChests = ConfigRingsOfAscension.configRingPyramidChests.get();
-    public static boolean ringBuriedTreasureChests = ConfigRingsOfAscension.configRingBuriedTreasureChests.get();
-    public static boolean ringEndCityChests = ConfigRingsOfAscension.configRingEndCityChests.get();
-    public static boolean ringIglooChests = ConfigRingsOfAscension.configRingIglooChests.get();
-    public static boolean ringJungleChests = ConfigRingsOfAscension.configRingJungleChests.get();
-    public static boolean ringNetherChests = ConfigRingsOfAscension.configRingNetherChests.get();
-    public static boolean ringPillagerChests = ConfigRingsOfAscension.configRingPillagerChests.get();
-    public static boolean ringShipwreckChests = ConfigRingsOfAscension.configRingShipwreckChests.get();
-    public static boolean ringBonusChests = ConfigRingsOfAscension.configRingBonusChests.get();
-    public static boolean ringStrongholdChests = ConfigRingsOfAscension.configRingStrongholdChests.get();
-    public static boolean ringWoodlandChests = ConfigRingsOfAscension.configRingWoodlandChests.get();
-    public static boolean ringToolsmithChests = ConfigRingsOfAscension.configRingToolsmithChests.get();
-    public static boolean ringWeaponsmithChests = ConfigRingsOfAscension.configRingWeaponsmithChests.get();
-    public static boolean ringArmorerChests = ConfigRingsOfAscension.configRingArmorerChests.get();
+    public static String ringLocationFireResistance = ConfigRingsOfAscension.configRingLocationFireResistance.get();
+    public static String ringLocationInvisibility = ConfigRingsOfAscension.configRingLocationInvisibility.get();
+    public static String ringLocationRegeneration = ConfigRingsOfAscension.configRingLocationRegeneration.get();
+    public static String ringLocationSlowFalling = ConfigRingsOfAscension.configRingLocationSlowFalling.get();
+    public static String ringLocationStrength = ConfigRingsOfAscension.configRingLocationStrength.get();
+    public static String ringLocationWaterBreathing = ConfigRingsOfAscension.configRingLocationWaterBreathing.get();
+    public static String ringLocationSpeed = ConfigRingsOfAscension.configRingLocationSpeed.get();
+    public static String ringLocationNightVision = ConfigRingsOfAscension.configRingLocationNightVision.get();
+    public static String ringLocationJumpBoost = ConfigRingsOfAscension.configRingLocationJumpBoost.get();
+    public static String ringLocationMining = ConfigRingsOfAscension.configRingLocationMining.get();
+    public static String ringLocationLuck = ConfigRingsOfAscension.configRingLocationLuck.get();
+    public static String ringLocationDolphin = ConfigRingsOfAscension.configRingLocationDolphin.get();
+    public static String ringLocationMagnetism = ConfigRingsOfAscension.configRingLocationMagnetism.get();
+    public static String ringLocationFlight = ConfigRingsOfAscension.configRingLocationFlight.get();
+    public static String ringLocationPoisonResistance = ConfigRingsOfAscension.configRingLocationPoisonResistance.get();
+    public static String ringLocationHungerless = ConfigRingsOfAscension.configRingLocationHungerless.get();
+    public static String ringLocationGrowth = ConfigRingsOfAscension.configRingLocationGrowth.get();
+    public static String ringLocationKnockbackResistance = ConfigRingsOfAscension.configRingLocationKnockbackResistance.get();
+    public static String ringLocationHealth = ConfigRingsOfAscension.configRingLocationHealth.get();
+    public static String ringLocationSponge = ConfigRingsOfAscension.configRingLocationSponge.get();
+    public static String ringLocationExperience = ConfigRingsOfAscension.configRingLocationExperience.get();
+    public static String ringLocationWaterWalking = ConfigRingsOfAscension.configRingLocationWaterWalking.get();
+    public static String ringLocationWither = ConfigRingsOfAscension.configRingLocationWither.get();
+    public static String ringLocationUndying = ConfigRingsOfAscension.configRingLocationUndying.get();
+    public static String ringLocationSlowResistance = ConfigRingsOfAscension.configRingLocationSlowResistance.get();
 
     public static void updateConfigs() {
         ringUndyingCooldown = ConfigRingsOfAscension.configRingUndyingCooldown.get();
@@ -162,22 +171,31 @@ public class ConfigHolder {
         ringMinLoot = ConfigRingsOfAscension.configRingMinLoot.get();
         ringMaxLoot = ConfigRingsOfAscension.configRingMaxLoot.get();
 
-        ringDungeonChests = ConfigRingsOfAscension.configRingDungeonChests.get();
-        ringMineshaftChests = ConfigRingsOfAscension.configRingMineshaftChests.get();
-        ringPyramidChests = ConfigRingsOfAscension.configRingPyramidChests.get();
-        ringBuriedTreasureChests = ConfigRingsOfAscension.configRingBuriedTreasureChests.get();
-        ringEndCityChests = ConfigRingsOfAscension.configRingEndCityChests.get();
-        ringIglooChests = ConfigRingsOfAscension.configRingIglooChests.get();
-        ringJungleChests = ConfigRingsOfAscension.configRingJungleChests.get();
-        ringNetherChests = ConfigRingsOfAscension.configRingNetherChests.get();
-        ringPillagerChests = ConfigRingsOfAscension.configRingPillagerChests.get();
-        ringShipwreckChests = ConfigRingsOfAscension.configRingShipwreckChests.get();
-        ringBonusChests = ConfigRingsOfAscension.configRingBonusChests.get();
-        ringStrongholdChests = ConfigRingsOfAscension.configRingStrongholdChests.get();
-        ringWoodlandChests = ConfigRingsOfAscension.configRingWoodlandChests.get();
-        ringToolsmithChests = ConfigRingsOfAscension.configRingToolsmithChests.get();
-        ringWeaponsmithChests = ConfigRingsOfAscension.configRingWeaponsmithChests.get();
-        ringArmorerChests = ConfigRingsOfAscension.configRingArmorerChests.get();
+        ringLocationFireResistance = ConfigRingsOfAscension.configRingLocationFireResistance.get();
+        ringLocationInvisibility = ConfigRingsOfAscension.configRingLocationInvisibility.get();
+        ringLocationRegeneration = ConfigRingsOfAscension.configRingLocationRegeneration.get();
+        ringLocationSlowFalling = ConfigRingsOfAscension.configRingLocationSlowFalling.get();
+        ringLocationStrength = ConfigRingsOfAscension.configRingLocationStrength.get();
+        ringLocationWaterBreathing = ConfigRingsOfAscension.configRingLocationWaterBreathing.get();
+        ringLocationSpeed = ConfigRingsOfAscension.configRingLocationSpeed.get();
+        ringLocationNightVision = ConfigRingsOfAscension.configRingLocationNightVision.get();
+        ringLocationJumpBoost = ConfigRingsOfAscension.configRingLocationJumpBoost.get();
+        ringLocationMining = ConfigRingsOfAscension.configRingLocationMining.get();
+        ringLocationLuck = ConfigRingsOfAscension.configRingLocationLuck.get();
+        ringLocationDolphin = ConfigRingsOfAscension.configRingLocationDolphin.get();
+        ringLocationMagnetism = ConfigRingsOfAscension.configRingLocationMagnetism.get();
+        ringLocationFlight = ConfigRingsOfAscension.configRingLocationFlight.get();
+        ringLocationPoisonResistance = ConfigRingsOfAscension.configRingLocationPoisonResistance.get();
+        ringLocationHungerless = ConfigRingsOfAscension.configRingLocationHungerless.get();
+        ringLocationGrowth = ConfigRingsOfAscension.configRingLocationGrowth.get();
+        ringLocationKnockbackResistance = ConfigRingsOfAscension.configRingLocationKnockbackResistance.get();
+        ringLocationHealth = ConfigRingsOfAscension.configRingLocationHealth.get();
+        ringLocationSponge = ConfigRingsOfAscension.configRingLocationSponge.get();
+        ringLocationExperience = ConfigRingsOfAscension.configRingLocationExperience.get();
+        ringLocationWaterWalking = ConfigRingsOfAscension.configRingLocationWaterWalking.get();
+        ringLocationWither = ConfigRingsOfAscension.configRingLocationWither.get();
+        ringLocationUndying = ConfigRingsOfAscension.configRingLocationUndying.get();
+        ringLocationSlowResistance = ConfigRingsOfAscension.configRingLocationSlowResistance.get();
     }
 
 }

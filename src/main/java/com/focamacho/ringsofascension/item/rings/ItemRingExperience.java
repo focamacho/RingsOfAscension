@@ -7,6 +7,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.ExperienceOrbEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
@@ -23,7 +24,7 @@ public class ItemRingExperience extends ItemRingBase {
 
     @Override
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
-        if(!ConfigHolder.ringExperience) return;
+        if(!isEnabled()) return;
         if(livingEntity instanceof PlayerEntity && !livingEntity.world.isRemote && !livingEntity.isCrouching()) {
             int range = 10;
             BlockPos pos = new BlockPos(livingEntity.getPosX(), livingEntity.getPosY(), livingEntity.getPosZ());
@@ -37,13 +38,23 @@ public class ItemRingExperience extends ItemRingBase {
     }
 
     @Override
+    public List<ResourceLocation> getLocations() {
+        return super.getLocations(ConfigHolder.ringLocationExperience);
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return ConfigHolder.ringExperience;
+    }
+
+    @Override
     public int getTier() {
         return ConfigHolder.ringTierExperience;
     }
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-        if(!ConfigHolder.ringExperience) return;
+        if(!isEnabled()) return;
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 

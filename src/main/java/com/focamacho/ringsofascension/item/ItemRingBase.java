@@ -12,6 +12,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.Direction;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
@@ -27,11 +28,13 @@ import top.theillusivec4.curios.api.type.capability.ICurio;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class ItemRingBase extends Item {
 
     protected String tooltip;
+    private final List<ResourceLocation> locations = new ArrayList<>();
 
     public ItemRingBase(Properties properties, String name, String tooltip) {
         super(properties.group(RingsOfAscension.tabGroup));
@@ -41,6 +44,24 @@ public abstract class ItemRingBase extends Item {
 
         ModItems.allItems.add(this);
     }
+
+    public abstract boolean isEnabled();
+
+    protected List<ResourceLocation> getLocations(String locations) {
+        if(this.locations.isEmpty() && !locations.isEmpty()) {
+            for (String location : locations.split(";")) {
+                try {
+                    String[] split = location.split(":");
+                    this.locations.add(new ResourceLocation(split[0], split[1]));
+                } catch(Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return this.locations;
+    }
+
+    public abstract List<ResourceLocation> getLocations();
 
     public void tickCurio(String identifier, int index, LivingEntity livingEntity){}
 
@@ -53,9 +74,7 @@ public abstract class ItemRingBase extends Item {
 
     public void onUnequippedCurio(String identifier, LivingEntity livingEntity){}
 
-    public int getTier() {
-        return 0;
-    }
+    public abstract int getTier();
 
     @Nullable
     @Override
@@ -135,6 +154,9 @@ public abstract class ItemRingBase extends Item {
                 break;
              case 3:
                 tooltip.add(new StringTextComponent(TextFormatting.GOLD + new TranslationTextComponent("tooltip.ringsofascension.tier").getString() + " " + TextFormatting.RED + new TranslationTextComponent("tooltip.ringsofascension.tier.legendary").getString()));
+                break;
+            case 4:
+                tooltip.add(new StringTextComponent(TextFormatting.GOLD + new TranslationTextComponent("tooltip.ringsofascension.tier").getString() + " " + TextFormatting.DARK_RED + new TranslationTextComponent("tooltip.ringsofascension.tier.mythic").getString()));
         }
 
         if(this.tooltip == null) return;

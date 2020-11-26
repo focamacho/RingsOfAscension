@@ -7,6 +7,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
 
@@ -21,7 +22,7 @@ public class ItemRingLuck extends ItemRingBase {
 
     @Override
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
-        if(!ConfigHolder.ringLuck) return;
+        if(!isEnabled()) return;
         if(!livingEntity.isPotionActive(Effects.LUCK)) {
             EffectInstance effectInstance = new EffectInstance(Effects.LUCK, Integer.MAX_VALUE, ConfigHolder.ringAmplifierLuck, false, false);
             if(livingEntity.world.isRemote) effectInstance.setPotionDurationMax(true);
@@ -31,8 +32,18 @@ public class ItemRingLuck extends ItemRingBase {
 
     @Override
     public void onUnequippedCurio(String identifier, LivingEntity livingEntity) {
-        if(!ConfigHolder.ringLuck) return;
+        if(!isEnabled()) return;
         livingEntity.removePotionEffect(Effects.LUCK);
+    }
+
+    @Override
+    public List<ResourceLocation> getLocations() {
+        return super.getLocations(ConfigHolder.ringLocationLuck);
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return ConfigHolder.ringLuck;
     }
 
     @Override
@@ -42,7 +53,7 @@ public class ItemRingLuck extends ItemRingBase {
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-        if(!ConfigHolder.ringLuck) return;
+        if(!isEnabled()) return;
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 

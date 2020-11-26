@@ -4,7 +4,7 @@ issueTrackerURL="https://github.com/Focamacho/RingsOfAscension/issues"
 license="MIT"
 [[mods]]
 modId="ringsofascension"
-version="${file.jarVersion}"
+version="1.6.0"
 displayName="Rings of Ascension"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/rings-of-ascension"
 description='''

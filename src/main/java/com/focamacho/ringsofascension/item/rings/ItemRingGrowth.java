@@ -11,6 +11,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BoneMealItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.World;
@@ -28,7 +29,7 @@ public class ItemRingGrowth extends ItemRingBase {
 
     @Override
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
-        if(!ConfigHolder.ringGrowth) return;
+        if(!isEnabled()) return;
         if(!(livingEntity instanceof PlayerEntity)) return;
         if(timer <= 0) {
             timer = 200;
@@ -55,13 +56,23 @@ public class ItemRingGrowth extends ItemRingBase {
     }
 
     @Override
+    public List<ResourceLocation> getLocations() {
+        return super.getLocations(ConfigHolder.ringLocationGrowth);
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return ConfigHolder.ringGrowth;
+    }
+
+    @Override
     public int getTier() {
         return ConfigHolder.ringTierGrowth;
     }
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-        if(!ConfigHolder.ringGrowth) return;
+        if(!isEnabled()) return;
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 

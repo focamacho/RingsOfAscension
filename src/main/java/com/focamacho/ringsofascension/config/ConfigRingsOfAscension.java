@@ -39,6 +39,32 @@ public class ConfigRingsOfAscension {
     public static ForgeConfigSpec.BooleanValue configRingUndying;
     public static ForgeConfigSpec.BooleanValue configRingSlowResistance;
 
+    public static ForgeConfigSpec.ConfigValue<String> configRingLocationFireResistance;
+    public static ForgeConfigSpec.ConfigValue<String> configRingLocationInvisibility;
+    public static ForgeConfigSpec.ConfigValue<String> configRingLocationRegeneration;
+    public static ForgeConfigSpec.ConfigValue<String> configRingLocationSlowFalling;
+    public static ForgeConfigSpec.ConfigValue<String> configRingLocationStrength;
+    public static ForgeConfigSpec.ConfigValue<String> configRingLocationWaterBreathing;
+    public static ForgeConfigSpec.ConfigValue<String> configRingLocationSpeed;
+    public static ForgeConfigSpec.ConfigValue<String> configRingLocationNightVision;
+    public static ForgeConfigSpec.ConfigValue<String> configRingLocationJumpBoost;
+    public static ForgeConfigSpec.ConfigValue<String> configRingLocationMining;
+    public static ForgeConfigSpec.ConfigValue<String> configRingLocationLuck;
+    public static ForgeConfigSpec.ConfigValue<String> configRingLocationDolphin;
+    public static ForgeConfigSpec.ConfigValue<String> configRingLocationMagnetism;
+    public static ForgeConfigSpec.ConfigValue<String> configRingLocationFlight;
+    public static ForgeConfigSpec.ConfigValue<String> configRingLocationPoisonResistance;
+    public static ForgeConfigSpec.ConfigValue<String> configRingLocationHungerless;
+    public static ForgeConfigSpec.ConfigValue<String> configRingLocationGrowth;
+    public static ForgeConfigSpec.ConfigValue<String> configRingLocationKnockbackResistance;
+    public static ForgeConfigSpec.ConfigValue<String> configRingLocationHealth;
+    public static ForgeConfigSpec.ConfigValue<String> configRingLocationSponge;
+    public static ForgeConfigSpec.ConfigValue<String> configRingLocationExperience;
+    public static ForgeConfigSpec.ConfigValue<String> configRingLocationWaterWalking;
+    public static ForgeConfigSpec.ConfigValue<String> configRingLocationWither;
+    public static ForgeConfigSpec.ConfigValue<String> configRingLocationUndying;
+    public static ForgeConfigSpec.ConfigValue<String> configRingLocationSlowResistance;
+
     public static ForgeConfigSpec.IntValue configRingAmplifierFireResistance;
     public static ForgeConfigSpec.IntValue configRingAmplifierInvisibility;
     public static ForgeConfigSpec.IntValue configRingAmplifierRegeneration;
@@ -80,23 +106,6 @@ public class ConfigRingsOfAscension {
 
     public static ForgeConfigSpec.ConfigValue<Integer> configRingMinLoot;
     public static ForgeConfigSpec.ConfigValue<Integer> configRingMaxLoot;
-
-    public static ForgeConfigSpec.BooleanValue configRingDungeonChests;
-    public static ForgeConfigSpec.BooleanValue configRingMineshaftChests;
-    public static ForgeConfigSpec.BooleanValue configRingPyramidChests;
-    public static ForgeConfigSpec.BooleanValue configRingBuriedTreasureChests;
-    public static ForgeConfigSpec.BooleanValue configRingEndCityChests;
-    public static ForgeConfigSpec.BooleanValue configRingIglooChests;
-    public static ForgeConfigSpec.BooleanValue configRingJungleChests;
-    public static ForgeConfigSpec.BooleanValue configRingNetherChests;
-    public static ForgeConfigSpec.BooleanValue configRingPillagerChests;
-    public static ForgeConfigSpec.BooleanValue configRingShipwreckChests;
-    public static ForgeConfigSpec.BooleanValue configRingBonusChests;
-    public static ForgeConfigSpec.BooleanValue configRingStrongholdChests;
-    public static ForgeConfigSpec.BooleanValue configRingWoodlandChests;
-    public static ForgeConfigSpec.BooleanValue configRingToolsmithChests;
-    public static ForgeConfigSpec.BooleanValue configRingWeaponsmithChests;
-    public static ForgeConfigSpec.BooleanValue configRingArmorerChests;
 
     public static class General {
         public General(final ForgeConfigSpec.Builder builder) {
@@ -160,56 +169,66 @@ public class ConfigRingsOfAscension {
                                                 "0 = Common\n" +
                                                 "1 = Rare\n" +
                                                 "2 = Epic\n" +
-                                                "3 = Legendary").push("Tiers");
-            configRingTierFireResistance = builder.define("ringTierFireResistance", 0);
-            configRingTierInvisibility = builder.define("ringTierInvisibility", 1);
-            configRingTierRegeneration = builder.define("ringTierRegeneration", 1);
-            configRingTierSlowFalling = builder.define("ringTierSlowFalling", 0);
-            configRingTierStrength = builder.define("ringTierStrength", 1);
-            configRingTierWaterBreathing = builder.define("ringTierWaterBreathing", 0);
-            configRingTierSpeed = builder.define("ringTierSpeed", 1);
-            configRingTierNightVision = builder.define("ringTierNightVision", 0);
-            configRingTierJumpBoost = builder.define("ringTierJumpBoost", 0);
-            configRingTierMining = builder.define("ringTierMining", 2);
-            configRingTierLuck = builder.define("ringTierLuck", 2);
-            configRingTierDolphin = builder.define("ringTierDolphin", 1);
-            configRingTierMagnetism = builder.define("ringTierMagnetism", 2);
-            configRingTierFlight = builder.define("ringTierFlight", 3);
-            configRingTierPoisonResistance = builder.define("ringTierPoisonResistance", 1);
-            configRingTierHungerless = builder.define("ringTierHungerless", 3);
-            configRingTierGrowth = builder.define("ringTierGrowth", 2);
-            configRingTierKnockbackResistance = builder.define("ringTierKnockbackResistance", 0);
-            configRingTierHealth = builder.define("ringTierHealth", 3);
-            configRingTierSponge = builder.define("ringTierSponge", 1);
-            configRingTierExperience = builder.define("ringTierExperience", 0);
-            configRingTierWaterWalking = builder.define("ringTierWaterWalking", 0);
-            configRingTierWither = builder.define("ringTierWither", 1);
-            configRingTierUndying = builder.define("ringTierUndying", 3);
-            configRingTierSlowResistance = builder.define("ringTierSlowResistance", 1);
+                                                "3 = Legendary\n" +
+                                                "4 = Mythic").push("Tiers");
+            configRingTierFireResistance = builder.defineInRange("ringTierFireResistance", 0, 0, 4);
+            configRingTierInvisibility = builder.defineInRange("ringTierInvisibility", 1, 0, 4);
+            configRingTierRegeneration = builder.defineInRange("ringTierRegeneration", 3, 0, 4);
+            configRingTierSlowFalling = builder.defineInRange("ringTierSlowFalling", 0, 0, 4);
+            configRingTierStrength = builder.defineInRange("ringTierStrength", 2, 0, 4);
+            configRingTierWaterBreathing = builder.defineInRange("ringTierWaterBreathing", 0, 0, 4);
+            configRingTierSpeed = builder.defineInRange("ringTierSpeed", 1, 0, 4);
+            configRingTierNightVision = builder.defineInRange("ringTierNightVision", 0, 0, 4);
+            configRingTierJumpBoost = builder.defineInRange("ringTierJumpBoost", 0, 0, 4);
+            configRingTierMining = builder.defineInRange("ringTierMining", 2, 0, 4);
+            configRingTierLuck = builder.defineInRange("ringTierLuck", 3, 0, 4);
+            configRingTierDolphin = builder.defineInRange("ringTierDolphin", 1, 0, 4);
+            configRingTierMagnetism = builder.defineInRange("ringTierMagnetism", 2, 0, 4);
+            configRingTierFlight = builder.defineInRange("ringTierFlight", 4, 0, 4);
+            configRingTierPoisonResistance = builder.defineInRange("ringTierPoisonResistance", 2, 0, 4);
+            configRingTierHungerless = builder.defineInRange("ringTierHungerless", 3, 0, 4);
+            configRingTierGrowth = builder.defineInRange("ringTierGrowth", 2, 0, 4);
+            configRingTierKnockbackResistance = builder.defineInRange("ringTierKnockbackResistance", 0, 0, 4);
+            configRingTierHealth = builder.defineInRange("ringTierHealth", 3, 0, 4);
+            configRingTierSponge = builder.defineInRange("ringTierSponge", 1, 0, 4);
+            configRingTierExperience = builder.defineInRange("ringTierExperience", 0, 0, 4);
+            configRingTierWaterWalking = builder.defineInRange("ringTierWaterWalking", 0, 0, 4);
+            configRingTierWither = builder.defineInRange("ringTierWither", 1, 0, 4);
+            configRingTierUndying = builder.defineInRange("ringTierUndying", 4, 0, 4);
+            configRingTierSlowResistance = builder.defineInRange("ringTierSlowResistance", 1, 0, 4);
             builder.pop(2);
 
             builder.push("Rings Loot");
-            configRingMinLoot = builder.comment("The minimum number of rings that can be found inside a single chest.").define("ringMinLoot", 0);
+            configRingMinLoot = builder.comment("The minimum number of rings that can be found inside a single chest. Values below 0 decrease the chance of the rings appearing.").define("ringMinLoot", -5);
             configRingMaxLoot = builder.comment("The maximum number of rings that can be found inside a single chest.").define("ringMaxLoot", 1);
             builder.pop();
 
-            builder.push("Rings Loot Chests");
-            configRingDungeonChests = builder.comment("Generate rings in dungeon chests").define("ringDungeonChests", true);
-            configRingMineshaftChests = builder.comment("Generate rings in abandoned mineshaft chests").define("ringMineshaftChests", true);
-            configRingPyramidChests = builder.comment("Generate rings in desert pyramid chests").define("ringPyramidChests", true);
-            configRingBuriedTreasureChests = builder.comment("Generate rings in buried treasure chests").define("ringBuriedTreasureChests", true);
-            configRingEndCityChests = builder.comment("Generate rings in end city chests").define("ringEndCityChests", true);
-            configRingIglooChests = builder.comment("Generate rings in igloo chests").define("ringIglooChests", true);
-            configRingJungleChests = builder.comment("Generate rings in jungle temple chests").define("ringJungleChests", true);
-            configRingNetherChests = builder.comment("Generate rings in nether bridge chests").define("ringNetherChests", true);
-            configRingPillagerChests = builder.comment("Generate rings in pillager outpost chests").define("ringPillagerChests", true);
-            configRingShipwreckChests = builder.comment("Generate rings in shipwreck treasure chests").define("ringShipwreckChests", true);
-            configRingBonusChests = builder.comment("Generate rings in spawn bonus chests").define("ringBonusChests", true);
-            configRingStrongholdChests = builder.comment("Generate rings in stronghold library chests").define("ringStrongholdChests", true);
-            configRingWoodlandChests = builder.comment("Generate rings in woodland mansion chests").define("ringWoodlandChests", true);
-            configRingToolsmithChests = builder.comment("Generate rings in village toolsmith chests").define("ringToolsmithChests", true);
-            configRingWeaponsmithChests = builder.comment("Generate rings in village weaponsmith chests").define("ringWeaponsmithChests", true);
-            configRingArmorerChests = builder.comment("Generate rings in village armorer chests").define("ringArmorerChests", true);
+            builder.push("Rings Locations");
+            configRingLocationFireResistance = builder.define("ringLocationFireResistance", "minecraft:chests/nether_bridge;minecraft:chests/ruined_portal;minecraft:chests/bastion_treasure");
+            configRingLocationInvisibility = builder.define("ringLocationInvisibility", "minecraft:chests/abandoned_mineshaft;minecraft:chests/buried_treasure");
+            configRingLocationRegeneration = builder.define("ringLocationRegeneration", "minecraft:chests/stronghold_corridor;minecraft:chests/stronghold_library");
+            configRingLocationSlowFalling = builder.define("ringLocationSlowFalling", "minecraft:chests/simple_dungeon;minecraft:chests/buried_treasure;minecraft:chests/end_city_treasure");
+            configRingLocationStrength = builder.define("ringLocationStrength", "minecraft:chests/stronghold_library;minecraft:chests/stronghold_corridor;minecraft:chests/stronghold_crossing;minecraft:chests/bastion_treasure;minecraft:chests/bastion_bridge;minecraft:chests/pillager_outpost");
+            configRingLocationWaterBreathing = builder.define("ringLocationWaterBreathing", "minecraft:chests/spawn_bonus_chest;minecraft:chests/underwater_ruin_big;minecraft:chests/underwater_run_small;minecraft:chests/buried_treasure");
+            configRingLocationSpeed = builder.define("ringLocationSpeed", "minecraft:chests/spawn_bonus_chest;minecraft:chests/simple_dungeon;minecraft:chests/buried_treasure");
+            configRingLocationNightVision = builder.define("ringLocationNightVision", "minecraft:chests/spawn_bonus_chest;minecraft:chests/simple_dungeon;minecraft:chests/abandoned_mineshaft");
+            configRingLocationJumpBoost = builder.define("ringLocationJumpBoost", "minecraft:chests/end_city_treasure;minecraft:chests/igloo_chest;minecraft:chests/desert_pyramid");
+            configRingLocationMining = builder.define("ringLocationMining", "minecraft:chests/simple_dungeon;minecraft:chests/abandoned_mineshaft");
+            configRingLocationLuck = builder.define("ringLocationLuck", "minecraft:chests/simple_dungeon;minecraft:chests/jungle_temple");
+            configRingLocationDolphin = builder.define("ringLocationDolphin", "minecraft:chests/underwater_ruin_big;minecraft:chests/underwater_run_small;minecraft:chests/buried_treasure");
+            configRingLocationMagnetism = builder.define("ringLocationMagnetism", "minecraft:chests/spawn_bonus_chest;minecraft:chests/simple_dungeon;minecraft:chests/buried_treasure;minecraft:chests/ruined_portal");
+            configRingLocationFlight = builder.define("ringLocationFlight", "minecraft:chests/end_city_treasure");
+            configRingLocationPoisonResistance = builder.define("ringLocationPoisonResistance", "minecraft:chests/jungle_temple;minecraft:chests/end_city_treasure;minecraft:chests/shipwreck_treasure;minecraft:chests/bastion_treasure;minecraft:chests/bastion_bridge");
+            configRingLocationHungerless = builder.define("ringLocationHungerless", "minecraft:chests/village/village_butcher;minecraft:chests/end_city_treasure;minecraft:chests/woodland_mansion");
+            configRingLocationGrowth = builder.define("ringLocationGrowth", "minecraft:chests/jungle_temple");
+            configRingLocationKnockbackResistance = builder.define("ringLocationKnockbackResistance", "minecraft:chests/end_city_treasure;minecraft:chests/bastion_bridge;minecraft:chests/nether_bridge");
+            configRingLocationHealth = builder.define("ringLocationHealth", "minecraft:chests/end_city_treasure;minecraft:chests/bastion_treasure;minecraft:chests/stronghold_library");
+            configRingLocationSponge = builder.define("ringLocationSponge", "minecraft:chests/underwater_ruin_big;minecraft:chests/underwater_run_small");
+            configRingLocationExperience = builder.define("ringLocationExperience", "minecraft:chests/spawn_bonus_chest;minecraft:chests/simple_dungeon;minecraft:chests/buried_treasure;minecraft:chests/ruined_portal");
+            configRingLocationWaterWalking = builder.define("ringLocationWaterWalking", "minecraft:chests/underwater_ruin_big;minecraft:chests/underwater_run_small;minecraft:chests/buried_treasure");
+            configRingLocationWither = builder.define("ringLocationWither", "minecraft:chests/bastion_treasure");
+            configRingLocationUndying = builder.define("ringLocationUndying", "minecraft:chests/woodland_mansion");
+            configRingLocationSlowResistance = builder.define("ringLocationSlowResistance", "minecraft:chests/end_city_treasure;minecraft:chests/shipwreck_treasure;minecraft:chests/bastion_treasure;minecraft:chests/bastion_bridge");
             builder.pop();
         }
     }

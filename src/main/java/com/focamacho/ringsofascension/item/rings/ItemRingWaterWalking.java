@@ -7,6 +7,7 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.util.text.ITextComponent;
@@ -23,7 +24,7 @@ public class ItemRingWaterWalking extends ItemRingBase {
 
     @Override
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
-        if(!ConfigHolder.ringWaterWalking) return;
+        if(!isEnabled()) return;
         if(!(livingEntity instanceof PlayerEntity) || livingEntity.isCrouching()) return;
 
         BlockPos entityPos = new BlockPos(livingEntity.getPosX(), livingEntity.getPosY(), livingEntity.getPosZ());
@@ -39,13 +40,23 @@ public class ItemRingWaterWalking extends ItemRingBase {
     }
 
     @Override
+    public List<ResourceLocation> getLocations() {
+        return super.getLocations(ConfigHolder.ringLocationWaterWalking);
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return ConfigHolder.ringWaterWalking;
+    }
+
+    @Override
     public int getTier() {
         return ConfigHolder.ringTierWaterWalking;
     }
 
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-        if(!ConfigHolder.ringWaterWalking) return;
+        if(!isEnabled()) return;
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 
