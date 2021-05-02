@@ -78,7 +78,7 @@ minecraft {
 dependencies {
     minecraft 'net.minecraftforge:forge:1.16.4-35.1.0'
 	
-	runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.16.4-4.0.3.0")
+	runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.16.5-4.0.5.1")
     compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.16.4-4.0.3.0:api")
 }
 
