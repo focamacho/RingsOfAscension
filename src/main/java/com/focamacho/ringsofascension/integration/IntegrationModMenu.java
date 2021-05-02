@@ -3,7 +3,7 @@ package com.focamacho.ringsofascension.integration;
 import com.focamacho.ringsofascension.config.ConfigRingsOfAscension;
 import io.github.prospector.modmenu.api.ConfigScreenFactory;
 import io.github.prospector.modmenu.api.ModMenuApi;
-import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
+import me.shedaniel.autoconfig.AutoConfig;
 
 public class IntegrationModMenu implements ModMenuApi {
 
