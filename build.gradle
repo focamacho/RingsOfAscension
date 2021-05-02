@@ -75,17 +75,17 @@ minecraft {
     }
 }
 
-dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.5-36.1.16'
-	
-	runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.16.5-4.0.5.1")
-    compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.16.4-4.0.3.0:api")
-}
-
 repositories {
     maven {
         url = "https://maven.theillusivec4.top/"
     }
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.16.5-36.1.16'
+	
+	runtimeOnly "top.theillusivec4.curios:curios-forge:1.16.5-4.0.5.1"
+    compileOnly "top.theillusivec4.curios:curios-forge:1.16.4-4.0.3.0:api"
 }
 
 jar {
