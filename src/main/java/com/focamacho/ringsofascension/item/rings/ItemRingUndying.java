@@ -1,8 +1,6 @@
 package com.focamacho.ringsofascension.item.rings;
 
-import com.focamacho.ringsofascension.config.ConfigRingsOfAscension;
 import com.focamacho.ringsofascension.item.ItemRingBase;
-import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.entity.player.PlayerEntity;
@@ -13,9 +11,9 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class ItemRingUndying extends ItemRingBase {
+import static com.focamacho.ringsofascension.RingsOfAscension.config;
 
-    public static ConfigRingsOfAscension config = AutoConfig.getConfigHolder(ConfigRingsOfAscension.class).getConfig();
+public class ItemRingUndying extends ItemRingBase {
 
     public ItemRingUndying(String name, int tier, String tooltip, boolean enabled, String locations) {
         super(name, tier, tooltip, enabled, locations);

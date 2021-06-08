@@ -1,9 +1,7 @@
 package com.focamacho.ringsofascension.init;
 
-import com.focamacho.ringsofascension.config.ConfigRingsOfAscension;
 import com.focamacho.ringsofascension.item.ItemRingBase;
 import com.focamacho.ringsofascension.item.rings.*;
-import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -11,11 +9,11 @@ import net.minecraft.util.registry.Registry;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.focamacho.ringsofascension.RingsOfAscension.config;
+
 public class ModItems {
 
     public static List<ItemRingBase> allRings = new ArrayList<>();
-
-    public static ConfigRingsOfAscension config = AutoConfig.getConfigHolder(ConfigRingsOfAscension.class).getConfig();
 
     public static final ItemRingBase ringFireResistance = new ItemRingEffect("ring_fire_resistance", config.tiers.ringTierFireResistance, StatusEffects.FIRE_RESISTANCE, config.amplifiers.ringAmplifierFireResistance, "tooltip.ringsofascension.fire_resistance", config.enableRings.ringFireResistance, config.lootLocations.ringLocationFireResistance);
     public static final ItemRingBase ringDolphin = new ItemRingEffect("ring_dolphin", config.tiers.ringTierDolphin, StatusEffects.DOLPHINS_GRACE, config.amplifiers.ringAmplifierDolphin, "tooltip.ringsofascension.dolphin", config.enableRings.ringDolphin, config.lootLocations.ringLocationDolphin);

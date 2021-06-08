@@ -1,15 +1,16 @@
 package com.focamacho.ringsofascension.item.rings;
 
 import com.focamacho.ringsofascension.item.ItemRingBase;
+import dev.emi.trinkets.api.SlotReference;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 
 public class ItemRingEffect extends ItemRingBase {
 
-    private StatusEffect effect;
-    private int amplifier;
+    private final StatusEffect effect;
+    private final int amplifier;
 
     public ItemRingEffect(String name, int tier, StatusEffect effect, int amplifier, String tooltip, boolean enabled, String locations) {
         super(name, tier, tooltip, enabled, locations);
@@ -18,19 +19,17 @@ public class ItemRingEffect extends ItemRingBase {
     }
 
     @Override
-    public void onEquip(PlayerEntity player, ItemStack stack) {
-        if(player.hasStatusEffect(effect)) return;
+    public void onEquip(ItemStack stack, SlotReference slot, LivingEntity entity) {
+        if(entity.hasStatusEffect(effect)) return;
         StatusEffectInstance effectInstance = new StatusEffectInstance(effect, Integer.MAX_VALUE, amplifier, false, false);
-        if(player.world.isClient) effectInstance.setPermanent(true);
-        try {
-			player.addStatusEffect(effectInstance);
-		} catch(Exception e) {}
+        if(entity.world.isClient) effectInstance.setPermanent(true);
+        entity.addStatusEffect(effectInstance);
     }
 
     @Override
-    public void onUnequip(PlayerEntity player, ItemStack stack) {
-        if(!player.hasStatusEffect(effect)) return;
-        player.removeStatusEffect(effect);
+    public void onUnequip(ItemStack stack, SlotReference slot, LivingEntity entity) {
+        if(!entity.hasStatusEffect(effect)) return;
+        entity.removeStatusEffect(effect);
     }
 
 }

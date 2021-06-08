@@ -1,15 +1,14 @@
 plugins {
-	id 'fabric-loom' version '0.6-SNAPSHOT'
+	id 'fabric-loom' version '0.8-SNAPSHOT'
 	id 'maven-publish'
-	id "com.github.johnrengelman.shadow" version "7.0.0"
 }
 
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
+sourceCompatibility = JavaVersion.VERSION_16
+targetCompatibility = JavaVersion.VERSION_16
 
-archivesBaseName = 'RingsOfAscension-1.16.5'
-version = '1.1.1'
-group = 'com.focamacho.ringsofascension'
+archivesBaseName = 'RingsOfAscension-1.17'
+version = '1.0'
+group = 'com.focamacho'
 
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
@@ -20,23 +19,19 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	//Trinkets
-	modImplementation "com.github.emilyploszaj:trinkets:2.6.7"
-
-	//Mod Menu
-	modImplementation "io.github.prospector:modmenu:1.16.9+"
+	modImplementation "dev.emi:trinkets:3.0.0"
 
 	//Cloth Config
-	modApi("me.shedaniel.cloth:cloth-config-fabric:4.11.19") {
-		exclude(group: "net.fabricmc.fabric-api")
-	}
-	include("me.shedaniel.cloth:cloth-config-fabric:4.11.19")
+	compileOnly 'com.focamacho:sealconfig:1.2.2'
+	include 'com.focamacho:sealconfig:1.2.2'
 }
 
 repositories {
-	maven {
-		url = "https://jitpack.io"
-	}
-	maven { url "https://maven.shedaniel.me/" }
+	maven { url = "https://jitpack.io" }
+	maven { url = "https://maven.shedaniel.me/" }
+	maven { url = "https://maven.terraformersmc.com/" }
+	maven { url = "https://ladysnake.jfrog.io/artifactory/mods" }
+	maven { url = 'https://repo.focamacho.com/repository/releases/' }
 }
 
 processResources {
@@ -47,15 +42,17 @@ processResources {
 	}
 }
 
-tasks.withType(JavaCompile) {
-	options.encoding = "UTF-8"
+tasks.withType(JavaCompile).configureEach {
+	it.options.encoding = "UTF-8"
+	it.options.release = 16
 }
 
-task sourcesJar(type: Jar, dependsOn: classes) {
-	classifier = "sources"
-	from sourceSets.main.allSource
+java {
+	withSourcesJar()
 }
 
 jar {
-	from "LICENSE"
+	from("LICENSE") {
+		rename { "${it}_${project.archivesBaseName}"}
+	}
 }

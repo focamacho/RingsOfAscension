@@ -1,8 +1,9 @@
 package com.focamacho.ringsofascension.item.rings;
 
 import com.focamacho.ringsofascension.item.ItemRingBase;
+import dev.emi.trinkets.api.SlotReference;
 import net.minecraft.block.Material;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -15,19 +16,19 @@ public class ItemRingWaterWalking extends ItemRingBase {
     }
 
     @Override
-    public void tick(PlayerEntity player, ItemStack stack) {
-        super.tick(player, stack);
-        if(player.isSneaking()) return;
+    public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
+        super.tick(stack, slot, entity);
+        if(entity.isSneaking()) return;
 
-        BlockPos entityPos = player.getBlockPos();
+        BlockPos entityPos = entity.getBlockPos();
 
-        boolean water = player.world.getBlockState(new BlockPos(entityPos.getX(), player.getBoundingBox().getMin(Direction.Axis.Y) - 0.1, entityPos.getZ())).getMaterial() == Material.WATER;
+        boolean water = entity.world.getBlockState(new BlockPos(entityPos.getX(), entity.getBoundingBox().getMin(Direction.Axis.Y) - 0.1, entityPos.getZ())).getMaterial() == Material.WATER;
 
-        if(water && !player.isTouchingWater() && player.getVelocity().y < 0.0D) {
-            Vec3d motion = player.getVelocity();
+        if(water && !entity.isTouchingWater() && entity.getVelocity().y < 0.0D) {
+            Vec3d motion = entity.getVelocity();
 
-            player.setVelocity(motion.x, 0.0D, motion.z);
-            player.fallDistance = 0;
+            entity.setVelocity(motion.x, 0.0D, motion.z);
+            entity.fallDistance = 0;
         }
     }
 

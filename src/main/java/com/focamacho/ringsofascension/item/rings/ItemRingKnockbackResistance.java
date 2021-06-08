@@ -3,6 +3,8 @@ package com.focamacho.ringsofascension.item.rings;
 import com.focamacho.ringsofascension.item.ItemRingBase;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+import dev.emi.trinkets.api.SlotReference;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -19,7 +21,7 @@ public class ItemRingKnockbackResistance extends ItemRingBase {
     }
 
     @Override
-    public Multimap<EntityAttribute, EntityAttributeModifier> getTrinketModifiers(String group, String slot, UUID uuid, ItemStack stack) {
+    public Multimap<EntityAttribute, EntityAttributeModifier> getModifiers(ItemStack stack, SlotReference slot, LivingEntity entity, UUID uuid) {
         Multimap<EntityAttribute, EntityAttributeModifier> modifiers = HashMultimap.create();
 
         modifiers.put(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE,

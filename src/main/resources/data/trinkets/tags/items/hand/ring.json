@@ -1,0 +1,30 @@
+{
+  "replace": false,
+  "values": [
+    "ringsofascension:ring_fire_resistance",
+    "ringsofascension:ring_dolphin",
+    "ringsofascension:ring_invisibility",
+    "ringsofascension:ring_jump_boost",
+    "ringsofascension:ring_luck",
+    "ringsofascension:ring_mining",
+    "ringsofascension:ring_night_vision",
+    "ringsofascension:ring_regeneration",
+    "ringsofascension:ring_slow_falling",
+    "ringsofascension:ring_speed",
+    "ringsofascension:ring_strength",
+    "ringsofascension:ring_water_breathing",
+    "ringsofascension:ring_slow_resistance",
+    "ringsofascension:ring_poison_resistance",
+    "ringsofascension:ring_wither",
+    "ringsofascension:ring_magnetism",
+    "ringsofascension:ring_flight",
+    "ringsofascension:ring_hungerless",
+    "ringsofascension:ring_experience",
+    "ringsofascension:ring_growth",
+    "ringsofascension:ring_knockback_resistance",
+    "ringsofascension:ring_health",
+    "ringsofascension:ring_sponge",
+    "ringsofascension:ring_water_walking",
+    "ringsofascension:ring_undying"
+  ]
+}

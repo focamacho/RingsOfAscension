@@ -1,38 +1,28 @@
 package com.focamacho.ringsofascension.config;
 
-import me.shedaniel.autoconfig.ConfigData;
-import me.shedaniel.autoconfig.annotation.Config;
-import me.shedaniel.autoconfig.annotation.ConfigEntry;
-import me.shedaniel.cloth.clothconfig.shadowed.blue.endless.jankson.Comment;
+import com.focamacho.sealconfig.relocated.blue.endless.jankson.Comment;
 
-@Config(name = "ringsofascension")
-public class ConfigRingsOfAscension implements ConfigData {
+public class ConfigRingsOfAscension {
 
     @Comment("General configs")
-    @ConfigEntry.Gui.CollapsibleObject
     public RingsOfAscension general = new RingsOfAscension();
 
     @Comment("Enable/Disable Rings")
-    @ConfigEntry.Gui.CollapsibleObject
     public EnableRings enableRings = new EnableRings();
 
     @Comment("Sets the amplifier of the effect given by the ring. Example: 0 = Fire Resistance I; 1 = Fire Resistance II")
-    @ConfigEntry.Gui.CollapsibleObject
     public Amplifiers amplifiers = new Amplifiers();
 
     @Comment("Sets the Tier of the rings. Higher tier rings are more difficult to find. 0 = Common; 1 = Rare; 2 = Epic; 3 = Legendary; 4 = Mythic")
-    @ConfigEntry.Gui.CollapsibleObject
     public Tiers tiers = new Tiers();
 
     @Comment("Rings Loot")
-    @ConfigEntry.Gui.CollapsibleObject
     public LootConfig loot = new LootConfig();
 
-    @Comment("Loot Tables containing the Rings. You can edit it easier on the config file instead of the gui.")
-    @ConfigEntry.Gui.CollapsibleObject
+    @Comment("Loot Tables containing the Rings.")
     public LootLocations lootLocations = new LootLocations();
 
-    public class RingsOfAscension {
+    public static class RingsOfAscension {
         @Comment("The cooldown in seconds of the Ring of Undying")
         public int ringUndyingCooldown = 600;
 
@@ -40,7 +30,7 @@ public class ConfigRingsOfAscension implements ConfigData {
         public int ringHealthHearts = 10;
     }
 
-    public class EnableRings {
+    public static class EnableRings {
         public boolean ringFireResistance = true;
         public boolean ringInvisibility = true;
         public boolean ringRegeneration = true;
@@ -68,94 +58,57 @@ public class ConfigRingsOfAscension implements ConfigData {
         public boolean ringSlowResistance = true;
     }
 
-    public class Amplifiers {
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 255)
+    public static class Amplifiers {
         public int ringAmplifierFireResistance = 1;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 255)
         public int ringAmplifierInvisibility = 0;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 255)
         public int ringAmplifierRegeneration = 0;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 255)
         public int ringAmplifierSlowFalling = 0;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 255)
         public int ringAmplifierStrength = 0;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 255)
         public int ringAmplifierWaterBreathing = 1;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 255)
         public int ringAmplifierSpeed = 0;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 255)
         public int ringAmplifierNightVision = 0;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 255)
         public int ringAmplifierJumpBoost = 0;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 255)
         public int ringAmplifierMining = 1;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 255)
         public int ringAmplifierLuck = 1;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 255)
         public int ringAmplifierDolphin = 0;
     }
 
-    public class Tiers {
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 4)
+    public static class Tiers {
         public int ringTierFireResistance = 0;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 4)
         public int ringTierInvisibility = 1;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 4)
         public int ringTierRegeneration = 3;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 4)
         public int ringTierSlowFalling = 0;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 4)
         public int ringTierStrength = 2;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 4)
         public int ringTierWaterBreathing = 0;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 4)
         public int ringTierSpeed = 1;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 4)
         public int ringTierNightVision = 0;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 4)
         public int ringTierJumpBoost = 0;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 4)
         public int ringTierMining = 2;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 4)
         public int ringTierLuck = 3;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 4)
         public int ringTierDolphin = 1;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 4)
         public int ringTierMagnetism = 2;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 4)
         public int ringTierFlight = 4;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 4)
         public int ringTierPoisonResistance = 2;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 4)
         public int ringTierHungerless = 3;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 4)
         public int ringTierGrowth = 2;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 4)
         public int ringTierKnockbackResistance = 0;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 4)
         public int ringTierHealth = 3;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 4)
         public int ringTierSponge = 1;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 4)
         public int ringTierExperience = 0;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 4)
         public int ringTierWaterWalking = 0;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 4)
         public int ringTierWither = 1;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 4)
         public int ringTierUndying = 4;
-        @ConfigEntry.BoundedDiscrete(min = 0, max = 4)
         public int ringTierSlowResistance = 1;
     }
 
-    public class LootConfig {
+    public static class LootConfig {
         @Comment("The minimum number of rings that can be found inside a single chest. Values below 0 decrease the chance of the rings appearing.")
         public int ringMinLoot = -5;
         @Comment("The maximum number of rings that can be found inside a single chest.")
         public int ringMaxLoot = 1;
     }
 
-    public class LootLocations {
+    public static class LootLocations {
         public String ringLocationFireResistance = "minecraft:chests/nether_bridge;minecraft:chests/ruined_portal;minecraft:chests/bastion_treasure";
         public String ringLocationInvisibility = "minecraft:chests/abandoned_mineshaft;minecraft:chests/buried_treasure";
         public String ringLocationRegeneration = "minecraft:chests/stronghold_corridor;minecraft:chests/stronghold_library";

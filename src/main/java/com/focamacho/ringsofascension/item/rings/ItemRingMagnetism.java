@@ -1,7 +1,9 @@
 package com.focamacho.ringsofascension.item.rings;
 
 import com.focamacho.ringsofascension.item.ItemRingBase;
+import dev.emi.trinkets.api.SlotReference;
 import net.minecraft.entity.ItemEntity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
@@ -16,15 +18,17 @@ public class ItemRingMagnetism extends ItemRingBase {
     }
 
     @Override
-    public void tick(PlayerEntity player, ItemStack stack) {
-        super.tick(player, stack);
-        if(!player.world.isClient && !player.isSneaking()) {
-            int range = 5;
-            BlockPos pos = player.getBlockPos();
-            List<ItemEntity> entities = player.world.getEntitiesByClass(ItemEntity.class, new Box(pos.getX() + range, pos.getY() + range, pos.getZ() + range, pos.getX() - range, pos.getY() - range, pos.getZ() - range), null);
-            for(ItemEntity item : entities) {
-                if(item.isAlive() && !item.cannotPickup()) {
-                    item.onPlayerCollision(player);
+    public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
+        super.tick(stack, slot, entity);
+        if(entity instanceof PlayerEntity player) {
+            if (!player.world.isClient && !player.isSneaking()) {
+                int range = 5;
+                BlockPos pos = player.getBlockPos();
+                List<ItemEntity> entities = player.world.getEntitiesByClass(ItemEntity.class, new Box(pos.getX() + range, pos.getY() + range, pos.getZ() + range, pos.getX() - range, pos.getY() - range, pos.getZ() - range), itemEntity -> true);
+                for (ItemEntity item : entities) {
+                    if (item.isAlive() && !item.cannotPickup()) {
+                        item.onPlayerCollision(player);
+                    }
                 }
             }
         }

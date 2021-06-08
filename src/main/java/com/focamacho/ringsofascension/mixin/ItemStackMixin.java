@@ -5,7 +5,6 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
@@ -24,11 +23,16 @@ public class ItemStackMixin {
         Item item = ((ItemStack) (Object) this).getItem();
         if(item instanceof ItemRingBase) {
             List<Text> tooltip = info.getReturnValue();
-            tooltip.remove(new LiteralText("Equippable in trinket slots:").formatted(Formatting.GRAY));
-            tooltip.remove(new TranslatableText("trinkets.slot.hand.ring").formatted(Formatting.BLUE));
-            tooltip.remove(new TranslatableText("trinkets.slot.offhand.ring").formatted(Formatting.BLUE));
-            tooltip.remove(tooltip.lastIndexOf(new LiteralText("")));
-            tooltip.remove(new LiteralText("When equiped in ").formatted(Formatting.GRAY).append(new LiteralText("any").formatted(Formatting.BLUE)).append(new LiteralText(" trinket slot:")).formatted(Formatting.GRAY));
+            tooltip.remove(new TranslatableText("trinkets.tooltip.slots.single",
+                    new TranslatableText("trinkets.slot.hand.ring").formatted(Formatting.BLUE)).formatted(Formatting.GRAY));
+            tooltip.remove(new TranslatableText("trinkets.tooltip.slots.single",
+                    new TranslatableText("trinkets.slot.offhand.ring").formatted(Formatting.BLUE)).formatted(Formatting.GRAY));
+
+            tooltip.remove(new TranslatableText("trinkets.tooltip.attributes.all").formatted(Formatting.GRAY));
+            tooltip.remove(new TranslatableText("trinkets.tooltip.attributes.single",
+                    new TranslatableText("trinkets.slot.hand.ring").formatted(Formatting.BLUE)).formatted(Formatting.GRAY));
+            tooltip.remove(new TranslatableText("trinkets.tooltip.attributes.single",
+                    new TranslatableText("trinkets.slot.offhand.ring").formatted(Formatting.BLUE)).formatted(Formatting.GRAY));
         }
     }
 }
