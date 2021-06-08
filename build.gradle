@@ -21,7 +21,7 @@ dependencies {
 	//Trinkets
 	modImplementation "dev.emi:trinkets:3.0.0"
 
-	//Cloth Config
+	//Seal Config
 	compileOnly 'com.focamacho:sealconfig:1.2.2'
 	include 'com.focamacho:sealconfig:1.2.2'
 }
