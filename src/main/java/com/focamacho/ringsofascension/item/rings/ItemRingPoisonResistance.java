@@ -2,13 +2,13 @@ package com.focamacho.ringsofascension.item.rings;
 
 import com.focamacho.ringsofascension.config.ConfigHolder;
 import com.focamacho.ringsofascension.item.ItemRingBase;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Effects;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.world.World;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -22,8 +22,8 @@ public class ItemRingPoisonResistance extends ItemRingBase {
     @Override
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
         if(!isEnabled()) return;
-        if(livingEntity.isPotionActive(Effects.POISON)) {
-            livingEntity.removeActivePotionEffect(Effects.POISON);
+        if(livingEntity.hasEffect(MobEffects.POISON)) {
+            livingEntity.removeEffectNoUpdate(MobEffects.POISON);
         }
     }
 
@@ -43,9 +43,9 @@ public class ItemRingPoisonResistance extends ItemRingBase {
     }
 
     @Override
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         if(!isEnabled()) return;
-        super.addInformation(stack, worldIn, tooltip, flagIn);
+        super.appendHoverText(stack, worldIn, tooltip, flagIn);
     }
 
 }

@@ -3,10 +3,10 @@ package com.focamacho.ringsofascension.events;
 import com.focamacho.ringsofascension.config.ConfigHolder;
 import com.focamacho.ringsofascension.init.ModItems;
 import com.focamacho.ringsofascension.item.ItemRingBase;
-import net.minecraft.item.Item;
-import net.minecraft.loot.ItemLootEntry;
-import net.minecraft.loot.LootPool;
-import net.minecraft.loot.RandomValueRange;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
@@ -14,7 +14,7 @@ public class LootTableEvent {
 
     @SubscribeEvent
     public void onLoadTable(LootTableLoadEvent event) {
-        LootPool.Builder builder = LootPool.builder().rolls(RandomValueRange.of(ConfigHolder.ringMinLoot, ConfigHolder.ringMaxLoot)).name("rings_of_ascension_pool");
+        LootPool.Builder builder = LootPool.lootPool().setRolls(UniformGenerator.between(ConfigHolder.ringMinLoot, ConfigHolder.ringMaxLoot)).name("rings_of_ascension_pool");
         boolean add = false;
 
         for(Item item : ModItems.allItems) {
@@ -22,7 +22,7 @@ public class LootTableEvent {
             ItemRingBase ring = (ItemRingBase) item;
             if(ring.isEnabled()) {
                 if(ring.getLocations().contains(event.getName())) {
-                    builder.addEntry(ItemLootEntry.builder(() -> item).weight(getWeightFromTier(ring.getTier())));
+                    builder.add(LootItem.lootTableItem(() -> item).setWeight(getWeightFromTier(ring.getTier())));
                     add = true;
                 }
             }

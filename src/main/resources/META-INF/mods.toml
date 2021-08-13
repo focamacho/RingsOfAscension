@@ -1,20 +1,18 @@
 modLoader="javafml"
-loaderVersion="[34,)"
+loaderVersion="[37,)"
 issueTrackerURL="https://github.com/Focamacho/RingsOfAscension/issues"
 license="MIT"
 [[mods]]
 modId="ringsofascension"
-version="1.6.0"
+version="1.0.0"
 displayName="Rings of Ascension"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/rings-of-ascension"
 description='''
 Rings of Ascension is a mod that uses the Curios API to add 20+ new rings to your minecraft. Each ring has its own special effect that is activated when the ring is equipped.
-
-Rings from this mod don't have a recipe and can only be found in dungeon chests.
 '''
 [[dependencies.ringsofascension]]
     modId="curios"
     mandatory=true
-    versionRange="[1.16.3,)"
+    versionRange="[1.17,)"
     ordering="NONE"
     side="BOTH"

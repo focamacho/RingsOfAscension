@@ -2,19 +2,24 @@ package com.focamacho.ringsofascension.item.rings;
 
 import com.focamacho.ringsofascension.config.ConfigHolder;
 import com.focamacho.ringsofascension.item.ItemRingBase;
-import net.minecraft.block.*;
-import net.minecraft.block.material.Material;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.fluid.FluidState;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.item.ItemStack;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.FluidTags;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.world.World;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.LiquidBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Material;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.IFluidBlock;
+import net.minecraftforge.fluids.capability.IFluidHandler;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -28,26 +33,26 @@ public class ItemRingSponge extends ItemRingBase {
     @Override
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
         if(!isEnabled()) return;
-        if(livingEntity.world.isRemote || livingEntity.isCrouching()) return;
+        if(livingEntity.level.isClientSide || livingEntity.isCrouching()) return;
 
-        World world = livingEntity.world;
-        BlockPos entityPos = new BlockPos(livingEntity.getPosX(), livingEntity.getPosY(), livingEntity.getPosZ());
+        Level world = livingEntity.level;
+        BlockPos entityPos = new BlockPos(livingEntity.getX(), livingEntity.getY(), livingEntity.getZ());
         int range = 3;
 
-        for(BlockPos pos : BlockPos.getAllInBoxMutable(entityPos.getX() - range, entityPos.getY() - range, entityPos.getZ() - range, entityPos.getX() + range, entityPos.getY() + range, entityPos.getZ() + range)) {
-            BlockState state = livingEntity.world.getBlockState(pos);
-            FluidState fluid = livingEntity.world.getFluidState(pos);
+        for(BlockPos pos : BlockPos.betweenClosed(entityPos.getX() - range, entityPos.getY() - range, entityPos.getZ() - range, entityPos.getX() + range, entityPos.getY() + range, entityPos.getZ() + range)) {
+            BlockState state = livingEntity.level.getBlockState(pos);
+            FluidState fluid = livingEntity.level.getFluidState(pos);
             Material material = state.getMaterial();
 
-            if (fluid.isTagged(FluidTags.WATER)) {
-                if (state.getBlock() instanceof IBucketPickupHandler && ((IBucketPickupHandler) state.getBlock()).pickupFluid(world, pos, state) != Fluids.EMPTY) {
+            if (fluid.is(FluidTags.WATER)) {
+                if (state.getBlock() instanceof IFluidBlock && ((IFluidBlock) state.getBlock()).drain(world, pos, IFluidHandler.FluidAction.EXECUTE) != FluidStack.EMPTY) {
                     continue;
-                } else if (state.getBlock() instanceof FlowingFluidBlock) {
-                    world.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
-                } else if (material == Material.OCEAN_PLANT || material == Material.SEA_GRASS) {
-                    TileEntity tileentity = state.getBlock().hasTileEntity(state) ? world.getTileEntity(pos) : null;
-                    Block.spawnDrops(state, world, pos, tileentity);
-                    world.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
+                } else if (state.getBlock() instanceof LiquidBlock) {
+                    world.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
+                } else if (material == Material.WATER_PLANT || material == Material.REPLACEABLE_WATER_PLANT) {
+                    BlockEntity tileentity = state.hasBlockEntity() ? world.getBlockEntity(pos) : null;
+                    Block.dropResources(state, world, pos, tileentity);
+                    world.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
                 }
             }
         }
@@ -69,9 +74,9 @@ public class ItemRingSponge extends ItemRingBase {
     }
 
     @Override
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         if(!isEnabled()) return;
-        super.addInformation(stack, worldIn, tooltip, flagIn);
+        super.appendHoverText(stack, worldIn, tooltip, flagIn);
     }
 
 }

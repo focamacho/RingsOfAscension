@@ -4,22 +4,22 @@ import com.focamacho.ringsofascension.RingsOfAscension;
 import com.focamacho.ringsofascension.init.ModItems;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ai.attributes.Attribute;
-import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.util.Direction;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.util.text.TranslationTextComponent;
-import net.minecraft.world.World;
+import net.minecraft.ChatFormatting;
+import net.minecraft.core.Direction;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.common.util.LazyOptional;
@@ -37,7 +37,7 @@ public abstract class ItemRingBase extends Item {
     private final List<ResourceLocation> locations = new ArrayList<>();
 
     public ItemRingBase(Properties properties, String name, String tooltip) {
-        super(properties.group(RingsOfAscension.tabGroup));
+        super(properties.tab(RingsOfAscension.tabGroup));
         setRegistryName(name);
 
         this.tooltip = tooltip;
@@ -78,10 +78,14 @@ public abstract class ItemRingBase extends Item {
 
     @Nullable
     @Override
-    public ICapabilityProvider initCapabilities(ItemStack stack, @Nullable CompoundNBT nbt) {
+    public ICapabilityProvider initCapabilities(ItemStack stack, @Nullable CompoundTag nbt) {
         return new ICapabilityProvider() {
             private final LazyOptional<ICurio> lazyCurio = LazyOptional.of(()-> new ICurio() {
 
+                @Override
+                public ItemStack getStack() {
+                    return stack;
+                }
 
                 @Override
                 public void curioTick(String identifier, int index, LivingEntity livingEntity) {
@@ -90,7 +94,7 @@ public abstract class ItemRingBase extends Item {
 
                 @Override
                 public void playRightClickEquipSound(LivingEntity livingEntity) {
-                    livingEntity.world.playSound(null, livingEntity.getPosX(), livingEntity.getPosY(), livingEntity.getPosZ(), SoundEvents.ITEM_ARMOR_EQUIP_GOLD, SoundCategory.NEUTRAL, 1.0f, 1.0f);
+                    livingEntity.level.playSound(null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), SoundEvents.ARMOR_EQUIP_GOLD, SoundSource.NEUTRAL, 1.0f, 1.0f);
                 }
 
                 @Override
@@ -119,6 +123,7 @@ public abstract class ItemRingBase extends Item {
                 public Multimap<Attribute, AttributeModifier> getAttributeModifiers(String identifier) {
                     return curioModifiers(stack, identifier);
                 }
+
             });
 
             @Override
@@ -134,35 +139,35 @@ public abstract class ItemRingBase extends Item {
     }
 
     @Override
-    public boolean hasEffect(ItemStack stack) {
+    public boolean isFoil(ItemStack stack) {
         return true;
     }
 
     @Override
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-        super.addInformation(stack, worldIn, tooltip, flagIn);
+    public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
+        super.appendHoverText(stack, worldIn, tooltip, flagIn);
 
         switch(getTier()) {
             case 0:
-                tooltip.add(new StringTextComponent(TextFormatting.GOLD + new TranslationTextComponent("tooltip.ringsofascension.tier").getString() + " " + TextFormatting.GREEN + new TranslationTextComponent("tooltip.ringsofascension.tier.common").getString()));
+                tooltip.add(new TextComponent(ChatFormatting.GOLD + new TranslatableComponent("tooltip.ringsofascension.tier").getString() + " " + ChatFormatting.GREEN + new TranslatableComponent("tooltip.ringsofascension.tier.common").getString()));
                 break;
             case 1:
-                tooltip.add(new StringTextComponent(TextFormatting.GOLD + new TranslationTextComponent("tooltip.ringsofascension.tier").getString() + " " + TextFormatting.BLUE + new TranslationTextComponent("tooltip.ringsofascension.tier.rare").getString()));
+                tooltip.add(new TextComponent(ChatFormatting.GOLD + new TranslatableComponent("tooltip.ringsofascension.tier").getString() + " " + ChatFormatting.BLUE + new TranslatableComponent("tooltip.ringsofascension.tier.rare").getString()));
                 break;
             case 2:
-                tooltip.add(new StringTextComponent(TextFormatting.GOLD + new TranslationTextComponent("tooltip.ringsofascension.tier").getString() + " " + TextFormatting.LIGHT_PURPLE + new TranslationTextComponent("tooltip.ringsofascension.tier.epic").getString()));
+                tooltip.add(new TextComponent(ChatFormatting.GOLD + new TranslatableComponent("tooltip.ringsofascension.tier").getString() + " " + ChatFormatting.LIGHT_PURPLE + new TranslatableComponent("tooltip.ringsofascension.tier.epic").getString()));
                 break;
-             case 3:
-                tooltip.add(new StringTextComponent(TextFormatting.GOLD + new TranslationTextComponent("tooltip.ringsofascension.tier").getString() + " " + TextFormatting.RED + new TranslationTextComponent("tooltip.ringsofascension.tier.legendary").getString()));
+            case 3:
+                tooltip.add(new TextComponent(ChatFormatting.GOLD + new TranslatableComponent("tooltip.ringsofascension.tier").getString() + " " + ChatFormatting.RED + new TranslatableComponent("tooltip.ringsofascension.tier.legendary").getString()));
                 break;
             case 4:
-                tooltip.add(new StringTextComponent(TextFormatting.GOLD + new TranslationTextComponent("tooltip.ringsofascension.tier").getString() + " " + TextFormatting.DARK_RED + new TranslationTextComponent("tooltip.ringsofascension.tier.mythic").getString()));
+                tooltip.add(new TextComponent(ChatFormatting.GOLD + new TranslatableComponent("tooltip.ringsofascension.tier").getString() + " " + ChatFormatting.DARK_RED + new TranslatableComponent("tooltip.ringsofascension.tier.mythic").getString()));
         }
 
         if(this.tooltip == null) return;
 
-        tooltip.add(new StringTextComponent(""));
-        tooltip.add(new StringTextComponent(TextFormatting.GOLD + new TranslationTextComponent("tooltip.ringsofascension.worn").getString()));
-        tooltip.add(new StringTextComponent(TextFormatting.BLUE + new TranslationTextComponent(this.tooltip).getString()));
+        tooltip.add(new TextComponent(""));
+        tooltip.add(new TextComponent(ChatFormatting.GOLD + new TranslatableComponent("tooltip.ringsofascension.worn").getString()));
+        tooltip.add(new TextComponent(ChatFormatting.BLUE + new TranslatableComponent(this.tooltip).getString()));
     }
 }

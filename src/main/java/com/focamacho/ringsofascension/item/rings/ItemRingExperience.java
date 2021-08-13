@@ -2,16 +2,16 @@ package com.focamacho.ringsofascension.item.rings;
 
 import com.focamacho.ringsofascension.config.ConfigHolder;
 import com.focamacho.ringsofascension.item.ItemRingBase;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.item.ExperienceOrbEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.AxisAlignedBB;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.ExperienceOrb;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.AABB;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -25,13 +25,13 @@ public class ItemRingExperience extends ItemRingBase {
     @Override
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
         if(!isEnabled()) return;
-        if(livingEntity instanceof PlayerEntity && !livingEntity.world.isRemote && !livingEntity.isCrouching()) {
+        if(livingEntity instanceof Player && !livingEntity.level.isClientSide && !livingEntity.isCrouching()) {
             int range = 10;
-            BlockPos pos = new BlockPos(livingEntity.getPosX(), livingEntity.getPosY(), livingEntity.getPosZ());
-            List<ExperienceOrbEntity> entities = livingEntity.world.getEntitiesWithinAABB(ExperienceOrbEntity.class, new AxisAlignedBB(pos.getX() + range, pos.getY() + range, pos.getZ() + range, pos.getX() - range, pos.getY() - range, pos.getZ() - range));
-            for(ExperienceOrbEntity orb : entities) {
+            BlockPos pos = new BlockPos(livingEntity.getX(), livingEntity.getY(), livingEntity.getZ());
+            List<ExperienceOrb> entities = livingEntity.level.getEntitiesOfClass(ExperienceOrb.class, new AABB(pos.getX() + range, pos.getY() + range, pos.getZ() + range, pos.getX() - range, pos.getY() - range, pos.getZ() - range));
+            for(ExperienceOrb orb : entities) {
                 if(orb.isAlive()) {
-                    orb.onCollideWithPlayer((PlayerEntity)livingEntity);
+                    orb.playerTouch((Player)livingEntity);
                 }
             }
         }
@@ -53,9 +53,9 @@ public class ItemRingExperience extends ItemRingBase {
     }
 
     @Override
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         if(!isEnabled()) return;
-        super.addInformation(stack, worldIn, tooltip, flagIn);
+        super.appendHoverText(stack, worldIn, tooltip, flagIn);
     }
 
 }

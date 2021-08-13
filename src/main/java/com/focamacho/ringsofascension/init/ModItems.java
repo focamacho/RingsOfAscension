@@ -2,7 +2,7 @@ package com.focamacho.ringsofascension.init;
 
 import com.focamacho.ringsofascension.item.rings.*;
 import com.focamacho.ringsofascension.item.rings.effects.*;
-import net.minecraft.item.Item;
+import net.minecraft.world.item.Item;
 
 import java.util.ArrayList;
 import java.util.List;

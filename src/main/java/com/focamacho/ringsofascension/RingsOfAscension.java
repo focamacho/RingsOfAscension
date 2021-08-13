@@ -7,10 +7,10 @@ import com.focamacho.ringsofascension.events.LootTableEvent;
 import com.focamacho.ringsofascension.events.PlayerDeathEvent;
 import com.focamacho.ringsofascension.events.TooltipEvent;
 import com.focamacho.ringsofascension.init.ModItems;
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -18,6 +18,7 @@ import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.event.config.ModConfigEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
@@ -65,10 +66,10 @@ public class RingsOfAscension {
 
     }
 
-    public static final ItemGroup tabGroup = new ItemGroup("ringsofascension") {
+    public static final CreativeModeTab tabGroup = new CreativeModeTab("ringsofascension") {
 
         @Override
-        public ItemStack createIcon() {
+        public ItemStack makeIcon() {
             return new ItemStack(ModItems.ringExperience);
         }
 
@@ -88,7 +89,7 @@ public class RingsOfAscension {
         }
 
         @SubscribeEvent
-        public static void onModConfigEvent(final ModConfig.ModConfigEvent event) {
+        public static void onModConfigEvent(final ModConfigEvent event) {
             final ModConfig config = event.getConfig();
 
             if (config.getSpec() == ConfigRingsOfAscension.spec) {

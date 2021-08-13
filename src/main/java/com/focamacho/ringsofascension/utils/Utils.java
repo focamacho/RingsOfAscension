@@ -1,17 +1,17 @@
 package com.focamacho.ringsofascension.utils;
 
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import top.theillusivec4.curios.api.CuriosApi;
 
 public class Utils {
 
-    public static boolean isRingEquipped(ItemStack ring, PlayerEntity player) {
+    public static boolean isRingEquipped(ItemStack ring, Player player) {
         return CuriosApi.getCuriosHelper().findEquippedCurio(ring.getItem(), player).isPresent();
     }
 
-    public static boolean isRingEquipped(Item ring, PlayerEntity player) {
+    public static boolean isRingEquipped(Item ring, Player player) {
         return CuriosApi.getCuriosHelper().findEquippedCurio(ring, player).isPresent();
     }
 
