@@ -1,6 +1,6 @@
 package com.focamacho.ringsofascension.config;
 
-import com.focamacho.sealconfig.relocated.blue.endless.jankson.Comment;
+import com.focamacho.sealconfig.relocated.blue.endless.jankson.api.annotation.Comment;
 
 public class ConfigRingsOfAscension {
 
