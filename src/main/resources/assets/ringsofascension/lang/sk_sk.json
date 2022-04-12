@@ -1,5 +1,5 @@
 {
-  "itemGroup.ringsofascension": "Rings of Ascension",
+  "itemGroup.ringsofascension.rings": "Rings of Ascension",
 
   "item.ringsofascension.ring_fire_resistance": "Prsteň nehorľavosti",
   "item.ringsofascension.ring_invisibility": "Prsteň neviditeľnosti",
@@ -60,6 +60,6 @@
   "tooltip.ringsofascension.tier.legendary": "Legendárna",
   "tooltip.ringsofascension.tier.mythic": "Mytická",
   "tooltip.ringsofascension.slot": "Miesto: ",
-  "tooltip.ringsofascension.ring": "Prsteň"
+  "tooltip.ringsofascension.slot.ring": "Prsteň"
 
 }

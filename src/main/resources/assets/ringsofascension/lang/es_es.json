@@ -58,7 +58,8 @@
   "tooltip.ringsofascension.tier.rare": "Raro",
   "tooltip.ringsofascension.tier.epic": "Épico",
   "tooltip.ringsofascension.tier.legendary": "Legendario",
+  "tooltip.ringsofascension.tier.mythic": "Mythic",
   "tooltip.ringsofascension.slot": "Espacio : ",
-  "tooltip.ringsofascension.ring": "Anillo",
-  "tooltip.ringsofascension.tier.mythic": "Mythic"
+  "tooltip.ringsofascension.slot.ring": "Anillo"
+
 }

@@ -53,12 +53,13 @@
   "tooltip.ringsofascension.undying_cooldown": "Tempo de recarga: secondsHere segundos",
   "tooltip.ringsofascension.slow_resistance": "Concede imunidade ao efeito de lentidão",
 
-  "tooltip.ringsofascension.slot": "Slot:",
-  "tooltip.ringsofascension.slot.ring": "Anel",
   "tooltip.ringsofascension.tier": "Raridade:",
   "tooltip.ringsofascension.tier.common": "Comum",
   "tooltip.ringsofascension.tier.rare": "Raro",
   "tooltip.ringsofascension.tier.epic": "Épico",
   "tooltip.ringsofascension.tier.legendary": "Lendário",
-  "tooltip.ringsofascension.tier.mythic": "Mítico"
+  "tooltip.ringsofascension.tier.mythic": "Mítico",
+  "tooltip.ringsofascension.slot": "Slot: ",
+  "tooltip.ringsofascension.slot.ring": "Anel"
+
 }

@@ -53,12 +53,13 @@
   "tooltip.ringsofascension.undying_cooldown": "冷却： secondsHere秒",
   "tooltip.ringsofascension.slow_resistance": "免疫缓慢效果",
 
-  "tooltip.ringsofascension.slot": "Slot:",
-  "tooltip.ringsofascension.slot.ring": "Ring",
   "tooltip.ringsofascension.tier": "品质：",
   "tooltip.ringsofascension.tier.common": "普通",
   "tooltip.ringsofascension.tier.rare": "稀有",
   "tooltip.ringsofascension.tier.epic": "史诗",
   "tooltip.ringsofascension.tier.legendary": "传说",
-  "tooltip.ringsofascension.tier.mythic": "Mythic"
+  "tooltip.ringsofascension.tier.mythic": "Mythic",
+  "tooltip.ringsofascension.slot": "Slot: ",
+  "tooltip.ringsofascension.slot.ring": "Ring"
+
 }

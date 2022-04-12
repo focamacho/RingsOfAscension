@@ -53,12 +53,13 @@
   "tooltip.ringsofascension.undying_cooldown": "Перезарядка: secondsHere секунд",
   "tooltip.ringsofascension.slow_resistance": "Защищает от эффекта замедления",
 
-  "tooltip.ringsofascension.slot": "Slot:",
-  "tooltip.ringsofascension.slot.ring": "Ring",
   "tooltip.ringsofascension.tier": "Ранг:",
   "tooltip.ringsofascension.tier.common": "Обычное",
   "tooltip.ringsofascension.tier.rare": "Редкое",
   "tooltip.ringsofascension.tier.epic": "Эпическое",
   "tooltip.ringsofascension.tier.legendary": "Легендарное",
-  "tooltip.ringsofascension.tier.mythic": "Mythic"
+  "tooltip.ringsofascension.tier.mythic": "Mythic",
+  "tooltip.ringsofascension.slot": "Slot: ",
+  "tooltip.ringsofascension.slot.ring": "Ring"
+
 }
