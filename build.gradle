@@ -14,7 +14,7 @@ apply plugin: 'maven-publish'
 
 version = '1.0.0'
 group = 'com.focamacho'
-archivesBaseName = 'RingsOfAscension-1.18'
+archivesBaseName = 'RingsOfAscension-1.18.2'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
