@@ -1,16 +1,18 @@
 package com.focamacho.ringsofascension.item.rings;
 
 import com.focamacho.ringsofascension.item.ItemRingBase;
+import com.google.common.collect.Lists;
 import dev.emi.trinkets.api.SlotReference;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.CropBlock;
-import net.minecraft.block.StemBlock;
+import net.minecraft.block.*;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BoneMealItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.math.BlockPos;
+
+import java.util.List;
+import java.util.Random;
 
 public class ItemRingGrowth extends ItemRingBase {
 
@@ -21,25 +23,37 @@ public class ItemRingGrowth extends ItemRingBase {
     }
 
     @Override
-    public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
-        super.tick(stack, slot, entity);
-        if(entity instanceof PlayerEntity player) {
-            if (timer <= 0) {
+    public void tick(ItemStack stack, SlotReference slot, LivingEntity livingEntity) {
+        super.tick(stack, slot, livingEntity);
+        if(livingEntity instanceof PlayerEntity) {
+            if(timer <= 0) {
                 timer = 200;
 
-                BlockPos entityPos = player.getBlockPos();
+                BlockPos entityPos = new BlockPos(livingEntity.getX(), livingEntity.getY(), livingEntity.getZ());
                 int range = 5;
                 int limit = 0;
 
-                for (BlockPos pos : BlockPos.iterate(entityPos.getX() - range, entityPos.getY() - range, entityPos.getZ() - range, entityPos.getX() + range, entityPos.getY() + range, entityPos.getZ() + range)) {
-                    if (limit > 3) break;
+                List<BlockPos> blocks = Lists.newArrayList();
 
-                    BlockState state = player.world.getBlockState(pos);
+                for(BlockPos pos : BlockPos.iterate(entityPos.getX() - range, entityPos.getY() - range, entityPos.getZ() - range, entityPos.getX() + range, entityPos.getY() + range, entityPos.getZ() + range)) {
+                    Block block = livingEntity.world.getBlockState(pos).getBlock();
+                    if(block instanceof CropBlock || block instanceof StemBlock || block instanceof KelpBlock || block instanceof SeagrassBlock) {
+                        blocks.add(new BlockPos(pos));
+                    }
+                }
 
-                    if (state.getBlock() instanceof CropBlock || state.getBlock() instanceof StemBlock) {
-                        if (BoneMealItem.useOnFertilizable(new ItemStack(Items.BONE_MEAL), player.world, pos)) {
-                            limit++;
-                            if (state != player.world.getBlockState(pos)) player.world.syncWorldEvent(2005, pos, 0);
+                if(blocks.size() >= 1) {
+                    Random random = new Random();
+
+                    while(blocks.size() >= 1 && limit < 3) {
+                        BlockPos pos = blocks.remove(random.nextInt(blocks.size()));
+                        BlockState state = livingEntity.world.getBlockState(pos);
+
+                        if(BoneMealItem.useOnFertilizable(new ItemStack(Items.BONE_MEAL), livingEntity.world, pos)) {
+                            if(state != livingEntity.world.getBlockState(pos)) {
+                                limit++;
+                                livingEntity.world.syncWorldEvent(2005, pos, 0);
+                            }
                         }
                     }
                 }
