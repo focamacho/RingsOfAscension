@@ -82,10 +82,10 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.18-38.0.4'
+    minecraft 'net.minecraftforge:forge:1.18.2-40.0.45'
 	
-	runtimeOnly "top.theillusivec4.curios:curios-forge:1.18-5.0.2.1"
-    compileOnly "top.theillusivec4.curios:curios-forge:1.18-5.0.2.1:api"
+	runtimeOnly "top.theillusivec4.curios:curios-forge:1.18.2-5.0.7.0"
+    compileOnly "top.theillusivec4.curios:curios-forge:1.18.2-5.0.7.0:api"
 }
 
 jar {
@@ -95,7 +95,7 @@ jar {
             "Specification-Vendor": "Focamacho",
             "Specification-Version": "1",
             "Implementation-Title": project.name,
-            "Implementation-Version": "${version}",
+            "Implementation-Version": project.version,
             "Implementation-Vendor" :"Focamacho",
             "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])

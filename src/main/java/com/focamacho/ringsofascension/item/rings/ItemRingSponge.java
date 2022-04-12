@@ -16,6 +16,7 @@ import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.IFluidBlock;
@@ -44,10 +45,11 @@ public class ItemRingSponge extends ItemRingBase {
             FluidState fluid = livingEntity.level.getFluidState(pos);
             Material material = state.getMaterial();
 
-            if (fluid.is(FluidTags.WATER)) {
-                if (state.getBlock() instanceof IFluidBlock && ((IFluidBlock) state.getBlock()).drain(world, pos, IFluidHandler.FluidAction.EXECUTE) != FluidStack.EMPTY) {
+            if (fluid.is(Fluids.WATER)) {
+                if (state.getBlock() instanceof IFluidBlock && ((IFluidBlock) state.getBlock()).drain(world, pos, IFluidHandler.FluidAction.EXECUTE) != FluidStack.EMPTY)
                     continue;
-                } else if (state.getBlock() instanceof LiquidBlock) {
+
+                if (state.getBlock() instanceof LiquidBlock) {
                     world.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
                 } else if (material == Material.WATER_PLANT || material == Material.REPLACEABLE_WATER_PLANT) {
                     BlockEntity tileentity = state.hasBlockEntity() ? world.getBlockEntity(pos) : null;
