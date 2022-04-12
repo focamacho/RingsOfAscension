@@ -12,12 +12,15 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.CropBlock;
-import net.minecraft.world.level.block.StemBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
+import org.apache.commons.compress.utils.Lists;
 
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.Random;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 public class ItemRingGrowth extends ItemRingBase {
 
@@ -38,15 +41,27 @@ public class ItemRingGrowth extends ItemRingBase {
             int range = 5;
             int limit = 0;
 
+            List<BlockPos> blocks = Lists.newArrayList();
+
             for(BlockPos pos : BlockPos.betweenClosed(entityPos.getX() - range, entityPos.getY() - range, entityPos.getZ() - range, entityPos.getX() + range, entityPos.getY() + range, entityPos.getZ() + range)) {
-                if(limit > 3) break;
+                Block block = livingEntity.level.getBlockState(pos).getBlock();
+                if(block instanceof CropBlock || block instanceof StemBlock || block instanceof KelpBlock || block instanceof SeagrassBlock) {
+                    blocks.add(new BlockPos(pos));
+                }
+            }
 
-                BlockState state = livingEntity.level.getBlockState(pos);
+            if(blocks.size() >= 1) {
+                Random random = new Random();
 
-                if(state.getBlock() instanceof CropBlock || state.getBlock() instanceof StemBlock) {
+                while(blocks.size() >= 1 && limit < 3) {
+                    BlockPos pos = blocks.remove(random.nextInt(blocks.size()));
+                    BlockState state = livingEntity.level.getBlockState(pos);
+
                     if(BoneMealItem.applyBonemeal(new ItemStack(Items.BONE_MEAL), livingEntity.level, pos, (Player) livingEntity)) {
-                        limit++;
-                        if(state != livingEntity.level.getBlockState(pos)) livingEntity.level.levelEvent(2005, pos, 0);
+                        if(state != livingEntity.level.getBlockState(pos)) {
+                            limit++;
+                            livingEntity.level.levelEvent(2005, pos, 0);
+                        }
                     }
                 }
             }
