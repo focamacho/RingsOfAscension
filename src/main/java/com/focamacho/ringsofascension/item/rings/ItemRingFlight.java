@@ -20,14 +20,29 @@ public class ItemRingFlight extends ItemRingBase {
     @Override
     public void onEquip(ItemStack stack, SlotReference slot, LivingEntity entity) {
         if(entity instanceof PlayerEntity player && !player.isCreative() && !entity.getEntityWorld().isClient()) {
-            abilityFlightRing.grantTo(player, VanillaAbilities.ALLOW_FLYING);
+            player.getAbilities().allowFlying = true;
+            player.getAbilities().flying = true;
+            player.sendAbilitiesUpdate();
         }
     }
 
     @Override
     public void onUnequip(ItemStack stack, SlotReference slot, LivingEntity entity) {
         if(entity instanceof PlayerEntity player && !player.isCreative() && !entity.getEntityWorld().isClient()) {
-            abilityFlightRing.revokeFrom(player, VanillaAbilities.ALLOW_FLYING);
+            player.getAbilities().allowFlying = false;
+            player.getAbilities().flying = false;
+            player.sendAbilitiesUpdate();
+        }
+    }
+
+    @Override
+    public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
+        super.tick(stack, slot, entity);
+        if(entity instanceof PlayerEntity player && !player.isCreative() && !entity.getEntityWorld().isClient()) {
+            if(!player.getAbilities().allowFlying) {
+                player.getAbilities().allowFlying = true;
+                player.sendAbilitiesUpdate();
+            }
         }
     }
 

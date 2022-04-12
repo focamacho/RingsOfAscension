@@ -6,8 +6,8 @@ plugins {
 sourceCompatibility = JavaVersion.VERSION_17
 targetCompatibility = JavaVersion.VERSION_17
 
-archivesBaseName = 'RingsOfAscension-1.18'
-version = '1.0'
+archivesBaseName = 'RingsOfAscension-1.18.2'
+version = '1.0.0'
 group = 'com.focamacho'
 
 configurations {
@@ -24,15 +24,11 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
 	//Trinkets
-	modImplementation "dev.emi:trinkets:3.1.0"
+	modImplementation "dev.emi:trinkets:3.3.0"
 
 	//Seal Config
 	compileOnly files(project.rootDir.toString() + '/libs/SealConfig-1.3.0.jar')
 	embed files(project.rootDir.toString() + '/libs/SealConfig-1.3.0.jar')
-
-	//PlayerAbilityLib
-	modImplementation "io.github.ladysnake:PlayerAbilityLib:1.5.0"
-	include "io.github.ladysnake:PlayerAbilityLib:1.5.0"
 }
 
 repositories {
