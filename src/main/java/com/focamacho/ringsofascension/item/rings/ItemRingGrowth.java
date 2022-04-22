@@ -1,7 +1,6 @@
 package com.focamacho.ringsofascension.item.rings;
 
 import com.focamacho.ringsofascension.item.ItemRingBase;
-import com.google.common.collect.Lists;
 import dev.emi.trinkets.api.SlotReference;
 import net.minecraft.block.*;
 import net.minecraft.entity.LivingEntity;
@@ -11,6 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.math.BlockPos;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -33,7 +33,7 @@ public class ItemRingGrowth extends ItemRingBase {
                 int range = 5;
                 int limit = 0;
 
-                List<BlockPos> blocks = Lists.newArrayList();
+                List<BlockPos> blocks = new ArrayList<>();
 
                 for(BlockPos pos : BlockPos.iterate(entityPos.getX() - range, entityPos.getY() - range, entityPos.getZ() - range, entityPos.getX() + range, entityPos.getY() + range, entityPos.getZ() + range)) {
                     Block block = livingEntity.world.getBlockState(pos).getBlock();
