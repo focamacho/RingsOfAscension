@@ -16,8 +16,8 @@ import java.util.List;
 
 public class ItemRingSpeed extends ItemRingBase {
 
-    public ItemRingSpeed(Properties properties, String name, String tooltip) {
-        super(properties, name, tooltip);
+    public ItemRingSpeed(Properties properties, String tooltip) {
+        super(properties, tooltip);
     }
 
     @Override

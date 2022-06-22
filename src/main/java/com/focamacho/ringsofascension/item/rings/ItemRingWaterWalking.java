@@ -18,8 +18,8 @@ import java.util.List;
 
 public class ItemRingWaterWalking extends ItemRingBase {
 
-    public ItemRingWaterWalking(Properties properties, String name, String tooltip) {
-        super(properties, name, tooltip);
+    public ItemRingWaterWalking(Properties properties, String tooltip) {
+        super(properties, tooltip);
     }
 
     @Override

@@ -15,8 +15,8 @@ import java.util.List;
 
 public class ItemRingWither extends ItemRingBase {
 
-    public ItemRingWither(Properties properties, String name, String tooltip) {
-        super(properties, name, tooltip);
+    public ItemRingWither(Properties properties, String tooltip) {
+        super(properties, tooltip);
     }
 
     @Override

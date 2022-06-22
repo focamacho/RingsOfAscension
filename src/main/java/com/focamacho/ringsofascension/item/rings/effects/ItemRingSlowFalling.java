@@ -16,8 +16,8 @@ import java.util.List;
 
 public class ItemRingSlowFalling extends ItemRingBase {
 
-    public ItemRingSlowFalling(Properties properties, String name, String tooltip) {
-        super(properties, name, tooltip);
+    public ItemRingSlowFalling(Properties properties, String tooltip) {
+        super(properties, tooltip);
     }
 
     @Override

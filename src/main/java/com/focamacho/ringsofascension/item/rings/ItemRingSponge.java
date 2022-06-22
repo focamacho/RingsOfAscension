@@ -26,8 +26,8 @@ import java.util.List;
 
 public class ItemRingSponge extends ItemRingBase {
 
-    public ItemRingSponge(Properties properties, String name, String tooltip) {
-        super(properties, name, tooltip);
+    public ItemRingSponge(Properties properties, String tooltip) {
+        super(properties, tooltip);
     }
 
     @Override

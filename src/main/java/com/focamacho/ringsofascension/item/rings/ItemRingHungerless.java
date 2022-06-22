@@ -15,8 +15,8 @@ import java.util.List;
 
 public class ItemRingHungerless extends ItemRingBase {
 
-    public ItemRingHungerless(Properties properties, String name, String tooltip) {
-        super(properties, name, tooltip);
+    public ItemRingHungerless(Properties properties, String tooltip) {
+        super(properties, tooltip);
     }
 
     @Override

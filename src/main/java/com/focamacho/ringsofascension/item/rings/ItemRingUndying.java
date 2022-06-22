@@ -4,8 +4,6 @@ import com.focamacho.ringsofascension.config.ConfigHolder;
 import com.focamacho.ringsofascension.item.ItemRingBase;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -17,8 +15,8 @@ import java.util.List;
 
 public class ItemRingUndying extends ItemRingBase {
 
-    public ItemRingUndying(Properties properties, String name, String tooltip) {
-        super(properties, name, tooltip);
+    public ItemRingUndying(Properties properties, String tooltip) {
+        super(properties, tooltip);
     }
 
     public void setCooldown(Player player) {
@@ -45,7 +43,7 @@ public class ItemRingUndying extends ItemRingBase {
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         if(!isEnabled()) return;
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
-        tooltip.add(new TextComponent(ChatFormatting.YELLOW + new TranslatableComponent("tooltip.ringsofascension.undying_cooldown").getString().replace("secondsHere", (ChatFormatting.RED + Integer.toString(ConfigHolder.ringUndyingCooldown) + ChatFormatting.YELLOW))));
+        tooltip.add(Component.literal(ChatFormatting.YELLOW + Component.translatable("tooltip.ringsofascension.undying_cooldown").getString().replace("secondsHere", (ChatFormatting.RED + Integer.toString(ConfigHolder.ringUndyingCooldown) + ChatFormatting.YELLOW))));
     }
 
 }

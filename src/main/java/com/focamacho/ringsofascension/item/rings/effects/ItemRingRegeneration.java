@@ -16,8 +16,8 @@ import java.util.List;
 
 public class ItemRingRegeneration extends ItemRingBase {
 
-    public ItemRingRegeneration(Properties properties, String name, String tooltip) {
-        super(properties, name, tooltip);
+    public ItemRingRegeneration(Properties properties, String tooltip) {
+        super(properties, tooltip);
     }
 
     @Override

@@ -16,8 +16,8 @@ import java.util.List;
 
 public class ItemRingJumpBoost extends ItemRingBase {
 
-    public ItemRingJumpBoost(Properties properties, String name, String tooltip) {
-        super(properties, name, tooltip);
+    public ItemRingJumpBoost(Properties properties, String tooltip) {
+        super(properties, tooltip);
     }
 
     @Override

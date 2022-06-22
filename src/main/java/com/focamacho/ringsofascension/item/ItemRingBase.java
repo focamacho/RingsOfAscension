@@ -8,8 +8,6 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -36,13 +34,10 @@ public abstract class ItemRingBase extends Item {
     protected String tooltip;
     private final List<ResourceLocation> locations = new ArrayList<>();
 
-    public ItemRingBase(Properties properties, String name, String tooltip) {
+    public ItemRingBase(Properties properties, String tooltip) {
         super(properties.tab(RingsOfAscension.tabGroup));
-        setRegistryName(name);
-
         this.tooltip = tooltip;
-
-        ModItems.allItems.add(this);
+        ModItems.allRings.add(this);
     }
 
     public abstract boolean isEnabled();
@@ -149,25 +144,25 @@ public abstract class ItemRingBase extends Item {
 
         switch(getTier()) {
             case 0:
-                tooltip.add(new TextComponent(ChatFormatting.GOLD + new TranslatableComponent("tooltip.ringsofascension.tier").getString() + " " + ChatFormatting.GREEN + new TranslatableComponent("tooltip.ringsofascension.tier.common").getString()));
+                tooltip.add(Component.literal(ChatFormatting.GOLD + Component.translatable("tooltip.ringsofascension.tier").getString() + " " + ChatFormatting.GREEN + Component.translatable("tooltip.ringsofascension.tier.common").getString()));
                 break;
             case 1:
-                tooltip.add(new TextComponent(ChatFormatting.GOLD + new TranslatableComponent("tooltip.ringsofascension.tier").getString() + " " + ChatFormatting.BLUE + new TranslatableComponent("tooltip.ringsofascension.tier.rare").getString()));
+                tooltip.add(Component.literal(ChatFormatting.GOLD + Component.translatable("tooltip.ringsofascension.tier").getString() + " " + ChatFormatting.BLUE + Component.translatable("tooltip.ringsofascension.tier.rare").getString()));
                 break;
             case 2:
-                tooltip.add(new TextComponent(ChatFormatting.GOLD + new TranslatableComponent("tooltip.ringsofascension.tier").getString() + " " + ChatFormatting.LIGHT_PURPLE + new TranslatableComponent("tooltip.ringsofascension.tier.epic").getString()));
+                tooltip.add(Component.literal(ChatFormatting.GOLD + Component.translatable("tooltip.ringsofascension.tier").getString() + " " + ChatFormatting.LIGHT_PURPLE + Component.translatable("tooltip.ringsofascension.tier.epic").getString()));
                 break;
             case 3:
-                tooltip.add(new TextComponent(ChatFormatting.GOLD + new TranslatableComponent("tooltip.ringsofascension.tier").getString() + " " + ChatFormatting.RED + new TranslatableComponent("tooltip.ringsofascension.tier.legendary").getString()));
+                tooltip.add(Component.literal(ChatFormatting.GOLD + Component.translatable("tooltip.ringsofascension.tier").getString() + " " + ChatFormatting.RED + Component.translatable("tooltip.ringsofascension.tier.legendary").getString()));
                 break;
             case 4:
-                tooltip.add(new TextComponent(ChatFormatting.GOLD + new TranslatableComponent("tooltip.ringsofascension.tier").getString() + " " + ChatFormatting.DARK_RED + new TranslatableComponent("tooltip.ringsofascension.tier.mythic").getString()));
+                tooltip.add(Component.literal(ChatFormatting.GOLD + Component.translatable("tooltip.ringsofascension.tier").getString() + " " + ChatFormatting.DARK_RED + Component.translatable("tooltip.ringsofascension.tier.mythic").getString()));
         }
 
         if(this.tooltip == null) return;
 
-        tooltip.add(new TextComponent(""));
-        tooltip.add(new TextComponent(ChatFormatting.GOLD + new TranslatableComponent("tooltip.ringsofascension.worn").getString()));
-        tooltip.add(new TextComponent(ChatFormatting.BLUE + new TranslatableComponent(this.tooltip).getString()));
+        tooltip.add(Component.literal(""));
+        tooltip.add(Component.literal(ChatFormatting.GOLD + Component.translatable("tooltip.ringsofascension.worn").getString()));
+        tooltip.add(Component.literal(ChatFormatting.BLUE + Component.translatable(this.tooltip).getString()));
     }
 }

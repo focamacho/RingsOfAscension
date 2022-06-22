@@ -3,7 +3,6 @@ package com.focamacho.ringsofascension.events;
 import com.focamacho.ringsofascension.config.ConfigHolder;
 import com.focamacho.ringsofascension.init.ModItems;
 import com.focamacho.ringsofascension.item.ItemRingBase;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
@@ -17,9 +16,9 @@ public class LootTableEvent {
         LootPool.Builder builder = LootPool.lootPool().setRolls(UniformGenerator.between(ConfigHolder.ringMinLoot, ConfigHolder.ringMaxLoot)).name("rings_of_ascension_pool");
         boolean add = false;
 
-        for(Item item : ModItems.allItems) {
-            if(!(item instanceof ItemRingBase)) continue;
-            ItemRingBase ring = (ItemRingBase) item;
+        for(ItemRingBase item : ModItems.allRings) {
+            if(item == null) continue;
+            ItemRingBase ring = item;
             if(ring.isEnabled()) {
                 if(ring.getLocations().contains(event.getName())) {
                     builder.add(LootItem.lootTableItem(() -> item).setWeight(getWeightFromTier(ring.getTier())));

@@ -16,8 +16,8 @@ import java.util.List;
 
 public class ItemRingLuck extends ItemRingBase {
 
-    public ItemRingLuck(Properties properties, String name, String tooltip) {
-        super(properties, name, tooltip);
+    public ItemRingLuck(Properties properties, String tooltip) {
+        super(properties, tooltip);
     }
 
     @Override

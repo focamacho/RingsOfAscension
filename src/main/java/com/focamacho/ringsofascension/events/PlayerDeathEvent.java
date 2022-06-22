@@ -25,8 +25,8 @@ public class PlayerDeathEvent {
 
         ServerPlayer player = (ServerPlayer) event.getEntityLiving();
 
-        if(CuriosApi.getCuriosHelper().findEquippedCurio(ModItems.ringUndying, event.getEntityLiving()).isPresent()) {
-            ItemStack ring = CuriosApi.getCuriosHelper().findEquippedCurio(ModItems.ringUndying, event.getEntityLiving()).get().right;
+        if(CuriosApi.getCuriosHelper().findFirstCurio(event.getEntityLiving(), ModItems.ringUndying.get()).isPresent()) {
+            ItemStack ring = CuriosApi.getCuriosHelper().findFirstCurio(event.getEntityLiving(), ModItems.ringUndying.get()).get().stack();
 
             if(player.getCooldowns().isOnCooldown(ring.getItem())) return;
 

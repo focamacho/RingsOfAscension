@@ -16,21 +16,21 @@ public class ApplyPotionEvent {
         //Poison Resistance Ring
         if(event.getPotionEffect().getEffect() == MobEffects.POISON && ConfigHolder.ringPoisonResistance) {
             if(event.getEntityLiving() instanceof Player) {
-                if(Utils.isRingEquipped(ModItems.ringPoisonResistance, (Player)event.getEntityLiving())) event.setResult(Event.Result.DENY);
+                if(Utils.isRingEquipped(ModItems.ringPoisonResistance.get(), (Player)event.getEntityLiving())) event.setResult(Event.Result.DENY);
             }
         }
 
         //Slowness Resistance Ring
         if(event.getPotionEffect().getEffect() == MobEffects.MOVEMENT_SLOWDOWN && ConfigHolder.ringSlowResistance) {
             if(event.getEntityLiving() instanceof Player) {
-                if(Utils.isRingEquipped(ModItems.ringSlowResistance, (Player)event.getEntityLiving())) event.setResult(Event.Result.DENY);
+                if(Utils.isRingEquipped(ModItems.ringSlowResistance.get(), (Player)event.getEntityLiving())) event.setResult(Event.Result.DENY);
             }
         }
 
         //Wither Resistance Ring
         if(event.getPotionEffect().getEffect() == MobEffects.WITHER && ConfigHolder.ringWither) {
             if(event.getEntityLiving() instanceof Player) {
-                if(Utils.isRingEquipped(ModItems.ringWither, (Player)event.getEntityLiving())) event.setResult(Event.Result.DENY);
+                if(Utils.isRingEquipped(ModItems.ringWither.get(), (Player)event.getEntityLiving())) event.setResult(Event.Result.DENY);
             }
         }
     }

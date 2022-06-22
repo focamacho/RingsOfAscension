@@ -1,40 +1,58 @@
 package com.focamacho.ringsofascension.init;
 
+import com.focamacho.ringsofascension.RingsOfAscension;
+import com.focamacho.ringsofascension.item.ItemRingBase;
 import com.focamacho.ringsofascension.item.rings.*;
 import com.focamacho.ringsofascension.item.rings.effects.*;
 import net.minecraft.world.item.Item;
+import net.minecraftforge.eventbus.EventBus;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Supplier;
 
 public class ModItems {
 
-    public static List<Item> allItems = new ArrayList<>();
+    public static List<ItemRingBase> allRings = new ArrayList<>();
 
-    public static Item ringFireResistance = new ItemRingFireResistance(new Item.Properties(), "ring_fire_resistance", "tooltip.ringsofascension.fire_resistance");
-    public static Item ringInvisibility = new ItemRingInvisibility(new Item.Properties(), "ring_invisibility", "tooltip.ringsofascension.invisibility");
-    public static Item ringRegeneration = new ItemRingRegeneration(new Item.Properties(), "ring_regeneration", "tooltip.ringsofascension.regeneration");
-    public static Item ringSlowFalling = new ItemRingSlowFalling(new Item.Properties(), "ring_slow_falling", "tooltip.ringsofascension.slow_falling");
-    public static Item ringStrength = new ItemRingStrength(new Item.Properties(), "ring_strength", "tooltip.ringsofascension.strength");
-    public static Item ringWaterBreathing = new ItemRingWaterBreathing(new Item.Properties(), "ring_water_breathing", "tooltip.ringsofascension.water_breathing");
-    public static Item ringSpeed = new ItemRingSpeed(new Item.Properties(), "ring_speed", "tooltip.ringsofascension.speed");
-    public static Item ringNightVision = new ItemRingNightVision(new Item.Properties(), "ring_night_vision", "tooltip.ringsofascension.night_vision");
-    public static Item ringJumpBoost = new ItemRingJumpBoost(new Item.Properties(), "ring_jump_boost", "tooltip.ringsofascension.jump_boost");
-    public static Item ringMining = new ItemRingMining(new Item.Properties(), "ring_mining", "tooltip.ringsofascension.mining");
-    public static Item ringLuck = new ItemRingLuck(new Item.Properties(), "ring_luck", "tooltip.ringsofascension.luck");
-    public static Item ringDolphin = new ItemRingDolphin(new Item.Properties(), "ring_dolphin", "tooltip.ringsofascension.dolphin");
-    public static Item ringMagnetism = new ItemRingMagnet(new Item.Properties(), "ring_magnetism", "tooltip.ringsofascension.magnetism");
-    public static Item ringFlight = new ItemRingFlight(new Item.Properties(), "ring_flight", "tooltip.ringsofascension.flight");
-    public static Item ringPoisonResistance = new ItemRingPoisonResistance(new Item.Properties(), "ring_poison_resistance", "tooltip.ringsofascension.poison_resistance");
-    public static Item ringHungerless = new ItemRingHungerless(new Item.Properties(), "ring_hungerless", "tooltip.ringsofascension.hungerless");
-    public static Item ringGrowth = new ItemRingGrowth(new Item.Properties(), "ring_growth", "tooltip.ringsofascension.growth");
-    public static Item ringKnockbackResistance = new ItemRingKnockbackResistance(new Item.Properties(), "ring_knockback_resistance", null);
-    public static Item ringHealth = new ItemRingHealth(new Item.Properties(), "ring_health", null);
-    public static Item ringSponge = new ItemRingSponge(new Item.Properties(), "ring_sponge", "tooltip.ringsofascension.sponge");
-    public static Item ringExperience = new ItemRingExperience(new Item.Properties(), "ring_experience", "tooltip.ringsofascension.experience");
-    public static Item ringWaterWalking = new ItemRingWaterWalking(new Item.Properties(), "ring_water_walking", "tooltip.ringsofascension.water_walking");
-    public static Item ringWither = new ItemRingWither(new Item.Properties(), "ring_wither", "tooltip.ringsofascension.wither");
-    public static Item ringUndying = new ItemRingUndying(new Item.Properties(), "ring_undying", "tooltip.ringsofascension.undying");
-    public static Item ringSlowResistance = new ItemRingSlowResistance(new Item.Properties(), "ring_slow_resistance", "tooltip.ringsofascension.slow_resistance");
+    private static DeferredRegister<Item> register = DeferredRegister.create(ForgeRegistries.ITEMS, RingsOfAscension.MODID);
+
+    public static RegistryObject<Item> ringFireResistance = register("ring_fire_resistance", () -> new ItemRingFireResistance(new Item.Properties(), "tooltip.ringsofascension.fire_resistance"));
+    public static RegistryObject<Item> ringInvisibility = register("ring_invisibility", () -> new ItemRingInvisibility(new Item.Properties(), "tooltip.ringsofascension.invisibility"));
+    public static RegistryObject<Item> ringRegeneration = register("ring_regeneration", () -> new ItemRingRegeneration(new Item.Properties(), "tooltip.ringsofascension.regeneration"));
+    public static RegistryObject<Item> ringSlowFalling = register("ring_slow_falling", () -> new ItemRingSlowFalling(new Item.Properties(), "tooltip.ringsofascension.slow_falling"));
+    public static RegistryObject<Item> ringStrength = register("ring_strength", () -> new ItemRingStrength(new Item.Properties(), "tooltip.ringsofascension.strength"));
+    public static RegistryObject<Item> ringWaterBreathing = register("ring_water_breathing", () -> new ItemRingWaterBreathing(new Item.Properties(), "tooltip.ringsofascension.water_breathing"));
+    public static RegistryObject<Item> ringSpeed = register("ring_speed", () -> new ItemRingSpeed(new Item.Properties(), "tooltip.ringsofascension.speed"));
+    public static RegistryObject<Item> ringNightVision = register("ring_night_vision", () -> new ItemRingNightVision(new Item.Properties(), "tooltip.ringsofascension.night_vision"));
+    public static RegistryObject<Item> ringJumpBoost = register("ring_jump_boost", () -> new ItemRingJumpBoost(new Item.Properties(), "tooltip.ringsofascension.jump_boost"));
+    public static RegistryObject<Item> ringMining = register("ring_mining", () -> new ItemRingMining(new Item.Properties(), "tooltip.ringsofascension.mining"));
+    public static RegistryObject<Item> ringLuck = register("ring_luck", () -> new ItemRingLuck(new Item.Properties(), "tooltip.ringsofascension.luck"));
+    public static RegistryObject<Item> ringDolphin = register("ring_dolphin", () -> new ItemRingDolphin(new Item.Properties(), "tooltip.ringsofascension.dolphin"));
+    public static RegistryObject<Item> ringMagnetism = register("ring_magnetism", () -> new ItemRingMagnet(new Item.Properties(), "tooltip.ringsofascension.magnetism"));
+    public static RegistryObject<Item> ringFlight = register("ring_flight", () -> new ItemRingFlight(new Item.Properties(), "tooltip.ringsofascension.flight"));
+    public static RegistryObject<Item> ringPoisonResistance = register("ring_poison_resistance", () -> new ItemRingPoisonResistance(new Item.Properties(), "tooltip.ringsofascension.poison_resistance"));
+    public static RegistryObject<Item> ringHungerless = register("ring_hungerless", () -> new ItemRingHungerless(new Item.Properties(), "tooltip.ringsofascension.hungerless"));
+    public static RegistryObject<Item> ringGrowth = register("ring_growth", () -> new ItemRingGrowth(new Item.Properties(), "tooltip.ringsofascension.growth"));
+    public static RegistryObject<Item> ringKnockbackResistance = register("ring_knockback_resistance", () -> new ItemRingKnockbackResistance(new Item.Properties(), null));
+    public static RegistryObject<Item> ringHealth = register("ring_health", () -> new ItemRingHealth(new Item.Properties(), null));
+    public static RegistryObject<Item> ringSponge = register("ring_sponge", () -> new ItemRingSponge(new Item.Properties(), "tooltip.ringsofascension.sponge"));
+    public static RegistryObject<Item> ringExperience = register("ring_experience", () -> new ItemRingExperience(new Item.Properties(), "tooltip.ringsofascension.experience"));
+    public static RegistryObject<Item> ringWaterWalking = register("ring_water_walking", () -> new ItemRingWaterWalking(new Item.Properties(), "tooltip.ringsofascension.water_walking"));
+    public static RegistryObject<Item> ringWither = register("ring_wither", () -> new ItemRingWither(new Item.Properties(), "tooltip.ringsofascension.wither"));
+    public static RegistryObject<Item> ringUndying = register("ring_undying", () -> new ItemRingUndying(new Item.Properties(), "tooltip.ringsofascension.undying"));
+    public static RegistryObject<Item> ringSlowResistance = register("ring_slow_resistance", () -> new ItemRingSlowResistance(new Item.Properties(), "tooltip.ringsofascension.slow_resistance"));
+
+    public static void init(IEventBus bus) {
+        register.register(bus);
+    }
+
+    private static RegistryObject<Item> register(String name, Supplier<Item> supplier) {
+        return register.register(name, supplier);
+    }
 
 }

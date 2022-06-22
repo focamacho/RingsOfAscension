@@ -15,8 +15,8 @@ import java.util.List;
 
 public class ItemRingPoisonResistance extends ItemRingBase {
 
-    public ItemRingPoisonResistance(Properties properties, String name, String tooltip) {
-        super(properties, name, tooltip);
+    public ItemRingPoisonResistance(Properties properties, String tooltip) {
+        super(properties, tooltip);
     }
 
     @Override

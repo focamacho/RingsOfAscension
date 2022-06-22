@@ -8,11 +8,8 @@ import com.focamacho.ringsofascension.events.PlayerDeathEvent;
 import com.focamacho.ringsofascension.events.TooltipEvent;
 import com.focamacho.ringsofascension.init.ModItems;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -40,18 +37,14 @@ public class RingsOfAscension {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigRingsOfAscension.spec);
         ConfigHolder.updateConfigs();
 
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+
+        ModItems.init(FMLJavaModLoadingContext.get().getModEventBus());
 
         MinecraftForge.EVENT_BUS.register(new LootTableEvent());
         MinecraftForge.EVENT_BUS.register(new PlayerDeathEvent());
         MinecraftForge.EVENT_BUS.register(new ApplyPotionEvent());
-    }
-
-    private void setup(final FMLCommonSetupEvent event) {
-
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {
@@ -62,15 +55,11 @@ public class RingsOfAscension {
         InterModComms.sendTo(CuriosApi.MODID, SlotTypeMessage.REGISTER_TYPE, () -> new SlotTypeMessage.Builder("ring").size(2).build());
     }
 
-    private void processIMC(final InterModProcessEvent event) {
-
-    }
-
     public static final CreativeModeTab tabGroup = new CreativeModeTab("ringsofascension") {
 
         @Override
         public ItemStack makeIcon() {
-            return new ItemStack(ModItems.ringExperience);
+            return new ItemStack(ModItems.ringExperience.get());
         }
 
     };
@@ -78,15 +67,6 @@ public class RingsOfAscension {
 
     @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
     public static class RegistryEvents {
-        @SubscribeEvent
-        public static void onBlocksRegistry(final RegistryEvent.Register<Block> event) {
-
-        }
-
-        @SubscribeEvent
-        public static void onItemRegistry(final RegistryEvent.Register<Item> event) {
-            ModItems.allItems.forEach(item -> event.getRegistry().register(item));
-        }
 
         @SubscribeEvent
         public static void onModConfigEvent(final ModConfigEvent event) {

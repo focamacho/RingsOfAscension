@@ -22,8 +22,8 @@ public class ItemRingHealth extends ItemRingBase {
 
     private static final UUID HEALTH_UUID = UUID.fromString("b29c34f3-1450-48ff-ab28-639647e11861");
 
-    public ItemRingHealth(Properties properties, String name, String tooltip) {
-        super(properties, name, tooltip);
+    public ItemRingHealth(Properties properties, String tooltip) {
+        super(properties, tooltip);
     }
 
     @Override

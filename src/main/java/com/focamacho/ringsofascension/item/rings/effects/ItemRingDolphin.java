@@ -16,8 +16,8 @@ import java.util.List;
 
 public class ItemRingDolphin extends ItemRingBase {
 
-    public ItemRingDolphin(Properties properties, String name, String tooltip) {
-        super(properties, name, tooltip);
+    public ItemRingDolphin(Properties properties, String tooltip) {
+        super(properties, tooltip);
     }
 
     @Override

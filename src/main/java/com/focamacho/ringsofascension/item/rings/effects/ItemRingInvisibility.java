@@ -16,8 +16,8 @@ import java.util.List;
 
 public class ItemRingInvisibility extends ItemRingBase {
 
-    public ItemRingInvisibility(Properties properties, String name, String tooltip) {
-        super(properties, name, tooltip);
+    public ItemRingInvisibility(Properties properties, String tooltip) {
+        super(properties, tooltip);
     }
 
     @Override

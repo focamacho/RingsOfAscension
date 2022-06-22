@@ -18,8 +18,8 @@ import java.util.List;
 
 public class ItemRingMagnet extends ItemRingBase {
 
-    public ItemRingMagnet(Properties properties, String name, String tooltip) {
-        super(properties, name, tooltip);
+    public ItemRingMagnet(Properties properties, String tooltip) {
+        super(properties, tooltip);
     }
 
     @Override

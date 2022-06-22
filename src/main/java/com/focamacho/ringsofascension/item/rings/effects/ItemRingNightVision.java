@@ -16,8 +16,8 @@ import java.util.List;
 
 public class ItemRingNightVision extends ItemRingBase {
 
-    public ItemRingNightVision(Properties properties, String name, String tooltip) {
-        super(properties, name, tooltip);
+    public ItemRingNightVision(Properties properties, String tooltip) {
+        super(properties, tooltip);
     }
 
     @Override

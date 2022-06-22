@@ -16,8 +16,8 @@ import java.util.List;
 
 public class ItemRingWaterBreathing extends ItemRingBase {
 
-    public ItemRingWaterBreathing(Properties properties, String name, String tooltip) {
-        super(properties, name, tooltip);
+    public ItemRingWaterBreathing(Properties properties, String tooltip) {
+        super(properties, tooltip);
     }
 
     @Override

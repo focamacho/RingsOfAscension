@@ -15,8 +15,8 @@ import java.util.List;
 
 public class ItemRingFlight extends ItemRingBase {
 
-    public ItemRingFlight(Properties properties, String name, String tooltip) {
-        super(properties, name, tooltip);
+    public ItemRingFlight(Properties properties, String tooltip) {
+        super(properties, tooltip);
     }
 
     @Override

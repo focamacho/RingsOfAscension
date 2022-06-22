@@ -16,8 +16,8 @@ import java.util.List;
 
 public class ItemRingMining extends ItemRingBase {
 
-    public ItemRingMining(Properties properties, String name, String tooltip) {
-        super(properties, name, tooltip);
+    public ItemRingMining(Properties properties, String tooltip) {
+        super(properties, tooltip);
     }
 
     @Override

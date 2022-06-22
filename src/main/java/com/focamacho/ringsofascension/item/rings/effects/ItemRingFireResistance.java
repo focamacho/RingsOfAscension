@@ -16,8 +16,8 @@ import java.util.List;
 
 public class ItemRingFireResistance extends ItemRingBase {
 
-    public ItemRingFireResistance(Properties properties, String name, String tooltip) {
-        super(properties, name, tooltip);
+    public ItemRingFireResistance(Properties properties, String tooltip) {
+        super(properties, tooltip);
     }
 
     @Override

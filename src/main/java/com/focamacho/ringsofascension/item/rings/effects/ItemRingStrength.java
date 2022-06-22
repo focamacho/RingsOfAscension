@@ -16,8 +16,8 @@ import java.util.List;
 
 public class ItemRingStrength extends ItemRingBase {
 
-    public ItemRingStrength(Properties properties, String name, String tooltip) {
-        super(properties, name, tooltip);
+    public ItemRingStrength(Properties properties, String tooltip) {
+        super(properties, tooltip);
     }
 
     @Override
