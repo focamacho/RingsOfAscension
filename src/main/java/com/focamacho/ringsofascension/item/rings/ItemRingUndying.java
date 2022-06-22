@@ -5,7 +5,6 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
 
@@ -27,6 +26,6 @@ public class ItemRingUndying extends ItemRingBase {
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
         super.appendTooltip(stack, world, tooltip, context);
 
-        tooltip.add(new LiteralText("§e" + I18n.translate("tooltip.ringsofascension.undying_cooldown").replace("secondsHere", "§c" + config.general.ringUndyingCooldown + "§e")));
+        tooltip.add(Text.literal("§e" + I18n.translate("tooltip.ringsofascension.undying_cooldown").replace("secondsHere", "§c" + config.general.ringUndyingCooldown + "§e")));
     }
 }

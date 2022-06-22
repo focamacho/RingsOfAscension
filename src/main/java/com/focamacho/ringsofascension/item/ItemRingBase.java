@@ -8,9 +8,7 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
@@ -60,22 +58,22 @@ public class ItemRingBase extends TrinketItem {
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
         super.appendTooltip(stack, world, tooltip, context);
 
-        tooltip.add(new TranslatableText("tooltip.ringsofascension.slot").formatted(Formatting.GOLD).append(new LiteralText(" ")).append(new TranslatableText("tooltip.ringsofascension.slot.ring").formatted(Formatting.YELLOW)));
+        tooltip.add(Text.translatable("tooltip.ringsofascension.slot").formatted(Formatting.GOLD).append(Text.literal(" ")).append(Text.translatable("tooltip.ringsofascension.slot.ring").formatted(Formatting.YELLOW)));
 
         switch (tier) {
-            case 0 -> tooltip.add(new TranslatableText("tooltip.ringsofascension.tier").formatted(Formatting.GOLD).append(new LiteralText(" ")).append(new TranslatableText("tooltip.ringsofascension.tier.common").formatted(Formatting.GREEN)));
-            case 1 -> tooltip.add(new TranslatableText("tooltip.ringsofascension.tier").formatted(Formatting.GOLD).append(new LiteralText(" ")).append(new TranslatableText("tooltip.ringsofascension.tier.rare").formatted(Formatting.BLUE)));
-            case 2 -> tooltip.add(new TranslatableText("tooltip.ringsofascension.tier").formatted(Formatting.GOLD).append(new LiteralText(" ")).append(new TranslatableText("tooltip.ringsofascension.tier.epic").formatted(Formatting.LIGHT_PURPLE)));
-            case 3 -> tooltip.add(new TranslatableText("tooltip.ringsofascension.tier").formatted(Formatting.GOLD).append(new LiteralText(" ")).append(new TranslatableText("tooltip.ringsofascension.tier.legendary").formatted(Formatting.RED)));
-            case 4 -> tooltip.add(new TranslatableText("tooltip.ringsofascension.tier").formatted(Formatting.GOLD).append(new LiteralText(" ")).append(new TranslatableText("tooltip.ringsofascension.tier.mythic").formatted(Formatting.DARK_RED)));
+            case 0 -> tooltip.add(Text.translatable("tooltip.ringsofascension.tier").formatted(Formatting.GOLD).append(Text.literal(" ")).append(Text.translatable("tooltip.ringsofascension.tier.common").formatted(Formatting.GREEN)));
+            case 1 -> tooltip.add(Text.translatable("tooltip.ringsofascension.tier").formatted(Formatting.GOLD).append(Text.literal(" ")).append(Text.translatable("tooltip.ringsofascension.tier.rare").formatted(Formatting.BLUE)));
+            case 2 -> tooltip.add(Text.translatable("tooltip.ringsofascension.tier").formatted(Formatting.GOLD).append(Text.literal(" ")).append(Text.translatable("tooltip.ringsofascension.tier.epic").formatted(Formatting.LIGHT_PURPLE)));
+            case 3 -> tooltip.add(Text.translatable("tooltip.ringsofascension.tier").formatted(Formatting.GOLD).append(Text.literal(" ")).append(Text.translatable("tooltip.ringsofascension.tier.legendary").formatted(Formatting.RED)));
+            case 4 -> tooltip.add(Text.translatable("tooltip.ringsofascension.tier").formatted(Formatting.GOLD).append(Text.literal(" ")).append(Text.translatable("tooltip.ringsofascension.tier.mythic").formatted(Formatting.DARK_RED)));
         }
 
-        tooltip.add(new LiteralText(""));
-        tooltip.add(new TranslatableText("tooltip.ringsofascension.worn").formatted(Formatting.GOLD));
+        tooltip.add(Text.literal(""));
+        tooltip.add(Text.translatable("tooltip.ringsofascension.worn").formatted(Formatting.GOLD));
 
         if(this.tooltip == null) return;
 
-        tooltip.add(new TranslatableText(this.tooltip).formatted(Formatting.BLUE));
+        tooltip.add(Text.translatable(this.tooltip).formatted(Formatting.BLUE));
     }
 
     @Override
