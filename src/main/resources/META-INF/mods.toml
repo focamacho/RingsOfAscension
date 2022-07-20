@@ -16,3 +16,9 @@ Rings of Ascension is a mod that uses the Curios API to add 20+ new rings to you
     versionRange="[1.19,)"
     ordering="NONE"
     side="BOTH"
+[[dependencies.ringsofascension]]
+    modId="forge"
+    mandatory=true
+    versionRange="[1.19-41.0.100,)"
+    ordering="NONE"
+    side="BOTH"

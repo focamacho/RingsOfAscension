@@ -35,7 +35,7 @@ public abstract class ItemRingBase extends Item {
     private final List<ResourceLocation> locations = new ArrayList<>();
 
     public ItemRingBase(Properties properties, String tooltip) {
-        super(properties.tab(RingsOfAscension.tabGroup));
+        super(properties.tab(RingsOfAscension.tabGroup).stacksTo(1));
         this.tooltip = tooltip;
         ModItems.allRings.add(this);
     }
@@ -129,11 +129,6 @@ public abstract class ItemRingBase extends Item {
     }
 
     @Override
-    public int getItemStackLimit(ItemStack stack) {
-        return 1;
-    }
-
-    @Override
     public boolean isFoil(ItemStack stack) {
         return true;
     }
@@ -142,21 +137,17 @@ public abstract class ItemRingBase extends Item {
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
 
-        switch(getTier()) {
-            case 0:
-                tooltip.add(Component.literal(ChatFormatting.GOLD + Component.translatable("tooltip.ringsofascension.tier").getString() + " " + ChatFormatting.GREEN + Component.translatable("tooltip.ringsofascension.tier.common").getString()));
-                break;
-            case 1:
-                tooltip.add(Component.literal(ChatFormatting.GOLD + Component.translatable("tooltip.ringsofascension.tier").getString() + " " + ChatFormatting.BLUE + Component.translatable("tooltip.ringsofascension.tier.rare").getString()));
-                break;
-            case 2:
-                tooltip.add(Component.literal(ChatFormatting.GOLD + Component.translatable("tooltip.ringsofascension.tier").getString() + " " + ChatFormatting.LIGHT_PURPLE + Component.translatable("tooltip.ringsofascension.tier.epic").getString()));
-                break;
-            case 3:
-                tooltip.add(Component.literal(ChatFormatting.GOLD + Component.translatable("tooltip.ringsofascension.tier").getString() + " " + ChatFormatting.RED + Component.translatable("tooltip.ringsofascension.tier.legendary").getString()));
-                break;
-            case 4:
-                tooltip.add(Component.literal(ChatFormatting.GOLD + Component.translatable("tooltip.ringsofascension.tier").getString() + " " + ChatFormatting.DARK_RED + Component.translatable("tooltip.ringsofascension.tier.mythic").getString()));
+        switch (getTier()) {
+            case 0 ->
+                    tooltip.add(Component.literal(ChatFormatting.GOLD + Component.translatable("tooltip.ringsofascension.tier").getString() + " " + ChatFormatting.GREEN + Component.translatable("tooltip.ringsofascension.tier.common").getString()));
+            case 1 ->
+                    tooltip.add(Component.literal(ChatFormatting.GOLD + Component.translatable("tooltip.ringsofascension.tier").getString() + " " + ChatFormatting.BLUE + Component.translatable("tooltip.ringsofascension.tier.rare").getString()));
+            case 2 ->
+                    tooltip.add(Component.literal(ChatFormatting.GOLD + Component.translatable("tooltip.ringsofascension.tier").getString() + " " + ChatFormatting.LIGHT_PURPLE + Component.translatable("tooltip.ringsofascension.tier.epic").getString()));
+            case 3 ->
+                    tooltip.add(Component.literal(ChatFormatting.GOLD + Component.translatable("tooltip.ringsofascension.tier").getString() + " " + ChatFormatting.RED + Component.translatable("tooltip.ringsofascension.tier.legendary").getString()));
+            case 4 ->
+                    tooltip.add(Component.literal(ChatFormatting.GOLD + Component.translatable("tooltip.ringsofascension.tier").getString() + " " + ChatFormatting.DARK_RED + Component.translatable("tooltip.ringsofascension.tier.mythic").getString()));
         }
 
         if(this.tooltip == null) return;

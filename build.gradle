@@ -82,10 +82,10 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.19-41.0.45'
+    minecraft 'net.minecraftforge:forge:1.19-41.0.100'
 	
-	runtimeOnly "top.theillusivec4.curios:curios-forge:1.19-5.1.0.2"
-    compileOnly "top.theillusivec4.curios:curios-forge:1.19-5.1.0.2:api"
+	runtimeOnly "top.theillusivec4.curios:curios-forge:1.19-5.1.0.4"
+    compileOnly "top.theillusivec4.curios:curios-forge:1.19-5.1.0.4:api"
 }
 
 jar {
