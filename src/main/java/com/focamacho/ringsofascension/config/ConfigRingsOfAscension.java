@@ -209,13 +209,13 @@ public class ConfigRingsOfAscension {
             configRingLocationRegeneration = builder.define("ringLocationRegeneration", "minecraft:chests/stronghold_corridor;minecraft:chests/stronghold_library");
             configRingLocationSlowFalling = builder.define("ringLocationSlowFalling", "minecraft:chests/simple_dungeon;minecraft:chests/buried_treasure;minecraft:chests/end_city_treasure");
             configRingLocationStrength = builder.define("ringLocationStrength", "minecraft:chests/stronghold_library;minecraft:chests/stronghold_corridor;minecraft:chests/stronghold_crossing;minecraft:chests/bastion_treasure;minecraft:chests/bastion_bridge;minecraft:chests/pillager_outpost");
-            configRingLocationWaterBreathing = builder.define("ringLocationWaterBreathing", "minecraft:chests/spawn_bonus_chest;minecraft:chests/underwater_ruin_big;minecraft:chests/underwater_run_small;minecraft:chests/buried_treasure");
+            configRingLocationWaterBreathing = builder.define("ringLocationWaterBreathing", "minecraft:chests/spawn_bonus_chest;minecraft:chests/underwater_ruin_big;minecraft:chests/underwater_ruin_small;minecraft:chests/buried_treasure");
             configRingLocationSpeed = builder.define("ringLocationSpeed", "minecraft:chests/spawn_bonus_chest;minecraft:chests/simple_dungeon;minecraft:chests/buried_treasure");
             configRingLocationNightVision = builder.define("ringLocationNightVision", "minecraft:chests/spawn_bonus_chest;minecraft:chests/simple_dungeon;minecraft:chests/abandoned_mineshaft");
             configRingLocationJumpBoost = builder.define("ringLocationJumpBoost", "minecraft:chests/end_city_treasure;minecraft:chests/igloo_chest;minecraft:chests/desert_pyramid");
             configRingLocationMining = builder.define("ringLocationMining", "minecraft:chests/simple_dungeon;minecraft:chests/abandoned_mineshaft");
             configRingLocationLuck = builder.define("ringLocationLuck", "minecraft:chests/simple_dungeon;minecraft:chests/jungle_temple");
-            configRingLocationDolphin = builder.define("ringLocationDolphin", "minecraft:chests/underwater_ruin_big;minecraft:chests/underwater_run_small;minecraft:chests/buried_treasure");
+            configRingLocationDolphin = builder.define("ringLocationDolphin", "minecraft:chests/underwater_ruin_big;minecraft:chests/underwater_ruin_small;minecraft:chests/buried_treasure");
             configRingLocationMagnetism = builder.define("ringLocationMagnetism", "minecraft:chests/spawn_bonus_chest;minecraft:chests/simple_dungeon;minecraft:chests/buried_treasure;minecraft:chests/ruined_portal");
             configRingLocationFlight = builder.define("ringLocationFlight", "minecraft:chests/end_city_treasure");
             configRingLocationPoisonResistance = builder.define("ringLocationPoisonResistance", "minecraft:chests/jungle_temple;minecraft:chests/end_city_treasure;minecraft:chests/shipwreck_treasure;minecraft:chests/bastion_treasure;minecraft:chests/bastion_bridge");
@@ -223,9 +223,9 @@ public class ConfigRingsOfAscension {
             configRingLocationGrowth = builder.define("ringLocationGrowth", "minecraft:chests/jungle_temple");
             configRingLocationKnockbackResistance = builder.define("ringLocationKnockbackResistance", "minecraft:chests/end_city_treasure;minecraft:chests/bastion_bridge;minecraft:chests/nether_bridge");
             configRingLocationHealth = builder.define("ringLocationHealth", "minecraft:chests/end_city_treasure;minecraft:chests/bastion_treasure;minecraft:chests/stronghold_library");
-            configRingLocationSponge = builder.define("ringLocationSponge", "minecraft:chests/underwater_ruin_big;minecraft:chests/underwater_run_small");
+            configRingLocationSponge = builder.define("ringLocationSponge", "minecraft:chests/underwater_ruin_big;minecraft:chests/underwater_ruin_small");
             configRingLocationExperience = builder.define("ringLocationExperience", "minecraft:chests/spawn_bonus_chest;minecraft:chests/simple_dungeon;minecraft:chests/buried_treasure;minecraft:chests/ruined_portal");
-            configRingLocationWaterWalking = builder.define("ringLocationWaterWalking", "minecraft:chests/underwater_ruin_big;minecraft:chests/underwater_run_small;minecraft:chests/buried_treasure");
+            configRingLocationWaterWalking = builder.define("ringLocationWaterWalking", "minecraft:chests/underwater_ruin_big;minecraft:chests/underwater_ruin_small;minecraft:chests/buried_treasure");
             configRingLocationWither = builder.define("ringLocationWither", "minecraft:chests/bastion_treasure");
             configRingLocationUndying = builder.define("ringLocationUndying", "minecraft:chests/woodland_mansion");
             configRingLocationSlowResistance = builder.define("ringLocationSlowResistance", "minecraft:chests/end_city_treasure;minecraft:chests/shipwreck_treasure;minecraft:chests/bastion_treasure;minecraft:chests/bastion_bridge");
