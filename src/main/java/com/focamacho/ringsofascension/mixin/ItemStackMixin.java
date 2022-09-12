@@ -27,6 +27,8 @@ public class ItemStackMixin {
             tooltip.remove(Text.translatable("trinkets.tooltip.slots.single",
                     Text.translatable("trinkets.slot.offhand.ring").formatted(Formatting.BLUE)).formatted(Formatting.GRAY));
 
+            tooltip.remove(Text.translatable("trinkets.tooltip.slots.any").formatted(Formatting.GRAY));
+
             tooltip.remove(Text.translatable("trinkets.tooltip.attributes.all").formatted(Formatting.GRAY));
             tooltip.remove(Text.translatable("trinkets.tooltip.attributes.single",
                     Text.translatable("trinkets.slot.hand.ring").formatted(Formatting.BLUE)).formatted(Formatting.GRAY));
