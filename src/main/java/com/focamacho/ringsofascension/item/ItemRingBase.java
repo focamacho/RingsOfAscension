@@ -8,7 +8,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.LivingEntity;
@@ -26,13 +26,11 @@ import top.theillusivec4.curios.api.type.capability.ICurio;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.util.ArrayList;
 import java.util.List;
 
 public abstract class ItemRingBase extends Item {
 
     protected String tooltip;
-    private final List<ResourceLocation> locations = new ArrayList<>();
     public final int tier;
     public final boolean isEnabled;
 
@@ -42,20 +40,6 @@ public abstract class ItemRingBase extends Item {
         this.tier = tier;
         this.isEnabled = enabled;
         ModItems.allRings.add(this);
-    }
-
-    protected List<ResourceLocation> getLocations(String locations) {
-        if(this.locations.isEmpty() && !locations.isEmpty()) {
-            for (String location : locations.split(";")) {
-                try {
-                    String[] split = location.split(":");
-                    this.locations.add(new ResourceLocation(split[0], split[1]));
-                } catch(Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        return this.locations;
     }
 
     public void tickCurio(String identifier, int index, LivingEntity livingEntity){}
@@ -135,19 +119,22 @@ public abstract class ItemRingBase extends Item {
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
 
+        MutableComponent tier = Component.translatable("tooltip.ringsofascension.tier").withStyle(ChatFormatting.GOLD).append(" ");
+
         switch (this.tier) {
             case 0 ->
-                    tooltip.add(Component.literal(ChatFormatting.GOLD + Component.translatable("tooltip.ringsofascension.tier").getString() + " " + ChatFormatting.GREEN + Component.translatable("tooltip.ringsofascension.tier.common").getString()));
+                    tier.append(Component.translatable("tooltip.ringsofascension.tier.common").withStyle(ChatFormatting.GREEN));
             case 1 ->
-                    tooltip.add(Component.literal(ChatFormatting.GOLD + Component.translatable("tooltip.ringsofascension.tier").getString() + " " + ChatFormatting.BLUE + Component.translatable("tooltip.ringsofascension.tier.rare").getString()));
+                    tier.append(Component.translatable("tooltip.ringsofascension.tier.rare").withStyle(ChatFormatting.BLUE));
             case 2 ->
-                    tooltip.add(Component.literal(ChatFormatting.GOLD + Component.translatable("tooltip.ringsofascension.tier").getString() + " " + ChatFormatting.LIGHT_PURPLE + Component.translatable("tooltip.ringsofascension.tier.epic").getString()));
+                    tier.append(Component.translatable("tooltip.ringsofascension.tier.epic").withStyle(ChatFormatting.LIGHT_PURPLE));
             case 3 ->
-                    tooltip.add(Component.literal(ChatFormatting.GOLD + Component.translatable("tooltip.ringsofascension.tier").getString() + " " + ChatFormatting.RED + Component.translatable("tooltip.ringsofascension.tier.legendary").getString()));
+                    tier.append(Component.translatable("tooltip.ringsofascension.tier.legendary").withStyle(ChatFormatting.RED));
             case 4 ->
-                    tooltip.add(Component.literal(ChatFormatting.GOLD + Component.translatable("tooltip.ringsofascension.tier").getString() + " " + ChatFormatting.DARK_RED + Component.translatable("tooltip.ringsofascension.tier.mythic").getString()));
+                    tier.append(Component.translatable("tooltip.ringsofascension.tier.mythic").withStyle(ChatFormatting.DARK_RED));
         }
 
+        tooltip.add(tier);
         if(this.tooltip == null) return;
 
         tooltip.add(Component.literal(""));
