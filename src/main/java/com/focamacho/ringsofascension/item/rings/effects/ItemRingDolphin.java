@@ -17,7 +17,7 @@ import java.util.List;
 public class ItemRingDolphin extends ItemRingBase {
 
     public ItemRingDolphin(Properties properties, String tooltip) {
-        super(properties, tooltip);
+        super(properties, tooltip, 1);
     }
 
     @Override
@@ -37,18 +37,8 @@ public class ItemRingDolphin extends ItemRingBase {
     }
 
     @Override
-    public List<ResourceLocation> getLocations() {
-        return super.getLocations(ConfigHolder.ringLocationDolphin);
-    }
-
-    @Override
     public boolean isEnabled() {
         return ConfigHolder.ringDolphin;
-    }
-
-    @Override
-    public int getTier() {
-        return ConfigHolder.ringTierDolphin;
     }
 
     @Override

@@ -16,7 +16,7 @@ import java.util.List;
 public class ItemRingHungerless extends ItemRingBase {
 
     public ItemRingHungerless(Properties properties, String tooltip) {
-        super(properties, tooltip);
+        super(properties, tooltip, 3);
     }
 
     @Override
@@ -28,18 +28,8 @@ public class ItemRingHungerless extends ItemRingBase {
     }
 
     @Override
-    public List<ResourceLocation> getLocations() {
-        return super.getLocations(ConfigHolder.ringLocationHungerless);
-    }
-
-    @Override
     public boolean isEnabled() {
         return ConfigHolder.ringHungerless;
-    }
-
-    @Override
-    public int getTier() {
-        return ConfigHolder.ringTierHungerless;
     }
 
     @Override

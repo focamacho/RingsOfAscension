@@ -17,7 +17,7 @@ import java.util.List;
 public class ItemRingFireResistance extends ItemRingBase {
 
     public ItemRingFireResistance(Properties properties, String tooltip) {
-        super(properties, tooltip);
+        super(properties, tooltip, 1);
     }
 
     @Override
@@ -37,18 +37,8 @@ public class ItemRingFireResistance extends ItemRingBase {
     }
 
     @Override
-    public List<ResourceLocation> getLocations() {
-        return super.getLocations(ConfigHolder.ringLocationFireResistance);
-    }
-
-    @Override
     public boolean isEnabled() {
         return ConfigHolder.ringFireResistance;
-    }
-
-    @Override
-    public int getTier() {
-        return ConfigHolder.ringTierFireResistance;
     }
 
     @Override

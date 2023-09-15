@@ -17,7 +17,7 @@ import java.util.List;
 public class ItemRingRegeneration extends ItemRingBase {
 
     public ItemRingRegeneration(Properties properties, String tooltip) {
-        super(properties, tooltip);
+        super(properties, tooltip, 3);
     }
 
     @Override
@@ -37,18 +37,8 @@ public class ItemRingRegeneration extends ItemRingBase {
     }
 
     @Override
-    public List<ResourceLocation> getLocations() {
-        return super.getLocations(ConfigHolder.ringLocationRegeneration);
-    }
-
-    @Override
     public boolean isEnabled() {
         return ConfigHolder.ringRegeneration;
-    }
-
-    @Override
-    public int getTier() {
-        return ConfigHolder.ringTierRegeneration;
     }
 
     @Override

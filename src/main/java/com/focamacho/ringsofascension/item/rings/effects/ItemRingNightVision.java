@@ -17,7 +17,7 @@ import java.util.List;
 public class ItemRingNightVision extends ItemRingBase {
 
     public ItemRingNightVision(Properties properties, String tooltip) {
-        super(properties, tooltip);
+        super(properties, tooltip, 0);
     }
 
     @Override
@@ -37,20 +37,10 @@ public class ItemRingNightVision extends ItemRingBase {
     }
 
     @Override
-    public List<ResourceLocation> getLocations() {
-        return super.getLocations(ConfigHolder.ringLocationNightVision);
-    }
-
-    @Override
     public boolean isEnabled() {
         return ConfigHolder.ringNightVision;
     }
-
-    @Override
-    public int getTier() {
-        return ConfigHolder.ringTierNightVision;
-    }
-
+    
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         if(!isEnabled()) return;

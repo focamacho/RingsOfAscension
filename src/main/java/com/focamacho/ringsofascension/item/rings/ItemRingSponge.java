@@ -27,7 +27,7 @@ import java.util.List;
 public class ItemRingSponge extends ItemRingBase {
 
     public ItemRingSponge(Properties properties, String tooltip) {
-        super(properties, tooltip);
+        super(properties, tooltip, 1);
     }
 
     @Override
@@ -60,18 +60,8 @@ public class ItemRingSponge extends ItemRingBase {
     }
 
     @Override
-    public List<ResourceLocation> getLocations() {
-        return super.getLocations(ConfigHolder.ringLocationSponge);
-    }
-
-    @Override
     public boolean isEnabled() {
         return ConfigHolder.ringSponge;
-    }
-
-    @Override
-    public int getTier() {
-        return ConfigHolder.ringTierSponge;
     }
 
     @Override

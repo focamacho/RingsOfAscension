@@ -17,7 +17,7 @@ import java.util.List;
 public class ItemRingInvisibility extends ItemRingBase {
 
     public ItemRingInvisibility(Properties properties, String tooltip) {
-        super(properties, tooltip);
+        super(properties, tooltip, 1);
     }
 
     @Override
@@ -37,18 +37,8 @@ public class ItemRingInvisibility extends ItemRingBase {
     }
 
     @Override
-    public List<ResourceLocation> getLocations() {
-        return super.getLocations(ConfigHolder.ringLocationInvisibility);
-    }
-
-    @Override
     public boolean isEnabled() {
         return ConfigHolder.ringInvisibility;
-    }
-
-    @Override
-    public int getTier() {
-        return ConfigHolder.ringTierInvisibility;
     }
 
     @Override

@@ -23,7 +23,7 @@ public class ItemRingHealth extends ItemRingBase {
     private static final UUID HEALTH_UUID = UUID.fromString("b29c34f3-1450-48ff-ab28-639647e11861");
 
     public ItemRingHealth(Properties properties, String tooltip) {
-        super(properties, tooltip);
+        super(properties, tooltip, 3);
     }
 
     @Override
@@ -40,18 +40,8 @@ public class ItemRingHealth extends ItemRingBase {
     }
 
     @Override
-    public List<ResourceLocation> getLocations() {
-        return super.getLocations(ConfigHolder.ringLocationHealth);
-    }
-
-    @Override
     public boolean isEnabled() {
         return ConfigHolder.ringHealth;
-    }
-
-    @Override
-    public int getTier() {
-        return ConfigHolder.ringTierHealth;
     }
 
     @Override

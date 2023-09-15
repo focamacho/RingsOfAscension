@@ -17,7 +17,7 @@ import java.util.List;
 public class ItemRingSlowFalling extends ItemRingBase {
 
     public ItemRingSlowFalling(Properties properties, String tooltip) {
-        super(properties, tooltip);
+        super(properties, tooltip, 1);
     }
 
     @Override
@@ -37,18 +37,8 @@ public class ItemRingSlowFalling extends ItemRingBase {
     }
 
     @Override
-    public List<ResourceLocation> getLocations() {
-        return super.getLocations(ConfigHolder.ringLocationSlowFalling);
-    }
-
-    @Override
     public boolean isEnabled() {
         return ConfigHolder.ringSlowFalling;
-    }
-
-    @Override
-    public int getTier() {
-        return ConfigHolder.ringTierSlowFalling;
     }
 
     @Override

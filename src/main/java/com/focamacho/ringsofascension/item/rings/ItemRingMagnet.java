@@ -19,7 +19,7 @@ import java.util.List;
 public class ItemRingMagnet extends ItemRingBase {
 
     public ItemRingMagnet(Properties properties, String tooltip) {
-        super(properties, tooltip);
+        super(properties, tooltip, 2);
     }
 
     @Override
@@ -38,18 +38,8 @@ public class ItemRingMagnet extends ItemRingBase {
     }
 
     @Override
-    public List<ResourceLocation> getLocations() {
-        return super.getLocations(ConfigHolder.ringLocationMagnetism);
-    }
-
-    @Override
     public boolean isEnabled() {
         return ConfigHolder.ringMagnetism;
-    }
-
-    @Override
-    public int getTier() {
-        return ConfigHolder.ringTierMagnetism;
     }
 
     @Override

@@ -19,7 +19,7 @@ import java.util.List;
 public class ItemRingWaterWalking extends ItemRingBase {
 
     public ItemRingWaterWalking(Properties properties, String tooltip) {
-        super(properties, tooltip);
+        super(properties, tooltip, 0);
     }
 
     @Override
@@ -40,18 +40,8 @@ public class ItemRingWaterWalking extends ItemRingBase {
     }
 
     @Override
-    public List<ResourceLocation> getLocations() {
-        return super.getLocations(ConfigHolder.ringLocationWaterWalking);
-    }
-
-    @Override
     public boolean isEnabled() {
         return ConfigHolder.ringWaterWalking;
-    }
-
-    @Override
-    public int getTier() {
-        return ConfigHolder.ringTierWaterWalking;
     }
 
     @Override

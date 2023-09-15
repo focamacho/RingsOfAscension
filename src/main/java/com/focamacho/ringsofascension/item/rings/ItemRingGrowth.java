@@ -25,7 +25,7 @@ public class ItemRingGrowth extends ItemRingBase {
     private int timer = 200;
 
     public ItemRingGrowth(Properties properties, String tooltip) {
-        super(properties, tooltip);
+        super(properties, tooltip, 2);
     }
 
     @Override
@@ -69,18 +69,8 @@ public class ItemRingGrowth extends ItemRingBase {
     }
 
     @Override
-    public List<ResourceLocation> getLocations() {
-        return super.getLocations(ConfigHolder.ringLocationGrowth);
-    }
-
-    @Override
     public boolean isEnabled() {
         return ConfigHolder.ringGrowth;
-    }
-
-    @Override
-    public int getTier() {
-        return ConfigHolder.ringTierGrowth;
     }
 
     @Override

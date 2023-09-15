@@ -17,7 +17,7 @@ import java.util.List;
 public class ItemRingStrength extends ItemRingBase {
 
     public ItemRingStrength(Properties properties, String tooltip) {
-        super(properties, tooltip);
+        super(properties, tooltip, 2);
     }
 
     @Override
@@ -37,18 +37,8 @@ public class ItemRingStrength extends ItemRingBase {
     }
 
     @Override
-    public List<ResourceLocation> getLocations() {
-        return super.getLocations(ConfigHolder.ringLocationStrength);
-    }
-
-    @Override
     public boolean isEnabled() {
         return ConfigHolder.ringStrength;
-    }
-
-    @Override
-    public int getTier() {
-        return ConfigHolder.ringTierStrength;
     }
 
     @Override

@@ -16,7 +16,7 @@ import java.util.List;
 public class ItemRingUndying extends ItemRingBase {
 
     public ItemRingUndying(Properties properties, String tooltip) {
-        super(properties, tooltip);
+        super(properties, tooltip, 4);
     }
 
     public void setCooldown(Player player) {
@@ -25,18 +25,8 @@ public class ItemRingUndying extends ItemRingBase {
     }
 
     @Override
-    public List<ResourceLocation> getLocations() {
-        return super.getLocations(ConfigHolder.ringLocationUndying);
-    }
-
-    @Override
     public boolean isEnabled() {
         return ConfigHolder.ringUndying;
-    }
-
-    @Override
-    public int getTier() {
-        return ConfigHolder.ringTierUndying;
     }
 
     @Override

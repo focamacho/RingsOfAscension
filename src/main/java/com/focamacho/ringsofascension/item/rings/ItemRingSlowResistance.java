@@ -16,7 +16,7 @@ import java.util.List;
 public class ItemRingSlowResistance extends ItemRingBase {
 
     public ItemRingSlowResistance(Properties properties, String tooltip) {
-        super(properties, tooltip);
+        super(properties, tooltip, 1);
     }
 
     @Override
@@ -28,18 +28,8 @@ public class ItemRingSlowResistance extends ItemRingBase {
     }
 
     @Override
-    public List<ResourceLocation> getLocations() {
-        return super.getLocations(ConfigHolder.ringLocationSlowResistance);
-    }
-
-    @Override
     public boolean isEnabled() {
         return ConfigHolder.ringSlowResistance;
-    }
-
-    @Override
-    public int getTier() {
-        return ConfigHolder.ringTierSlowResistance;
     }
 
     @Override

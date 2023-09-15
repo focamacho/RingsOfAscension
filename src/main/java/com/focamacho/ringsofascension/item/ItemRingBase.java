@@ -33,10 +33,12 @@ public abstract class ItemRingBase extends Item {
 
     protected String tooltip;
     private final List<ResourceLocation> locations = new ArrayList<>();
+    public final int tier;
 
-    public ItemRingBase(Properties properties, String tooltip) {
+    public ItemRingBase(Properties properties, String tooltip, int tier) {
         super(properties.tab(RingsOfAscension.tabGroup).stacksTo(1));
         this.tooltip = tooltip;
+        this.tier = tier;
         ModItems.allRings.add(this);
     }
 
@@ -56,8 +58,6 @@ public abstract class ItemRingBase extends Item {
         return this.locations;
     }
 
-    public abstract List<ResourceLocation> getLocations();
-
     public void tickCurio(String identifier, int index, LivingEntity livingEntity){}
 
     public Multimap<Attribute, AttributeModifier> curioModifiers(ItemStack stack, String identifier){
@@ -68,8 +68,6 @@ public abstract class ItemRingBase extends Item {
     public void onEquippedCurio(String identifier, LivingEntity livingEntity){}
 
     public void onUnequippedCurio(String identifier, LivingEntity livingEntity){}
-
-    public abstract int getTier();
 
     @Nullable
     @Override
@@ -137,7 +135,7 @@ public abstract class ItemRingBase extends Item {
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
 
-        switch (getTier()) {
+        switch (this.tier) {
             case 0 ->
                     tooltip.add(Component.literal(ChatFormatting.GOLD + Component.translatable("tooltip.ringsofascension.tier").getString() + " " + ChatFormatting.GREEN + Component.translatable("tooltip.ringsofascension.tier.common").getString()));
             case 1 ->

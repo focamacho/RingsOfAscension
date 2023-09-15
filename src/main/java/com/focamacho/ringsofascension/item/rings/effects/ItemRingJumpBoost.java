@@ -17,7 +17,7 @@ import java.util.List;
 public class ItemRingJumpBoost extends ItemRingBase {
 
     public ItemRingJumpBoost(Properties properties, String tooltip) {
-        super(properties, tooltip);
+        super(properties, tooltip, 0);
     }
 
     @Override
@@ -37,18 +37,8 @@ public class ItemRingJumpBoost extends ItemRingBase {
     }
 
     @Override
-    public List<ResourceLocation> getLocations() {
-        return super.getLocations(ConfigHolder.ringLocationJumpBoost);
-    }
-
-    @Override
     public boolean isEnabled() {
         return ConfigHolder.ringJumpBoost;
-    }
-
-    @Override
-    public int getTier() {
-        return ConfigHolder.ringTierJumpBoost;
     }
 
     @Override

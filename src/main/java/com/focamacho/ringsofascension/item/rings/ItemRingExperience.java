@@ -19,7 +19,7 @@ import java.util.List;
 public class ItemRingExperience extends ItemRingBase {
 
     public ItemRingExperience(Properties properties, String tooltip) {
-        super(properties, tooltip);
+        super(properties, tooltip, 0);
     }
 
     @Override
@@ -38,18 +38,8 @@ public class ItemRingExperience extends ItemRingBase {
     }
 
     @Override
-    public List<ResourceLocation> getLocations() {
-        return super.getLocations(ConfigHolder.ringLocationExperience);
-    }
-
-    @Override
     public boolean isEnabled() {
         return ConfigHolder.ringExperience;
-    }
-
-    @Override
-    public int getTier() {
-        return ConfigHolder.ringTierExperience;
     }
 
     @Override

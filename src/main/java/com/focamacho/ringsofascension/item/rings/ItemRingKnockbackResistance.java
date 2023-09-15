@@ -23,7 +23,7 @@ public class ItemRingKnockbackResistance extends ItemRingBase {
     private static final UUID KNOBACK_RESISTANCE_UUID = UUID.fromString("320d847e-eecd-402f-b6cf-d339d2fa97af");
 
     public ItemRingKnockbackResistance(Properties properties, String tooltip) {
-        super(properties, tooltip);
+        super(properties, tooltip, 1);
     }
 
     @Override
@@ -40,18 +40,8 @@ public class ItemRingKnockbackResistance extends ItemRingBase {
     }
 
     @Override
-    public List<ResourceLocation> getLocations() {
-        return super.getLocations(ConfigHolder.ringLocationKnockbackResistance);
-    }
-
-    @Override
     public boolean isEnabled() {
         return ConfigHolder.ringKnockbackResistance;
-    }
-
-    @Override
-    public int getTier() {
-        return ConfigHolder.ringTierKnockbackResistance;
     }
 
     @Override

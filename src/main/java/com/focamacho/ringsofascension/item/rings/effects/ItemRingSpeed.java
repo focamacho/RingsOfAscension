@@ -17,7 +17,7 @@ import java.util.List;
 public class ItemRingSpeed extends ItemRingBase {
 
     public ItemRingSpeed(Properties properties, String tooltip) {
-        super(properties, tooltip);
+        super(properties, tooltip, 1);
     }
 
     @Override
@@ -37,18 +37,8 @@ public class ItemRingSpeed extends ItemRingBase {
     }
 
     @Override
-    public List<ResourceLocation> getLocations() {
-        return super.getLocations(ConfigHolder.ringLocationSpeed);
-    }
-
-    @Override
     public boolean isEnabled() {
         return ConfigHolder.ringSpeed;
-    }
-
-    @Override
-    public int getTier() {
-        return ConfigHolder.ringTierSpeed;
     }
 
     @Override

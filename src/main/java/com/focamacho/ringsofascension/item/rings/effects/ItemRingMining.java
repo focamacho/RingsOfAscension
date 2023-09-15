@@ -17,7 +17,7 @@ import java.util.List;
 public class ItemRingMining extends ItemRingBase {
 
     public ItemRingMining(Properties properties, String tooltip) {
-        super(properties, tooltip);
+        super(properties, tooltip, 2);
     }
 
     @Override
@@ -37,18 +37,8 @@ public class ItemRingMining extends ItemRingBase {
     }
 
     @Override
-    public List<ResourceLocation> getLocations() {
-        return super.getLocations(ConfigHolder.ringLocationMining);
-    }
-
-    @Override
     public boolean isEnabled() {
         return ConfigHolder.ringMining;
-    }
-
-    @Override
-    public int getTier() {
-        return ConfigHolder.ringTierMining;
     }
 
     @Override

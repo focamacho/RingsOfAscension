@@ -16,7 +16,7 @@ import java.util.List;
 public class ItemRingPoisonResistance extends ItemRingBase {
 
     public ItemRingPoisonResistance(Properties properties, String tooltip) {
-        super(properties, tooltip);
+        super(properties, tooltip, 2);
     }
 
     @Override
@@ -28,18 +28,8 @@ public class ItemRingPoisonResistance extends ItemRingBase {
     }
 
     @Override
-    public List<ResourceLocation> getLocations() {
-        return super.getLocations(ConfigHolder.ringLocationPoisonResistance);
-    }
-
-    @Override
     public boolean isEnabled() {
         return ConfigHolder.ringPoisonResistance;
-    }
-
-    @Override
-    public int getTier() {
-        return ConfigHolder.ringTierPoisonResistance;
     }
 
     @Override

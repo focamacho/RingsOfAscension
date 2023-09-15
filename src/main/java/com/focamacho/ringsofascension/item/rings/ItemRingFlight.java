@@ -16,7 +16,7 @@ import java.util.List;
 public class ItemRingFlight extends ItemRingBase {
 
     public ItemRingFlight(Properties properties, String tooltip) {
-        super(properties, tooltip);
+        super(properties, tooltip, 4);
     }
 
     @Override
@@ -54,18 +54,8 @@ public class ItemRingFlight extends ItemRingBase {
     }
 
     @Override
-    public List<ResourceLocation> getLocations() {
-        return super.getLocations(ConfigHolder.ringLocationFlight);
-    }
-
-    @Override
     public boolean isEnabled() {
         return ConfigHolder.ringFlight;
-    }
-
-    @Override
-    public int getTier() {
-        return ConfigHolder.ringTierFlight;
     }
 
     @Override

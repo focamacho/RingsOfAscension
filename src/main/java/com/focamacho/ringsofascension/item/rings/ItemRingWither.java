@@ -16,7 +16,7 @@ import java.util.List;
 public class ItemRingWither extends ItemRingBase {
 
     public ItemRingWither(Properties properties, String tooltip) {
-        super(properties, tooltip);
+        super(properties, tooltip, 4);
     }
 
     @Override
@@ -28,18 +28,8 @@ public class ItemRingWither extends ItemRingBase {
     }
 
     @Override
-    public List<ResourceLocation> getLocations() {
-        return super.getLocations(ConfigHolder.ringLocationWither);
-    }
-
-    @Override
     public boolean isEnabled() {
         return ConfigHolder.ringWither;
-    }
-
-    @Override
-    public int getTier() {
-        return ConfigHolder.ringTierWither;
     }
 
     @Override

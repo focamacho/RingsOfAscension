@@ -3,7 +3,6 @@ package com.focamacho.ringsofascension;
 import com.focamacho.ringsofascension.config.ConfigHolder;
 import com.focamacho.ringsofascension.config.ConfigRingsOfAscension;
 import com.focamacho.ringsofascension.events.ApplyPotionEvent;
-import com.focamacho.ringsofascension.events.LootTableEvent;
 import com.focamacho.ringsofascension.events.PlayerDeathEvent;
 import com.focamacho.ringsofascension.events.TooltipEvent;
 import com.focamacho.ringsofascension.init.ModItems;
@@ -17,9 +16,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.config.ModConfigEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -42,7 +39,6 @@ public class RingsOfAscension {
 
         ModItems.init(FMLJavaModLoadingContext.get().getModEventBus());
 
-        MinecraftForge.EVENT_BUS.register(new LootTableEvent());
         MinecraftForge.EVENT_BUS.register(new PlayerDeathEvent());
         MinecraftForge.EVENT_BUS.register(new ApplyPotionEvent());
     }

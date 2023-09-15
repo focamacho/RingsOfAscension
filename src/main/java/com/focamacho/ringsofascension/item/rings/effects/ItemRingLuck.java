@@ -17,7 +17,7 @@ import java.util.List;
 public class ItemRingLuck extends ItemRingBase {
 
     public ItemRingLuck(Properties properties, String tooltip) {
-        super(properties, tooltip);
+        super(properties, tooltip, 3);
     }
 
     @Override
@@ -37,20 +37,10 @@ public class ItemRingLuck extends ItemRingBase {
     }
 
     @Override
-    public List<ResourceLocation> getLocations() {
-        return super.getLocations(ConfigHolder.ringLocationLuck);
-    }
-
-    @Override
     public boolean isEnabled() {
         return ConfigHolder.ringLuck;
     }
-
-    @Override
-    public int getTier() {
-        return ConfigHolder.ringTierLuck;
-    }
-
+    
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         if(!isEnabled()) return;
