@@ -34,15 +34,15 @@ public abstract class ItemRingBase extends Item {
     protected String tooltip;
     private final List<ResourceLocation> locations = new ArrayList<>();
     public final int tier;
+    public final boolean isEnabled;
 
-    public ItemRingBase(Properties properties, String tooltip, int tier) {
+    public ItemRingBase(Properties properties, String tooltip, int tier, boolean enabled) {
         super(properties.tab(RingsOfAscension.tabGroup).stacksTo(1));
         this.tooltip = tooltip;
         this.tier = tier;
+        this.isEnabled = enabled;
         ModItems.allRings.add(this);
     }
-
-    public abstract boolean isEnabled();
 
     protected List<ResourceLocation> getLocations(String locations) {
         if(this.locations.isEmpty() && !locations.isEmpty()) {

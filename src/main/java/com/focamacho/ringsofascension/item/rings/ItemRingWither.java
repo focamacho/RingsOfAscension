@@ -1,9 +1,7 @@
 package com.focamacho.ringsofascension.item.rings;
 
-import com.focamacho.ringsofascension.config.ConfigHolder;
 import com.focamacho.ringsofascension.item.ItemRingBase;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
@@ -15,26 +13,21 @@ import java.util.List;
 
 public class ItemRingWither extends ItemRingBase {
 
-    public ItemRingWither(Properties properties, String tooltip) {
-        super(properties, tooltip, 4);
+    public ItemRingWither(Properties properties, String tooltip, int tier, boolean enabled) {
+        super(properties, tooltip, tier, enabled);
     }
 
     @Override
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
-        if(!isEnabled()) return;
+        if(!isEnabled) return;
         if(livingEntity.hasEffect(MobEffects.WITHER)) {
             livingEntity.removeEffectNoUpdate(MobEffects.WITHER);
         }
     }
 
     @Override
-    public boolean isEnabled() {
-        return ConfigHolder.ringWither;
-    }
-
-    @Override
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        if(!isEnabled()) return;
+        if(!isEnabled) return;
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
     }
 

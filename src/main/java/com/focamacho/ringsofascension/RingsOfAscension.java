@@ -1,7 +1,6 @@
 package com.focamacho.ringsofascension;
 
-import com.focamacho.ringsofascension.config.ConfigHolder;
-import com.focamacho.ringsofascension.config.ConfigRingsOfAscension;
+import com.focamacho.ringsofascension.config.Config;
 import com.focamacho.ringsofascension.events.ApplyPotionEvent;
 import com.focamacho.ringsofascension.events.PlayerDeathEvent;
 import com.focamacho.ringsofascension.events.TooltipEvent;
@@ -31,8 +30,7 @@ public class RingsOfAscension {
     private static final Logger LOGGER = LogManager.getLogger();
 
     public RingsOfAscension() {
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigRingsOfAscension.spec);
-        ConfigHolder.updateConfigs();
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.spec);
 
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
@@ -60,18 +58,4 @@ public class RingsOfAscension {
 
     };
 
-
-    @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
-    public static class RegistryEvents {
-
-        @SubscribeEvent
-        public static void onModConfigEvent(final ModConfigEvent event) {
-            final ModConfig config = event.getConfig();
-
-            if (config.getSpec() == ConfigRingsOfAscension.spec) {
-                ConfigHolder.updateConfigs();
-            }
-        }
-
-    }
 }

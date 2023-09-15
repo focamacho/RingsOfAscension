@@ -1,9 +1,7 @@
 package com.focamacho.ringsofascension.item.rings;
 
-import com.focamacho.ringsofascension.config.ConfigHolder;
 import com.focamacho.ringsofascension.item.ItemRingBase;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -15,13 +13,13 @@ import java.util.List;
 
 public class ItemRingFlight extends ItemRingBase {
 
-    public ItemRingFlight(Properties properties, String tooltip) {
-        super(properties, tooltip, 4);
+    public ItemRingFlight(Properties properties, String tooltip, int tier, boolean enabled) {
+        super(properties, tooltip, tier, enabled);
     }
 
     @Override
     public void onEquippedCurio(String identifier, LivingEntity livingEntity) {
-        if(!isEnabled()) return;
+        if(!isEnabled) return;
         if(livingEntity instanceof Player) {
             Player player = (Player) livingEntity;
             player.getAbilities().mayfly = true;
@@ -32,7 +30,7 @@ public class ItemRingFlight extends ItemRingBase {
 
     @Override
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
-        if(!isEnabled()) return;
+        if(!isEnabled) return;
         if(livingEntity instanceof Player) {
             Player player = (Player) livingEntity;
             if(!player.getAbilities().mayfly) {
@@ -44,7 +42,7 @@ public class ItemRingFlight extends ItemRingBase {
 
     @Override
     public void onUnequippedCurio(String identifier, LivingEntity livingEntity) {
-        if(!isEnabled()) return;
+        if(!isEnabled) return;
         if(livingEntity instanceof Player) {
             Player player = (Player) livingEntity;
             player.getAbilities().mayfly = false;
@@ -54,13 +52,8 @@ public class ItemRingFlight extends ItemRingBase {
     }
 
     @Override
-    public boolean isEnabled() {
-        return ConfigHolder.ringFlight;
-    }
-
-    @Override
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        if(!isEnabled()) return;
+        if(!isEnabled) return;
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
     }
 

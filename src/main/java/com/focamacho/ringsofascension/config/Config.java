@@ -3,7 +3,7 @@ package com.focamacho.ringsofascension.config;
 import com.focamacho.ringsofascension.RingsOfAscension;
 import net.minecraftforge.common.ForgeConfigSpec;
 
-public class ConfigRingsOfAscension {
+public class Config {
 
     private static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
     private static final General GENERAL = new General(BUILDER);

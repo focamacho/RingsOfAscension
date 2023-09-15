@@ -1,6 +1,6 @@
 package com.focamacho.ringsofascension.events;
 
-import com.focamacho.ringsofascension.config.ConfigHolder;
+import com.focamacho.ringsofascension.config.Config;
 import com.focamacho.ringsofascension.init.ModItems;
 import com.focamacho.ringsofascension.utils.Utils;
 import net.minecraft.world.effect.MobEffect;
@@ -18,17 +18,17 @@ public class ApplyPotionEvent {
         MobEffect effect = event.getEffectInstance().getEffect();
 
         //Poison Resistance Ring
-        if(effect == MobEffects.POISON && ConfigHolder.ringPoisonResistance) {
+        if(effect == MobEffects.POISON && Config.configRingPoisonResistance.get()) {
             if(Utils.isRingEquipped(ModItems.ringPoisonResistance.get(), player)) event.setResult(Event.Result.DENY);
         }
 
         //Slowness Resistance Ring
-        if(effect == MobEffects.MOVEMENT_SLOWDOWN && ConfigHolder.ringSlowResistance) {
+        if(effect == MobEffects.MOVEMENT_SLOWDOWN && Config.configRingSlowResistance.get()) {
             if(Utils.isRingEquipped(ModItems.ringSlowResistance.get(), player)) event.setResult(Event.Result.DENY);
         }
 
         //Wither Resistance Ring
-        if(effect == MobEffects.WITHER && ConfigHolder.ringWither) {
+        if(effect == MobEffects.WITHER && Config.configRingWither.get()) {
             if(Utils.isRingEquipped(ModItems.ringWither.get(), player)) event.setResult(Event.Result.DENY);
         }
     }

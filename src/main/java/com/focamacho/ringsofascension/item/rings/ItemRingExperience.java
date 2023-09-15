@@ -1,10 +1,8 @@
 package com.focamacho.ringsofascension.item.rings;
 
-import com.focamacho.ringsofascension.config.ConfigHolder;
 import com.focamacho.ringsofascension.item.ItemRingBase;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -18,13 +16,13 @@ import java.util.List;
 
 public class ItemRingExperience extends ItemRingBase {
 
-    public ItemRingExperience(Properties properties, String tooltip) {
-        super(properties, tooltip, 0);
+    public ItemRingExperience(Properties properties, String tooltip, int tier, boolean enabled) {
+        super(properties, tooltip, tier, enabled);
     }
 
     @Override
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
-        if(!isEnabled()) return;
+        if(!isEnabled) return;
         if(livingEntity instanceof Player && !livingEntity.level.isClientSide && !livingEntity.isCrouching()) {
             int range = 10;
             BlockPos pos = new BlockPos(livingEntity.getX(), livingEntity.getY(), livingEntity.getZ());
@@ -38,13 +36,8 @@ public class ItemRingExperience extends ItemRingBase {
     }
 
     @Override
-    public boolean isEnabled() {
-        return ConfigHolder.ringExperience;
-    }
-
-    @Override
     public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        if(!isEnabled()) return;
+        if(!isEnabled) return;
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
     }
 

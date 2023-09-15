@@ -1,6 +1,6 @@
 package com.focamacho.ringsofascension.events;
 
-import com.focamacho.ringsofascension.config.ConfigHolder;
+import com.focamacho.ringsofascension.config.Config;
 import com.focamacho.ringsofascension.init.ModItems;
 import com.focamacho.ringsofascension.item.rings.ItemRingUndying;
 import net.minecraft.advancements.CriteriaTriggers;
@@ -20,7 +20,7 @@ public class PlayerDeathEvent {
 
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public void onLivingDeath(LivingDeathEvent event) {
-        if(!ConfigHolder.ringUndying) return;
+        if(!Config.configRingUndying.get()) return;
         if(!(event.getEntity() instanceof ServerPlayer player)) return;
 
         if(CuriosApi.getCuriosHelper().findFirstCurio(event.getEntity(), ModItems.ringUndying.get()).isPresent()) {
