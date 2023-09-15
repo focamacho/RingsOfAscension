@@ -19,6 +19,7 @@ import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.jetbrains.annotations.NotNull;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotTypeMessage;
 
@@ -26,8 +27,6 @@ import top.theillusivec4.curios.api.SlotTypeMessage;
 public class RingsOfAscension {
 
     public static final String MODID = "ringsofascension";
-
-    private static final Logger LOGGER = LogManager.getLogger();
 
     public RingsOfAscension() {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.spec);
@@ -52,7 +51,7 @@ public class RingsOfAscension {
     public static final CreativeModeTab tabGroup = new CreativeModeTab("ringsofascension") {
 
         @Override
-        public ItemStack makeIcon() {
+        public @NotNull ItemStack makeIcon() {
             return new ItemStack(ModItems.ringExperience.get());
         }
 

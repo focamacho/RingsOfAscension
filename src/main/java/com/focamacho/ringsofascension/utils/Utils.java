@@ -7,12 +7,8 @@ import top.theillusivec4.curios.api.CuriosApi;
 
 public class Utils {
 
-    public static boolean isRingEquipped(ItemStack ring, Player player) {
-        return CuriosApi.getCuriosHelper().findEquippedCurio(ring.getItem(), player).isPresent();
-    }
-
     public static boolean isRingEquipped(Item ring, Player player) {
-        return CuriosApi.getCuriosHelper().findEquippedCurio(ring, player).isPresent();
+        return CuriosApi.getCuriosHelper().findFirstCurio(player, ring).isPresent();
     }
 
 }
