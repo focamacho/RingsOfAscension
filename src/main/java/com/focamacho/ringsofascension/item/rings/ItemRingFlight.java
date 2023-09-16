@@ -21,8 +21,7 @@ public class ItemRingFlight extends ItemRingBase {
     @Override
     public void onEquippedCurio(String identifier, LivingEntity livingEntity) {
         if(!isEnabled) return;
-        if(livingEntity instanceof Player) {
-            Player player = (Player) livingEntity;
+        if(livingEntity instanceof Player player) {
             player.getAbilities().mayfly = true;
             player.getAbilities().flying = true;
             player.onUpdateAbilities();
@@ -32,8 +31,7 @@ public class ItemRingFlight extends ItemRingBase {
     @Override
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
         if(!isEnabled) return;
-        if(livingEntity instanceof Player) {
-            Player player = (Player) livingEntity;
+        if(livingEntity instanceof Player player) {
             if(!player.getAbilities().mayfly) {
                 player.getAbilities().mayfly = true;
                 player.onUpdateAbilities();
@@ -44,8 +42,7 @@ public class ItemRingFlight extends ItemRingBase {
     @Override
     public void onUnequippedCurio(String identifier, LivingEntity livingEntity) {
         if(!isEnabled) return;
-        if(livingEntity instanceof Player) {
-            Player player = (Player) livingEntity;
+        if(livingEntity instanceof Player player) {
             player.getAbilities().mayfly = false;
             player.getAbilities().flying = false;
             player.onUpdateAbilities();
