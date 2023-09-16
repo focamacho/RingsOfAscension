@@ -20,12 +20,12 @@ public class ApplyPotionEvent {
         //Poison Resistance Ring
         if(effect == MobEffects.POISON && Config.configRingPoisonResistance.get()) {
             if(Utils.isRingEquipped(ModItems.ringPoisonResistance.get(), player)) event.setResult(Event.Result.DENY);
-        }
+        } else
 
         //Slowness Resistance Ring
         if(effect == MobEffects.MOVEMENT_SLOWDOWN && Config.configRingSlowResistance.get()) {
             if(Utils.isRingEquipped(ModItems.ringSlowResistance.get(), player)) event.setResult(Event.Result.DENY);
-        }
+        } else
 
         //Wither Resistance Ring
         if(effect == MobEffects.WITHER && Config.configRingWither.get()) {
