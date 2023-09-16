@@ -16,6 +16,8 @@ import java.util.List;
 
 public class ItemRingMagnet extends ItemRingBase {
 
+    private static final int RANGE = 7;
+
     public ItemRingMagnet(Properties properties, String tooltip, int tier, boolean enabled) {
         super(properties, tooltip, tier, enabled);
     }
@@ -24,9 +26,8 @@ public class ItemRingMagnet extends ItemRingBase {
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
         if(!isEnabled) return;
         if(livingEntity instanceof Player && !livingEntity.level.isClientSide && !livingEntity.isCrouching()) {
-            int range = 5;
             BlockPos pos = new BlockPos(livingEntity.getX(), livingEntity.getY(), livingEntity.getZ());
-            List<ItemEntity> entities = livingEntity.level.getEntitiesOfClass(ItemEntity.class, new AABB(pos.getX() + range, pos.getY() + range, pos.getZ() + range, pos.getX() - range, pos.getY() - range, pos.getZ() - range));
+            List<ItemEntity> entities = livingEntity.level.getEntitiesOfClass(ItemEntity.class, new AABB(pos.getX() + RANGE, pos.getY() + RANGE, pos.getZ() + RANGE, pos.getX() - RANGE, pos.getY() - RANGE, pos.getZ() - RANGE));
             for(ItemEntity item : entities) {
                 if(item.isAlive() && !item.hasPickUpDelay()) {
                     item.playerTouch((Player)livingEntity);
