@@ -1,6 +1,5 @@
 package com.focamacho.ringsofascension.events;
 
-import com.focamacho.ringsofascension.config.Config;
 import com.focamacho.ringsofascension.init.ModItems;
 import com.focamacho.ringsofascension.utils.Utils;
 import net.minecraft.world.effect.MobEffect;

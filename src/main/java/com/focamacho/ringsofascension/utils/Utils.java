@@ -2,7 +2,6 @@ package com.focamacho.ringsofascension.utils;
 
 import com.focamacho.ringsofascension.item.ItemRingBase;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import top.theillusivec4.curios.api.CuriosApi;
 
 public class Utils {
