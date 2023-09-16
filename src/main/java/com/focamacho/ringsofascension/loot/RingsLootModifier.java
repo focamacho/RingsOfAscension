@@ -1,6 +1,7 @@
 package com.focamacho.ringsofascension.loot;
 
 import com.focamacho.ringsofascension.RingsOfAscension;
+import com.focamacho.ringsofascension.item.ItemRingBase;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
@@ -32,7 +33,7 @@ public class RingsLootModifier extends LootModifier {
     );
 
     public final List<String> lootTables;
-    public final Item item;
+    public final ItemRingBase item;
 
     /**
      * Constructs a LootModifier.
@@ -41,13 +42,17 @@ public class RingsLootModifier extends LootModifier {
      */
     public RingsLootModifier(LootItemCondition[] conditionsIn, List<String> lootTables, Item ring) {
         super(conditionsIn);
+        if(!(ring instanceof ItemRingBase)) {
+            throw new IllegalArgumentException("Provided item is not a ring.");
+        }
+
         this.lootTables = lootTables;
-        this.item = ring;
+        this.item = (ItemRingBase) ring;
     }
 
     @Override
     protected @NotNull ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
-        if(lootTables.contains(context.getQueriedLootTableId().toString())) {
+        if(item.isEnabled && lootTables.contains(context.getQueriedLootTableId().toString())) {
             generatedLoot.add(new ItemStack(item));
         }
 
