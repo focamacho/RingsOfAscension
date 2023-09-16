@@ -5,6 +5,7 @@ import com.focamacho.ringsofascension.events.ApplyPotionEvent;
 import com.focamacho.ringsofascension.events.PlayerDeathEvent;
 import com.focamacho.ringsofascension.events.TooltipEvent;
 import com.focamacho.ringsofascension.init.ModItems;
+import com.focamacho.ringsofascension.loot.RingsLootModifier;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -31,6 +32,7 @@ public class RingsOfAscension {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
         ModItems.init(FMLJavaModLoadingContext.get().getModEventBus());
+        RingsLootModifier.REGISTER.register(FMLJavaModLoadingContext.get().getModEventBus());
 
         MinecraftForge.EVENT_BUS.register(new PlayerDeathEvent());
         MinecraftForge.EVENT_BUS.register(new ApplyPotionEvent());

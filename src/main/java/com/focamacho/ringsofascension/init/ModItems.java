@@ -19,7 +19,7 @@ public class ModItems {
 
     public static List<ItemRingBase> allRings = new ArrayList<>();
 
-    private static DeferredRegister<Item> register = DeferredRegister.create(ForgeRegistries.ITEMS, RingsOfAscension.MODID);
+    private static final DeferredRegister<Item> register = DeferredRegister.create(ForgeRegistries.ITEMS, RingsOfAscension.MODID);
 
     public static RegistryObject<Item> ringFireResistance = register("ring_fire_resistance", () -> new ItemRingEffect(new Item.Properties(), "tooltip.ringsofascension.fire_resistance", 1, Config.configRingFireResistance.get(), MobEffects.FIRE_RESISTANCE, Config.configRingAmplifierFireResistance.get()));
     public static RegistryObject<Item> ringInvisibility = register("ring_invisibility", () -> new ItemRingEffect(new Item.Properties(), "tooltip.ringsofascension.invisibility", 1, Config.configRingInvisibility.get(), MobEffects.INVISIBILITY, Config.configRingAmplifierInvisibility.get()));
