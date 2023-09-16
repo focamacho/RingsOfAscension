@@ -1,0 +1,16 @@
+{
+  "type": "ringsofascension:rings_modifier",
+  "conditions": [
+    {
+      "condition": "random_chance",
+      "chance": 0.07
+    }
+  ],
+  "loot_tables": [
+    "minecraft:chests/spawn_bonus_chest",
+    "minecraft:chests/underwater_ruin_big",
+    "minecraft:chests/underwater_run_small",
+    "minecraft:chests/buried_treasure"
+  ],
+  "ring": "ringsofascension:ring_invisibility"
+}

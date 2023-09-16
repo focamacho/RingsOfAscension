@@ -1,0 +1,13 @@
+{
+  "type": "ringsofascension:rings_modifier",
+  "conditions": [
+    {
+      "condition": "random_chance",
+      "chance": 0.05
+    }
+  ],
+  "loot_tables": [
+    "minecraft:chests/jungle_temple"
+  ],
+  "ring": "ringsofascension:ring_growth"
+}

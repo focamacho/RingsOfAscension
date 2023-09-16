@@ -1,6 +1,30 @@
 {
   "replace": false,
   "entries": [
-    "ringsofascension:rings_modifier"
+    "ringsofascension:common/experience",
+    "ringsofascension:common/jump_boost",
+    "ringsofascension:common/night_vision",
+    "ringsofascension:common/slow_resistance",
+    "ringsofascension:common/water_walking",
+    "ringsofascension:rare/dolphin",
+    "ringsofascension:rare/fire_resistance",
+    "ringsofascension:rare/invisibility",
+    "ringsofascension:rare/knockback_resistance",
+    "ringsofascension:rare/slow_falling",
+    "ringsofascension:rare/speed",
+    "ringsofascension:rare/sponge",
+    "ringsofascension:rare/water_breathing",
+    "ringsofascension:epic/growth",
+    "ringsofascension:epic/magnetism",
+    "ringsofascension:epic/mining",
+    "ringsofascension:epic/poison_resistance",
+    "ringsofascension:epic/strength",
+    "ringsofascension:epic/wither",
+    "ringsofascension:legendary/health",
+    "ringsofascension:legendary/hungerless",
+    "ringsofascension:legendary/luck",
+    "ringsofascension:legendary/regeneration",
+    "ringsofascension:mythic/flight",
+    "ringsofascension:mythic/undying"
   ]
 }

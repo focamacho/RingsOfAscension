@@ -1,0 +1,14 @@
+{
+  "type": "ringsofascension:rings_modifier",
+  "conditions": [
+    {
+      "condition": "random_chance",
+      "chance": 0.03
+    }
+  ],
+  "loot_tables": [
+    "minecraft:chests/simple_dungeon",
+    "minecraft:chests/jungle_temple"
+  ],
+  "ring": "ringsofascension:ring_luck"
+}

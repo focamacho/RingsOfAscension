@@ -1,0 +1,13 @@
+{
+  "type": "ringsofascension:rings_modifier",
+  "conditions": [
+    {
+      "condition": "random_chance",
+      "chance": 0.01
+    }
+  ],
+  "loot_tables": [
+    "minecraft:chests/end_city_treasure"
+  ],
+  "ring": "ringsofascension:ring_flight"
+}
