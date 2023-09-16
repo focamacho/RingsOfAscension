@@ -10,7 +10,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -21,12 +21,14 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.common.util.LazyOptional;
+import org.jetbrains.annotations.NotNull;
 import top.theillusivec4.curios.api.CuriosCapability;
+import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurio;
 
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.UUID;
 
 public abstract class ItemRingBase extends Item {
 
@@ -45,8 +47,7 @@ public abstract class ItemRingBase extends Item {
     public void tickCurio(String identifier, int index, LivingEntity livingEntity){}
 
     public Multimap<Attribute, AttributeModifier> curioModifiers(ItemStack stack, String identifier){
-        Multimap<Attribute, AttributeModifier> modifiers = HashMultimap.create();
-        return modifiers;
+        return HashMultimap.create();
     }
 
     public void onEquippedCurio(String identifier, LivingEntity livingEntity){}
@@ -65,58 +66,58 @@ public abstract class ItemRingBase extends Item {
                 }
 
                 @Override
-                public void curioTick(String identifier, int index, LivingEntity livingEntity) {
-                    tickCurio(identifier, index, livingEntity);
+                public void curioTick(SlotContext slotContext) {
+                    tickCurio(slotContext.identifier(), slotContext.index(), slotContext.entity());
+                }
+
+                @NotNull
+                @Override
+                public SoundInfo getEquipSound(SlotContext slotContext) {
+                    return new SoundInfo(SoundEvents.ARMOR_EQUIP_GOLD, 1.0f, 1.0f);
                 }
 
                 @Override
-                public void playRightClickEquipSound(LivingEntity livingEntity) {
-                    livingEntity.level.playSound(null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), SoundEvents.ARMOR_EQUIP_GOLD, SoundSource.NEUTRAL, 1.0f, 1.0f);
+                public void onEquip(SlotContext slotContext, ItemStack prevStack) {
+                    onEquippedCurio(slotContext.identifier(), slotContext.entity());
                 }
 
+                @NotNull
                 @Override
-                public void onEquip(String identifier, int index, LivingEntity livingEntity) {
-                    onEquippedCurio(identifier, livingEntity);
-                }
-
-                @Nonnull
-                @Override
-                public DropRule getDropRule(LivingEntity livingEntity) {
+                public DropRule getDropRule(SlotContext slotContext, DamageSource source, int lootingLevel, boolean recentlyHit) {
                     return DropRule.DEFAULT;
                 }
 
-
                 @Override
-                public void onUnequip(String identifier, int index, LivingEntity livingEntity) {
-                    onUnequippedCurio(identifier, livingEntity);
+                public void onUnequip(SlotContext slotContext, ItemStack newStack) {
+                    onUnequippedCurio(slotContext.identifier(), slotContext.entity());
                 }
 
                 @Override
-                public boolean canRightClickEquip() {
+                public boolean canEquipFromUse(SlotContext slotContext) {
                     return true;
                 }
 
                 @Override
-                public Multimap<Attribute, AttributeModifier> getAttributeModifiers(String identifier) {
-                    return curioModifiers(stack, identifier);
+                public Multimap<Attribute, AttributeModifier> getAttributeModifiers(SlotContext slotContext, UUID uuid) {
+                    return curioModifiers(stack, slotContext.identifier());
                 }
 
             });
 
             @Override
-            public <T> LazyOptional<T> getCapability(Capability<T> capability, Direction side) {
+            public <T> @NotNull LazyOptional<T> getCapability(@NotNull Capability<T> capability, Direction side) {
                 return CuriosCapability.ITEM.orEmpty(capability, lazyCurio);
             }
         };
     }
 
     @Override
-    public boolean isFoil(ItemStack stack) {
+    public boolean isFoil(@NotNull ItemStack stack) {
         return true;
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
+    public void appendHoverText(@NotNull ItemStack stack, @Nullable Level worldIn, @NotNull List<Component> tooltip, @NotNull TooltipFlag flagIn) {
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
 
         MutableComponent tier = Component.translatable("tooltip.ringsofascension.tier").withStyle(ChatFormatting.GOLD).append(" ");
