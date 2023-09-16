@@ -37,7 +37,7 @@ public abstract class ItemRingBase extends Item {
     public final boolean isEnabled;
 
     public ItemRingBase(Properties properties, String tooltip, int tier, boolean enabled) {
-        super(properties.tab(RingsOfAscension.tabGroup).stacksTo(1));
+        super(properties.stacksTo(1));
         this.tooltip = tooltip;
         this.tier = tier;
         this.isEnabled = enabled;

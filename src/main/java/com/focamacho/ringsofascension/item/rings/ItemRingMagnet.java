@@ -27,7 +27,7 @@ public class ItemRingMagnet extends ItemRingBase {
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
         if(!isEnabled) return;
         if(livingEntity instanceof Player && !livingEntity.level.isClientSide && !livingEntity.isCrouching()) {
-            BlockPos pos = new BlockPos(livingEntity.getX(), livingEntity.getY(), livingEntity.getZ());
+            BlockPos pos = new BlockPos(livingEntity.getBlockX(), livingEntity.getBlockY(), livingEntity.getBlockZ());
             List<ItemEntity> entities = livingEntity.level.getEntitiesOfClass(ItemEntity.class, new AABB(pos.getX() + RANGE, pos.getY() + RANGE, pos.getZ() + RANGE, pos.getX() - RANGE, pos.getY() - RANGE, pos.getZ() - RANGE));
             for(ItemEntity item : entities) {
                 if(item.isAlive() && !item.hasPickUpDelay()) {

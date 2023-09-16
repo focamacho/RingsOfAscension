@@ -6,9 +6,11 @@ import com.focamacho.ringsofascension.events.PlayerDeathEvent;
 import com.focamacho.ringsofascension.events.TooltipEvent;
 import com.focamacho.ringsofascension.init.ModItems;
 import com.focamacho.ringsofascension.loot.RingsLootModifier;
-import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -16,7 +18,6 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.jetbrains.annotations.NotNull;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotTypeMessage;
 
@@ -30,6 +31,7 @@ public class RingsOfAscension {
 
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onCreativeTab);
 
         ModItems.init(FMLJavaModLoadingContext.get().getModEventBus());
         RingsLootModifier.REGISTER.register(FMLJavaModLoadingContext.get().getModEventBus());
@@ -46,13 +48,16 @@ public class RingsOfAscension {
         InterModComms.sendTo(CuriosApi.MODID, SlotTypeMessage.REGISTER_TYPE, () -> new SlotTypeMessage.Builder("ring").size(2).build());
     }
 
-    public static final CreativeModeTab tabGroup = new CreativeModeTab("ringsofascension") {
-
-        @Override
-        public @NotNull ItemStack makeIcon() {
-            return new ItemStack(ModItems.ringExperience.get());
-        }
-
-    };
+    public void onCreativeTab(CreativeModeTabEvent.Register event) {
+        event.registerCreativeModeTab(new ResourceLocation(MODID, "creative_tab"), (builder) ->
+                builder.title(Component.translatable("itemGroup.ringsofascension"))
+                        .icon(() -> new ItemStack(ModItems.ringExperience.get()))
+                        .displayItems((params, output) ->
+                                ModItems.allRings.forEach(
+                                        output::accept
+                                )
+                        )
+        );
+    }
 
 }

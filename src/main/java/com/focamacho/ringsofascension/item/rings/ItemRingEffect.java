@@ -22,7 +22,6 @@ public class ItemRingEffect extends ItemRingBase {
         if(!this.isEnabled) return;
         if(!livingEntity.hasEffect(effect)) {
             MobEffectInstance effectInstance = new MobEffectInstance(MobEffects.DOLPHINS_GRACE, Integer.MAX_VALUE, amplifier, false, false);
-            if(livingEntity.level.isClientSide) effectInstance.setNoCounter(true);
             livingEntity.addEffect(effectInstance);
         }
     }

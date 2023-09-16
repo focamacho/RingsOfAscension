@@ -26,9 +26,9 @@ public class ItemRingWaterWalking extends ItemRingBase {
         if(!isEnabled) return;
         if(!(livingEntity instanceof Player) || livingEntity.isCrouching()) return;
 
-        BlockPos entityPos = new BlockPos(livingEntity.getX(), livingEntity.getY(), livingEntity.getZ());
+        BlockPos entityPos = new BlockPos(livingEntity.getBlockX(), livingEntity.getBlockY(), livingEntity.getBlockZ());
 
-        boolean water = livingEntity.level.getBlockState(new BlockPos(entityPos.getX(), livingEntity.getBoundingBox().minY - 0.1, entityPos.getZ())).getMaterial() == Material.WATER;
+        boolean water = livingEntity.level.getBlockState(new BlockPos(entityPos.getX(), (int) Math.floor(livingEntity.getBoundingBox().minY - 0.1), entityPos.getZ())).getMaterial() == Material.WATER;
 
         if(water && !livingEntity.isInWater() && livingEntity.getDeltaMovement().y < 0.0D) {
             Vec3 motion = livingEntity.getDeltaMovement();

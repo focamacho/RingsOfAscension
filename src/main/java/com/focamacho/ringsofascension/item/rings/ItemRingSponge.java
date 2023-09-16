@@ -35,7 +35,7 @@ public class ItemRingSponge extends ItemRingBase {
         if(livingEntity.level.isClientSide || livingEntity.isCrouching()) return;
 
         Level world = livingEntity.level;
-        BlockPos entityPos = new BlockPos(livingEntity.getX(), livingEntity.getY(), livingEntity.getZ());
+        BlockPos entityPos = new BlockPos(livingEntity.getBlockX(), livingEntity.getBlockY(), livingEntity.getBlockZ());
         int range = 3;
 
         for(BlockPos pos : BlockPos.betweenClosed(entityPos.getX() - range, entityPos.getY() - range, entityPos.getZ() - range, entityPos.getX() + range, entityPos.getY() + range, entityPos.getZ() + range)) {
