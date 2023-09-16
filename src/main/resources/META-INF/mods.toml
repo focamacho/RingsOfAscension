@@ -7,9 +7,8 @@ modId="ringsofascension"
 version="1.0.0"
 displayName="Rings of Ascension"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/rings-of-ascension"
-description='''
-Rings of Ascension is a mod that uses the Curios API to add 20+ new rings to your minecraft. Each ring has its own special effect that is activated when the ring is equipped.
-'''
+logoFile= "rings_of_ascension_icon.png"
+description="Rings of Ascension is a mod that uses the Curios API to add 20+ new rings to your minecraft. Each ring has its own special effect that is activated when the ring is equipped."
 [[dependencies.ringsofascension]]
     modId="curios"
     mandatory=true
