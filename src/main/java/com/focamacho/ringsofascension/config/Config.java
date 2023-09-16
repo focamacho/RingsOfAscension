@@ -2,6 +2,8 @@ package com.focamacho.ringsofascension.config;
 
 import com.focamacho.ringsofascension.RingsOfAscension;
 import net.minecraftforge.common.ForgeConfigSpec;
+import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
+import net.minecraftforge.common.ForgeConfigSpec.IntValue;
 
 public class Config {
 
@@ -10,47 +12,47 @@ public class Config {
     public static final ForgeConfigSpec spec = BUILDER.build();
 
     //Config Values
-    public static ForgeConfigSpec.IntValue configRingUndyingCooldown;
-    public static ForgeConfigSpec.IntValue configRingHealthHearts;
+    public static IntValue configRingUndyingCooldown;
+    public static IntValue configRingHealthHearts;
 
-    public static ForgeConfigSpec.BooleanValue configRingFireResistance;
-    public static ForgeConfigSpec.BooleanValue configRingInvisibility;
-    public static ForgeConfigSpec.BooleanValue configRingRegeneration;
-    public static ForgeConfigSpec.BooleanValue configRingSlowFalling;
-    public static ForgeConfigSpec.BooleanValue configRingStrength;
-    public static ForgeConfigSpec.BooleanValue configRingWaterBreathing;
-    public static ForgeConfigSpec.BooleanValue configRingSpeed;
-    public static ForgeConfigSpec.BooleanValue configRingNightVision;
-    public static ForgeConfigSpec.BooleanValue configRingJumpBoost;
-    public static ForgeConfigSpec.BooleanValue configRingMining;
-    public static ForgeConfigSpec.BooleanValue configRingLuck;
-    public static ForgeConfigSpec.BooleanValue configRingDolphin;
-    public static ForgeConfigSpec.BooleanValue configRingMagnetism;
-    public static ForgeConfigSpec.BooleanValue configRingFlight;
-    public static ForgeConfigSpec.BooleanValue configRingPoisonResistance;
-    public static ForgeConfigSpec.BooleanValue configRingHungerless;
-    public static ForgeConfigSpec.BooleanValue configRingGrowth;
-    public static ForgeConfigSpec.BooleanValue configRingKnockbackResistance;
-    public static ForgeConfigSpec.BooleanValue configRingHealth;
-    public static ForgeConfigSpec.BooleanValue configRingSponge;
-    public static ForgeConfigSpec.BooleanValue configRingExperience;
-    public static ForgeConfigSpec.BooleanValue configRingWaterWalking;
-    public static ForgeConfigSpec.BooleanValue configRingWither;
-    public static ForgeConfigSpec.BooleanValue configRingUndying;
-    public static ForgeConfigSpec.BooleanValue configRingSlowResistance;
+    public static BooleanValue configRingFireResistance;
+    public static BooleanValue configRingInvisibility;
+    public static BooleanValue configRingRegeneration;
+    public static BooleanValue configRingSlowFalling;
+    public static BooleanValue configRingStrength;
+    public static BooleanValue configRingWaterBreathing;
+    public static BooleanValue configRingSpeed;
+    public static BooleanValue configRingNightVision;
+    public static BooleanValue configRingJumpBoost;
+    public static BooleanValue configRingMining;
+    public static BooleanValue configRingLuck;
+    public static BooleanValue configRingDolphin;
+    public static BooleanValue configRingMagnetism;
+    public static BooleanValue configRingFlight;
+    public static BooleanValue configRingPoisonResistance;
+    public static BooleanValue configRingHungerless;
+    public static BooleanValue configRingGrowth;
+    public static BooleanValue configRingKnockbackResistance;
+    public static BooleanValue configRingHealth;
+    public static BooleanValue configRingSponge;
+    public static BooleanValue configRingExperience;
+    public static BooleanValue configRingWaterWalking;
+    public static BooleanValue configRingWither;
+    public static BooleanValue configRingUndying;
+    public static BooleanValue configRingSlowResistance;
 
-    public static ForgeConfigSpec.IntValue configRingAmplifierFireResistance;
-    public static ForgeConfigSpec.IntValue configRingAmplifierInvisibility;
-    public static ForgeConfigSpec.IntValue configRingAmplifierRegeneration;
-    public static ForgeConfigSpec.IntValue configRingAmplifierSlowFalling;
-    public static ForgeConfigSpec.IntValue configRingAmplifierStrength;
-    public static ForgeConfigSpec.IntValue configRingAmplifierWaterBreathing;
-    public static ForgeConfigSpec.IntValue configRingAmplifierSpeed;
-    public static ForgeConfigSpec.IntValue configRingAmplifierNightVision;
-    public static ForgeConfigSpec.IntValue configRingAmplifierJumpBoost;
-    public static ForgeConfigSpec.IntValue configRingAmplifierMining;
-    public static ForgeConfigSpec.IntValue configRingAmplifierLuck;
-    public static ForgeConfigSpec.IntValue configRingAmplifierDolphin;
+    public static IntValue configRingAmplifierFireResistance;
+    public static IntValue configRingAmplifierInvisibility;
+    public static IntValue configRingAmplifierRegeneration;
+    public static IntValue configRingAmplifierSlowFalling;
+    public static IntValue configRingAmplifierStrength;
+    public static IntValue configRingAmplifierWaterBreathing;
+    public static IntValue configRingAmplifierSpeed;
+    public static IntValue configRingAmplifierNightVision;
+    public static IntValue configRingAmplifierJumpBoost;
+    public static IntValue configRingAmplifierMining;
+    public static IntValue configRingAmplifierLuck;
+    public static IntValue configRingAmplifierDolphin;
 
     public static class General {
         public General(final ForgeConfigSpec.Builder builder) {
@@ -92,10 +94,10 @@ public class Config {
             configRingUndying = builder.define("ringUndying", true);
             configRingSlowResistance = builder.define("ringSlowResistance", true);
             builder.pop();
-            
+
             builder.push("Rings Amplifier").comment("Sets the amplifier of the effect given by the ring. Example:\n" +
-                                                    "0 = Fire Resistance I\n" +
-                                                    "1 = Fire Resistance II").push("Amplifiers");
+                    "0 = Fire Resistance I\n" +
+                    "1 = Fire Resistance II").push("Amplifiers");
             configRingAmplifierFireResistance = builder.defineInRange("ringAmplifierFireResistance", 1, 0, 255);
             configRingAmplifierInvisibility = builder.defineInRange("ringAmplifierInvisibility", 0, 0, 255);
             configRingAmplifierRegeneration = builder.defineInRange("ringAmplifierRegeneration", 0, 0, 255);
