@@ -115,6 +115,10 @@ public class ModItems {
             () -> new ItemRingSponge(new Item.Properties(), "tooltip.ringsofascension.sponge",
                     Config.configRingSponge.get(), Fluids.WATER, Fluids.FLOWING_WATER, GlintRenderTypes.YELLOW));
 
+    public static RegistryObject<ItemRingBase> ringLavaSponge = register("ring_lava_sponge",
+            () -> new ItemRingSponge(new Item.Properties(), "tooltip.ringsofascension.lava_sponge",
+                    Config.configRingSponge.get(), Fluids.LAVA, Fluids.FLOWING_LAVA, GlintRenderTypes.ORANGE));
+
     public static RegistryObject<ItemRingBase> ringExperience = register("ring_experience",
             () -> new ItemRingExperience(new Item.Properties(), "tooltip.ringsofascension.experience",
                     Config.configRingExperience.get(), GlintRenderTypes.YELLOW));
