@@ -43,7 +43,7 @@ public class ItemRingFlight extends ItemRingBase {
     @Override
     public void onUnequippedCurio(String identifier, LivingEntity livingEntity) {
         if(!isEnabled) return;
-        if(livingEntity instanceof Player player) {
+        if(livingEntity instanceof Player player && !player.isCreative()) {
             player.getAbilities().mayfly = false;
             player.getAbilities().flying = false;
             player.onUpdateAbilities();
