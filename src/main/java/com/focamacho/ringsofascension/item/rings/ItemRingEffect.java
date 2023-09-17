@@ -22,7 +22,7 @@ public class ItemRingEffect extends ItemRingBase {
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
         if(!this.isEnabled) return;
         if(!livingEntity.hasEffect(effect)) {
-            MobEffectInstance effectInstance = new MobEffectInstance(MobEffects.DOLPHINS_GRACE, Integer.MAX_VALUE, amplifier, false, false);
+            MobEffectInstance effectInstance = new MobEffectInstance(effect, Integer.MAX_VALUE, amplifier, false, false);
             livingEntity.addEffect(effectInstance);
         }
     }
