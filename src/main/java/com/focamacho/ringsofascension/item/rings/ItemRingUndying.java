@@ -17,8 +17,8 @@ public class ItemRingUndying extends ItemRingBase {
 
     private final int cooldown;
 
-    public ItemRingUndying(Properties properties, String tooltip, int tier, boolean enabled, int cooldown, GlintRenderTypes glintType) {
-        super(properties, tooltip, tier, enabled, glintType);
+    public ItemRingUndying(Properties properties, String tooltip, boolean enabled, int cooldown, GlintRenderTypes glintType) {
+        super(properties, tooltip, enabled, glintType);
         this.cooldown = cooldown;
     }
 

@@ -33,14 +33,12 @@ import java.util.UUID;
 public abstract class ItemRingBase extends Item {
 
     protected String tooltip;
-    public final int tier;
     public final boolean isEnabled;
     public final GlintRenderTypes glintType;
 
-    public ItemRingBase(Properties properties, String tooltip, int tier, boolean enabled, GlintRenderTypes glintType) {
+    public ItemRingBase(Properties properties, String tooltip, boolean enabled, GlintRenderTypes glintType) {
         super(properties.stacksTo(1));
         this.tooltip = tooltip;
-        this.tier = tier;
         this.isEnabled = enabled;
         this.glintType = glintType;
         ModItems.allRings.add(this);
@@ -121,23 +119,6 @@ public abstract class ItemRingBase extends Item {
     @Override
     public void appendHoverText(@NotNull ItemStack stack, @Nullable Level worldIn, @NotNull List<Component> tooltip, @NotNull TooltipFlag flagIn) {
         super.appendHoverText(stack, worldIn, tooltip, flagIn);
-
-        MutableComponent tier = Component.translatable("tooltip.ringsofascension.tier").withStyle(ChatFormatting.GOLD).append(" ");
-
-        switch (this.tier) {
-            case 0 ->
-                    tier.append(Component.translatable("tooltip.ringsofascension.tier.common").withStyle(ChatFormatting.GREEN));
-            case 1 ->
-                    tier.append(Component.translatable("tooltip.ringsofascension.tier.rare").withStyle(ChatFormatting.BLUE));
-            case 2 ->
-                    tier.append(Component.translatable("tooltip.ringsofascension.tier.epic").withStyle(ChatFormatting.LIGHT_PURPLE));
-            case 3 ->
-                    tier.append(Component.translatable("tooltip.ringsofascension.tier.legendary").withStyle(ChatFormatting.RED));
-            case 4 ->
-                    tier.append(Component.translatable("tooltip.ringsofascension.tier.mythic").withStyle(ChatFormatting.DARK_RED));
-        }
-
-        tooltip.add(tier);
         if(this.tooltip == null) return;
 
         tooltip.add(Component.literal(""));

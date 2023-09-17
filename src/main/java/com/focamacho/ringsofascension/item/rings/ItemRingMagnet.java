@@ -20,8 +20,8 @@ public class ItemRingMagnet extends ItemRingBase {
 
     private static final int RANGE = 7;
 
-    public ItemRingMagnet(Properties properties, String tooltip, int tier, boolean enabled, GlintRenderTypes glintType) {
-        super(properties, tooltip, tier, enabled, glintType);
+    public ItemRingMagnet(Properties properties, String tooltip, boolean enabled, GlintRenderTypes glintType) {
+        super(properties, tooltip, enabled, glintType);
     }
 
     @Override

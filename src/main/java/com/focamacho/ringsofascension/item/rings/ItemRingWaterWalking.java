@@ -18,8 +18,8 @@ import java.util.List;
 
 public class ItemRingWaterWalking extends ItemRingBase {
 
-    public ItemRingWaterWalking(Properties properties, String tooltip, int tier, boolean enabled, GlintRenderTypes glintType) {
-        super(properties, tooltip, tier, enabled, glintType);
+    public ItemRingWaterWalking(Properties properties, String tooltip, boolean enabled, GlintRenderTypes glintType) {
+        super(properties, tooltip, enabled, glintType);
     }
 
     @Override

@@ -12,8 +12,8 @@ public class ItemRingEffect extends ItemRingBase {
     private final MobEffect effect;
     private final int amplifier;
 
-    public ItemRingEffect(Properties properties, String tooltip, int tier, boolean enabled, MobEffect effect, int amplifier, GlintRenderTypes glintType) {
-        super(properties, tooltip, tier, enabled, glintType);
+    public ItemRingEffect(Properties properties, String tooltip, boolean enabled, MobEffect effect, int amplifier, GlintRenderTypes glintType) {
+        super(properties, tooltip, enabled, glintType);
         this.effect = effect;
         this.amplifier = amplifier;
     }

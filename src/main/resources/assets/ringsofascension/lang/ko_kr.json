@@ -54,11 +54,5 @@
   "tooltip.ringsofascension.slow_resistance": "구속 저항을 얻습니다",
 
   "tooltip.ringsofascension.slot": "슬롯:",
-  "tooltip.ringsofascension.ring": "반지",
-  "tooltip.ringsofascension.tier": "등급:",
-  "tooltip.ringsofascension.tier.common": "평범",
-  "tooltip.ringsofascension.tier.rare": "레어",
-  "tooltip.ringsofascension.tier.epic": "에픽",
-  "tooltip.ringsofascension.tier.legendary": "전설",
-  "tooltip.ringsofascension.tier.mythic": "신화"
+  "tooltip.ringsofascension.ring": "반지"
 }

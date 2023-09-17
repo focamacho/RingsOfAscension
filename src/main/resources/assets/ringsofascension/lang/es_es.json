@@ -52,13 +52,7 @@
   "tooltip.ringsofascension.undying": "Te impide morir",
   "tooltip.ringsofascension.undying_cooldown": "Tiempo de Recarga : secondsHere segundos",
   "tooltip.ringsofascension.slow_resistance": "Concede una inmunidad al efecto de lentitud",
-  
-  "tooltip.ringsofascension.tier": "Raridad : ",
-  "tooltip.ringsofascension.tier.common": "Común",
-  "tooltip.ringsofascension.tier.rare": "Raro",
-  "tooltip.ringsofascension.tier.epic": "Épico",
-  "tooltip.ringsofascension.tier.legendary": "Legendario",
-  "tooltip.ringsofascension.tier.mythic": "Mythic",
+
   "tooltip.ringsofascension.slot": "Espacio : ",
   "tooltip.ringsofascension.ring": "Anillo"
 

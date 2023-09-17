@@ -24,8 +24,8 @@ public class ItemRingGrowth extends ItemRingBase {
 
     private int timer = 200;
 
-    public ItemRingGrowth(Properties properties, String tooltip, int tier, boolean enabled, GlintRenderTypes glintType) {
-        super(properties, tooltip, tier, enabled, glintType);
+    public ItemRingGrowth(Properties properties, String tooltip, boolean enabled, GlintRenderTypes glintType) {
+        super(properties, tooltip, enabled, glintType);
     }
 
     @Override

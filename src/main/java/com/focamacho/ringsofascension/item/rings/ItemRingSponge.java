@@ -29,9 +29,9 @@ public class ItemRingSponge extends ItemRingBase {
     private final FlowingFluid staticFluidType;
     private final FlowingFluid flowingFluidType;
 
-    public ItemRingSponge(Properties properties, String tooltip, int tier, boolean enabled,
+    public ItemRingSponge(Properties properties, String tooltip, boolean enabled,
                           FlowingFluid staticFluidType, FlowingFluid flowingFluidType, GlintRenderTypes glintType) {
-        super(properties, tooltip, tier, enabled, glintType);
+        super(properties, tooltip, enabled, glintType);
         this.staticFluidType = staticFluidType;
         this.flowingFluidType = flowingFluidType;
     }

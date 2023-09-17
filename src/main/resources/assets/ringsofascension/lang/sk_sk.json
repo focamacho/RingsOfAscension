@@ -53,12 +53,6 @@
   "tooltip.ringsofascension.undying_cooldown": "Schladenie: secondsHere sekúnd",
   "tooltip.ringsofascension.slow_resistance": "dáva imunitu spomalenia",
 
-  "tooltip.ringsofascension.tier": "Trieda:",
-  "tooltip.ringsofascension.tier.common": "Bežná",
-  "tooltip.ringsofascension.tier.rare": "Vzácna",
-  "tooltip.ringsofascension.tier.epic": "Epická",
-  "tooltip.ringsofascension.tier.legendary": "Legendárna",
-  "tooltip.ringsofascension.tier.mythic": "Mytická",
   "tooltip.ringsofascension.slot": "Miesto: ",
   "tooltip.ringsofascension.ring": "Prsteň"
 

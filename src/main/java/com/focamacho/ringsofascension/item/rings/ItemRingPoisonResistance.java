@@ -15,8 +15,8 @@ import java.util.List;
 
 public class ItemRingPoisonResistance extends ItemRingBase {
 
-    public ItemRingPoisonResistance(Properties properties, String tooltip, int tier, boolean enabled, GlintRenderTypes glintType) {
-        super(properties, tooltip, tier, enabled, glintType);
+    public ItemRingPoisonResistance(Properties properties, String tooltip, boolean enabled, GlintRenderTypes glintType) {
+        super(properties, tooltip, enabled, glintType);
     }
 
     @Override
