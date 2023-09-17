@@ -38,10 +38,4 @@ public class ItemRingMagnet extends ItemRingBase {
         }
     }
 
-    @Override
-    public void appendHoverText(@NotNull ItemStack stack, @Nullable Level worldIn, @NotNull List<Component> tooltip, @NotNull TooltipFlag flagIn) {
-        if(!isEnabled) return;
-        super.appendHoverText(stack, worldIn, tooltip, flagIn);
-    }
-
 }

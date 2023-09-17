@@ -27,11 +27,4 @@ public class ItemRingUndying extends ItemRingBase {
         player.getCooldowns().addCooldown(this, cooldown * 20);
     }
 
-    @Override
-    public void appendHoverText(@NotNull ItemStack stack, @Nullable Level worldIn, @NotNull List<Component> tooltip, @NotNull TooltipFlag flagIn) {
-        if(!isEnabled) return;
-        super.appendHoverText(stack, worldIn, tooltip, flagIn);
-        tooltip.add(Component.literal(ChatFormatting.YELLOW + Component.translatable("tooltip.ringsofascension.undying_cooldown").getString().replace("secondsHere", (ChatFormatting.RED + Integer.toString(this.cooldown) + ChatFormatting.YELLOW))));
-    }
-
 }

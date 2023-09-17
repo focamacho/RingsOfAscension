@@ -39,10 +39,4 @@ public class ItemRingKnockbackResistance extends ItemRingBase {
         return modifiers;
     }
 
-    @Override
-    public void appendHoverText(@NotNull ItemStack stack, @Nullable Level worldIn, @NotNull List<Component> tooltip, @NotNull TooltipFlag flagIn) {
-        if(!isEnabled) return;
-        super.appendHoverText(stack, worldIn, tooltip, flagIn);
-    }
-
 }

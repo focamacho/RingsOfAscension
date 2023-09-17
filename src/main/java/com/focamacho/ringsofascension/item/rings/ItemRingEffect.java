@@ -27,10 +27,4 @@ public class ItemRingEffect extends ItemRingBase {
         }
     }
 
-    @Override
-    public void onUnequippedCurio(String identifier, LivingEntity livingEntity) {
-        if(!this.isEnabled) return;
-        livingEntity.removeEffect(effect);
-    }
-
 }
