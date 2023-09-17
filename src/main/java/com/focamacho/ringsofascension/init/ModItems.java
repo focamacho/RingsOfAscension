@@ -7,6 +7,7 @@ import com.focamacho.ringsofascension.item.ItemRingBase;
 import com.focamacho.ringsofascension.item.rings.*;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -112,7 +113,7 @@ public class ModItems {
 
     public static RegistryObject<ItemRingBase> ringSponge = register("ring_sponge",
             () -> new ItemRingSponge(new Item.Properties(), "tooltip.ringsofascension.sponge", 1,
-                    Config.configRingSponge.get(), GlintRenderTypes.YELLOW));
+                    Config.configRingSponge.get(), Fluids.WATER, Fluids.FLOWING_WATER, GlintRenderTypes.YELLOW));
 
     public static RegistryObject<ItemRingBase> ringExperience = register("ring_experience",
             () -> new ItemRingExperience(new Item.Properties(), "tooltip.ringsofascension.experience", 0,

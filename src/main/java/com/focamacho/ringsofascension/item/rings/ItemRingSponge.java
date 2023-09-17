@@ -13,8 +13,8 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.FluidState;
-import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.IFluidBlock;
@@ -26,8 +26,14 @@ import java.util.List;
 
 public class ItemRingSponge extends ItemRingBase {
 
-    public ItemRingSponge(Properties properties, String tooltip, int tier, boolean enabled, GlintRenderTypes glintType) {
+    private final FlowingFluid staticFluidType;
+    private final FlowingFluid flowingFluidType;
+
+    public ItemRingSponge(Properties properties, String tooltip, int tier, boolean enabled,
+                          FlowingFluid staticFluidType, FlowingFluid flowingFluidType, GlintRenderTypes glintType) {
         super(properties, tooltip, tier, enabled, glintType);
+        this.staticFluidType = staticFluidType;
+        this.flowingFluidType = flowingFluidType;
     }
 
     @Override
@@ -44,7 +50,7 @@ public class ItemRingSponge extends ItemRingBase {
             FluidState fluid = livingEntity.level.getFluidState(pos);
             Material material = state.getMaterial();
 
-            if (fluid.is(Fluids.WATER)) {
+            if (fluid.is(staticFluidType) || fluid.is(flowingFluidType)) {
                 if (state.getBlock() instanceof IFluidBlock && ((IFluidBlock) state.getBlock()).drain(world, pos, IFluidHandler.FluidAction.EXECUTE) != FluidStack.EMPTY)
                     continue;
 
