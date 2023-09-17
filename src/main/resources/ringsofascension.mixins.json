@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.focamacho.ringsofascension.mixin",
+  "refmap": "ringsofascension.refmap.json",
+  "mixins": [],
+  "client": [
+    "ItemRendererMixin",
+    "RenderBuffersMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

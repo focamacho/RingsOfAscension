@@ -1,5 +1,6 @@
 package com.focamacho.ringsofascension.item.rings;
 
+import com.focamacho.ringsofascension.client.GlintRenderTypes;
 import com.focamacho.ringsofascension.item.ItemRingBase;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -19,8 +20,8 @@ public class ItemRingMagnet extends ItemRingBase {
 
     private static final int RANGE = 7;
 
-    public ItemRingMagnet(Properties properties, String tooltip, int tier, boolean enabled) {
-        super(properties, tooltip, tier, enabled);
+    public ItemRingMagnet(Properties properties, String tooltip, int tier, boolean enabled, GlintRenderTypes glintType) {
+        super(properties, tooltip, tier, enabled, glintType);
     }
 
     @Override

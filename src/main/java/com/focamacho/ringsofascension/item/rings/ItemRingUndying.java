@@ -1,5 +1,6 @@
 package com.focamacho.ringsofascension.item.rings;
 
+import com.focamacho.ringsofascension.client.GlintRenderTypes;
 import com.focamacho.ringsofascension.item.ItemRingBase;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -16,8 +17,8 @@ public class ItemRingUndying extends ItemRingBase {
 
     private final int cooldown;
 
-    public ItemRingUndying(Properties properties, String tooltip, int tier, boolean enabled, int cooldown) {
-        super(properties, tooltip, tier, enabled);
+    public ItemRingUndying(Properties properties, String tooltip, int tier, boolean enabled, int cooldown, GlintRenderTypes glintType) {
+        super(properties, tooltip, tier, enabled, glintType);
         this.cooldown = cooldown;
     }
 

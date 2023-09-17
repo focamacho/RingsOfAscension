@@ -3,18 +3,22 @@ buildscript {
         maven { url = 'https://files.minecraftforge.net/maven' }
         jcenter()
         mavenCentral()
+        maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
     }
     dependencies {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
     }
 }
+
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
+apply plugin: 'org.spongepowered.mixin'
 
 version = '1.0.1'
 group = 'com.focamacho'
-archivesBaseName = 'RingsOfAscension-1.19'
+archivesBaseName = 'RingsOfAscension-1.19.4'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
@@ -33,8 +37,11 @@ minecraft {
             workingDirectory project.file('run')
 
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-
             property 'forge.logging.console.level', 'debug'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
+
+            arg "-mixin.config=ringsofascension.mixins.json"
 
             mods {
                 ringsofascension {
@@ -47,8 +54,11 @@ minecraft {
             workingDirectory project.file('run')
 
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-
             property 'forge.logging.console.level', 'debug'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
+
+            arg "-mixin.config=ringsofascension.mixins.json"
 
             mods {
                 ringsofascension {
@@ -61,10 +71,12 @@ minecraft {
             workingDirectory project.file('run')
 
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-
             property 'forge.logging.console.level', 'debug'
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
 
             args '--mod', 'ringsofascension', '--all', '--output', file('src/generated/resources/')
+            arg "-mixin.config=ringsofascension.mixins.json"
 
             mods {
                 ringsofascension {
@@ -75,6 +87,10 @@ minecraft {
     }
 }
 
+mixin {
+    add sourceSets.main, "ringsofascension.refmap.json"
+}
+
 repositories {
     maven {
         url = "https://maven.theillusivec4.top/"
@@ -83,7 +99,8 @@ repositories {
 
 dependencies {
     minecraft 'net.minecraftforge:forge:1.19.4-45.1.0'
-	
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+
 	runtimeOnly "top.theillusivec4.curios:curios-forge:1.19.4-5.1.5.3"
     compileOnly "top.theillusivec4.curios:curios-forge:1.19.4-5.1.5.3:api"
 }
@@ -94,9 +111,10 @@ jar {
             "Specification-Title": "ringsofascension",
             "Specification-Vendor": "focamacho",
             "Specification-Version": "1",
-            "Implementation-Title": project.name,
+            "Implementation-Title": "ringsofascension",
             "Implementation-Version": project.version,
             "Implementation-Vendor" : "focamacho",
+            "MixinConfigs": "ringsofascension.mixins.json",
             "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }

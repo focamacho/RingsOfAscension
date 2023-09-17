@@ -1,5 +1,6 @@
 package com.focamacho.ringsofascension.item.rings;
 
+import com.focamacho.ringsofascension.client.GlintRenderTypes;
 import com.focamacho.ringsofascension.item.ItemRingBase;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -11,8 +12,8 @@ public class ItemRingEffect extends ItemRingBase {
     private final MobEffect effect;
     private final int amplifier;
 
-    public ItemRingEffect(Properties properties, String tooltip, int tier, boolean enabled, MobEffect effect, int amplifier) {
-        super(properties, tooltip, tier, enabled);
+    public ItemRingEffect(Properties properties, String tooltip, int tier, boolean enabled, MobEffect effect, int amplifier, GlintRenderTypes glintType) {
+        super(properties, tooltip, tier, enabled, glintType);
         this.effect = effect;
         this.amplifier = amplifier;
     }

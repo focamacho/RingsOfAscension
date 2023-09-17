@@ -1,5 +1,6 @@
 package com.focamacho.ringsofascension.item.rings;
 
+import com.focamacho.ringsofascension.client.GlintRenderTypes;
 import com.focamacho.ringsofascension.item.ItemRingBase;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -25,8 +26,8 @@ import java.util.List;
 
 public class ItemRingSponge extends ItemRingBase {
 
-    public ItemRingSponge(Properties properties, String tooltip, int tier, boolean enabled) {
-        super(properties, tooltip, tier, enabled);
+    public ItemRingSponge(Properties properties, String tooltip, int tier, boolean enabled, GlintRenderTypes glintType) {
+        super(properties, tooltip, tier, enabled, glintType);
     }
 
     @Override

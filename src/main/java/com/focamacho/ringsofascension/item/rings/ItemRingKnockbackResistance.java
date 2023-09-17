@@ -1,5 +1,6 @@
 package com.focamacho.ringsofascension.item.rings;
 
+import com.focamacho.ringsofascension.client.GlintRenderTypes;
 import com.focamacho.ringsofascension.item.ItemRingBase;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
@@ -21,8 +22,8 @@ public class ItemRingKnockbackResistance extends ItemRingBase {
 
     private static final UUID KNOBACK_RESISTANCE_UUID = UUID.fromString("320d847e-eecd-402f-b6cf-d339d2fa97af");
 
-    public ItemRingKnockbackResistance(Properties properties, String tooltip, int tier, boolean enabled) {
-        super(properties, tooltip, tier, enabled);
+    public ItemRingKnockbackResistance(Properties properties, String tooltip, int tier, boolean enabled, GlintRenderTypes glintType) {
+        super(properties, tooltip, tier, enabled, glintType);
     }
 
     @Override

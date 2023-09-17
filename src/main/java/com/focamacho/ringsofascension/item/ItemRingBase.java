@@ -1,6 +1,6 @@
 package com.focamacho.ringsofascension.item;
 
-import com.focamacho.ringsofascension.RingsOfAscension;
+import com.focamacho.ringsofascension.client.GlintRenderTypes;
 import com.focamacho.ringsofascension.init.ModItems;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
@@ -35,12 +35,14 @@ public abstract class ItemRingBase extends Item {
     protected String tooltip;
     public final int tier;
     public final boolean isEnabled;
+    public final GlintRenderTypes glintType;
 
-    public ItemRingBase(Properties properties, String tooltip, int tier, boolean enabled) {
+    public ItemRingBase(Properties properties, String tooltip, int tier, boolean enabled, GlintRenderTypes glintType) {
         super(properties.stacksTo(1));
         this.tooltip = tooltip;
         this.tier = tier;
         this.isEnabled = enabled;
+        this.glintType = glintType;
         ModItems.allRings.add(this);
     }
 

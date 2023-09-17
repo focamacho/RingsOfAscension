@@ -1,5 +1,6 @@
 package com.focamacho.ringsofascension.item.rings;
 
+import com.focamacho.ringsofascension.client.GlintRenderTypes;
 import com.focamacho.ringsofascension.item.ItemRingBase;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffects;
@@ -14,8 +15,8 @@ import java.util.List;
 
 public class ItemRingWither extends ItemRingBase {
 
-    public ItemRingWither(Properties properties, String tooltip, int tier, boolean enabled) {
-        super(properties, tooltip, tier, enabled);
+    public ItemRingWither(Properties properties, String tooltip, int tier, boolean enabled, GlintRenderTypes glintType) {
+        super(properties, tooltip, tier, enabled, glintType);
     }
 
     @Override
