@@ -6,7 +6,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.Vec3;
 
 public class ItemRingWaterWalking extends ItemRingBase {
@@ -23,7 +22,7 @@ public class ItemRingWaterWalking extends ItemRingBase {
         BlockPos entityPos = livingEntity.blockPosition();
 
         boolean water =
-                livingEntity.level.getFluidState(
+                livingEntity.level().getFluidState(
                         new BlockPos(entityPos.getX(), (int) Math.floor(livingEntity.getBoundingBox().minY - 0.4), entityPos.getZ())
                 ).is(Fluids.WATER);
 

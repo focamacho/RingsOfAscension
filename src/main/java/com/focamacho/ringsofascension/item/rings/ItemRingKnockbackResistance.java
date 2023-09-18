@@ -24,7 +24,7 @@ public class ItemRingKnockbackResistance extends ItemRingBase {
     public Multimap<Attribute, AttributeModifier> curioModifiers(ItemStack stack, String identifier) {
         Multimap<Attribute, AttributeModifier> modifiers = HashMultimap.create();
 
-        if (CuriosApi.getCuriosHelper().getCurioTags(stack.getItem()).contains(identifier) && isEnabled) {
+        if (CuriosApi.getItemStackSlots(stack).containsKey(identifier) && isEnabled) {
             modifiers.put(Attributes.KNOCKBACK_RESISTANCE,
                     new AttributeModifier(KNOBACK_RESISTANCE_UUID, "Knockback Resistance", 1.0D,
                             AttributeModifier.Operation.ADDITION));

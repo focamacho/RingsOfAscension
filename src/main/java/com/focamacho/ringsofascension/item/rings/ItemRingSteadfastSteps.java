@@ -26,7 +26,7 @@ public class ItemRingSteadfastSteps extends ItemRingBase {
     public Multimap<Attribute, AttributeModifier> curioModifiers(ItemStack stack, String identifier) {
         Multimap<Attribute, AttributeModifier> modifiers = HashMultimap.create();
 
-        if (CuriosApi.getCuriosHelper().getCurioTags(stack.getItem()).contains(identifier) && isEnabled) {
+        if (CuriosApi.getItemStackSlots(stack).containsKey(identifier) && isEnabled) {
             modifiers.put(ForgeMod.STEP_HEIGHT_ADDITION.get(),
                     new AttributeModifier(STEP_HEIGHT_UUID, "Step Assist", 0.4625F,
                             AttributeModifier.Operation.ADDITION));

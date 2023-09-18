@@ -18,7 +18,7 @@ apply plugin: 'org.spongepowered.mixin'
 
 version = '2.0.0'
 group = 'com.focamacho'
-archivesBaseName = 'RingsOfAscension-1.19.4'
+archivesBaseName = 'RingsOfAscension-1.20.1'
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
@@ -31,7 +31,7 @@ tasks.withType(JavaCompile) {
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
 
 minecraft {
-    mappings channel: 'official', version: '1.19.4'
+    mappings channel: 'official', version: '1.20.1'
     runs {
         client {
             workingDirectory project.file('run')
@@ -98,11 +98,11 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.19.4-45.1.0'
+    minecraft 'net.minecraftforge:forge:1.20.1-47.1.0'
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
-	runtimeOnly "top.theillusivec4.curios:curios-forge:1.19.4-5.1.5.3"
-    compileOnly "top.theillusivec4.curios:curios-forge:1.19.4-5.1.5.3:api"
+	runtimeOnly "top.theillusivec4.curios:curios-forge:5.3.1+1.20.1"
+    compileOnly "top.theillusivec4.curios:curios-forge:5.3.1+1.20.1:api"
 }
 
 jar {

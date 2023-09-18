@@ -37,7 +37,7 @@ public class ItemRingGrowth extends ItemRingBase {
             List<BlockPos> blocks = new ArrayList<>();
 
             for(BlockPos pos : BlockPos.betweenClosed(entityPos.getX() - range, entityPos.getY() - range, entityPos.getZ() - range, entityPos.getX() + range, entityPos.getY() + range, entityPos.getZ() + range)) {
-                Block block = livingEntity.level.getBlockState(pos).getBlock();
+                Block block = livingEntity.level().getBlockState(pos).getBlock();
                 if(block instanceof CropBlock || block instanceof StemBlock || block instanceof KelpBlock || block instanceof SeagrassBlock) {
                     blocks.add(new BlockPos(pos));
                 }
@@ -48,12 +48,12 @@ public class ItemRingGrowth extends ItemRingBase {
 
                 while(blocks.size() >= 1 && limit < 3) {
                     BlockPos pos = blocks.remove(random.nextInt(blocks.size()));
-                    BlockState state = livingEntity.level.getBlockState(pos);
+                    BlockState state = livingEntity.level().getBlockState(pos);
 
-                    if(BoneMealItem.applyBonemeal(new ItemStack(Items.BONE_MEAL), livingEntity.level, pos, (Player) livingEntity)) {
-                        if(state != livingEntity.level.getBlockState(pos)) {
+                    if(BoneMealItem.applyBonemeal(new ItemStack(Items.BONE_MEAL), livingEntity.level(), pos, (Player) livingEntity)) {
+                        if(state != livingEntity.level().getBlockState(pos)) {
                             limit++;
-                            livingEntity.level.levelEvent(2005, pos, 0);
+                            livingEntity.level().levelEvent(2005, pos, 0);
                         }
                     }
                 }

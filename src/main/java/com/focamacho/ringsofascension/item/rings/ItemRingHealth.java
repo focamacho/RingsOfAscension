@@ -33,7 +33,7 @@ public class ItemRingHealth extends ItemRingBase {
     public Multimap<Attribute, AttributeModifier> curioModifiers(ItemStack stack, String identifier) {
         Multimap<Attribute, AttributeModifier> modifiers = HashMultimap.create();
 
-        if (CuriosApi.getCuriosHelper().getCurioTags(stack.getItem()).contains(identifier) && isEnabled) {
+        if (CuriosApi.getItemStackSlots(stack).containsKey(identifier) && isEnabled) {
             modifiers.put(Attributes.MAX_HEALTH,
                     new AttributeModifier(HEALTH_UUID, "Max Health", hearts * 2,
                             AttributeModifier.Operation.ADDITION));

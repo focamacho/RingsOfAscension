@@ -12,7 +12,8 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.FluidState;
-import net.minecraft.world.level.material.Material;
+import net.minecraftforge.common.IPlantable;
+import net.minecraftforge.common.PlantType;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.IFluidBlock;
 import net.minecraftforge.fluids.capability.IFluidHandler;
@@ -32,16 +33,15 @@ public class ItemRingSponge extends ItemRingBase {
     @Override
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
         if(!isEnabled) return;
-        if(livingEntity.level.isClientSide || livingEntity.isCrouching()) return;
+        if(livingEntity.level().isClientSide || livingEntity.isCrouching()) return;
 
-        Level world = livingEntity.level;
+        Level world = livingEntity.level();
         BlockPos entityPos = new BlockPos(livingEntity.getBlockX(), livingEntity.getBlockY(), livingEntity.getBlockZ());
         int range = 3;
 
         for(BlockPos pos : BlockPos.betweenClosed(entityPos.getX() - range, entityPos.getY() - range, entityPos.getZ() - range, entityPos.getX() + range, entityPos.getY() + range, entityPos.getZ() + range)) {
-            BlockState state = livingEntity.level.getBlockState(pos);
-            FluidState fluid = livingEntity.level.getFluidState(pos);
-            Material material = state.getMaterial();
+            BlockState state = livingEntity.level().getBlockState(pos);
+            FluidState fluid = livingEntity.level().getFluidState(pos);
 
             if (fluid.is(staticFluidType) || fluid.is(flowingFluidType)) {
                 if (state.getBlock() instanceof IFluidBlock && ((IFluidBlock) state.getBlock()).drain(world, pos, IFluidHandler.FluidAction.EXECUTE) != FluidStack.EMPTY)
@@ -49,7 +49,9 @@ public class ItemRingSponge extends ItemRingBase {
 
                 if (state.getBlock() instanceof LiquidBlock) {
                     world.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
-                } else if (material == Material.WATER_PLANT || material == Material.REPLACEABLE_WATER_PLANT) {
+                } else if (state.getBlock() instanceof IPlantable && ((IPlantable) state.getBlock()).getPlantType(
+                        livingEntity.level(), pos
+                ) == PlantType.WATER) {
                     BlockEntity tileentity = state.hasBlockEntity() ? world.getBlockEntity(pos) : null;
                     Block.dropResources(state, world, pos, tileentity);
                     world.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);

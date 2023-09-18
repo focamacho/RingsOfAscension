@@ -3,6 +3,7 @@ package com.focamacho.ringsofascension.events;
 import com.focamacho.ringsofascension.config.Config;
 import com.focamacho.ringsofascension.init.ModItems;
 import com.focamacho.ringsofascension.item.rings.ItemRingUndying;
+import com.focamacho.ringsofascension.utils.Utils;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.client.Minecraft;
 import net.minecraft.server.level.ServerPlayer;
@@ -14,7 +15,6 @@ import net.minecraft.world.item.Items;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import top.theillusivec4.curios.api.CuriosApi;
 
 public class PlayerDeathEvent {
 
@@ -23,9 +23,8 @@ public class PlayerDeathEvent {
         if(!Config.configRingUndying.get()) return;
         if(!(event.getEntity() instanceof ServerPlayer player)) return;
 
-        if(CuriosApi.getCuriosHelper().findFirstCurio(event.getEntity(), ModItems.ringUndying.get()).isPresent()) {
-            ItemStack ring = CuriosApi.getCuriosHelper().findFirstCurio(event.getEntity(), ModItems.ringUndying.get()).get().stack();
-
+        ItemStack ring = Utils.getFirstCurio(ModItems.ringUndying.get(), player);
+        if(ring != null) {
             if(player.getCooldowns().isOnCooldown(ring.getItem())) return;
 
             event.setCanceled(true);
@@ -41,9 +40,9 @@ public class PlayerDeathEvent {
             player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 900, 1));
             player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 100, 1));
 
-            player.level.broadcastEntityEvent(player, (byte) 35);
+            player.level().broadcastEntityEvent(player, (byte) 35);
 
-            if(player.level.isClientSide) Minecraft.getInstance().gameRenderer.displayItemActivation(ring);
+            if(player.level().isClientSide) Minecraft.getInstance().gameRenderer.displayItemActivation(ring);
         }
     }
 
