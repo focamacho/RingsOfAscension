@@ -121,7 +121,7 @@ public class ModItems {
 
     public static RegistryObject<ItemRingBase> ringExperience = register("ring_experience",
             () -> new ItemRingExperience(new Item.Properties(), "tooltip.ringsofascension.experience",
-                    Config.configRingExperience.get(), GlintRenderTypes.YELLOW));
+                    Config.configRingExperience.get(), GlintRenderTypes.LIME));
 
     public static RegistryObject<ItemRingBase> ringWaterWalking = register("ring_water_walking",
             () -> new ItemRingWaterWalking(new Item.Properties(), "tooltip.ringsofascension.water_walking",

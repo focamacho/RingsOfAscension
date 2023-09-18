@@ -90,7 +90,8 @@ public abstract class ItemRingBase extends Item {
 
                 @Override
                 public void curioTick(SlotContext slotContext) {
-                    tickCurio(slotContext.identifier(), slotContext.index(), slotContext.entity());
+                    if(!slotContext.cosmetic())
+                        tickCurio(slotContext.identifier(), slotContext.index(), slotContext.entity());
                 }
 
                 @NotNull
@@ -101,7 +102,8 @@ public abstract class ItemRingBase extends Item {
 
                 @Override
                 public void onEquip(SlotContext slotContext, ItemStack prevStack) {
-                    onEquippedCurio(slotContext.identifier(), slotContext.entity());
+                    if(!slotContext.cosmetic())
+                        onEquippedCurio(slotContext.identifier(), slotContext.entity());
                 }
 
                 @NotNull
@@ -112,7 +114,8 @@ public abstract class ItemRingBase extends Item {
 
                 @Override
                 public void onUnequip(SlotContext slotContext, ItemStack newStack) {
-                    onUnequippedCurio(slotContext.identifier(), slotContext.entity());
+                    if(!slotContext.cosmetic())
+                        onUnequippedCurio(slotContext.identifier(), slotContext.entity());
                 }
 
                 @Override
@@ -137,6 +140,10 @@ public abstract class ItemRingBase extends Item {
                     return ItemRingBase.this.getAttributesTooltip(replaceTooltips(tooltips));
                 }
 
+                @Override
+                public boolean canEquip(SlotContext slotContext) {
+                    return !slotContext.cosmetic();
+                }
             });
 
             @Override
