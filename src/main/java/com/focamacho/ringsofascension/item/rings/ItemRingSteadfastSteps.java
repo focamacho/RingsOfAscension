@@ -4,6 +4,7 @@ import com.focamacho.ringsofascension.client.GlintRenderTypes;
 import com.focamacho.ringsofascension.item.ItemRingBase;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -13,6 +14,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.ForgeMod;
 import top.theillusivec4.curios.api.CuriosApi;
 
+import java.util.List;
 import java.util.UUID;
 
 public class ItemRingSteadfastSteps extends ItemRingBase {
@@ -36,4 +38,9 @@ public class ItemRingSteadfastSteps extends ItemRingBase {
         return modifiers;
     }
 
+    @Override
+    public List<Component> getAttributesTooltip(List<Component> tt) {
+        tt.clear();
+        return tt;
+    }
 }

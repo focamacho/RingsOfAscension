@@ -135,7 +135,7 @@ public abstract class ItemRingBase extends Item {
                 @Override
                 public List<Component> getAttributesTooltip(List<Component> tt) {
                     List<Component> tooltips = ICurio.super.getAttributesTooltip(tt);
-                    return replaceTooltips(tooltips);
+                    return ItemRingBase.this.getAttributesTooltip(replaceTooltips(tooltips));
                 }
 
             });
@@ -145,6 +145,10 @@ public abstract class ItemRingBase extends Item {
                 return CuriosCapability.ITEM.orEmpty(capability, lazyCurio);
             }
         };
+    }
+
+    public List<Component> getAttributesTooltip(List<Component> tt) {
+        return tt;
     }
 
     @Override
