@@ -8,7 +8,8 @@
   ],
   "loot_tables": [
     "minecraft:chests/simple_dungeon",
-    "minecraft:chests/abandoned_mineshaft"
+    "minecraft:chests/abandoned_mineshaft",
+    "minecraft:chests/ancient_city"
   ],
   "ring": "ringsofascension:ring_mining"
 }

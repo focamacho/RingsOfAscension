@@ -11,5 +11,5 @@
     "minecraft:chests/bastion_bridge",
     "minecraft:chests/nether_bridge"
   ],
-  "ring": "ringsofascension:ring_invisibility"
+  "ring": "ringsofascension:ring_knockback_resistance"
 }

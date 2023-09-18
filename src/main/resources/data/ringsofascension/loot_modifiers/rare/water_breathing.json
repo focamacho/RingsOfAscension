@@ -10,7 +10,9 @@
     "minecraft:chests/spawn_bonus_chest",
     "minecraft:chests/underwater_ruin_big",
     "minecraft:chests/underwater_run_small",
-    "minecraft:chests/buried_treasure"
+    "minecraft:chests/buried_treasure",
+    "minecraft:chests/shipwreck_supply",
+    "minecraft:chests/shipwreck_treasure"
   ],
-  "ring": "ringsofascension:ring_invisibility"
+  "ring": "ringsofascension:ring_water_breathing"
 }

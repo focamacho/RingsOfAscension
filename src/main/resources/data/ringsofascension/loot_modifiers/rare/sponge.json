@@ -8,7 +8,9 @@
   ],
   "loot_tables": [
     "minecraft:chests/underwater_ruin_big",
-    "minecraft:chests/underwater_run_small"
+    "minecraft:chests/underwater_run_small",
+    "minecraft:chests/shipwreck_supply",
+    "minecraft:chests/shipwreck_treasure"
   ],
-  "ring": "ringsofascension:ring_invisibility"
+  "ring": "ringsofascension:ring_sponge"
 }

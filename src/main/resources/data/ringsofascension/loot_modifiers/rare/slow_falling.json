@@ -11,5 +11,5 @@
     "minecraft:chests/buried_treasure",
     "minecraft:chests/end_city_treasure"
   ],
-  "ring": "ringsofascension:ring_invisibility"
+  "ring": "ringsofascension:ring_slow_falling"
 }

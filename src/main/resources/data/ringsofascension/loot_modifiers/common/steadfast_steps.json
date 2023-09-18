@@ -3,13 +3,14 @@
   "conditions": [
     {
       "condition": "random_chance",
-      "chance": 0.07
+      "chance": 0.01
     }
   ],
   "loot_tables": [
     "minecraft:chests/spawn_bonus_chest",
     "minecraft:chests/simple_dungeon",
-    "minecraft:chests/buried_treasure"
+    "minecraft:chests/buried_treasure",
+    "minecraft:chests/ruined_portal"
   ],
-  "ring": "ringsofascension:ring_speed"
+  "ring": "ringsofascension:ring_steadfast_steps"
 }

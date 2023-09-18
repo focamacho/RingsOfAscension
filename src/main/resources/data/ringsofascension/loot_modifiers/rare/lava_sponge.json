@@ -10,7 +10,8 @@
     "minecraft:chests/nether_bridge",
     "minecraft:chests/ruined_portal",
     "minecraft:chests/bastion_treasure",
-    "minecraft:chests/bastion_other"
+    "minecraft:chests/bastion_other",
+    "minecraft:chests/bastion_bridge"
   ],
-  "ring": "ringsofascension:ring_fire_resistance"
+  "ring": "ringsofascension:ring_lava_sponge"
 }
