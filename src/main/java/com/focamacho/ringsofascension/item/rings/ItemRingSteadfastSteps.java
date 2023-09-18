@@ -2,45 +2,38 @@ package com.focamacho.ringsofascension.item.rings;
 
 import com.focamacho.ringsofascension.client.GlintRenderTypes;
 import com.focamacho.ringsofascension.item.ItemRingBase;
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
-import net.minecraftforge.common.extensions.IForgeEntity;
+import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.common.ForgeMod;
+import top.theillusivec4.curios.api.CuriosApi;
+
+import java.util.UUID;
 
 public class ItemRingSteadfastSteps extends ItemRingBase {
+
+    private final UUID STEP_HEIGHT_UUID = UUID.fromString("14378aa6-035b-4794-9137-da589a6dfe05");
 
     public ItemRingSteadfastSteps(Properties properties, String tooltip, boolean enabled, GlintRenderTypes glintType) {
         super(properties, tooltip, enabled, glintType);
     }
 
     @Override
-    public void onEquippedCurio(String identifier, LivingEntity livingEntity) {
-        if(!isEnabled) return;
-        if(livingEntity instanceof Player player) {
-            if(player.getStepHeight() < 1.0625F) {
-                player.setMaxUpStep(1.0625F);
-                player.onUpdateAbilities();
-            }
-        }
-    }
+    public Multimap<Attribute, AttributeModifier> curioModifiers(ItemStack stack, String identifier) {
+        Multimap<Attribute, AttributeModifier> modifiers = HashMultimap.create();
 
-    @Override
-    public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
-        if(!isEnabled) return;
-        if(livingEntity instanceof Player player) {
-            if(player.getStepHeight() < 1.0625F) {
-                player.setMaxUpStep(1.0625F);
-                player.onUpdateAbilities();
-            }
+        if (CuriosApi.getCuriosHelper().getCurioTags(stack.getItem()).contains(identifier) && isEnabled) {
+            modifiers.put(ForgeMod.STEP_HEIGHT_ADDITION.get(),
+                    new AttributeModifier(STEP_HEIGHT_UUID, "Step Assist", 0.4625F,
+                            AttributeModifier.Operation.ADDITION));
         }
-    }
 
-    @Override
-    public void onUnequippedCurio(String identifier, LivingEntity livingEntity) {
-        if(!isEnabled) return;
-        if(livingEntity instanceof Player player) {
-            player.setMaxUpStep(0.6F);
-            player.onUpdateAbilities();
-        }
+        return modifiers;
     }
 
 }
