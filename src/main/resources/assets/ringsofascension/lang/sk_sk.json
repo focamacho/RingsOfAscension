@@ -27,6 +27,7 @@
   "item.ringsofascension.ring_undying": "Prsteň nesmrteľnosti",
   "item.ringsofascension.ring_slow_resistance": "Prsteň nezastavenia",
   "item.ringsofascension.ring_dolphin": "Prsteň delfínov",
+  "item.ringsofascension.ring_steadfast_steps": "Ring of Steadfast Steps",
 
   "tooltip.ringsofascension.worn": "Keď oblečený:",
   "tooltip.ringsofascension.fire_resistance": "dáva odolnosť proti ohňu",
@@ -53,6 +54,7 @@
   "tooltip.ringsofascension.wither": "dáva odolnosť proti vysušeniu",
   "tooltip.ringsofascension.undying": "nepovolí hráčovi umrieť",
   "tooltip.ringsofascension.slow_resistance": "dáva imunitu spomalenia",
+  "tooltip.ringsofascension.steadfast_steps": "Grants Step Assist",
 
   "tooltip.ringsofascension.slot": "Miesto: ",
   "tooltip.ringsofascension.ring": "Prsteň"

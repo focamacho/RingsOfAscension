@@ -27,6 +27,7 @@
   "item.ringsofascension.ring_undying": "Кольцо бессмертия",
   "item.ringsofascension.ring_slow_resistance": "Кольцо сопротивления замедлению",
   "item.ringsofascension.ring_dolphin": "Кольцо дельфина",
+  "item.ringsofascension.ring_steadfast_steps": "Ring of Steadfast Steps",
 
   "tooltip.ringsofascension.worn": "При ношении:",
   "tooltip.ringsofascension.fire_resistance": "Даёт эффект огнестойкости",
@@ -53,6 +54,7 @@
   "tooltip.ringsofascension.wither": "Поглощает урон от иссушения",
   "tooltip.ringsofascension.undying": "Не позволяет умереть",
   "tooltip.ringsofascension.slow_resistance": "Защищает от эффекта замедления",
+  "tooltip.ringsofascension.steadfast_steps": "Grants Step Assist",
 
   "tooltip.ringsofascension.slot": "Slot: ",
   "tooltip.ringsofascension.ring": "Ring"

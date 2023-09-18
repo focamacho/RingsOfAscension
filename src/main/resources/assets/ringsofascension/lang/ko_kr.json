@@ -27,6 +27,7 @@
   "item.ringsofascension.ring_undying": "불사의 반지",
   "item.ringsofascension.ring_slow_resistance": "구속 저항의 반지",
   "item.ringsofascension.ring_dolphin": "돌고래의 반지",
+  "item.ringsofascension.ring_steadfast_steps": "Ring of Steadfast Steps",
 
   "tooltip.ringsofascension.worn": "착용시:",
   "tooltip.ringsofascension.fire_resistance": "화염 저항을 얻습니다",
@@ -53,6 +54,7 @@
   "tooltip.ringsofascension.wither": "시듦 저항을 얻습니다",
   "tooltip.ringsofascension.undying": "죽음으로부터 지켜줍니다",
   "tooltip.ringsofascension.slow_resistance": "구속 저항을 얻습니다",
+  "tooltip.ringsofascension.steadfast_steps": "Grants Step Assist",
 
   "tooltip.ringsofascension.slot": "슬롯:",
   "tooltip.ringsofascension.ring": "반지"

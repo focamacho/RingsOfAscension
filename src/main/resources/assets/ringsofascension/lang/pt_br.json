@@ -27,6 +27,7 @@
   "item.ringsofascension.ring_undying": "Anel de imortalidade",
   "item.ringsofascension.ring_slow_resistance": "Anel de resistência à lentidão",
   "item.ringsofascension.ring_dolphin": "Anel de golfinho",
+  "item.ringsofascension.ring_steadfast_steps": "Anel de passos firmes",
 
   "tooltip.ringsofascension.worn": "Quando equipado como anel:",
   "tooltip.ringsofascension.fire_resistance": "Concede efeito de resistência ao fogo",
@@ -53,6 +54,7 @@
   "tooltip.ringsofascension.wither": "Concede imunidade ao efeito de decomposição",
   "tooltip.ringsofascension.undying": "Impede que você morra",
   "tooltip.ringsofascension.slow_resistance": "Concede imunidade ao efeito de lentidão",
+  "tooltip.ringsofascension.steadfast_steps": "Concede assistência de passo",
 
   "tooltip.ringsofascension.slot": "Slot: ",
   "tooltip.ringsofascension.ring": "Anel"

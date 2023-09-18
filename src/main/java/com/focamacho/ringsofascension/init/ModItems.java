@@ -139,6 +139,9 @@ public class ModItems {
             () -> new ItemRingSlowResistance(new Item.Properties(), "tooltip.ringsofascension.slow_resistance",
                     Config.configRingSlowResistance.get(), GlintRenderTypes.GRAY));
 
+    public static RegistryObject<ItemRingBase> ringSteadfastSteps = register("ring_steadfast_steps",
+            () -> new ItemRingSteadfastSteps(new Item.Properties(), "tooltip.ringsofascension.steadfast_steps", true, GlintRenderTypes.BROWN));
+
     public static void init(IEventBus bus) {
         register.register(bus);
     }

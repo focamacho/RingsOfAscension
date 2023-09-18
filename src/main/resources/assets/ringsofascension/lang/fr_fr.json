@@ -27,6 +27,7 @@
   "item.ringsofascension.ring_undying": "Anneau d'Immortalité",
   "item.ringsofascension.ring_slow_resistance": "Anneau de Résistance à la lenteur",
   "item.ringsofascension.ring_dolphin": "Anneau de Grâce du dauphin",
+  "item.ringsofascension.ring_steadfast_steps": "Ring of Steadfast Steps",
   
   "tooltip.ringsofascension.worn": "Effet une fois équipé :",
   "tooltip.ringsofascension.fire_resistance": "Permet d'être résistant contre le feu et la lave",
@@ -53,6 +54,7 @@
   "tooltip.ringsofascension.wither": "Permet d'être immunisé contre l'effet Wither",
   "tooltip.ringsofascension.undying": "Empêche de mourir",
   "tooltip.ringsofascension.slow_resistance": "Permet d'être immunisé contre l'effet Lenteur",
+  "tooltip.ringsofascension.steadfast_steps": "Grants Step Assist",
 
   "tooltip.ringsofascension.slot": "Emplacement : ",
   "tooltip.ringsofascension.ring": "Anneau"

@@ -27,6 +27,7 @@
   "item.ringsofascension.ring_undying": "亡灵戒指",
   "item.ringsofascension.ring_slow_resistance": "抗缓戒指",
   "item.ringsofascension.ring_dolphin": "海豚之戒",
+  "item.ringsofascension.ring_steadfast_steps": "Ring of Steadfast Steps",
 
   "tooltip.ringsofascension.worn": "穿戴在戒指栏时：",
   "tooltip.ringsofascension.fire_resistance": "获得火焰免疫效果",
@@ -53,6 +54,7 @@
   "tooltip.ringsofascension.wither": "免疫凋零效果",
   "tooltip.ringsofascension.undying": "免死",
   "tooltip.ringsofascension.slow_resistance": "免疫缓慢效果",
+  "tooltip.ringsofascension.steadfast_steps": "Grants Step Assist",
 
   "tooltip.ringsofascension.slot": "Slot: ",
   "tooltip.ringsofascension.ring": "Ring"

@@ -27,6 +27,7 @@
   "item.ringsofascension.ring_undying": "Anillo de Inmortalidad",
   "item.ringsofascension.ring_slow_resistance": "Anillo de Resistencia a la Lentitud",
   "item.ringsofascension.ring_dolphin": "Anillo de Delfín",
+  "item.ringsofascension.ring_steadfast_steps": "Ring of Steadfast Steps",
   
   "tooltip.ringsofascension.worn": "Cuando puesto como anillo : ",
   "tooltip.ringsofascension.fire_resistance": "Concede el efecto de Resistencia de Fuego",
@@ -53,6 +54,7 @@
   "tooltip.ringsofascension.wither": "Concede una inmunidad al efecto Wither",
   "tooltip.ringsofascension.undying": "Te impide morir",
   "tooltip.ringsofascension.slow_resistance": "Concede una inmunidad al efecto de lentitud",
+  "tooltip.ringsofascension.steadfast_steps": "Grants Step Assist",
 
   "tooltip.ringsofascension.slot": "Espacio : ",
   "tooltip.ringsofascension.ring": "Anillo"
