@@ -33,4 +33,9 @@ public class ItemRingHealth extends ItemRingBase {
         return modifiers;
     }
 
+    @Override
+    public void onUnequip(ItemStack stack, SlotReference slot, LivingEntity entity) {
+        if(entity.getHealth() > entity.getMaxHealth())
+            entity.setHealth(entity.getMaxHealth());
+    }
 }
