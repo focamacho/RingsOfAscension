@@ -1,12 +1,9 @@
 package com.focamacho.ringsofascension.mixin;
 
-import com.focamacho.ringsofascension.handler.ClientHandler;
+import com.focamacho.ringsofascension.client.ClientHandler;
 import com.focamacho.ringsofascension.init.ModItems;
 import com.focamacho.ringsofascension.item.rings.ItemRingUndying;
 import com.focamacho.ringsofascension.util.Utils;
-import dev.emi.trinkets.api.SlotReference;
-import dev.emi.trinkets.api.TrinketComponent;
-import dev.emi.trinkets.api.TrinketsApi;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
@@ -15,14 +12,10 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.util.Pair;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import java.util.List;
-import java.util.Optional;
 
 @Mixin(LivingEntity.class)
 public class LivingEntityMixin {

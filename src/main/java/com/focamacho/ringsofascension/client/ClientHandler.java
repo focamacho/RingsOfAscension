@@ -1,4 +1,4 @@
-package com.focamacho.ringsofascension.handler;
+package com.focamacho.ringsofascension.client;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.item.ItemStack;
