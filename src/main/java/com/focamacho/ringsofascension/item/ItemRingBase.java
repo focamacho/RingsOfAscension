@@ -34,6 +34,16 @@ public class ItemRingBase extends TrinketItem {
     }
 
     @Override
+    public boolean isEnchantable(ItemStack stack) {
+        return false;
+    }
+
+    @Override
+    public boolean canRepair(ItemStack stack, ItemStack ingredient) {
+        return false;
+    }
+
+    @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         if(!enabled) stack.setCount(0);
     }
