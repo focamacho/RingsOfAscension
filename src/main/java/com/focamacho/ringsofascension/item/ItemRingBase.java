@@ -43,6 +43,11 @@ public class ItemRingBase extends TrinketItem {
         if(!enabled) stack.setCount(0);
     }
 
+    @Override
+    public Text getName(ItemStack stack) {
+        return super.getName().copy().formatted(Formatting.LIGHT_PURPLE);
+    }
+
     public String getRingName() {
         return ringName;
     }
