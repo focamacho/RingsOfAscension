@@ -24,13 +24,14 @@ public class ItemRingWaterWalking extends ItemRingBase {
         BlockPos entityPos = entity.getBlockPos();
 
         boolean water = entity.world.getBlockState(new BlockPos(entityPos.getX(),
-                (int) (entity.getBoundingBox().getMin(Direction.Axis.Y) - 0.1), entityPos.getZ())).getMaterial() == Material.WATER;
+                (int) (entity.getBoundingBox().getMin(Direction.Axis.Y) - 0.4), entityPos.getZ())).getMaterial() == Material.WATER;
 
-        if(water && !entity.isTouchingWater() && entity.getVelocity().y < 0.0D) {
+        if(water && !entity.isTouchingWater()) {
             Vec3d motion = entity.getVelocity();
 
             entity.setVelocity(motion.x, 0.0D, motion.z);
             entity.fallDistance = 0;
+            entity.setOnGround(true);
         }
     }
 
