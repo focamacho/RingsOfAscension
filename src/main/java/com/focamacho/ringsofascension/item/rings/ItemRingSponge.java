@@ -1,5 +1,6 @@
 package com.focamacho.ringsofascension.item.rings;
 
+import com.focamacho.ringsofascension.client.GlintRenderTypes;
 import com.focamacho.ringsofascension.item.ItemRingBase;
 import dev.emi.trinkets.api.SlotReference;
 import net.minecraft.block.*;
@@ -14,8 +15,8 @@ import net.minecraft.world.World;
 
 public class ItemRingSponge extends ItemRingBase {
 
-    public ItemRingSponge(String name, String tooltip, boolean enabled) {
-        super(name, tooltip, enabled);
+    public ItemRingSponge(String name, String tooltip, boolean enabled, GlintRenderTypes glintType) {
+        super(name, tooltip, enabled, glintType);
     }
 
     @Override

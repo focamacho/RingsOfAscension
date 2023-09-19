@@ -1,5 +1,6 @@
 package com.focamacho.ringsofascension.item.rings;
 
+import com.focamacho.ringsofascension.client.GlintRenderTypes;
 import com.focamacho.ringsofascension.item.ItemRingBase;
 import dev.emi.trinkets.api.SlotReference;
 import net.minecraft.block.Material;
@@ -11,8 +12,8 @@ import net.minecraft.util.math.Vec3d;
 
 public class ItemRingWaterWalking extends ItemRingBase {
 
-    public ItemRingWaterWalking(String name, String tooltip, boolean enabled) {
-        super(name, tooltip, enabled);
+    public ItemRingWaterWalking(String name, String tooltip, boolean enabled, GlintRenderTypes glintType) {
+        super(name, tooltip, enabled, glintType);
     }
 
     @Override

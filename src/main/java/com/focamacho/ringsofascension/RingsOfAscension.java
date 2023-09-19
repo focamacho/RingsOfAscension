@@ -16,10 +16,12 @@ import java.io.File;
 
 public class RingsOfAscension implements ModInitializer {
 
+	public static final String MODID = "ringsofascension";
+
 	private final SealConfig sealConfig = new SealConfig();
 	public static ConfigRingsOfAscension config;
 
-	public static final ItemGroup CREATIVE_TAB =  FabricItemGroup.builder(new Identifier("ringsofascension", "creative_tab"))
+	public static final ItemGroup CREATIVE_TAB =  FabricItemGroup.builder(new Identifier(MODID, "creative_tab"))
 			.displayName(Text.translatable("itemGroup.ringsofascension"))
 			.icon(() -> new ItemStack(ModItems.ringExperience))
 			.build();

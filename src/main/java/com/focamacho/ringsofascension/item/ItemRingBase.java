@@ -1,5 +1,7 @@
 package com.focamacho.ringsofascension.item;
 
+import com.focamacho.ringsofascension.client.GlintRenderType;
+import com.focamacho.ringsofascension.client.GlintRenderTypes;
 import com.focamacho.ringsofascension.init.ModItems;
 import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.TrinketItem;
@@ -20,12 +22,14 @@ public class ItemRingBase extends TrinketItem {
     private final String ringName;
     private final String tooltip;
     private final boolean enabled;
+    public final GlintRenderTypes glintType;
 
-    public ItemRingBase(String name, String tooltip, boolean enabled) {
+    public ItemRingBase(String name, String tooltip, boolean enabled, GlintRenderTypes glintType) {
         super(new Settings().maxCount(1));
         this.ringName = name;
         this.tooltip = tooltip;
         this.enabled = enabled;
+        this.glintType = glintType;
         ModItems.allRings.add(this);
     }
 

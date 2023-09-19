@@ -1,5 +1,6 @@
 package com.focamacho.ringsofascension.item.rings;
 
+import com.focamacho.ringsofascension.client.GlintRenderTypes;
 import com.focamacho.ringsofascension.item.ItemRingBase;
 import dev.emi.trinkets.api.SlotReference;
 import net.minecraft.entity.ItemEntity;
@@ -15,8 +16,8 @@ public class ItemRingMagnetism extends ItemRingBase {
 
     private static final int RANGE = 7;
 
-    public ItemRingMagnetism(String name, String tooltip, boolean enabled) {
-        super(name, tooltip, enabled);
+    public ItemRingMagnetism(String name, String tooltip, boolean enabled, GlintRenderTypes glintType) {
+        super(name, tooltip, enabled, glintType);
     }
 
     @Override

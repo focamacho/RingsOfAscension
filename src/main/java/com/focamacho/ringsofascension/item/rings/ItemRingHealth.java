@@ -1,5 +1,6 @@
 package com.focamacho.ringsofascension.item.rings;
 
+import com.focamacho.ringsofascension.client.GlintRenderTypes;
 import com.focamacho.ringsofascension.item.ItemRingBase;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
@@ -18,8 +19,8 @@ public class ItemRingHealth extends ItemRingBase {
 
     private static final UUID HEALTH_UUID = UUID.fromString("b29c34f3-1450-48ff-ab28-639647e11861");
 
-    public ItemRingHealth(String name, String tooltip, boolean enabled) {
-        super(name, tooltip, enabled);
+    public ItemRingHealth(String name, String tooltip, boolean enabled, GlintRenderTypes glintType) {
+        super(name, tooltip, enabled, glintType);
     }
 
     @Override
