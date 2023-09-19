@@ -3,6 +3,7 @@ package com.focamacho.ringsofascension.mixin;
 import com.focamacho.ringsofascension.handler.ClientHandler;
 import com.focamacho.ringsofascension.init.ModItems;
 import com.focamacho.ringsofascension.item.rings.ItemRingUndying;
+import com.focamacho.ringsofascension.util.Utils;
 import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.TrinketComponent;
 import dev.emi.trinkets.api.TrinketsApi;
@@ -31,24 +32,12 @@ public class LivingEntityMixin {
         LivingEntity entity = (LivingEntity) (Object) this;
 
         if (entity instanceof PlayerEntity player) {
-            if (effect.getEffectType().equals(StatusEffects.POISON)) {
-                Optional<TrinketComponent> optionalComponent = TrinketsApi.getTrinketComponent(player);
-                if (optionalComponent.isPresent()) {
-                    TrinketComponent component = optionalComponent.get();
-                    if (component.isEquipped(ModItems.ringPoisonResistance)) info.setReturnValue(false);
-                }
-            } else if (effect.getEffectType().equals(StatusEffects.WITHER)) {
-                Optional<TrinketComponent> optionalComponent = TrinketsApi.getTrinketComponent(player);
-                if (optionalComponent.isPresent()) {
-                    TrinketComponent component = optionalComponent.get();
-                    if (component.isEquipped(ModItems.ringWither)) info.setReturnValue(false);
-                }
-            } else if (effect.getEffectType().equals(StatusEffects.SLOWNESS)) {
-                Optional<TrinketComponent> optionalComponent = TrinketsApi.getTrinketComponent(player);
-                if (optionalComponent.isPresent()) {
-                    TrinketComponent component = optionalComponent.get();
-                    if (component.isEquipped(ModItems.ringSlowResistance)) info.setReturnValue(false);
-                }
+            if (effect.getEffectType().equals(StatusEffects.POISON) && Utils.isRingEquipped(ModItems.ringPoisonResistance, player)) {
+                info.setReturnValue(false);
+            } else if (effect.getEffectType().equals(StatusEffects.WITHER)&& Utils.isRingEquipped(ModItems.ringWither, player)) {
+                info.setReturnValue(false);
+            } else if (effect.getEffectType().equals(StatusEffects.SLOWNESS) && Utils.isRingEquipped(ModItems.ringSlowResistance, player)) {
+                info.setReturnValue(false);
             }
         }
     }
@@ -57,13 +46,7 @@ public class LivingEntityMixin {
     private void tryUseTotem(DamageSource source, CallbackInfoReturnable<Boolean> info) {
         LivingEntity entity = (LivingEntity)(Object) this;
         if(entity instanceof ServerPlayerEntity player) {
-            Optional<TrinketComponent> optionalComponent = TrinketsApi.getTrinketComponent(player);
-            ItemStack ring = null;
-
-            if(optionalComponent.isPresent()) {
-                List<Pair<SlotReference, ItemStack>> equippedUndyingRings = optionalComponent.get().getEquipped(ModItems.ringUndying);
-                if(equippedUndyingRings.size() > 0) ring = equippedUndyingRings.get(0).getRight();
-            }
+            ItemStack ring = Utils.getFirstRing(ModItems.ringUndying, player);
 
             if(ring != null && ring.getItem() instanceof ItemRingUndying) {
                 if(!player.getItemCooldownManager().isCoolingDown(ring.getItem())) {
