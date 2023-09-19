@@ -42,11 +42,13 @@ public class ConfigRingsOfAscension {
         public boolean ringKnockbackResistance = true;
         public boolean ringHealth = true;
         public boolean ringSponge = true;
+        public boolean ringLavaSponge = true;
         public boolean ringExperience = true;
         public boolean ringWaterWalking = true;
         public boolean ringWither = true;
         public boolean ringUndying = true;
         public boolean ringSlowResistance = true;
+        public boolean ringSteadfastSteps = true;
     }
 
     public static class Amplifiers {

@@ -91,6 +91,9 @@ public class ModItems {
     public static final ItemRingBase ringSponge = new ItemRingSponge("ring_sponge", "tooltip.ringsofascension.sponge",
             Fluids.WATER, Fluids.FLOWING_WATER, config.enableRings.ringSponge, GlintRenderTypes.YELLOW);
 
+    public static final ItemRingBase ringLavaSponge = new ItemRingSponge("ring_lava_sponge", "tooltip.ringsofascension.lava_sponge",
+            Fluids.LAVA, Fluids.FLOWING_LAVA, config.enableRings.ringLavaSponge, GlintRenderTypes.ORANGE);
+
     public static final ItemRingBase ringExperience = new ItemRingExperience("ring_experience", "tooltip.ringsofascension.experience",
             config.enableRings.ringExperience, GlintRenderTypes.YELLOW);
 
@@ -105,6 +108,10 @@ public class ModItems {
 
     public static final ItemRingBase ringSlowResistance = new ItemRingEffectResistance("ring_slow_resistance", StatusEffects.SLOWNESS,
             "tooltip.ringsofascension.slow_resistance", config.enableRings.ringSlowResistance, GlintRenderTypes.GRAY);
+
+    public static final ItemRingBase ringSteadfastSteps = new ItemRingSteadfastSteps("ring_steadfast_steps", "tooltip.ringsofascension.steadfast_steps",
+            config.enableRings.ringSteadfastSteps, GlintRenderTypes.BROWN);
+
 
     public static void init() {
         allRings.forEach(ModItems::registerRing);
