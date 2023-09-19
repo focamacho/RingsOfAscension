@@ -27,7 +27,6 @@ public class ItemRingEffect extends ItemRingBase {
 
     @Override
     public void onUnequip(ItemStack stack, SlotReference slot, LivingEntity entity) {
-        if(!entity.hasStatusEffect(effect)) return;
         entity.removeStatusEffect(effect);
     }
 

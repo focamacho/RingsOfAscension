@@ -13,6 +13,8 @@ import java.util.List;
 
 public class ItemRingMagnetism extends ItemRingBase {
 
+    private static final int RANGE = 7;
+
     public ItemRingMagnetism(String name, String tooltip, boolean enabled) {
         super(name, tooltip, enabled);
     }
@@ -22,9 +24,8 @@ public class ItemRingMagnetism extends ItemRingBase {
         super.tick(stack, slot, entity);
         if(entity instanceof PlayerEntity player) {
             if (!player.world.isClient && !player.isSneaking()) {
-                int range = 5;
                 BlockPos pos = player.getBlockPos();
-                List<ItemEntity> entities = player.world.getEntitiesByClass(ItemEntity.class, new Box(pos.getX() + range, pos.getY() + range, pos.getZ() + range, pos.getX() - range, pos.getY() - range, pos.getZ() - range), itemEntity -> true);
+                List<ItemEntity> entities = player.world.getEntitiesByClass(ItemEntity.class, new Box(pos.getX() + RANGE, pos.getY() + RANGE, pos.getZ() + RANGE, pos.getX() - RANGE, pos.getY() - RANGE, pos.getZ() - RANGE), itemEntity -> true);
                 for (ItemEntity item : entities) {
                     if (item.isAlive() && !item.cannotPickup()) {
                         item.onPlayerCollision(player);
