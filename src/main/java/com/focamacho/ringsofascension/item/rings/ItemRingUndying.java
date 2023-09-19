@@ -22,10 +22,4 @@ public class ItemRingUndying extends ItemRingBase {
         player.getItemCooldownManager().set(this, config.general.ringUndyingCooldown * 20);
     }
 
-    @Override
-    public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
-        super.appendTooltip(stack, world, tooltip, context);
-
-        tooltip.add(Text.literal("§e" + I18n.translate("tooltip.ringsofascension.undying_cooldown").replace("secondsHere", "§c" + config.general.ringUndyingCooldown + "§e")));
-    }
 }
