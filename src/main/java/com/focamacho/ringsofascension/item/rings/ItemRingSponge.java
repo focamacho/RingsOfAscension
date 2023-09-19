@@ -7,6 +7,7 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemStack;
@@ -15,8 +16,14 @@ import net.minecraft.world.World;
 
 public class ItemRingSponge extends ItemRingBase {
 
-    public ItemRingSponge(String name, String tooltip, boolean enabled, GlintRenderTypes glintType) {
+    private final Fluid staticFluid;
+    private final Fluid flowingFluid;
+
+    public ItemRingSponge(String name, String tooltip, Fluid staticFluid,
+                          Fluid flowingFluid, boolean enabled, GlintRenderTypes glintType) {
         super(name, tooltip, enabled, glintType);
+        this.staticFluid = staticFluid;
+        this.flowingFluid = flowingFluid;
     }
 
     @Override
@@ -34,7 +41,7 @@ public class ItemRingSponge extends ItemRingBase {
                 FluidState fluid = world.getFluidState(pos);
                 Material material = state.getMaterial();
 
-                if (fluid.isOf(Fluids.WATER)) {
+                if (fluid.isOf(staticFluid) || fluid.isOf(flowingFluid)) {
                     if (!(state.getBlock() instanceof FluidDrainable && ((FluidDrainable) state.getBlock()).tryDrainFluid(world, pos, state) != ItemStack.EMPTY)) {
                         if (state.getBlock() instanceof FluidBlock) {
                             world.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);

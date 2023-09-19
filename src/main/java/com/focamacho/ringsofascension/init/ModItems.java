@@ -4,6 +4,7 @@ import com.focamacho.ringsofascension.client.GlintRenderTypes;
 import com.focamacho.ringsofascension.item.ItemRingBase;
 import com.focamacho.ringsofascension.item.rings.*;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -42,7 +43,7 @@ public class ModItems {
     public static final ItemRingBase ringGrowth = new ItemRingGrowth("ring_growth", "tooltip.ringsofascension.growth", config.enableRings.ringGrowth, GlintRenderTypes.GREEN);
     public static final ItemRingBase ringKnockbackResistance = new ItemRingKnockbackResistance("ring_knockback_resistance", null, config.enableRings.ringKnockbackResistance, GlintRenderTypes.GRAY);
     public static final ItemRingBase ringHealth = new ItemRingHealth("ring_health", null, config.enableRings.ringHealth, GlintRenderTypes.RED);
-    public static final ItemRingBase ringSponge = new ItemRingSponge("ring_sponge", "tooltip.ringsofascension.sponge", config.enableRings.ringSponge, GlintRenderTypes.YELLOW);
+    public static final ItemRingBase ringSponge = new ItemRingSponge("ring_sponge", "tooltip.ringsofascension.sponge", Fluids.WATER, Fluids.FLOWING_WATER, config.enableRings.ringSponge, GlintRenderTypes.YELLOW);
     public static final ItemRingBase ringWaterWalking = new ItemRingWaterWalking("ring_water_walking", "tooltip.ringsofascension.water_walking", config.enableRings.ringWaterWalking, GlintRenderTypes.LIGHT_BLUE);
     public static final ItemRingBase ringUndying = new ItemRingUndying("ring_undying", "tooltip.ringsofascension.undying", config.enableRings.ringUndying, GlintRenderTypes.ORANGE);
 
