@@ -46,10 +46,10 @@ public class ItemRingBase extends TrinketItem {
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
         super.appendTooltip(stack, world, tooltip, context);
 
-        tooltip.add(Text.translatable("tooltip.ringsofascension.slot").formatted(Formatting.GOLD).append(Text.literal(" ")).append(Text.translatable("tooltip.ringsofascension.slot.ring").formatted(Formatting.YELLOW)));
+        tooltip.add(Text.translatable("tooltip.ringsofascension.slot").formatted(Formatting.GRAY).append(Text.literal(" ")).append(Text.translatable("tooltip.ringsofascension.slot.ring").formatted(Formatting.YELLOW)));
 
         tooltip.add(Text.literal(""));
-        tooltip.add(Text.translatable("tooltip.ringsofascension.worn").formatted(Formatting.GOLD));
+        tooltip.add(Text.translatable("tooltip.ringsofascension.worn").formatted(Formatting.GRAY));
 
         if(this.tooltip == null) return;
 
