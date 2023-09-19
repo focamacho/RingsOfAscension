@@ -1,5 +1,5 @@
 {
-  "itemGroup.ringsofascension.rings": "Rings of Ascension",
+  "itemGroup.ringsofascension": "Rings of Ascension",
 
   "item.ringsofascension.ring_fire_resistance": "Anel de resistência ao fogo",
   "item.ringsofascension.ring_invisibility": "Anel de invisibilidade",
@@ -19,6 +19,7 @@
   "item.ringsofascension.ring_knockback_resistance": "Anel de resistência à repulsão",
   "item.ringsofascension.ring_health": "Anel de vida máxima",
   "item.ringsofascension.ring_sponge": "Anel de esponja",
+  "item.ringsofascension.ring_lava_sponge": "Anel de esponja de lava",
   "item.ringsofascension.ring_experience": "Anel de experiência",
   "item.ringsofascension.ring_water_walking": "Anel de andar sobre as águas",
   "item.ringsofascension.ring_luck": "Anel de sorte",
@@ -26,6 +27,7 @@
   "item.ringsofascension.ring_undying": "Anel de imortalidade",
   "item.ringsofascension.ring_slow_resistance": "Anel de resistência à lentidão",
   "item.ringsofascension.ring_dolphin": "Anel de golfinho",
+  "item.ringsofascension.ring_steadfast_steps": "Anel de passos firmes",
 
   "tooltip.ringsofascension.worn": "Quando equipado como anel:",
   "tooltip.ringsofascension.fire_resistance": "Concede efeito de resistência ao fogo",
@@ -46,20 +48,15 @@
   "tooltip.ringsofascension.hungerless": "Mantém a barra de fome sempre cheia",
   "tooltip.ringsofascension.growth": "Cresce plantações próximas mais rápido",
   "tooltip.ringsofascension.sponge": "Remove todos os blocos de água próximos",
+  "tooltip.ringsofascension.lava_sponge": "Remove todos os blocos de lava próximos",
   "tooltip.ringsofascension.experience": "Puxa orbes de xp em direção ao jogador",
   "tooltip.ringsofascension.water_walking": "Permite que o jogador ande sobre a água",
   "tooltip.ringsofascension.wither": "Concede imunidade ao efeito de decomposição",
   "tooltip.ringsofascension.undying": "Impede que você morra",
-  "tooltip.ringsofascension.undying_cooldown": "Tempo de recarga: secondsHere segundos",
   "tooltip.ringsofascension.slow_resistance": "Concede imunidade ao efeito de lentidão",
+  "tooltip.ringsofascension.steadfast_steps": "Concede assistência de passo",
 
-  "tooltip.ringsofascension.tier": "Raridade:",
-  "tooltip.ringsofascension.tier.common": "Comum",
-  "tooltip.ringsofascension.tier.rare": "Raro",
-  "tooltip.ringsofascension.tier.epic": "Épico",
-  "tooltip.ringsofascension.tier.legendary": "Lendário",
-  "tooltip.ringsofascension.tier.mythic": "Mítico",
   "tooltip.ringsofascension.slot": "Slot: ",
-  "tooltip.ringsofascension.slot.ring": "Anel"
+  "tooltip.ringsofascension.ring": "Anel"
 
 }

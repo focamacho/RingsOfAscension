@@ -1,5 +1,5 @@
 {
-  "itemGroup.ringsofascension.rings": "提升戒指",
+  "itemGroup.ringsofascension": "提升戒指",
 
   "item.ringsofascension.ring_fire_resistance": "抗火戒指",
   "item.ringsofascension.ring_invisibility": "隐身戒指",
@@ -19,6 +19,7 @@
   "item.ringsofascension.ring_knockback_resistance": "抗击退戒指",
   "item.ringsofascension.ring_health": "生命戒指",
   "item.ringsofascension.ring_sponge": "海绵戒指",
+  "item.ringsofascension.ring_lava_sponge": "Ring of Lava Sponge",
   "item.ringsofascension.ring_experience": "经验戒指",
   "item.ringsofascension.ring_water_walking": "水上行走戒指",
   "item.ringsofascension.ring_luck": "幸运戒指",
@@ -26,6 +27,7 @@
   "item.ringsofascension.ring_undying": "亡灵戒指",
   "item.ringsofascension.ring_slow_resistance": "抗缓戒指",
   "item.ringsofascension.ring_dolphin": "海豚之戒",
+  "item.ringsofascension.ring_steadfast_steps": "Ring of Steadfast Steps",
 
   "tooltip.ringsofascension.worn": "穿戴在戒指栏时：",
   "tooltip.ringsofascension.fire_resistance": "获得火焰免疫效果",
@@ -46,20 +48,15 @@
   "tooltip.ringsofascension.hungerless": "维持满饥饿度",
   "tooltip.ringsofascension.growth": "使附近的作物快速生长",
   "tooltip.ringsofascension.sponge": "吸干附近的水",
+  "tooltip.ringsofascension.lava_sponge": "Remove all nearby lava blocks",
   "tooltip.ringsofascension.experience": "吸引经验球",
   "tooltip.ringsofascension.water_walking": "让玩家可以在水上行走",
   "tooltip.ringsofascension.wither": "免疫凋零效果",
   "tooltip.ringsofascension.undying": "免死",
-  "tooltip.ringsofascension.undying_cooldown": "冷却： secondsHere秒",
   "tooltip.ringsofascension.slow_resistance": "免疫缓慢效果",
+  "tooltip.ringsofascension.steadfast_steps": "Grants Step Assist",
 
-  "tooltip.ringsofascension.tier": "品质：",
-  "tooltip.ringsofascension.tier.common": "普通",
-  "tooltip.ringsofascension.tier.rare": "稀有",
-  "tooltip.ringsofascension.tier.epic": "史诗",
-  "tooltip.ringsofascension.tier.legendary": "传说",
-  "tooltip.ringsofascension.tier.mythic": "Mythic",
   "tooltip.ringsofascension.slot": "Slot: ",
-  "tooltip.ringsofascension.slot.ring": "Ring"
+  "tooltip.ringsofascension.ring": "Ring"
 
 }

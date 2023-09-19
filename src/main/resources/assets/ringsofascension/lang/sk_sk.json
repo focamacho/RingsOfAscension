@@ -1,5 +1,5 @@
 {
-  "itemGroup.ringsofascension.rings": "Rings of Ascension",
+  "itemGroup.ringsofascension": "Rings of Ascension",
 
   "item.ringsofascension.ring_fire_resistance": "Prsteň nehorľavosti",
   "item.ringsofascension.ring_invisibility": "Prsteň neviditeľnosti",
@@ -19,6 +19,7 @@
   "item.ringsofascension.ring_knockback_resistance": "Prsteň odolnosti proti odrážaniu",
   "item.ringsofascension.ring_health": "Prsteň života",
   "item.ringsofascension.ring_sponge": "Prsteň sucha",
+  "item.ringsofascension.ring_lava_sponge": "Ring of Lava Sponge",
   "item.ringsofascension.ring_experience": "Prsteň skúsenosti",
   "item.ringsofascension.ring_water_walking": "Prsteň vodného chodu",
   "item.ringsofascension.ring_luck": "Prsteň šťastia",
@@ -26,6 +27,7 @@
   "item.ringsofascension.ring_undying": "Prsteň nesmrteľnosti",
   "item.ringsofascension.ring_slow_resistance": "Prsteň nezastavenia",
   "item.ringsofascension.ring_dolphin": "Prsteň delfínov",
+  "item.ringsofascension.ring_steadfast_steps": "Ring of Steadfast Steps",
 
   "tooltip.ringsofascension.worn": "Keď oblečený:",
   "tooltip.ringsofascension.fire_resistance": "dáva odolnosť proti ohňu",
@@ -46,20 +48,15 @@
   "tooltip.ringsofascension.hungerless": "nechá ťe stále sýtym",
   "tooltip.ringsofascension.growth": "nechá narásť blízku zeleň skôr",
   "tooltip.ringsofascension.sponge": "vymaže všetku blízku vodu",
+  "tooltip.ringsofascension.lava_sponge": "Remove all nearby lava blocks",
   "tooltip.ringsofascension.experience": "ťahá skúsenosti z ďaleka",
   "tooltip.ringsofascension.water_walking": "dáva možnosť chodiť po vode",
   "tooltip.ringsofascension.wither": "dáva odolnosť proti vysušeniu",
   "tooltip.ringsofascension.undying": "nepovolí hráčovi umrieť",
-  "tooltip.ringsofascension.undying_cooldown": "Schladenie: secondsHere sekúnd",
   "tooltip.ringsofascension.slow_resistance": "dáva imunitu spomalenia",
+  "tooltip.ringsofascension.steadfast_steps": "Grants Step Assist",
 
-  "tooltip.ringsofascension.tier": "Trieda:",
-  "tooltip.ringsofascension.tier.common": "Bežná",
-  "tooltip.ringsofascension.tier.rare": "Vzácna",
-  "tooltip.ringsofascension.tier.epic": "Epická",
-  "tooltip.ringsofascension.tier.legendary": "Legendárna",
-  "tooltip.ringsofascension.tier.mythic": "Mytická",
   "tooltip.ringsofascension.slot": "Miesto: ",
-  "tooltip.ringsofascension.slot.ring": "Prsteň"
+  "tooltip.ringsofascension.ring": "Prsteň"
 
 }

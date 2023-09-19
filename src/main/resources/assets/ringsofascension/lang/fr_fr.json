@@ -1,5 +1,5 @@
 {
-  "itemGroup.ringsofascension.rings": "Rings of Ascension",
+  "itemGroup.ringsofascension": "Rings of Ascension",
 
   "item.ringsofascension.ring_fire_resistance": "Anneau de Résistance au feu",
   "item.ringsofascension.ring_invisibility": "Anneau d'Invisibilité",
@@ -19,6 +19,7 @@
   "item.ringsofascension.ring_knockback_resistance": "Anneau de Résistance au recul",
   "item.ringsofascension.ring_health": "Anneau de Vie maximale",
   "item.ringsofascension.ring_sponge": "Anneau d'Éponge",
+  "item.ringsofascension.ring_lava_sponge": "Ring of Lava Sponge",
   "item.ringsofascension.ring_experience": "Anneau d'Expérience",
   "item.ringsofascension.ring_water_walking": "Anneau de Marche aquatique",
   "item.ringsofascension.ring_luck": "Anneau de Chance",
@@ -26,6 +27,7 @@
   "item.ringsofascension.ring_undying": "Anneau d'Immortalité",
   "item.ringsofascension.ring_slow_resistance": "Anneau de Résistance à la lenteur",
   "item.ringsofascension.ring_dolphin": "Anneau de Grâce du dauphin",
+  "item.ringsofascension.ring_steadfast_steps": "Ring of Steadfast Steps",
   
   "tooltip.ringsofascension.worn": "Effet une fois équipé :",
   "tooltip.ringsofascension.fire_resistance": "Permet d'être résistant contre le feu et la lave",
@@ -46,20 +48,15 @@
   "tooltip.ringsofascension.hungerless": "Empêche la barre de faim de diminuer",
   "tooltip.ringsofascension.growth": "Accélère la croissance des plantations à proximité",
   "tooltip.ringsofascension.sponge": "Permet d'absorber toute l'eau à proximité",
+  "tooltip.ringsofascension.lava_sponge": "Remove all nearby lava blocks",
   "tooltip.ringsofascension.experience": "Permet d'attirer les orbes d'expérience",
   "tooltip.ringsofascension.water_walking": "Permet de marcher sur l'eau",
   "tooltip.ringsofascension.wither": "Permet d'être immunisé contre l'effet Wither",
   "tooltip.ringsofascension.undying": "Empêche de mourir",
-  "tooltip.ringsofascension.undying_cooldown": "Rechargement : secondsHere secondes",
   "tooltip.ringsofascension.slow_resistance": "Permet d'être immunisé contre l'effet Lenteur",
-  
-  "tooltip.ringsofascension.tier": "Rareté :",
-  "tooltip.ringsofascension.tier.common": "Commun",
-  "tooltip.ringsofascension.tier.rare": "Rare",
-  "tooltip.ringsofascension.tier.epic": "Épique",
-  "tooltip.ringsofascension.tier.legendary": "Légendaire",
-  "tooltip.ringsofascension.tier.mythic": "Mythique",
+  "tooltip.ringsofascension.steadfast_steps": "Grants Step Assist",
+
   "tooltip.ringsofascension.slot": "Emplacement : ",
-  "tooltip.ringsofascension.slot.ring": "Anneau"
+  "tooltip.ringsofascension.ring": "Anneau"
 
 }

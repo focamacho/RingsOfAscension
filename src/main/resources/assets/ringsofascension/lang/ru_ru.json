@@ -1,5 +1,5 @@
 {
-  "itemGroup.ringsofascension.rings": "Rings of Ascension",
+  "itemGroup.ringsofascension": "Rings of Ascension",
 
   "item.ringsofascension.ring_fire_resistance": "Кольцо огнестойкости",
   "item.ringsofascension.ring_invisibility": "Кольцо невидимости",
@@ -19,6 +19,7 @@
   "item.ringsofascension.ring_knockback_resistance": "Кольцо сопротивления отталкиванию",
   "item.ringsofascension.ring_health": "Кольцо максимального здоровья",
   "item.ringsofascension.ring_sponge": "Кольцо-Губка",
+  "item.ringsofascension.ring_lava_sponge": "Ring of Lava Sponge",
   "item.ringsofascension.ring_experience": "Кольцо опыта",
   "item.ringsofascension.ring_water_walking": "Кольцо хождения по воде",
   "item.ringsofascension.ring_luck": "Кольцо удачи",
@@ -26,6 +27,7 @@
   "item.ringsofascension.ring_undying": "Кольцо бессмертия",
   "item.ringsofascension.ring_slow_resistance": "Кольцо сопротивления замедлению",
   "item.ringsofascension.ring_dolphin": "Кольцо дельфина",
+  "item.ringsofascension.ring_steadfast_steps": "Ring of Steadfast Steps",
 
   "tooltip.ringsofascension.worn": "При ношении:",
   "tooltip.ringsofascension.fire_resistance": "Даёт эффект огнестойкости",
@@ -46,20 +48,15 @@
   "tooltip.ringsofascension.hungerless": "Не даёт сытости убывать",
   "tooltip.ringsofascension.growth": "Растения рядом растут быстрее",
   "tooltip.ringsofascension.sponge": "Уничтожает расположенные рядом блоки воды",
+  "tooltip.ringsofascension.lava_sponge": "Remove all nearby lava blocks",
   "tooltip.ringsofascension.experience": "Притягивает шарики опыта",
   "tooltip.ringsofascension.water_walking": "Позволяет ходить по воде",
   "tooltip.ringsofascension.wither": "Поглощает урон от иссушения",
   "tooltip.ringsofascension.undying": "Не позволяет умереть",
-  "tooltip.ringsofascension.undying_cooldown": "Перезарядка: secondsHere секунд",
   "tooltip.ringsofascension.slow_resistance": "Защищает от эффекта замедления",
+  "tooltip.ringsofascension.steadfast_steps": "Grants Step Assist",
 
-  "tooltip.ringsofascension.tier": "Ранг:",
-  "tooltip.ringsofascension.tier.common": "Обычное",
-  "tooltip.ringsofascension.tier.rare": "Редкое",
-  "tooltip.ringsofascension.tier.epic": "Эпическое",
-  "tooltip.ringsofascension.tier.legendary": "Легендарное",
-  "tooltip.ringsofascension.tier.mythic": "Mythic",
   "tooltip.ringsofascension.slot": "Slot: ",
-  "tooltip.ringsofascension.slot.ring": "Ring"
+  "tooltip.ringsofascension.ring": "Ring"
 
 }
