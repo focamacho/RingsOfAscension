@@ -37,17 +37,13 @@ public class LivingEntityMixin {
                     TrinketComponent component = optionalComponent.get();
                     if (component.isEquipped(ModItems.ringPoisonResistance)) info.setReturnValue(false);
                 }
-            }
-
-            if (effect.getEffectType().equals(StatusEffects.WITHER)) {
+            } else if (effect.getEffectType().equals(StatusEffects.WITHER)) {
                 Optional<TrinketComponent> optionalComponent = TrinketsApi.getTrinketComponent(player);
                 if (optionalComponent.isPresent()) {
                     TrinketComponent component = optionalComponent.get();
                     if (component.isEquipped(ModItems.ringWither)) info.setReturnValue(false);
                 }
-            }
-
-            if (effect.getEffectType().equals(StatusEffects.SLOWNESS)) {
+            } else if (effect.getEffectType().equals(StatusEffects.SLOWNESS)) {
                 Optional<TrinketComponent> optionalComponent = TrinketsApi.getTrinketComponent(player);
                 if (optionalComponent.isPresent()) {
                     TrinketComponent component = optionalComponent.get();
