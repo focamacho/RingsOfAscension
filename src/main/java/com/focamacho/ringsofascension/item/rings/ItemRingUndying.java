@@ -14,8 +14,8 @@ import static com.focamacho.ringsofascension.RingsOfAscension.config;
 
 public class ItemRingUndying extends ItemRingBase {
 
-    public ItemRingUndying(String name, int tier, String tooltip, boolean enabled, String locations) {
-        super(name, tier, tooltip, enabled, locations);
+    public ItemRingUndying(String name, String tooltip, boolean enabled) {
+        super(name, tooltip, enabled);
     }
 
     public void setCooldown(PlayerEntity player) {

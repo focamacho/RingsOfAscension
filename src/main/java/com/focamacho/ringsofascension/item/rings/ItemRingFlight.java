@@ -8,8 +8,8 @@ import net.minecraft.item.ItemStack;
 
 public class ItemRingFlight extends ItemRingBase {
 
-    public ItemRingFlight(String name, int tier, String tooltip, boolean enabled, String locations) {
-        super(name, tier, tooltip, enabled, locations);
+    public ItemRingFlight(String name, String tooltip, boolean enabled) {
+        super(name, tooltip, enabled);
     }
 
     @Override

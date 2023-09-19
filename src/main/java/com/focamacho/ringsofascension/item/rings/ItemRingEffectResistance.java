@@ -10,8 +10,8 @@ public class ItemRingEffectResistance extends ItemRingBase {
 
     private final StatusEffect effect;
 
-    public ItemRingEffectResistance(String name, int tier, StatusEffect effect, String tooltip, boolean enabled, String locations) {
-        super(name, tier, tooltip, enabled, locations);
+    public ItemRingEffectResistance(String name, StatusEffect effect, String tooltip, boolean enabled) {
+        super(name, tooltip, enabled);
         this.effect = effect;
     }
 

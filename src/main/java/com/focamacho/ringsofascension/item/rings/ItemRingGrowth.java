@@ -18,8 +18,8 @@ public class ItemRingGrowth extends ItemRingBase {
 
     private int timer = 200;
 
-    public ItemRingGrowth(String name, int tier, String tooltip, boolean enabled, String locations) {
-        super(name, tier, tooltip, enabled, locations);
+    public ItemRingGrowth(String name, String tooltip, boolean enabled) {
+        super(name, tooltip, enabled);
     }
 
     @Override

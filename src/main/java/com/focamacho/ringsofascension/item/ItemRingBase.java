@@ -18,25 +18,14 @@ import java.util.List;
 public class ItemRingBase extends TrinketItem {
 
     private final String ringName;
-    private final int tier;
     private final String tooltip;
     private final boolean enabled;
-    public final List<Identifier> locations = new ArrayList<>();
 
-    public ItemRingBase(String name, int tier, String tooltip, boolean enabled, String locations) {
+    public ItemRingBase(String name, String tooltip, boolean enabled) {
         super(new Settings().maxCount(1));
         this.ringName = name;
-        this.tier = tier;
         this.tooltip = tooltip;
         this.enabled = enabled;
-
-        for (String location : locations.split(";")) {
-            try {
-                String[] split = location.split(":");
-                this.locations.add(new Identifier(split[0], split[1]));
-            } catch(Exception ignored) {}
-        }
-
         ModItems.allRings.add(this);
     }
 
@@ -59,14 +48,6 @@ public class ItemRingBase extends TrinketItem {
 
         tooltip.add(Text.translatable("tooltip.ringsofascension.slot").formatted(Formatting.GOLD).append(Text.literal(" ")).append(Text.translatable("tooltip.ringsofascension.slot.ring").formatted(Formatting.YELLOW)));
 
-        switch (tier) {
-            case 0 -> tooltip.add(Text.translatable("tooltip.ringsofascension.tier").formatted(Formatting.GOLD).append(Text.literal(" ")).append(Text.translatable("tooltip.ringsofascension.tier.common").formatted(Formatting.GREEN)));
-            case 1 -> tooltip.add(Text.translatable("tooltip.ringsofascension.tier").formatted(Formatting.GOLD).append(Text.literal(" ")).append(Text.translatable("tooltip.ringsofascension.tier.rare").formatted(Formatting.BLUE)));
-            case 2 -> tooltip.add(Text.translatable("tooltip.ringsofascension.tier").formatted(Formatting.GOLD).append(Text.literal(" ")).append(Text.translatable("tooltip.ringsofascension.tier.epic").formatted(Formatting.LIGHT_PURPLE)));
-            case 3 -> tooltip.add(Text.translatable("tooltip.ringsofascension.tier").formatted(Formatting.GOLD).append(Text.literal(" ")).append(Text.translatable("tooltip.ringsofascension.tier.legendary").formatted(Formatting.RED)));
-            case 4 -> tooltip.add(Text.translatable("tooltip.ringsofascension.tier").formatted(Formatting.GOLD).append(Text.literal(" ")).append(Text.translatable("tooltip.ringsofascension.tier.mythic").formatted(Formatting.DARK_RED)));
-        }
-
         tooltip.add(Text.literal(""));
         tooltip.add(Text.translatable("tooltip.ringsofascension.worn").formatted(Formatting.GOLD));
 
@@ -80,11 +61,8 @@ public class ItemRingBase extends TrinketItem {
         return true;
     }
 
-    public int getTier() {
-        return tier;
-    }
-
     public boolean isEnabled() {
         return enabled;
     }
+
 }

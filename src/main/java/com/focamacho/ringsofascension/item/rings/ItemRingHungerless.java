@@ -8,8 +8,8 @@ import net.minecraft.item.ItemStack;
 
 public class ItemRingHungerless extends ItemRingBase {
 
-    public ItemRingHungerless(String name, int tier, String tooltip, boolean enabled, String locations) {
-        super(name, tier, tooltip, enabled, locations);
+    public ItemRingHungerless(String name, String tooltip, boolean enabled) {
+        super(name, tooltip, enabled);
     }
 
     @Override

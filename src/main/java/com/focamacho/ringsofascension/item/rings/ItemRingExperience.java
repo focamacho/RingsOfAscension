@@ -13,8 +13,8 @@ import java.util.List;
 
 public class ItemRingExperience extends ItemRingBase {
 
-    public ItemRingExperience(String name, int tier, String tooltip, boolean enabled, String locations) {
-        super(name, tier, tooltip, enabled, locations);
+    public ItemRingExperience(String name, String tooltip, boolean enabled) {
+        super(name, tooltip, enabled);
     }
 
     @Override

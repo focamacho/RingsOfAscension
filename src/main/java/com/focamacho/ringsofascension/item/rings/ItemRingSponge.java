@@ -14,8 +14,8 @@ import net.minecraft.world.World;
 
 public class ItemRingSponge extends ItemRingBase {
 
-    public ItemRingSponge(String name, int tier, String tooltip, boolean enabled, String locations) {
-        super(name, tier, tooltip, enabled, locations);
+    public ItemRingSponge(String name, String tooltip, boolean enabled) {
+        super(name, tooltip, enabled);
     }
 
     @Override
