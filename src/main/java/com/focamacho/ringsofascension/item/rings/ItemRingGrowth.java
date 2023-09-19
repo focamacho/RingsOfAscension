@@ -29,7 +29,7 @@ public class ItemRingGrowth extends ItemRingBase {
             if(timer <= 0) {
                 timer = 200;
 
-                BlockPos entityPos = new BlockPos(livingEntity.getX(), livingEntity.getY(), livingEntity.getZ());
+                BlockPos entityPos = livingEntity.getBlockPos();
                 int range = 5;
                 int limit = 0;
 

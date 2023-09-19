@@ -21,8 +21,7 @@ public class ItemRingEffect extends ItemRingBase {
     @Override
     public void onEquip(ItemStack stack, SlotReference slot, LivingEntity entity) {
         if(entity.hasStatusEffect(effect)) return;
-        StatusEffectInstance effectInstance = new StatusEffectInstance(effect, Integer.MAX_VALUE, amplifier, false, false);
-        if(entity.world.isClient) effectInstance.setPermanent(true);
+        StatusEffectInstance effectInstance = new StatusEffectInstance(effect, Integer.MAX_VALUE, amplifier, false, false, false);
         entity.addStatusEffect(effectInstance);
     }
 

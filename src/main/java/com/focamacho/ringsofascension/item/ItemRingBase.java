@@ -1,6 +1,5 @@
 package com.focamacho.ringsofascension.item;
 
-import com.focamacho.ringsofascension.RingsOfAscension;
 import com.focamacho.ringsofascension.init.ModItems;
 import dev.emi.trinkets.api.SlotReference;
 import dev.emi.trinkets.api.TrinketItem;
@@ -25,7 +24,7 @@ public class ItemRingBase extends TrinketItem {
     public final List<Identifier> locations = new ArrayList<>();
 
     public ItemRingBase(String name, int tier, String tooltip, boolean enabled, String locations) {
-        super(new Settings().group(enabled ? RingsOfAscension.creativeTab : null).maxCount(1));
+        super(new Settings().maxCount(1));
         this.ringName = name;
         this.tier = tier;
         this.tooltip = tooltip;
