@@ -24,7 +24,9 @@
     "ringsofascension:ring_knockback_resistance",
     "ringsofascension:ring_health",
     "ringsofascension:ring_sponge",
+    "ringsofascension:ring_lava_sponge",
     "ringsofascension:ring_water_walking",
-    "ringsofascension:ring_undying"
+    "ringsofascension:ring_undying",
+    "ringsofascension:ring_steadfast_steps"
   ]
 }
