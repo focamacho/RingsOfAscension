@@ -1,0 +1,19 @@
+{
+  "type": "ringsofascension:rings_modifier",
+  "conditions": [
+    {
+      "condition": "random_chance",
+      "chance": 0.05
+    }
+  ],
+  "loot_tables": [
+    "minecraft:chests/stronghold_library",
+    "minecraft:chests/stronghold_corridor",
+    "minecraft:chests/stronghold_crossing",
+    "minecraft:chests/bastion_treasure",
+    "minecraft:chests/bastion_bridge",
+    "minecraft:chests/pillager_outpost",
+    "minecraft:chests/ancient_city"
+  ],
+  "ring": "ringsofascension:ring_strength"
+}

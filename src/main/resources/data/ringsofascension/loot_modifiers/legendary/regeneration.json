@@ -1,0 +1,14 @@
+{
+  "type": "ringsofascension:rings_modifier",
+  "conditions": [
+    {
+      "condition": "random_chance",
+      "chance": 0.03
+    }
+  ],
+  "loot_tables": [
+    "minecraft:chests/stronghold_corridor",
+    "minecraft:chests/stronghold_library"
+  ],
+  "ring": "ringsofascension:ring_regeneration"
+}

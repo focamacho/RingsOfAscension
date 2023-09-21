@@ -1,0 +1,16 @@
+{
+  "type": "ringsofascension:rings_modifier",
+  "conditions": [
+    {
+      "condition": "random_chance",
+      "chance": 0.01
+    }
+  ],
+  "loot_tables": [
+    "minecraft:chests/spawn_bonus_chest",
+    "minecraft:chests/simple_dungeon",
+    "minecraft:chests/buried_treasure",
+    "minecraft:chests/ruined_portal"
+  ],
+  "ring": "ringsofascension:ring_steadfast_steps"
+}

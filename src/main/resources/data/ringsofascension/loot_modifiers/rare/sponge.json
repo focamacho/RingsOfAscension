@@ -1,0 +1,16 @@
+{
+  "type": "ringsofascension:rings_modifier",
+  "conditions": [
+    {
+      "condition": "random_chance",
+      "chance": 0.07
+    }
+  ],
+  "loot_tables": [
+    "minecraft:chests/underwater_ruin_big",
+    "minecraft:chests/underwater_run_small",
+    "minecraft:chests/shipwreck_supply",
+    "minecraft:chests/shipwreck_treasure"
+  ],
+  "ring": "ringsofascension:ring_sponge"
+}

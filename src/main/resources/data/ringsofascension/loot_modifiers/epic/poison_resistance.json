@@ -1,0 +1,17 @@
+{
+  "type": "ringsofascension:rings_modifier",
+  "conditions": [
+    {
+      "condition": "random_chance",
+      "chance": 0.05
+    }
+  ],
+  "loot_tables": [
+    "minecraft:chests/jungle_temple",
+    "minecraft:chests/end_city_treasure",
+    "minecraft:chests/shipwreck_treasure",
+    "minecraft:chests/bastion_treasure",
+    "minecraft:chests/bastion_bridge"
+  ],
+  "ring": "ringsofascension:ring_poison_resistance"
+}

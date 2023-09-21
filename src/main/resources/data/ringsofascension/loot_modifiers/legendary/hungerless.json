@@ -1,0 +1,17 @@
+{
+  "type": "ringsofascension:rings_modifier",
+  "conditions": [
+    {
+      "condition": "random_chance",
+      "chance": 0.03
+    }
+  ],
+  "loot_tables": [
+    "minecraft:chests/village/village_butcher",
+    "minecraft:chests/end_city_treasure",
+    "minecraft:chests/woodland_mansion",
+    "minecraft:chests/ancient_city",
+    "minecraft:chests/ancient_city_ice_box"
+  ],
+  "ring": "ringsofascension:ring_hungerless"
+}

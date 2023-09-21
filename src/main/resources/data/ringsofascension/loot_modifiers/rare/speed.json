@@ -1,0 +1,15 @@
+{
+  "type": "ringsofascension:rings_modifier",
+  "conditions": [
+    {
+      "condition": "random_chance",
+      "chance": 0.07
+    }
+  ],
+  "loot_tables": [
+    "minecraft:chests/spawn_bonus_chest",
+    "minecraft:chests/simple_dungeon",
+    "minecraft:chests/buried_treasure"
+  ],
+  "ring": "ringsofascension:ring_speed"
+}

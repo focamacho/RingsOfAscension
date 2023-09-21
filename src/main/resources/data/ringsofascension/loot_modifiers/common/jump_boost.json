@@ -1,0 +1,15 @@
+{
+  "type": "ringsofascension:rings_modifier",
+  "conditions": [
+    {
+      "condition": "random_chance",
+      "chance": 0.1
+    }
+  ],
+  "loot_tables": [
+    "minecraft:chests/end_city_treasure",
+    "minecraft:chests/igloo_chest",
+    "minecraft:chests/desert_pyramid"
+  ],
+  "ring": "ringsofascension:ring_jump_boost"
+}

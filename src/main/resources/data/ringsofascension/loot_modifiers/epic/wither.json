@@ -1,0 +1,14 @@
+{
+  "type": "ringsofascension:rings_modifier",
+  "conditions": [
+    {
+      "condition": "random_chance",
+      "chance": 0.05
+    }
+  ],
+  "loot_tables": [
+    "minecraft:chests/bastion_treasure",
+    "minecraft:chests/bastion_bridge"
+  ],
+  "ring": "ringsofascension:ring_wither"
+}
