@@ -24,9 +24,9 @@ public class ItemRingMagnetism extends ItemRingBase {
     public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
         super.tick(stack, slot, entity);
         if(entity instanceof PlayerEntity player) {
-            if (!player.world.isClient && !player.isSneaking()) {
+            if (!player.getWorld().isClient && !player.isSneaking()) {
                 BlockPos pos = player.getBlockPos();
-                List<ItemEntity> entities = player.world.getEntitiesByClass(ItemEntity.class, new Box(pos.getX() + RANGE, pos.getY() + RANGE, pos.getZ() + RANGE, pos.getX() - RANGE, pos.getY() - RANGE, pos.getZ() - RANGE), itemEntity -> true);
+                List<ItemEntity> entities = player.getWorld().getEntitiesByClass(ItemEntity.class, new Box(pos.getX() + RANGE, pos.getY() + RANGE, pos.getZ() + RANGE, pos.getX() - RANGE, pos.getY() - RANGE, pos.getZ() - RANGE), itemEntity -> true);
                 for (ItemEntity item : entities) {
                     if (item.isAlive() && !item.cannotPickup()) {
                         item.onPlayerCollision(player);

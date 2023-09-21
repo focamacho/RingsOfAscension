@@ -29,27 +29,26 @@ public class ItemRingSponge extends ItemRingBase {
     @Override
     public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
         super.tick(stack, slot, entity);
-        if(entity.world.isClient || entity.isSneaking()) return;
+        if(entity.getWorld().isClient || entity.isSneaking()) return;
 
         if(entity instanceof PlayerEntity player) {
-            World world = player.world;
+            World world = player.getWorld();
             BlockPos entityPos = player.getBlockPos();
             int range = 3;
 
             for (BlockPos pos : BlockPos.iterate(entityPos.getX() - range, entityPos.getY() - range, entityPos.getZ() - range, entityPos.getX() + range, entityPos.getY() + range, entityPos.getZ() + range)) {
                 BlockState state = world.getBlockState(pos);
                 FluidState fluid = world.getFluidState(pos);
-                Material material = state.getMaterial();
 
                 if (fluid.isOf(staticFluid) || fluid.isOf(flowingFluid)) {
                     if (!(state.getBlock() instanceof FluidDrainable && ((FluidDrainable) state.getBlock()).tryDrainFluid(world, pos, state) != ItemStack.EMPTY)) {
                         if (state.getBlock() instanceof FluidBlock) {
                             world.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
-                        } else if (material == Material.UNDERWATER_PLANT || material == Material.REPLACEABLE_UNDERWATER_PLANT) {
+                        } /*else if (material == Material.UNDERWATER_PLANT || material == Material.REPLACEABLE_UNDERWATER_PLANT) {
                             BlockEntity tileentity = state.hasBlockEntity() ? world.getBlockEntity(pos) : null;
                             Block.dropStacks(state, world, pos, tileentity);
                             world.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
-                        }
+                        }*/
                     }
                 }
             }

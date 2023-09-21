@@ -26,7 +26,6 @@ public class GlintRenderType extends RenderLayer {
                 .cull(RenderPhase.DISABLE_CULLING)
                 .depthTest(RenderPhase.EQUAL_DEPTH_TEST)
                 .transparency(RenderPhase.GLINT_TRANSPARENCY)
-                .target(RenderPhase.ITEM_TARGET)
                 .texturing(RenderPhase.GLINT_TEXTURING)
                 .build(false));
     }
@@ -39,7 +38,6 @@ public class GlintRenderType extends RenderLayer {
                 .cull(RenderPhase.DISABLE_CULLING)
                 .depthTest(RenderPhase.EQUAL_DEPTH_TEST)
                 .transparency(RenderPhase.GLINT_TRANSPARENCY)
-                .target(RenderPhase.ITEM_TARGET)
                 .texturing(RenderPhase.GLINT_TEXTURING)
                 .build(false));
     }

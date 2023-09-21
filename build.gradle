@@ -7,7 +7,7 @@ sourceCompatibility = JavaVersion.VERSION_17
 targetCompatibility = JavaVersion.VERSION_17
 
 archivesBaseName = 'RingsOfAscension-1.19.4'
-version = '1.0'
+version = '2.0.0'
 group = 'com.focamacho'
 
 configurations {
@@ -25,7 +25,6 @@ dependencies {
 
 	//Trinkets
 	modImplementation "dev.emi:trinkets:${project.trinkets_version}"
-	modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-base:${project.cardinal_version}"
 
 	//Seal Config
 	compileOnly files(project.rootDir.toString() + '/libs/SealConfig-1.3.0.jar')

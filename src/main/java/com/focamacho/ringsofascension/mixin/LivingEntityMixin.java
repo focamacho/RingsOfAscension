@@ -51,9 +51,9 @@ public class LivingEntityMixin {
                     player.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 900, 1));
                     player.addStatusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 100, 1));
 
-                    player.world.sendEntityStatus(player, (byte) 35);
+                    player.getWorld().sendEntityStatus(player, (byte) 35);
 
-                    if (player.world.isClient) ClientHandler.showFloatingTotem(ring);
+                    if (player.getWorld().isClient) ClientHandler.showFloatingTotem(ring);
 
                     info.setReturnValue(true);
                 }

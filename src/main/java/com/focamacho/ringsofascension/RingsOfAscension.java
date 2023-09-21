@@ -8,19 +8,18 @@ import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.SimpleSynchronousResourceReloadListener;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.condition.LootCondition;
 import net.minecraft.loot.condition.LootConditionTypes;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.resource.Resource;
 import net.minecraft.resource.ResourceManager;
 import net.minecraft.resource.ResourceType;
@@ -45,11 +44,6 @@ public class RingsOfAscension implements ModInitializer {
 	private final SealConfig sealConfig = new SealConfig();
 	public static ConfigRingsOfAscension config;
 
-	public static final ItemGroup CREATIVE_TAB =  FabricItemGroup.builder(new Identifier(MODID, "creative_tab"))
-			.displayName(Text.translatable("itemGroup.ringsofascension"))
-			.icon(() -> new ItemStack(ModItems.ringExperience))
-			.build();
-
 	private static final List<LootModifier> LOOT_MODIFIERS = new ArrayList<>();
 
 	@Override
@@ -58,8 +52,13 @@ public class RingsOfAscension implements ModInitializer {
 		ModItems.init();
 
 		// Creative Tab
-		ItemGroupEvents.modifyEntriesEvent(CREATIVE_TAB).register(content ->
-				ModItems.allRings.forEach(r -> content.add(new ItemStack(r)))
+		Registry.register(Registries.ITEM_GROUP, new Identifier(MODID, "creative_tab"), FabricItemGroup.builder()
+				.displayName(Text.translatable("itemGroup.ringsofascension"))
+				.icon(() -> new ItemStack(ModItems.ringExperience))
+				.entries((context, entries) ->
+						ModItems.allRings.forEach(r -> entries.add(new ItemStack(r)))
+				)
+				.build()
 		);
 
 		// Loot Modifiers

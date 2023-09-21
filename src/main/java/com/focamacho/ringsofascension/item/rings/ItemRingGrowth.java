@@ -37,7 +37,7 @@ public class ItemRingGrowth extends ItemRingBase {
                 List<BlockPos> blocks = new ArrayList<>();
 
                 for(BlockPos pos : BlockPos.iterate(entityPos.getX() - range, entityPos.getY() - range, entityPos.getZ() - range, entityPos.getX() + range, entityPos.getY() + range, entityPos.getZ() + range)) {
-                    Block block = livingEntity.world.getBlockState(pos).getBlock();
+                    Block block = livingEntity.getWorld().getBlockState(pos).getBlock();
                     if(block instanceof CropBlock || block instanceof StemBlock || block instanceof KelpBlock || block instanceof SeagrassBlock) {
                         blocks.add(new BlockPos(pos));
                     }
@@ -48,12 +48,12 @@ public class ItemRingGrowth extends ItemRingBase {
 
                     while(blocks.size() >= 1 && limit < 3) {
                         BlockPos pos = blocks.remove(random.nextInt(blocks.size()));
-                        BlockState state = livingEntity.world.getBlockState(pos);
+                        BlockState state = livingEntity.getWorld().getBlockState(pos);
 
-                        if(BoneMealItem.useOnFertilizable(new ItemStack(Items.BONE_MEAL), livingEntity.world, pos)) {
-                            if(state != livingEntity.world.getBlockState(pos)) {
+                        if(BoneMealItem.useOnFertilizable(new ItemStack(Items.BONE_MEAL), livingEntity.getWorld(), pos)) {
+                            if(state != livingEntity.getWorld().getBlockState(pos)) {
                                 limit++;
-                                livingEntity.world.syncWorldEvent(2005, pos, 0);
+                                livingEntity.getWorld().syncWorldEvent(2005, pos, 0);
                             }
                         }
                     }

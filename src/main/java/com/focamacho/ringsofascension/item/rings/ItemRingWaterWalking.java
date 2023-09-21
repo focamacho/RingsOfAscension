@@ -3,8 +3,8 @@ package com.focamacho.ringsofascension.item.rings;
 import com.focamacho.ringsofascension.client.GlintRenderTypes;
 import com.focamacho.ringsofascension.item.ItemRingBase;
 import dev.emi.trinkets.api.SlotReference;
-import net.minecraft.block.Material;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -23,8 +23,9 @@ public class ItemRingWaterWalking extends ItemRingBase {
 
         BlockPos entityPos = entity.getBlockPos();
 
-        boolean water = entity.world.getBlockState(new BlockPos(entityPos.getX(),
-                (int) (entity.getBoundingBox().getMin(Direction.Axis.Y) - 0.4), entityPos.getZ())).getMaterial() == Material.WATER;
+        boolean water = entity.getWorld().getFluidState(new BlockPos(entityPos.getX(),
+                        (int) (entity.getBoundingBox().getMin(Direction.Axis.Y) - 0.4), entityPos.getZ()))
+                .isOf(Fluids.WATER);
 
         if(water && !entity.isTouchingWater()) {
             Vec3d motion = entity.getVelocity();

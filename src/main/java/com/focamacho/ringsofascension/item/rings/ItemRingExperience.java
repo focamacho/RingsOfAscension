@@ -21,10 +21,10 @@ public class ItemRingExperience extends ItemRingBase {
     @Override
     public void tick(ItemStack stack, SlotReference slot, LivingEntity entity) {
         super.tick(stack, slot, entity);
-        if(entity instanceof PlayerEntity player && !player.world.isClient && !player.isSneaking()) {
+        if(entity instanceof PlayerEntity player && !player.getWorld().isClient && !player.isSneaking()) {
             int range = 5;
             BlockPos pos = player.getBlockPos();
-            List<ExperienceOrbEntity> entities = player.world.getEntitiesByClass(ExperienceOrbEntity.class, new Box(pos.getX() + range, pos.getY() + range, pos.getZ() + range, pos.getX() - range, pos.getY() - range, pos.getZ() - range), experienceOrbEntity -> true);
+            List<ExperienceOrbEntity> entities = player.getWorld().getEntitiesByClass(ExperienceOrbEntity.class, new Box(pos.getX() + range, pos.getY() + range, pos.getZ() + range, pos.getX() - range, pos.getY() - range, pos.getZ() - range), experienceOrbEntity -> true);
             for(ExperienceOrbEntity orb : entities) {
                 if(orb.isAlive()) {
                     orb.onPlayerCollision(player);
