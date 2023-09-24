@@ -1,5 +1,6 @@
 package com.focamacho.ringsofascension.mixin;
 
+import com.focamacho.ringsofascension.client.GlintHandler;
 import com.focamacho.ringsofascension.client.GlintRenderTypes;
 import it.unimi.dsi.fastutil.objects.Object2ObjectLinkedOpenHashMap;
 import net.minecraft.client.render.BufferBuilder;
@@ -15,8 +16,6 @@ public class BufferBuilderStorageMixin {
 
     @Inject(method = "assignBufferBuilder", at = @At("HEAD"))
     private static void addGlintTypes(Object2ObjectLinkedOpenHashMap<RenderLayer, BufferBuilder> builderStorage, RenderLayer layer, CallbackInfo ci) {
-        for (GlintRenderTypes value : GlintRenderTypes.values()) {
-            value.addTypes(builderStorage);
-        }
+        GlintHandler.addTypes(builderStorage);
     }
 }

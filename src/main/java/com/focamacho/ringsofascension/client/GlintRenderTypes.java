@@ -23,25 +23,10 @@ public enum GlintRenderTypes {
     RED("red"),
     BLACK("black");
 
-    public final RenderLayer glint;
-    public final RenderLayer direct;
-    public final RenderLayer translucent;
+    public final String name;
 
     GlintRenderTypes(String name) {
-        this.glint = GlintRenderType.buildGlintRenderType(name);
-        this.direct = GlintRenderType.buildGlintDirectRenderType(name);
-        this.translucent = GlintRenderType.buildGlintTranslucentRenderType(name);
-    }
-
-    public void addTypes(Object2ObjectLinkedOpenHashMap<RenderLayer, BufferBuilder> map) {
-        if (!map.containsKey(glint))
-            map.put(glint, new BufferBuilder(glint.getExpectedBufferSize()));
-
-        if (!map.containsKey(direct))
-            map.put(direct, new BufferBuilder(direct.getExpectedBufferSize()));
-
-        if (!map.containsKey(translucent))
-            map.put(translucent, new BufferBuilder(translucent.getExpectedBufferSize()));
+        this.name = name;
     }
 
 }
