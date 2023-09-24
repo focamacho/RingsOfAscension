@@ -7,9 +7,9 @@
     "LivingEntityMixin"
   ],
   "client": [
-    "ItemStackMixin",
+    "BufferBuilderStorageMixin",
     "ItemRendererMixin",
-    "BufferBuilderStorageMixin"
+    "ItemStackMixin"
   ],
   "injectors": {
     "defaultRequire": 1
