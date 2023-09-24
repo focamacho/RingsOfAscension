@@ -1,5 +1,6 @@
 package com.focamacho.ringsofascension.mixin;
 
+import com.focamacho.ringsofascension.client.GlintHandler;
 import com.focamacho.ringsofascension.client.GlintRenderTypes;
 import com.mojang.blaze3d.vertex.BufferBuilder;
 import it.unimi.dsi.fastutil.objects.Object2ObjectLinkedOpenHashMap;
@@ -15,9 +16,7 @@ public class RenderBuffersMixin {
 
     @Inject(method = "put", at = @At("HEAD"))
     private static void addGlintTypes(Object2ObjectLinkedOpenHashMap<RenderType, BufferBuilder> mapBuildersIn, RenderType renderTypeIn, CallbackInfo callbackInfo) {
-        for (GlintRenderTypes value : GlintRenderTypes.values()) {
-            value.addTypes(mapBuildersIn);
-        }
+        GlintHandler.addTypes(mapBuildersIn);
     }
 
 }
