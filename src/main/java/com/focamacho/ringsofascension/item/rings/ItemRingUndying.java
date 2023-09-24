@@ -2,14 +2,7 @@ package com.focamacho.ringsofascension.item.rings;
 
 import com.focamacho.ringsofascension.client.GlintRenderTypes;
 import com.focamacho.ringsofascension.item.ItemRingBase;
-import net.minecraft.client.item.TooltipContext;
-import net.minecraft.client.resource.language.I18n;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.text.Text;
-import net.minecraft.world.World;
-
-import java.util.List;
 
 import static com.focamacho.ringsofascension.RingsOfAscension.config;
 

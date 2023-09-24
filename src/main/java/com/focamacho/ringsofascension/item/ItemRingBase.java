@@ -1,6 +1,5 @@
 package com.focamacho.ringsofascension.item;
 
-import com.focamacho.ringsofascension.client.GlintRenderType;
 import com.focamacho.ringsofascension.client.GlintRenderTypes;
 import com.focamacho.ringsofascension.init.ModItems;
 import dev.emi.trinkets.api.SlotReference;
@@ -11,10 +10,8 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
-import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ItemRingBase extends TrinketItem {
