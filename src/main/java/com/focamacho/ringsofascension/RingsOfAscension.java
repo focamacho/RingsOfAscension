@@ -6,6 +6,7 @@ import com.focamacho.ringsofascension.init.ModItems;
 import com.focamacho.sealconfig.SealConfig;
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
+import com.mojang.serialization.JsonOps;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
@@ -104,20 +105,28 @@ public class RingsOfAscension implements ModInitializer {
 		LOOT_MODIFIERS.clear();
 
 		Gson gson = new GsonBuilder().registerTypeAdapter(
-				TypeToken.get(LootCondition.class).getType(),
-				LootConditionTypes.createGsonSerializer()
-		).registerTypeAdapter(
-				TypeToken.get(Item.class).getType(),
-				(JsonSerializer<Item>) (src, typeOfSrc, context) -> new JsonPrimitive(Registries.ITEM.getId(src).toString())
-		).registerTypeAdapter(
-				TypeToken.get(Item.class).getType(),
-				(JsonDeserializer<Item>) (json, typeOfT, context) -> {
-					String[] identifier = json.getAsString().split(":");
-					return Registries.ITEM.get(
-							Identifier.of(identifier[0], identifier[1])
-					);
-				}
-		).create();
+						TypeToken.get(LootCondition.class).getType(),
+						(JsonSerializer<LootCondition>) (src, typeOfSrc, context) ->
+								JsonOps.INSTANCE.withEncoder(LootConditionTypes.CODEC)
+										.apply(src).get().left().get()
+				).registerTypeAdapter(
+						TypeToken.get(LootCondition.class).getType(),
+						(JsonDeserializer<LootCondition>) (src, typeOfSrc, context) ->
+								JsonOps.INSTANCE.withDecoder(LootConditionTypes.CODEC)
+										.apply(src).get().left().get().getFirst()
+				)
+				.registerTypeAdapter(
+						TypeToken.get(Item.class).getType(),
+						(JsonSerializer<Item>) (src, typeOfSrc, context) -> new JsonPrimitive(Registries.ITEM.getId(src).toString())
+				).registerTypeAdapter(
+						TypeToken.get(Item.class).getType(),
+						(JsonDeserializer<Item>) (json, typeOfT, context) -> {
+							String[] identifier = json.getAsString().split(":");
+							return Registries.ITEM.get(
+									Identifier.of(identifier[0], identifier[1])
+							);
+						}
+				).create();
 
 		Map<Identifier, Resource> resources = manager.findResources("loot_modifiers", (identifier) -> identifier.getPath().endsWith(".json"));
 		for (Map.Entry<Identifier, Resource> entry : resources.entrySet()) {

@@ -42,7 +42,7 @@ public class ItemRingSponge extends ItemRingBase {
                 FluidState fluid = world.getFluidState(pos);
 
                 if (fluid.isOf(staticFluid) || fluid.isOf(flowingFluid)) {
-                    if (!(state.getBlock() instanceof FluidDrainable && ((FluidDrainable) state.getBlock()).tryDrainFluid(world, pos, state) != ItemStack.EMPTY)) {
+                    if (!(state.getBlock() instanceof FluidDrainable && ((FluidDrainable) state.getBlock()).tryDrainFluid(player, world, pos, state) != ItemStack.EMPTY)) {
                         if (state.getBlock() instanceof FluidBlock) {
                             world.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
                         } /*else if (material == Material.UNDERWATER_PLANT || material == Material.REPLACEABLE_UNDERWATER_PLANT) {
