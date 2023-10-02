@@ -32,10 +32,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class RingsOfAscension implements ModInitializer {
@@ -123,11 +120,14 @@ public class RingsOfAscension implements ModInitializer {
 		Map<Identifier, Resource> resources = manager.findResources("loot_modifiers", (identifier) -> identifier.getPath().endsWith(".json"));
 		for (Map.Entry<Identifier, Resource> entry : resources.entrySet()) {
 			try(InputStream input = entry.getValue().getInputStream()) {
-				LootModifier modifier = gson.fromJson(
-						new String(input.readAllBytes(), StandardCharsets.UTF_8),
-						LootModifier.class
-				);
-				LOOT_MODIFIERS.add(modifier);
+				try {
+					LootModifier modifier = gson.fromJson(
+							new String(input.readAllBytes(), StandardCharsets.UTF_8),
+							LootModifier.class
+					);
+					if(Objects.equals(modifier.type, "ringsofascension:rings_modifier"))
+						LOOT_MODIFIERS.add(modifier);
+				} catch(Exception ignored) {}
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
