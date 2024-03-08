@@ -4,18 +4,20 @@ import com.focamacho.ringsofascension.client.GlintRenderTypes;
 import com.focamacho.ringsofascension.item.ItemRingBase;
 import net.minecraft.world.entity.player.Player;
 
+import java.util.function.Supplier;
+
 public class ItemRingUndying extends ItemRingBase {
 
-    private final int cooldown;
+    private final Supplier<Integer> cooldown;
 
-    public ItemRingUndying(Properties properties, String tooltip, boolean enabled, int cooldown, GlintRenderTypes glintType) {
+    public ItemRingUndying(Properties properties, String tooltip, Supplier<Boolean> enabled, Supplier<Integer> cooldown, GlintRenderTypes glintType) {
         super(properties, tooltip, enabled, glintType);
         this.cooldown = cooldown;
     }
 
     public void setCooldown(Player player) {
-        if(!isEnabled) return;
-        player.getCooldowns().addCooldown(this, cooldown * 20);
+        if(!isEnabled.get()) return;
+        player.getCooldowns().addCooldown(this, cooldown.get() * 20);
     }
 
 }

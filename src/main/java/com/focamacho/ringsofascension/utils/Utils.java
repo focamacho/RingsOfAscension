@@ -16,7 +16,7 @@ public class Utils {
     }
 
     public static ItemStack getFirstCurio(ItemRingBase ring, Player player) {
-        if(!ring.isEnabled) return null;
+        if(!ring.isEnabled.get()) return null;
 
         Optional<ICuriosItemHandler> inventory = CuriosApi.getCuriosInventory(player).resolve();
         if(inventory.isEmpty()) return null;

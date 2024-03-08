@@ -18,12 +18,14 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.IFluidBlock;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 
+import java.util.function.Supplier;
+
 public class ItemRingSponge extends ItemRingBase {
 
     private final FlowingFluid staticFluidType;
     private final FlowingFluid flowingFluidType;
 
-    public ItemRingSponge(Properties properties, String tooltip, boolean enabled,
+    public ItemRingSponge(Properties properties, String tooltip, Supplier<Boolean> enabled,
                           FlowingFluid staticFluidType, FlowingFluid flowingFluidType, GlintRenderTypes glintType) {
         super(properties, tooltip, enabled, glintType);
         this.staticFluidType = staticFluidType;
@@ -32,7 +34,7 @@ public class ItemRingSponge extends ItemRingBase {
 
     @Override
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
-        if(!isEnabled) return;
+        if(!isEnabled.get()) return;
         if(livingEntity.level().isClientSide || livingEntity.isCrouching()) return;
 
         Level world = livingEntity.level();

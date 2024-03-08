@@ -8,15 +8,17 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.Vec3;
 
+import java.util.function.Supplier;
+
 public class ItemRingWaterWalking extends ItemRingBase {
 
-    public ItemRingWaterWalking(Properties properties, String tooltip, boolean enabled, GlintRenderTypes glintType) {
+    public ItemRingWaterWalking(Properties properties, String tooltip, Supplier<Boolean> enabled, GlintRenderTypes glintType) {
         super(properties, tooltip, enabled, glintType);
     }
 
     @Override
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
-        if(!isEnabled) return;
+        if(!isEnabled.get()) return;
         if(!(livingEntity instanceof Player) || livingEntity.isCrouching()) return;
 
         BlockPos entityPos = livingEntity.blockPosition();

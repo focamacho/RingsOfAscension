@@ -32,14 +32,16 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 public abstract class ItemRingBase extends Item {
 
     protected String tooltip;
-    public final boolean isEnabled;
+    public final Supplier<Boolean> isEnabled;
     public final GlintRenderTypes glintType;
 
-    public ItemRingBase(Properties properties, String tooltip, boolean enabled, GlintRenderTypes glintType) {
+    public ItemRingBase(Properties properties, String tooltip, Supplier<Boolean> enabled, GlintRenderTypes glintType) {
         super(properties.stacksTo(1));
         this.tooltip = tooltip;
         this.isEnabled = enabled;

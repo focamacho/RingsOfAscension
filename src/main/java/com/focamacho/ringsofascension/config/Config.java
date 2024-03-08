@@ -40,6 +40,7 @@ public class Config {
     public static BooleanValue configRingWither;
     public static BooleanValue configRingUndying;
     public static BooleanValue configRingSlowResistance;
+    public static BooleanValue configRingSteadfastSteps;
 
     public static IntValue configRingAmplifierFireResistance;
     public static IntValue configRingAmplifierInvisibility;
@@ -93,6 +94,7 @@ public class Config {
             configRingWither = builder.define("ringWither", true);
             configRingUndying = builder.define("ringUndying", true);
             configRingSlowResistance = builder.define("ringSlowResistance", true);
+            configRingSteadfastSteps = builder.define("ringSteadfastSteps", true);
             builder.pop();
 
             builder.push("Rings Amplifier").comment("Sets the amplifier of the effect given by the ring. Example:\n" +

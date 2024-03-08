@@ -14,18 +14,19 @@ import net.minecraft.world.level.block.state.BlockState;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.function.Supplier;
 
 public class ItemRingGrowth extends ItemRingBase {
 
     private int timer = 200;
 
-    public ItemRingGrowth(Properties properties, String tooltip, boolean enabled, GlintRenderTypes glintType) {
+    public ItemRingGrowth(Properties properties, String tooltip, Supplier<Boolean> enabled, GlintRenderTypes glintType) {
         super(properties, tooltip, enabled, glintType);
     }
 
     @Override
     public void tickCurio(String identifier, int index, LivingEntity livingEntity) {
-        if(!isEnabled) return;
+        if(!isEnabled.get()) return;
         if(!(livingEntity instanceof Player)) return;
         if(timer <= 0) {
             timer = 200;

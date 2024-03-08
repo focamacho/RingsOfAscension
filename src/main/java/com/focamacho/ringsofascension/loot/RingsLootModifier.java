@@ -52,7 +52,7 @@ public class RingsLootModifier extends LootModifier {
 
     @Override
     protected @NotNull ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
-        if(item.isEnabled && lootTables.contains(context.getQueriedLootTableId().toString())) {
+        if(item.isEnabled.get() && lootTables.contains(context.getQueriedLootTableId().toString())) {
             generatedLoot.add(new ItemStack(item));
         }
 

@@ -11,12 +11,13 @@ import net.minecraft.world.item.ItemStack;
 import top.theillusivec4.curios.api.CuriosApi;
 
 import java.util.UUID;
+import java.util.function.Supplier;
 
 public class ItemRingKnockbackResistance extends ItemRingBase {
 
     private static final UUID KNOBACK_RESISTANCE_UUID = UUID.fromString("320d847e-eecd-402f-b6cf-d339d2fa97af");
 
-    public ItemRingKnockbackResistance(Properties properties, String tooltip, boolean enabled, GlintRenderTypes glintType) {
+    public ItemRingKnockbackResistance(Properties properties, String tooltip, Supplier<Boolean> enabled, GlintRenderTypes glintType) {
         super(properties, tooltip, enabled, glintType);
     }
 
@@ -24,7 +25,7 @@ public class ItemRingKnockbackResistance extends ItemRingBase {
     public Multimap<Attribute, AttributeModifier> curioModifiers(ItemStack stack, String identifier) {
         Multimap<Attribute, AttributeModifier> modifiers = HashMultimap.create();
 
-        if (CuriosApi.getItemStackSlots(stack).containsKey(identifier) && isEnabled) {
+        if (CuriosApi.getItemStackSlots(stack).containsKey(identifier) && isEnabled.get()) {
             modifiers.put(Attributes.KNOCKBACK_RESISTANCE,
                     new AttributeModifier(KNOBACK_RESISTANCE_UUID, "Knockback Resistance", 1.0D,
                             AttributeModifier.Operation.ADDITION));
