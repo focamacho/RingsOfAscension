@@ -6,7 +6,6 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 
-import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public class ItemRingEffect extends ItemRingBase {
