@@ -5,9 +5,9 @@ import com.focamacho.ringsofascension.utils.Utils;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
-import net.minecraftforge.event.entity.living.MobEffectEvent;
-import net.minecraftforge.eventbus.api.Event;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.neoforged.bus.api.Event;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.neoforge.event.entity.living.MobEffectEvent;
 
 public class ApplyPotionEvent {
 

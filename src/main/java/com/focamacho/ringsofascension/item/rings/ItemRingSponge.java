@@ -12,11 +12,11 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.FluidState;
-import net.minecraftforge.common.IPlantable;
-import net.minecraftforge.common.PlantType;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.IFluidBlock;
-import net.minecraftforge.fluids.capability.IFluidHandler;
+import net.neoforged.neoforge.common.IPlantable;
+import net.neoforged.neoforge.common.PlantType;
+import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.IFluidBlock;
+import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 
 import java.util.function.Supplier;
 

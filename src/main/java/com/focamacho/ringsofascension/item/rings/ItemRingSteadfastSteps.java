@@ -8,7 +8,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.common.ForgeMod;
+import net.neoforged.neoforge.common.NeoForgeMod;
 import top.theillusivec4.curios.api.CuriosApi;
 
 import java.util.List;
@@ -28,7 +28,7 @@ public class ItemRingSteadfastSteps extends ItemRingBase {
         Multimap<Attribute, AttributeModifier> modifiers = HashMultimap.create();
 
         if (CuriosApi.getItemStackSlots(stack).containsKey(identifier) && isEnabled.get()) {
-            modifiers.put(ForgeMod.STEP_HEIGHT_ADDITION.get(),
+            modifiers.put(NeoForgeMod.STEP_HEIGHT.value(),
                     new AttributeModifier(STEP_HEIGHT_UUID, "Step Assist", 0.4625F,
                             AttributeModifier.Operation.ADDITION));
         }

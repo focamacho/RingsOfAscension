@@ -1,62 +1,60 @@
 package com.focamacho.ringsofascension.config;
 
 import com.focamacho.ringsofascension.RingsOfAscension;
-import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
-import net.minecraftforge.common.ForgeConfigSpec.IntValue;
+import net.neoforged.neoforge.common.ModConfigSpec;
 
 public class Config {
 
-    private static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
+    private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
     private static final General GENERAL = new General(BUILDER);
-    public static final ForgeConfigSpec spec = BUILDER.build();
+    public static final ModConfigSpec spec = BUILDER.build();
 
     //Config Values
-    public static IntValue configRingUndyingCooldown;
-    public static IntValue configRingHealthHearts;
+    public static ModConfigSpec.IntValue configRingUndyingCooldown;
+    public static ModConfigSpec.IntValue configRingHealthHearts;
 
-    public static BooleanValue configRingFireResistance;
-    public static BooleanValue configRingInvisibility;
-    public static BooleanValue configRingRegeneration;
-    public static BooleanValue configRingSlowFalling;
-    public static BooleanValue configRingStrength;
-    public static BooleanValue configRingWaterBreathing;
-    public static BooleanValue configRingSpeed;
-    public static BooleanValue configRingNightVision;
-    public static BooleanValue configRingJumpBoost;
-    public static BooleanValue configRingMining;
-    public static BooleanValue configRingLuck;
-    public static BooleanValue configRingDolphin;
-    public static BooleanValue configRingMagnetism;
-    public static BooleanValue configRingFlight;
-    public static BooleanValue configRingPoisonResistance;
-    public static BooleanValue configRingHungerless;
-    public static BooleanValue configRingGrowth;
-    public static BooleanValue configRingKnockbackResistance;
-    public static BooleanValue configRingHealth;
-    public static BooleanValue configRingSponge;
-    public static BooleanValue configRingExperience;
-    public static BooleanValue configRingWaterWalking;
-    public static BooleanValue configRingWither;
-    public static BooleanValue configRingUndying;
-    public static BooleanValue configRingSlowResistance;
-    public static BooleanValue configRingSteadfastSteps;
+    public static ModConfigSpec.BooleanValue configRingFireResistance;
+    public static ModConfigSpec.BooleanValue configRingInvisibility;
+    public static ModConfigSpec.BooleanValue configRingRegeneration;
+    public static ModConfigSpec.BooleanValue configRingSlowFalling;
+    public static ModConfigSpec.BooleanValue configRingStrength;
+    public static ModConfigSpec.BooleanValue configRingWaterBreathing;
+    public static ModConfigSpec.BooleanValue configRingSpeed;
+    public static ModConfigSpec.BooleanValue configRingNightVision;
+    public static ModConfigSpec.BooleanValue configRingJumpBoost;
+    public static ModConfigSpec.BooleanValue configRingMining;
+    public static ModConfigSpec.BooleanValue configRingLuck;
+    public static ModConfigSpec.BooleanValue configRingDolphin;
+    public static ModConfigSpec.BooleanValue configRingMagnetism;
+    public static ModConfigSpec.BooleanValue configRingFlight;
+    public static ModConfigSpec.BooleanValue configRingPoisonResistance;
+    public static ModConfigSpec.BooleanValue configRingHungerless;
+    public static ModConfigSpec.BooleanValue configRingGrowth;
+    public static ModConfigSpec.BooleanValue configRingKnockbackResistance;
+    public static ModConfigSpec.BooleanValue configRingHealth;
+    public static ModConfigSpec.BooleanValue configRingSponge;
+    public static ModConfigSpec.BooleanValue configRingExperience;
+    public static ModConfigSpec.BooleanValue configRingWaterWalking;
+    public static ModConfigSpec.BooleanValue configRingWither;
+    public static ModConfigSpec.BooleanValue configRingUndying;
+    public static ModConfigSpec.BooleanValue configRingSlowResistance;
+    public static ModConfigSpec.BooleanValue configRingSteadfastSteps;
 
-    public static IntValue configRingAmplifierFireResistance;
-    public static IntValue configRingAmplifierInvisibility;
-    public static IntValue configRingAmplifierRegeneration;
-    public static IntValue configRingAmplifierSlowFalling;
-    public static IntValue configRingAmplifierStrength;
-    public static IntValue configRingAmplifierWaterBreathing;
-    public static IntValue configRingAmplifierSpeed;
-    public static IntValue configRingAmplifierNightVision;
-    public static IntValue configRingAmplifierJumpBoost;
-    public static IntValue configRingAmplifierMining;
-    public static IntValue configRingAmplifierLuck;
-    public static IntValue configRingAmplifierDolphin;
+    public static ModConfigSpec.IntValue configRingAmplifierFireResistance;
+    public static ModConfigSpec.IntValue configRingAmplifierInvisibility;
+    public static ModConfigSpec.IntValue configRingAmplifierRegeneration;
+    public static ModConfigSpec.IntValue configRingAmplifierSlowFalling;
+    public static ModConfigSpec.IntValue configRingAmplifierStrength;
+    public static ModConfigSpec.IntValue configRingAmplifierWaterBreathing;
+    public static ModConfigSpec.IntValue configRingAmplifierSpeed;
+    public static ModConfigSpec.IntValue configRingAmplifierNightVision;
+    public static ModConfigSpec.IntValue configRingAmplifierJumpBoost;
+    public static ModConfigSpec.IntValue configRingAmplifierMining;
+    public static ModConfigSpec.IntValue configRingAmplifierLuck;
+    public static ModConfigSpec.IntValue configRingAmplifierDolphin;
 
     public static class General {
-        public General(final ForgeConfigSpec.Builder builder) {
+        public General(final ModConfigSpec.Builder builder) {
             builder.push("Rings of Ascension");
             configRingUndyingCooldown = builder
                     .comment("The cooldown in seconds of the Ring of Undying")

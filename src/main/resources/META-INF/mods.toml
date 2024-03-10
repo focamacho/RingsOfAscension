@@ -1,14 +1,18 @@
 modLoader="javafml"
-loaderVersion="[47,)"
-issueTrackerURL="https://github.com/Focamacho/RingsOfAscension/issues"
-license="MIT"
+loaderVersion="${loader_version_range}"
+license="${mod_license}"
 [[mods]]
-modId="ringsofascension"
-version="2.0.0"
-displayName="Rings of Ascension"
-displayURL="https://www.curseforge.com/minecraft/mc-mods/rings-of-ascension"
-logoFile= "rings_of_ascension_icon.png"
-description="Rings of Ascension is a mod that uses the Curios API to add 20+ new rings to your minecraft. Each ring has its own special effect that is activated when the ring is equipped."
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
+authors="${mod_authors}"
+description='''${mod_description}'''
+[[dependencies.${mod_id}]]
+    modId="neoforge"
+    type="required"
+    versionRange="${neo_version_range}"
+    ordering="NONE"
+    side="BOTH"
 [[dependencies.ringsofascension]]
     modId="curios"
     mandatory=true

@@ -6,90 +6,58 @@ buildscript {
         maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
         classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
     }
 }
 
-apply plugin: 'net.minecraftforge.gradle'
+plugins {
+    id 'java-library'
+    id 'eclipse'
+    id 'idea'
+    id 'net.neoforged.gradle.userdev' version '7.0.80'
+}
+
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
-apply plugin: 'org.spongepowered.mixin'
+//apply plugin: 'org.spongepowered.mixin'
 
 version = '2.0.2'
 group = 'com.focamacho'
-archivesBaseName = 'RingsOfAscension-1.20.4'
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(17)
-
-compileJava.options.encoding = 'UTF-8'
-
-tasks.withType(JavaCompile) {
-    options.encoding = 'UTF-8'
+java {
+    archivesBaseName = 'RingsOfAscension-1.20.4'
+    toolchain.languageVersion = JavaLanguageVersion.of(17)
 }
 
-println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
+runs {
+    configureEach {
+        systemProperty 'forge.logging.markers', 'REGISTRIES'
+        systemProperty 'forge.logging.console.level', 'debug'
 
-minecraft {
-    mappings channel: 'official', version: '1.20.4'
-    runs {
-        client {
-            workingDirectory project.file('run')
+        modSource project.sourceSets.main
+    }
 
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            property 'forge.logging.console.level', 'debug'
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
+    client {
+        systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
+    }
 
-            arg "-mixin.config=ringsofascension.mixins.json"
+    server {
+        systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
+        programArgument '--nogui'
+    }
 
-            mods {
-                ringsofascension {
-                    source sourceSets.main
-                }
-            }
-        }
+    gameTestServer {
+        systemProperty 'forge.enabledGameTestNamespaces', project.mod_id
+    }
 
-        server {
-            workingDirectory project.file('run')
-
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            property 'forge.logging.console.level', 'debug'
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
-
-            arg "-mixin.config=ringsofascension.mixins.json"
-
-            mods {
-                ringsofascension {
-                    source sourceSets.main
-                }
-            }
-        }
-
-        data {
-            workingDirectory project.file('run')
-
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            property 'forge.logging.console.level', 'debug'
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
-
-            args '--mod', 'ringsofascension', '--all', '--output', file('src/generated/resources/')
-            arg "-mixin.config=ringsofascension.mixins.json"
-
-            mods {
-                ringsofascension {
-                    source sourceSets.main
-                }
-            }
-        }
+    data {
+        programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
     }
 }
 
-mixin {
+/*mixin {
     add sourceSets.main, "ringsofascension.refmap.json"
-}
+}*/
 
 repositories {
     maven {
@@ -98,12 +66,14 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.20.4-49.0.31'
+    implementation "net.neoforged:neoforge:${neo_version}"
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
-	runtimeOnly "top.theillusivec4.curios:curios-forge:7.3.2+1.20.4"
-    compileOnly "top.theillusivec4.curios:curios-forge:7.3.2+1.20.4:api"
+	runtimeOnly "top.theillusivec4.curios:curios-neoforge:7.3.2+1.20.4"
+    compileOnly "top.theillusivec4.curios:curios-neoforge:7.3.2+1.20.4:api"
 }
+
+sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 jar {
     manifest {
@@ -120,17 +90,21 @@ jar {
     }
 }
 
-jar.finalizedBy('reobfJar') 
+tasks.withType(ProcessResources).configureEach {
+    var replaceProperties = [
+            minecraft_version   : minecraft_version, minecraft_version_range: minecraft_version_range,
+            neo_version         : neo_version, neo_version_range: neo_version_range,
+            loader_version_range: loader_version_range,
+            mod_id              : mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
+            mod_authors         : mod_authors, mod_description: mod_description,
+    ]
+    inputs.properties replaceProperties
 
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifact jar
-        }
+    filesMatching(['META-INF/mods.toml']) {
+        expand replaceProperties + [project: project]
     }
-    repositories {
-        maven {
-            url "file:///${project.projectDir}/mcmodsrepo"
-        }
-    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
 }
